@@ -1,12 +1,10 @@
-import { circuit } from './themes';
+import { standard } from './themes';
+import * as sharedPropTypes from './util/shared-prop-types';
 
-export { sharedPropTypes } from './util';
+// Util
+export { sharedPropTypes };
 
-// Theme
-const standard = { ...circuit }; // otherwise this get exported as a `Module`
-const theme = {
-  standard,
-  circuit: standard
-};
+// Themes
+const themes = { standard };
 
-export { theme };
+export { themes };

@@ -3,10 +3,15 @@ import { configure, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
-import { ThemeProvider } from 'emotion-theming';
-import { injectGlobalStyles } from '@sumup/circuit-ui';
 
-import { circuit } from '../src/themes';
+import '../__mocks__/nextRouter';
+
+import { standard } from '../src/themes';
+import { injectGlobalStyles } from '../src/styles';
+import ThemeProvider from '../src/components/ThemeProvider';
+
+import Story from './Story';
+import { OPTIONS } from './hierarchySeparators';
 
 // Dynamically decide wich styles to load.
 if (PRODUCTION) {
@@ -14,7 +19,7 @@ if (PRODUCTION) {
 }
 
 if (!PRODUCTION) {
-  injectGlobalStyles({ theme: circuit });
+  injectGlobalStyles({ theme: standard() });
 }
 
 // Sets the info addon's options.
@@ -23,31 +28,19 @@ setDefaults({
 });
 
 setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-  name: 'Circuit UI',
+  ...OPTIONS,
+  name: 'Bamboo UI',
   url: 'https://github.com/connor-baer/bamboo-ui'
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider theme={circuit}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
 );
 
 const withStoryStyles = storyFn => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      {storyFn()}
-    </div>
-  );
+  return <Story>{storyFn()}</Story>;
 };
 
 const loadStories = () => {

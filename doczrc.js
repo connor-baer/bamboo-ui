@@ -1,5 +1,7 @@
 import { babel } from 'docz-plugin-babel6';
-import { circuit as theme } from './themes';
+import { standard } from './src/themes';
+
+const theme = standard();
 
 export default {
   title: 'Circuit UI',
@@ -52,6 +54,7 @@ export default {
       r => r.test.toString() === '/\\.(svg)(\\?.*)?$/'
     );
 
+    // eslint-disable-next-line no-param-reassign
     config.module.rules[idx] = {
       test: /\.svg$/,
       use: [

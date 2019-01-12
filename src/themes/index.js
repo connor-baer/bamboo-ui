@@ -1,4 +1,1 @@
-import * as circuit from './circuit';
-
-export { circuit };
-export { circuit as standard };
+export { default as standard } from './standard';
