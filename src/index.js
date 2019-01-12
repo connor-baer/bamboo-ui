@@ -1,7 +1,6 @@
 import * as sharedPropTypes from './util/shared-prop-types';
 import * as cookies from './util/cookies';
-import { loadFonts, preloadFonts } from './styles/load-fonts';
-import { standard } from './themes';
+import standard, * as themeHelpers from './styles/theme';
 
 /**
  * Components
@@ -52,15 +51,8 @@ export { default as isServer } from './util/is-server';
 export { default as isSaveData } from './util/is-save-data';
 
 /**
- * Style helpers
- */
-
-export { default as injectGlobalStyles } from './styles/global-styles';
-export { loadFonts, preloadFonts };
-
-/**
  * Themes
  */
 
 const themes = { standard };
-export { themes };
+export { themes, themeHelpers };

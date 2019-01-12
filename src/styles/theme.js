@@ -1,6 +1,6 @@
 import openColor from 'open-color/open-color.json';
-
-import { createMediaQueries } from '../styles/style-helpers';
+import { css } from 'react-emotion';
+import { mapValues } from 'lodash/fp';
 
 const fonts = [
   {
@@ -177,7 +177,19 @@ const misc = {
   warning: yellows.y700
 };
 
-function createColors(darkmode = false) {
+const breakpoints = {
+  untilKilo: '(max-width: 479px)',
+  kilo: 480,
+  kiloToMega: '(min-width: 480px) and (max-width: 767px)',
+  mega: 768,
+  untilMega: '(max-width: 767px)',
+  megaToGiga: '(min-width: 768px) and (max-width: 959px)',
+  giga: 960,
+  gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
+  tera: 1280
+};
+
+export function createColors(darkmode = false) {
   const shadow = '#0C0F14';
   const selectionBg = openColor.yellow[3];
   const selectionColor = openColor.black;
@@ -207,7 +219,7 @@ function createColors(darkmode = false) {
   };
 }
 
-function createAnimations(reducedMotion = false) {
+export function createAnimations(reducedMotion = false) {
   return {
     micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
     standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
@@ -215,7 +227,7 @@ function createAnimations(reducedMotion = false) {
   };
 }
 
-function createSpacings(base = 4) {
+export function createSpacings(base = 4) {
   return {
     bit: `${base * 1}px`,
     byte: `${base * 2}px`,
@@ -229,7 +241,7 @@ function createSpacings(base = 4) {
   };
 }
 
-function createGrid(base = 4) {
+export function createGrid(base = 4) {
   return {
     default: {
       priority: 0,
@@ -269,17 +281,18 @@ function createGrid(base = 4) {
   };
 }
 
-const breakpoints = {
-  untilKilo: '(max-width: 479px)',
-  kilo: 480,
-  kiloToMega: '(min-width: 480px) and (max-width: 767px)',
-  mega: 768,
-  untilMega: '(max-width: 767px)',
-  megaToGiga: '(min-width: 768px) and (max-width: 959px)',
-  giga: 960,
-  gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280
-};
+export const createMediaQueries = mapValues(mediaExpression => {
+  const { prefix = '', suffix = '' } =
+    typeof mediaExpression === 'string'
+      ? {}
+      : { prefix: '(min-width: ', suffix: 'px)' };
+  const enhancedExpression = prefix + mediaExpression + suffix;
+  return (...args) => css`
+    @media ${enhancedExpression} {
+      ${css(...args)};
+    }
+  `;
+});
 
 export default function standard({
   darkmode,
