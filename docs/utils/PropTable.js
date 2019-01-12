@@ -2,10 +2,12 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
 import { parse } from 'react-docgen';
-import Table from '../../src/components/Table';
-import Text from '../../src/components/Text';
-import { circuit } from '../../src/themes/index';
 import { ThemeProvider } from 'emotion-theming';
+import { Table, Text } from '@sumup/circuit-ui';
+
+import { standard } from '../../src/styles/theme';
+
+const theme = standard();
 
 const TableWrapper = styled('div')`
   ${({ theme }) => css`
@@ -29,7 +31,7 @@ const PropTable = ({ component }) => {
 
   if (!parsed) {
     return (
-      <ThemeProvider theme={circuit}>
+      <ThemeProvider theme={theme}>
         <Text italic>
           Could not render prop table for {component.displayName}.
         </Text>
@@ -40,7 +42,7 @@ const PropTable = ({ component }) => {
   const { props, description } = parsed;
 
   return (
-    <ThemeProvider theme={circuit}>
+    <ThemeProvider theme={theme}>
       <TableWrapper>
         <Table
           headers={['Name', 'Type', 'Required', 'Default Value', 'Description']}

@@ -3,8 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
-import { theme } from '../../src/index';
+
+import { standard } from '../../src/styles/theme';
+
+const theme = standard();
 
 export const Wrapper = props => (
-  <ThemeProvider theme={theme.standard}>{props.children}</ThemeProvider>
+  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
 );
