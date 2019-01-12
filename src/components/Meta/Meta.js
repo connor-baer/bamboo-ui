@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
-import { imagePropType } from '../../utils/prop-types';
-import { SITE_NAME, SITE_TWITTER } from '../../constants';
+import { imagePropType } from '../../util/shared-prop-types';
 
 function constructTitle(title, siteName) {
   const titleParts = [];
@@ -32,10 +31,6 @@ function Meta({
   const titleString = constructTitle(title, siteName);
   const indexString = index ? 'index' : 'noindex';
   const followString = follow ? 'follow' : 'nofollow';
-  const imageSrc = image
-    ? image.src
-    : // eslint-disable-next-line global-require
-      require(`./fallback.jpg?resize&size=1200`);
   return (
     <Head>
       <title>{titleString}</title>
@@ -44,7 +39,7 @@ function Meta({
       {title && <meta property="og:title" content={title} />}
       {description && <meta property="og:description" content={description} />}
       {url && <meta property="og:url" content={url} />}
-      <meta property="og:image" content={imageSrc} />
+      {image.src && <meta property="og:image" content={image.src} />}
       {alt && <meta name="twitter:image:alt" content={alt} />}
       {siteName && <meta property="og:site_name" content={siteName} />}
       {siteTwitter && (
@@ -63,18 +58,16 @@ Meta.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string.isRequired,
   url: PropTypes.string,
-  image: PropTypes.shape(imagePropType),
+  image: PropTypes.shape(imagePropType).isRequired,
   alt: PropTypes.string,
   index: PropTypes.bool,
   follow: PropTypes.bool,
-  siteName: PropTypes.string,
+  siteName: PropTypes.string.isRequired,
   siteTwitter: PropTypes.string,
   children: sharedPropTypes.childrenPropType
 };
 
 Meta.defaultProps = {
-  siteName: SITE_NAME,
-  siteTwitter: SITE_TWITTER,
   index: true,
   follow: true,
   image: {}

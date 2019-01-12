@@ -1,5 +1,4 @@
 import openColor from 'open-color/open-color.json';
-import { theme } from '@sumup/circuit-ui';
 
 import { createMediaQueries } from '../styles/style-helpers';
 
@@ -288,7 +287,6 @@ export default function standard({
   reducedMotion
 } = {}) {
   return {
-    ...theme.standard,
     darkmode,
     reducedMotion,
     fonts,

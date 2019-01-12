@@ -1,23 +1,4 @@
-import { curry } from 'lodash/fp';
 import { injectGlobalStyles } from '@sumup/circuit-ui';
-
-export const createFontFace = curry(
-  (basePath, { name, weight, style, localName }) => {
-    const fontPath = `${basePath}/${name}-${weight}-${style}`;
-    return `
-      @font-face {
-        font-family: '${name}';
-        font-style: ${style};
-        font-weight: ${weight};
-        font-display: swap;
-        src:
-          local('${localName || name}'),
-          url('${fontPath}.woff2') format('woff2'),
-          url('${fontPath}.woff') format('woff');
-      };
-  `;
-  }
-);
 
 export const createGlobalStyles = ({ theme, custom = '' }) => `
   body,

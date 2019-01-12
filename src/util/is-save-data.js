@@ -3,7 +3,7 @@ import isServer from './is-server';
 /**
  * Inspired by https://www.filamentgroup.com/lab/js-web-fonts.html
  */
-export default (() => {
+export default () => {
   // Necessary APIs missing
   if (isServer || !navigator || !navigator.connection) {
     return false;
@@ -23,4 +23,4 @@ export default (() => {
   }
 
   return false;
-})();
+};

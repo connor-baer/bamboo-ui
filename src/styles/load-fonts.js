@@ -1,32 +1,42 @@
 import React, { Fragment } from 'react';
-import { includes, differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
+import { curry, differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
 
-import isServer from '../utils/is-server';
-import { FONTS_PATH } from '../constants/paths';
+import isServer from '../util/is-server';
+import addClass from '../util/add-class';
 
-function addClass(element, className) {
-  if (includes(className, element.className)) {
-    return;
+export const createFontFace = curry(
+  (basePath, { name, weight, style, localName }) => {
+    const fontPath = `${basePath}/${name}-${weight}-${style}`;
+    return `
+      @font-face {
+        font-family: '${name}';
+        font-style: ${style};
+        font-weight: ${weight};
+        font-display: swap;
+        src:
+          local('${localName || name}'),
+          url('${fontPath}.woff2') format('woff2'),
+          url('${fontPath}.woff') format('woff');
+      };
+  `;
   }
-  // eslint-disable-next-line no-param-reassign
-  element.className += ` ${className}`;
-}
+);
 
-export function preloadFonts(fonts) {
-  return fonts.map(({ name, weight, style }) => {
+export const preloadFonts = curry((basePath, fonts) =>
+  fonts.map(({ name, weight, style }) => {
     const fullName = `${name}-${weight}-${style}`;
-    const basePath = `${FONTS_PATH}/${fullName}`;
+    const fontPath = `${basePath}/${fullName}`;
     return (
       <Fragment key={fullName}>
-        <link rel="preload" href={`${basePath}.woff2`} as="font" />
-        <link rel="preload" href={`${basePath}.woff`} as="font" />
+        <link rel="preload" href={`${fontPath}.woff2`} as="font" />
+        <link rel="preload" href={`${fontPath}.woff`} as="font" />
       </Fragment>
     );
-  });
-}
+  })
+);
 
-export default function loadFonts(fonts, timeout = 5000) {
+export function loadFonts(fonts, timeout = 5000) {
   if (isServer || isEmpty(fonts)) {
     return;
   }

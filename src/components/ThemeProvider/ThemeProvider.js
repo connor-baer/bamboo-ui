@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
 import isServer from '../../util/is-server';
+import isSaveData from '../../util/is-save-data';
 import { setCookie } from '../../util/cookies';
+import {
+  createFontFace,
+  loadFonts,
+  preloadFonts
+} from '../../styles/load-fonts';
+import injectGlobalStyles from '../../styles/global-styles';
 
 const transitionStyles = ({ theme, isTransitioning }) =>
   isTransitioning &&
@@ -23,6 +31,7 @@ export default class ThemeProvider extends Component {
   static propTypes = {
     cookies: PropTypes.object,
     theme: PropTypes.func.isRequired,
+    fontBasePath: PropTypes.string,
     children: sharedPropTypes.childrenPropType
   };
 
@@ -33,9 +42,20 @@ export default class ThemeProvider extends Component {
   constructor(props) {
     super(props);
 
-    const { cookies = {} } = props;
+    const { cookies = {}, fontBasePath } = props;
     const darkmode = cookies.darkmode === 'true';
     const reducedMotion = cookies.reducedMotion === 'true';
+
+    const theme = this.getTheme({ darkmode, reducedMotion });
+
+    const custom = fontBasePath
+      ? theme.fonts.map(createFontFace(fontBasePath))
+      : '';
+    injectGlobalStyles({ theme, custom });
+
+    if (fontBasePath && !isSaveData) {
+      loadFonts(fontBasePath, theme.fonts);
+    }
 
     this.state = {
       darkmode,
@@ -104,21 +124,30 @@ export default class ThemeProvider extends Component {
 
   toggleReducedMotion = this.toggleState('reducedMotion');
 
-  render() {
-    const { children, theme: themeFn } = this.props;
-    const theme = themeFn
+  getTheme = config =>
+    this.props.theme
       ? {
-          ...themeFn(this.state),
+          ...this.props.theme(config),
           toggleDarkmode: this.toggleDarkmode,
           toggleReducedMotion: this.toggleReducedMotion
         }
       : {};
+
+  render() {
+    const { children, fontBasePath } = this.props;
+    const theme = this.getTheme(this.state);
     return (
-      <EmotionThemeProvider theme={theme}>
-        <ThemeTransition isTransitioning={this.state.isTransitioning}>
-          {children}
-        </ThemeTransition>
-      </EmotionThemeProvider>
+      <Fragment>
+        <Head>
+          <meta name="theme-color" content={theme.colors.bodyBg} />
+          {preloadFonts(fontBasePath, theme.fonts)}
+        </Head>
+        <EmotionThemeProvider theme={theme}>
+          <ThemeTransition isTransitioning={this.state.isTransitioning}>
+            {children}
+          </ThemeTransition>
+        </EmotionThemeProvider>
+      </Fragment>
     );
   }
 }

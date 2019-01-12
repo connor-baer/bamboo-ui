@@ -1,6 +1,6 @@
 <div align="center">
 
-# [🎋 Bamboo UI Logo](https://bamboo.connor.li) <!-- omit in toc -->
+# [🎋 Bamboo UI](https://bamboo.connor.li) <!-- omit in toc -->
 
 [Bamboo UI](https://bamboo.connor.li) is the web incarnation of the [SumUp](https://sumup.com) Bamboo Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
 
@@ -30,7 +30,7 @@ Here are a few helpful links for getting started with Bamboo UI:
 ## Installation
 
 ```
-yarn add @connor-baer/bamboo-ui
+yarn add @madebyconnor/bamboo-ui
 ```
 
 ## Development
