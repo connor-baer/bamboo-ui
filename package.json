@@ -1,8 +1,8 @@
 {
   "name": "@madebyconnor/bamboo-ui",
   "sideEffects": false,
-  "version": "0.0.1",
-  "description": "Connor's React UI component library",
+  "version": "0.0.3",
+  "description": "A React UI component library made by Connor",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
   "files": [
@@ -25,7 +25,7 @@
     "start": "start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
     "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
-    "build:storybook": "build-storybook -c .storybook -o dist/storybook",
+    "build:storybook": "build-storybook -c .storybook -o dist",
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/bamboo-ui.css",
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/bamboo-ui-global.css",
     "build:copy-global-styles": "cp -f dist/bamboo-ui-global.css .storybook",
@@ -35,7 +35,7 @@
     "build:svg:cjs": "cd src && find . -name *.svg -print | xargs -I@ gcp --parents @ ../lib && cd ..",
     "build:svg:es": "cd src && find . -name *.svg -print | xargs -I@ gcp --parents @ ../lib/es && cd ..",
     "clean:js": "rimraf lib",
-    "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
+    "deploy": "rm -rf ./dist && mkdir dist && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "precommit": "lint-staged",
@@ -45,7 +45,7 @@
     "type": "git",
     "url": "git+https://github.com/connor-baer/bamboo-ui.git"
   },
-  "author": "",
+  "author": "Connor Baer <hello@connorbaer.co",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/connor-baer/bamboo-ui/issues"
@@ -61,6 +61,7 @@
     "emotion-theming": "^9.2.6",
     "es-cookie": "^1.2.0",
     "facepaint": "^1.2.0",
+    "fontfaceobserver": "^2.1.0",
     "hoist-non-react-statics": "^2.3.1",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
