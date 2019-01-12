@@ -1,0 +1,80 @@
+{
+  "env": {
+    "cjs": {
+      "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": [["env", { "loose": true }], "react", "stage-3"]
+    },
+    "es": {
+      "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": [
+        ["env", { "loose": true, "modules": false }],
+        "react",
+        "stage-3"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": ["env", "react", "stage-3"]
+    },
+    "static": {
+      "plugins": [
+        [
+          "emotion",
+          {
+            "autoLabel": false,
+            "hoist": false,
+            "sourceMap": false
+          }
+        ],
+        "dynamic-import-node",
+        [
+          "module-resolver",
+          {
+            "root": ".",
+            "alias": {
+              "react-emotion": "./build/stylesheet/lib/custom-styled",
+              "^.+svg$": "./build/stylesheet/SvgMock"
+            },
+            "extensions": [".svg", ".js"]
+          }
+        ]
+      ]
+    }
+  }
+}
