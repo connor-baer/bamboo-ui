@@ -49,12 +49,12 @@ export default class ThemeProvider extends Component {
     const theme = this.getTheme({ darkmode, reducedMotion });
 
     const custom = fontBasePath
-      ? theme.fonts.map(createFontFace(fontBasePath))
+      ? theme.fonts.map(createFontFace(fontBasePath)).join('')
       : '';
     injectGlobalStyles({ theme, custom });
 
-    if (fontBasePath && !isSaveData) {
-      loadFonts(fontBasePath, theme.fonts);
+    if (fontBasePath && !isSaveData()) {
+      loadFonts(theme.fonts);
     }
 
     this.state = {

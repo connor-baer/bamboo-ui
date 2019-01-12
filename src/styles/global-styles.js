@@ -50,10 +50,6 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
       color: ${theme.colors.p500};
       cursor: pointer;
     }
-
-    &:visited {
-      color: ${theme.colors.v500};
-    }
   }
 
   #nprogress {
