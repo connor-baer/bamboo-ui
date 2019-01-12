@@ -5,9 +5,9 @@ import { parse } from 'react-docgen';
 import { ThemeProvider } from 'emotion-theming';
 import { Table, Text } from '@sumup/circuit-ui';
 
-import { standard } from '../../src/styles/theme';
+import themes from '../../src/styles/themes';
 
-const theme = standard();
+const theme = themes.standard();
 
 const TableWrapper = styled('div')`
   ${({ theme }) => css`

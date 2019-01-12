@@ -4,9 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 
-import { standard } from '../../src/styles/theme';
+import themes from '../../src/styles/themes';
 
-const theme = standard();
+const theme = themes.standard();
 
 export const Wrapper = props => (
   <ThemeProvider theme={theme}>{props.children}</ThemeProvider>

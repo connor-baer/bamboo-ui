@@ -6,8 +6,8 @@ import { setOptions } from '@storybook/addon-options';
 
 import '../__mocks__/nextRouter';
 
-import { standard } from '../src/themes';
-import { injectGlobalStyles } from '../src/styles';
+import themes from '../src/styles/themes';
+import injectGlobalStyles from '../src/styles/global-styles';
 import ThemeProvider from '../src/components/ThemeProvider';
 
 import Story from './Story';
@@ -19,7 +19,7 @@ if (PRODUCTION) {
 }
 
 if (!PRODUCTION) {
-  injectGlobalStyles({ theme: standard() });
+  injectGlobalStyles({ theme: themes.standard() });
 }
 
 // Sets the info addon's options.
@@ -36,7 +36,7 @@ setOptions({
 const req = require.context('../src/components', true, /\.story\.js$/);
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={themes.standard}>{storyFn()}</ThemeProvider>
 );
 
 const withStoryStyles = storyFn => {

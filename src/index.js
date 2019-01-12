@@ -1,6 +1,6 @@
 import * as sharedPropTypes from './util/shared-prop-types';
 import * as cookies from './util/cookies';
-import standard, * as themeHelpers from './styles/theme';
+import themes, * as themeHelpers from './styles/themes';
 
 /**
  * Components
@@ -54,5 +54,4 @@ export { default as isSaveData } from './util/is-save-data';
  * Themes
  */
 
-const themes = { standard };
 export { themes, themeHelpers };

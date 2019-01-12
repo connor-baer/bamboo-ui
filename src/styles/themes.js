@@ -294,11 +294,7 @@ export const createMediaQueries = mapValues(mediaExpression => {
   `;
 });
 
-export default function standard({
-  darkmode,
-  baseSpacing,
-  reducedMotion
-} = {}) {
+function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
   return {
     darkmode,
     reducedMotion,
@@ -315,3 +311,5 @@ export default function standard({
     mq: createMediaQueries(breakpoints)
   };
 }
+
+export default { standard };

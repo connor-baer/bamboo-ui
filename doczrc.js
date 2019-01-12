@@ -1,7 +1,7 @@
 import { babel } from 'docz-plugin-babel6';
-import { standard } from './src/themes';
+import themes from './src/styles/themes';
 
-const theme = standard();
+const theme = themes.standard();
 
 export default {
   title: 'Circuit UI',
