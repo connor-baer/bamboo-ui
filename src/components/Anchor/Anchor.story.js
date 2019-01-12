@@ -12,7 +12,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Anchor`, module)
     'Anchor',
     withInfo()(() => (
       <Anchor
-        href={text('Link', 'https://bamboo.connor.li')}
+        href={text('Link', 'https://bamboo.madebyconnor.co')}
         id={text('Id', 'red-panda')}
         target={select('Target', ['_blank', '_self'])}
         title={text('Title', 'Red panda')}

@@ -28,10 +28,10 @@ storiesOf(`${GROUPS.IMAGES}|CoverImage`, module)
   .add(
     'CoverImage with link',
     withInfo()(() => (
-      <Link href={text('Link', 'https://bamboo.connor.li')}>
+      <Link href={text('Link', 'https://bamboo.madebyconnor.co')}>
         <a
           style={{ width: '50vw', display: 'block' }}
-          href={text('Link', 'https://bamboo.connor.li')}
+          href={text('Link', 'https://bamboo.madebyconnor.co')}
         >
           <CoverImage
             src={'https://source.unsplash.com/600x400/'}

@@ -1,8 +1,8 @@
 <div align="center">
 
-# [🎋 Bamboo UI](https://bamboo.connor.li) <!-- omit in toc -->
+# [🎋 Bamboo UI](https://bamboo.madebyconnor.co) <!-- omit in toc -->
 
-[Bamboo UI](https://bamboo.connor.li) is a collection of React components and utils that I use across my various web projects to save development time and provide a consitency experience to the users. It is heavily inspired by and built on top of [⚡️ Circuit UI](https://circuit.sumup.com).
+[Bamboo UI](https://bamboo.madebyconnor.co) is a collection of React components and utils that I use across my various web projects to save development time and provide a consitency experience to the users. It is heavily inspired by and built on top of [⚡️ Circuit UI](https://circuit.sumup.com).
 
 </div>
 
@@ -24,7 +24,7 @@ Here are a few helpful links for getting started with Bamboo UI:
 
 - [Getting started](http://circuit.sumup.com/#/getting-started/developers) - Install and configure Bamboo for your React app
 - [Styles](http://circuit.sumup.com/#/styles/colors) - Learn about the foundations such as colors, spacing, and typography.
-- [Components](http://bamboo.connor.li/#/components/badge) - Explore the available UI components.
+- [Components](http://bamboo.madebyconnor.co/#/components/badge) - Explore the available UI components.
 
 ## Installation
 

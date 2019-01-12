@@ -15,7 +15,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Footer`, module).add(
       siteName={text('Site name', 'Bamboo UI')}
       siteTwitter={text('Site twitter', 'connor-baer')}
     >
-      <Anchor href="https://bamboo.connor.li/disclaimer">Disclaimer</Anchor>
+      <Anchor href="https://bamboo.madebyconnor.co/disclaimer">Disclaimer</Anchor>
     </Footer>
   ))
 );

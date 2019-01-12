@@ -16,8 +16,8 @@ storiesOf(`${GROUPS.ICONS}|LogoIcon`, module)
   .add(
     'LogoIcon with link',
     withInfo()(() => (
-      <Link href={text('Link', 'https://bamboo.connor.li')}>
-        <a href={text('Link', 'https://bamboo.connor.li')}>
+      <Link href={text('Link', 'https://bamboo.madebyconnor.co')}>
+        <a href={text('Link', 'https://bamboo.madebyconnor.co')}>
           <LogoIcon alt={text('Alt text', 'A panda emoji')} />
         </a>
       </Link>

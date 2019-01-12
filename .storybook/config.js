@@ -14,13 +14,13 @@ import Story from './Story';
 import { OPTIONS } from './hierarchySeparators';
 
 // Dynamically decide wich styles to load.
-if (PRODUCTION) {
-  require('./bamboo-ui-global.css');
-}
+// if (PRODUCTION) {
+//   require('./bamboo-ui-global.css');
+// }
 
-if (!PRODUCTION) {
-  injectGlobalStyles({ theme: themes.standard() });
-}
+// if (!PRODUCTION) {
+injectGlobalStyles({ theme: themes.standard() });
+// }
 
 // Sets the info addon's options.
 setDefaults({

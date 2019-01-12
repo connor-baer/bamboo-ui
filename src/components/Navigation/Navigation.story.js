@@ -13,10 +13,10 @@ storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add(
   withInfo()(() => (
     <Navigation
       siteName={text('Site name', 'Bamboo UI')}
-      siteUrl={text('Site URL', 'https://bamboo.connor.li')}
+      siteUrl={text('Site URL', 'https://bamboo.madebyconnor.co')}
       links={[{ url: '/about', label: 'About' }]}
     >
-      <Anchor href="https://bamboo.connor.li/disclaimer">Disclaimer</Anchor>
+      <Anchor href="https://bamboo.madebyconnor.co/disclaimer">Disclaimer</Anchor>
     </Navigation>
   ))
 );
