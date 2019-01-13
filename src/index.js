@@ -20,7 +20,7 @@ export { default as Footer } from './components/Footer';
 
 // Utility
 export { default as Meta } from './components/Meta';
-export { default as ThemeProvider } from './components/ThemeProvider';
+export { default as Theme } from './components/Theme';
 
 // Icons
 export { default as LogoIcon } from './components/icons/LogoIcon';

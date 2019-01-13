@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'emotion-theming';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
 import isServer from '../../util/is-server';
@@ -14,26 +14,30 @@ import {
 } from '../../styles/load-fonts';
 import injectGlobalStyles from '../../styles/global-styles';
 
-export default class ThemeProvider extends Component {
+export default class Theme extends Component {
   static propTypes = {
     cookies: PropTypes.object,
-    theme: PropTypes.func.isRequired,
+    initialThemeId: PropTypes.string,
+    themes: PropTypes.arrayOf(PropTypes.func).isRequired,
     fontBasePath: PropTypes.string,
     children: sharedPropTypes.childrenPropType
   };
 
   static defaultProps = {
+    initialThemeId: 'standard',
+    themes: {},
     cookies: {}
   };
 
   constructor(props) {
     super(props);
 
-    const { cookies = {}, fontBasePath } = props;
+    const { cookies, fontBasePath, initialThemeId: themeId, themes } = props;
     const darkmode = cookies.darkmode === 'true';
     const reducedMotion = cookies.reducedMotion === 'true';
 
-    const theme = this.getTheme({ darkmode, reducedMotion });
+    const themeFn = themes[themeId];
+    const theme = themeFn({ darkmode, reducedMotion });
 
     const custom = fontBasePath
       ? theme.fonts.map(createFontFace(fontBasePath)).join('')
@@ -45,6 +49,7 @@ export default class ThemeProvider extends Component {
     }
 
     this.state = {
+      themeId,
       darkmode,
       reducedMotion,
       isTransitioning: false
@@ -111,14 +116,30 @@ export default class ThemeProvider extends Component {
 
   toggleReducedMotion = this.toggleState('reducedMotion');
 
-  getTheme = config =>
-    this.props.theme
-      ? {
-          ...this.props.theme(config),
-          toggleDarkmode: this.toggleDarkmode,
-          toggleReducedMotion: this.toggleReducedMotion
-        }
-      : {};
+  setTheme = themeId =>
+    new Promise((resolve, reject) => {
+      if (themeId === this.state.themeId) {
+        resolve();
+        return;
+      }
+      if (!this.props.themes[themeId]) {
+        reject();
+        return;
+      }
+      this.animateStateChange({ themeId }).then(() => resolve());
+    });
+
+  getTheme = config => {
+    const { themes } = this.props;
+    const { themeId } = this.state;
+    const themeFn = themes[themeId];
+    return {
+      ...themeFn(config),
+      setTheme: this.setTheme,
+      toggleDarkmode: this.toggleDarkmode,
+      toggleReducedMotion: this.toggleReducedMotion
+    };
+  };
 
   render() {
     const { isTransitioning, ...config } = this.state;
@@ -142,7 +163,7 @@ export default class ThemeProvider extends Component {
             />
           )}
         </Head>
-        <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </Fragment>
     );
   }
