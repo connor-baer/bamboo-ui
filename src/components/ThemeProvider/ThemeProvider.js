@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
@@ -14,18 +13,6 @@ import {
   preloadFonts
 } from '../../styles/load-fonts';
 import injectGlobalStyles from '../../styles/global-styles';
-
-const transitionStyles = ({ theme, isTransitioning }) =>
-  isTransitioning &&
-  css`
-    * {
-      transition: background-color ${theme.animations.micro},
-        color ${theme.animations.micro}, fill ${theme.animations.micro},
-        border-color ${theme.animations.micro} !important;
-    }
-  `;
-
-const ThemeTransition = styled('div')(transitionStyles);
 
 export default class ThemeProvider extends Component {
   static propTypes = {
@@ -134,19 +121,28 @@ export default class ThemeProvider extends Component {
       : {};
 
   render() {
+    const { isTransitioning, ...config } = this.state;
     const { children, fontBasePath } = this.props;
-    const theme = this.getTheme(this.state);
+    const theme = this.getTheme(config);
     return (
       <Fragment>
         <Head>
           <meta name="theme-color" content={theme.colors.bodyBg} />
           {preloadFonts(fontBasePath, theme.fonts)}
+          {isTransitioning && (
+            <style
+              dangerouslySetInnerHTML={{
+                __html: `transition: ${[
+                  'background-color',
+                  'color',
+                  'fill',
+                  'border-color'
+                ].join(`${theme.animations.micro}, `)} !important;`
+              }}
+            />
+          )}
         </Head>
-        <EmotionThemeProvider theme={theme}>
-          <ThemeTransition isTransitioning={this.state.isTransitioning}>
-            {children}
-          </ThemeTransition>
-        </EmotionThemeProvider>
+        <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
       </Fragment>
     );
   }
