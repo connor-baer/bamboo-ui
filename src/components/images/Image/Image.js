@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 import { imagePropType } from '../../../util/shared-prop-types';
 
 function isTransparent(src) {
-  return src.includes('.png');
+  return src && src.includes('.png');
 }
 
 const baseStyles = () => css`
