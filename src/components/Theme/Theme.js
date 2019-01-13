@@ -31,7 +31,7 @@ export default class Theme extends Component {
   static propTypes = {
     cookies: PropTypes.object,
     initialThemeId: PropTypes.string,
-    themes: PropTypes.arrayOf(PropTypes.func).isRequired,
+    themes: PropTypes.object.isRequired,
     fontBasePath: PropTypes.string,
     children: sharedPropTypes.childrenPropType
   };
