@@ -26,6 +26,7 @@ export { default as Theme } from './components/Theme';
 export { default as LogoIcon } from './components/icons/LogoIcon';
 export { default as MoonIcon } from './components/icons/MoonIcon';
 export { default as MotionIcon } from './components/icons/MotionIcon';
+export { default as LoadingIcon } from './components/icons/LoadingIcon';
 
 // Images
 export { default as Caption } from './components/images/Caption';
