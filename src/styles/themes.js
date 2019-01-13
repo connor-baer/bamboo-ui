@@ -186,7 +186,8 @@ const breakpoints = {
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
   giga: 960,
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280
+  tera: 1280,
+  afterTera: '(min-width: 1280px)'
 };
 
 export function createColors(darkmode = false) {
@@ -271,8 +272,15 @@ export function createGrid(base = 4) {
       maxWidth: '1000px',
       gutter: createSpacings(base).exa
     },
-    tera: {
+    giga: {
       priority: 4,
+      breakpoint: 'giga',
+      cols: 12,
+      maxWidth: '1000px',
+      gutter: createSpacings(base).exa
+    },
+    afterTera: {
+      priority: 5,
       breakpoint: 'tera',
       cols: 12,
       maxWidth: '1200px',
