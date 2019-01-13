@@ -143,7 +143,7 @@ export default class Theme extends Component {
 
   getTheme = (themeId, config) => {
     const { themes } = this.props;
-    const themeFn = themes[themeId];
+    const themeFn = themes[themeId] || themes.standard;
     return {
       ...themeFn(config),
       setTheme: this.setTheme,
