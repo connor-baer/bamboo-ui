@@ -7,7 +7,7 @@ import { sharedPropTypes } from '@sumup/circuit-ui';
 
 import isServer from '../../util/is-server';
 import isSaveData from '../../util/is-save-data';
-import { setCookie } from '../../util/cookies';
+import { setCookie, getCookie } from '../../util/cookies';
 import {
   createFontFace,
   loadFonts,
@@ -29,7 +29,6 @@ const ThemeTransition = styled('div')(transitionStyles);
 
 export default class Theme extends Component {
   static propTypes = {
-    cookies: PropTypes.object,
     initialThemeId: PropTypes.string,
     themes: PropTypes.object.isRequired,
     assetPrefix: PropTypes.string,
@@ -38,16 +37,15 @@ export default class Theme extends Component {
 
   static defaultProps = {
     initialThemeId: 'standard',
-    themes: {},
-    cookies: {}
+    themes: {}
   };
 
   constructor(props) {
     super(props);
 
-    const { cookies, assetPrefix, initialThemeId: themeId } = props;
-    const darkmode = cookies.darkmode === 'true';
-    const reducedMotion = cookies.reducedMotion === 'true';
+    const { assetPrefix, initialThemeId: themeId } = props;
+    const darkmode = getCookie('darkmode') === 'true';
+    const reducedMotion = getCookie('reducedMotion') === 'true';
 
     const theme = this.getTheme(themeId, { darkmode, reducedMotion });
 
