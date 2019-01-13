@@ -12,12 +12,12 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Anchor`, module)
     'Anchor',
     withInfo()(() => (
       <Anchor
-        href={text('Link', 'https://bamboo.madebyconnor.co')}
-        id={text('Id', 'red-panda')}
+        href={text('Link', 'https://github.com/connor-baer/bamboo-ui')}
+        id={text('Id', 'bamboo-ui')}
         target={select('Target', ['_blank', '_self'])}
-        title={text('Title', 'Red panda')}
+        title={text('Title', 'Bamboo UI')}
       >
-        {text('Label', 'Red panda')}
+        {text('Label', '🎋 Bamboo UI')}
       </Anchor>
     ))
   )
@@ -25,11 +25,11 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Anchor`, module)
     'Anchor without link',
     withInfo()(() => (
       <Anchor
-        id={text('Id', 'no-panda')}
+        id={text('Id', 'panda')}
         target={select('Target', ['_blank', '_self'])}
-        title={text('Title', 'No panda')}
+        title={text('Title', 'Panda')}
       >
-        {text('Label', 'No panda')}
+        {text('Label', '🐼 Panda')}
       </Anchor>
     ))
   );

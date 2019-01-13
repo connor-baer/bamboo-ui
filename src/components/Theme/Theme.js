@@ -32,7 +32,7 @@ export default class Theme extends Component {
     cookies: PropTypes.object,
     initialThemeId: PropTypes.string,
     themes: PropTypes.object.isRequired,
-    fontBasePath: PropTypes.string,
+    assetPrefix: PropTypes.string,
     children: sharedPropTypes.childrenPropType
   };
 
@@ -45,18 +45,18 @@ export default class Theme extends Component {
   constructor(props) {
     super(props);
 
-    const { cookies, fontBasePath, initialThemeId: themeId } = props;
+    const { cookies, assetPrefix, initialThemeId: themeId } = props;
     const darkmode = cookies.darkmode === 'true';
     const reducedMotion = cookies.reducedMotion === 'true';
 
     const theme = this.getTheme(themeId, { darkmode, reducedMotion });
 
-    const custom = fontBasePath
-      ? theme.fonts.map(createFontFace(fontBasePath)).join('')
+    const custom = assetPrefix
+      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
       : '';
     injectGlobalStyles({ theme, custom });
 
-    if (fontBasePath && !isSaveData()) {
+    if (assetPrefix && !isSaveData()) {
       loadFonts(theme.fonts);
     }
 
@@ -154,13 +154,13 @@ export default class Theme extends Component {
 
   render() {
     const { isTransitioning, themeId, ...config } = this.state;
-    const { children, fontBasePath } = this.props;
+    const { children, assetPrefix } = this.props;
     const theme = this.getTheme(themeId, config);
     return (
       <Fragment>
         <Head>
           <meta name="theme-color" content={theme.colors.bodyBg} />
-          {preloadFonts(fontBasePath, theme.fonts)}
+          {preloadFonts(assetPrefix, theme.fonts)}
         </Head>
         <ThemeProvider theme={theme}>
           <ThemeTransition isTransitioning={isTransitioning}>

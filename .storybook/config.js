@@ -3,24 +3,18 @@ import { configure, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
+import { getAll } from 'es-cookie';
 
 import '../__mocks__/nextRouter';
 
 import themes from '../src/styles/themes';
 import injectGlobalStyles from '../src/styles/global-styles';
-import ThemeProvider from '../src/components/ThemeProvider';
+import Theme from '../src/components/Theme';
 
 import Story from './Story';
 import { OPTIONS } from './hierarchySeparators';
 
-// Dynamically decide wich styles to load.
-// if (PRODUCTION) {
-//   require('./bamboo-ui-global.css');
-// }
-
-// if (!PRODUCTION) {
 injectGlobalStyles({ theme: themes.standard() });
-// }
 
 // Sets the info addon's options.
 setDefaults({
@@ -35,8 +29,14 @@ setOptions({
 
 const req = require.context('../src/components', true, /\.story\.js$/);
 
-const withThemeProvider = storyFn => (
-  <ThemeProvider theme={themes.standard}>{storyFn()}</ThemeProvider>
+const withTheme = storyFn => (
+  <Theme
+    themes={themes}
+    cookies={getAll()}
+    assetPrefix="https://static.connorbaer.co/fonts"
+  >
+    {storyFn()}
+  </Theme>
 );
 
 const withStoryStyles = storyFn => {
@@ -46,7 +46,7 @@ const withStoryStyles = storyFn => {
 const loadStories = () => {
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
-  addDecorator(withThemeProvider);
+  addDecorator(withTheme);
   req.keys().forEach(filename => req(filename));
 };
 

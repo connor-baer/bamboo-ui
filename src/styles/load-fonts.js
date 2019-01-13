@@ -6,8 +6,8 @@ import isServer from '../util/is-server';
 import addClass from '../util/add-class';
 
 export const createFontFace = curry(
-  (basePath, { name, weight, style, localName }) => {
-    const fontPath = `${basePath}/${name}-${weight}-${style}`;
+  (assetPrefix, { name, weight, style, localName }) => {
+    const fontPath = `${assetPrefix}/${name}-${weight}-${style}`;
     return `
       @font-face {
         font-family: '${name}';
@@ -23,10 +23,10 @@ export const createFontFace = curry(
   }
 );
 
-export const preloadFonts = curry((basePath, fonts) =>
+export const preloadFonts = curry((assetPrefix, fonts) =>
   fonts.map(({ name, weight, style }) => {
     const fullName = `${name}-${weight}-${style}`;
-    const fontPath = `${basePath}/${fullName}`;
+    const fontPath = `${assetPrefix}/${fullName}`;
     return (
       <Fragment key={fullName}>
         <link rel="preload" href={`${fontPath}.woff2`} as="font" />
