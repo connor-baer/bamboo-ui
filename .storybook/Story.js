@@ -19,17 +19,18 @@ const optionStyles = ({ theme }) => css`
   bottom: 0;
   background: rgb(34, 136, 204);
   border-radius: 5px 0 0 0;
-  font-size: 12px;
-  line-height: 2;
-  padding: 0 6px 2px;
+  line-height: 1.5;
+  padding: 0 6px;
 `;
 
 const Options = styled('div')(optionStyles);
 
 const buttonStyles = ({ theme }) => css`
+  font-family: sans-serif !important;
+  font-size: 12px;
   border: none;
   margin: 0;
-  padding: 0 6px;
+  padding: 0 8px;
   width: auto;
   overflow: visible;
   color: white;
