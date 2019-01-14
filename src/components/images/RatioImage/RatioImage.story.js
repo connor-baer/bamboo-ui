@@ -18,7 +18,7 @@ storiesOf(`${GROUPS.IMAGES}|RatioImage`, module).add(
           'https://source.unsplash.com/1200x800/ 1200w'
         ].join(', ')}
         alt={text('Alt text', 'A random image')}
-        aspectRatio={number('Aspet ratio', 3 / 2)}
+        aspectRatio={number('Aspect ratio', 3 / 2)}
       />
     </div>
   ))
