@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { startsWith } from 'lodash/fp';
-import { styleHelpers, sharedPropTypes } from '@sumup/circuit-ui';
 
 import isServer from '../../util/is-server';
-import LogoIcon from '../icons/LogoIcon';
-import MoonIcon from '../icons/MoonIcon';
-import MotionIcon from '../icons/MotionIcon';
-import Link from '../Link';
+import Brand from './components/Brand';
+import Links from './components/Links';
+import Menu from './components/Menu';
 
 const headerBaseStyles = ({ theme }) => css`
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   padding: ${theme.spacings.kilo};
   transition: opacity ${theme.animations.standard},
     padding ${theme.animations.standard};
@@ -30,7 +27,6 @@ const headerBaseStyles = ({ theme }) => css`
     top: 0;
     right: 0;
     left: 0;
-    flex-wrap: nowrap;
     padding: ${theme.spacings.giga};
   `};
 `;
@@ -57,147 +53,15 @@ const Header = styled('header')(
   headerFloatingStyles
 );
 
-const siteNameStyles = ({ theme }) => css`
-  ${styleHelpers.headingTera({ theme })};
-  display: inline-block;
-  transition: color ${theme.animations.micro};
-  font-weight: ${theme.fontWeight.bold};
-  line-height: 1;
-  color: ${theme.colors.n900};
-  margin-top: 3px;
-  margin-left: ${theme.spacings.kilo};
-  vertical-align: middle;
+const INITIAL_STATE = {
+  isFloating: false,
+  isInvisible: false
+};
 
-  a:hover > &,
-  a:focus > & {
-    color: ${theme.colors.p500};
-  }
-`;
-
-const SiteName = styled('span')(siteNameStyles);
-
-const navStyles = ({ theme }) => css`
-  ${theme.mq.untilMega`
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    order: 3;
-    min-width: 100%;
-  `};
-`;
-
-const Nav = styled('nav')(navStyles);
-
-const navAnchorBaseStyles = ({ theme }) => css`
-  ${styleHelpers.textMega({ theme })};
-  font-weight: ${theme.fontWeight.regular};
-  line-height: 1;
-  letter-spacing: 1px;
-  display: inline-block;
-  color: ${theme.colors.n700};
-  border-radius: 20px;
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega} 11px;
-  margin-top: ${theme.spacings.kilo};
-
-  ${theme.mq.mega`
-    margin-right: ${theme.spacings.giga};
-    margin-top: 0;
-  `};
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: ${theme.colors.n100};
-    color: ${theme.colors.p500};
-  }
-`;
-
-const navAnchorActiveStyles = ({ theme, isActive }) =>
-  isActive &&
-  css`
-    background-color: ${theme.colors.n100};
-    font-weight: ${theme.fontWeight.bold};
-  `;
-
-const NavAnchor = styled('a')(navAnchorBaseStyles, navAnchorActiveStyles);
-
-const iconButtonBaseStyles = ({ theme }) => css`
-  display: inline-block;
-  transition: fill ${theme.animations.micro},
-    background-color ${theme.animations.micro};
-  line-height: 0;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-  vertical-align: middle;
-  z-index: 999;
-  fill: ${theme.colors.n500};
-  border-radius: 50%;
-  padding: ${theme.spacings.byte};
-  margin-right: ${theme.spacings.bit};
-
-  ${theme.mq.untilMega`
-    order: 2;
-  `};
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: ${theme.colors.n100};
-    fill: ${theme.colors.p500};
-  }
-`;
-
-const iconButtonActiveStyles = ({ theme, isActive }) =>
-  isActive &&
-  css`
-    background-color: ${theme.colors.n100};
-    fill: ${theme.colors.n700};
-  `;
-
-const IconButton = styled('button')(
-  iconButtonBaseStyles,
-  iconButtonActiveStyles
-);
+const NavigationContext = React.createContext(INITIAL_STATE);
 
 class Navigation extends Component {
-  static propTypes = {
-    siteUrl: PropTypes.string.isRequired,
-    siteName: PropTypes.string.isRequired,
-    isHome: PropTypes.bool,
-    links: PropTypes.arrayOf(
-      PropTypes.shape({
-        url: PropTypes.string,
-        label: sharedPropTypes.childrenPropType
-      })
-    ),
-    router: PropTypes.object,
-    theme: PropTypes.shape({
-      toggleDarkmode: PropTypes.func,
-      toggleReducedMotion: PropTypes.func,
-      darkmode: PropTypes.bool,
-      reducedMotion: PropTypes.bool
-    })
-  };
-
-  static defaultProps = {
-    isHome: false,
-    links: [],
-    router: {},
-    theme: {}
-  };
-
-  state = {
-    isFloating: false,
-    isInvisible: false
-  };
+  state = INITIAL_STATE;
 
   componentDidMount() {
     if (isServer) {
@@ -247,62 +111,20 @@ class Navigation extends Component {
   };
 
   render() {
-    const { siteName, isHome, links, router, theme } = this.props;
-    const {
-      toggleDarkmode,
-      toggleReducedMotion,
-      darkmode,
-      reducedMotion
-    } = theme;
-
-    /* eslint-disable jsx-a11y/anchor-is-valid */
     return (
       <Header {...this.state}>
-        <Link href={isHome ? '#' : '/'} prefetch={!isHome}>
-          <a>
-            <LogoIcon alt={`Logo of '${siteName}'`} />
-            <SiteName>{siteName}</SiteName>
-          </a>
-        </Link>
-
-        <Nav>
-          {links.map(({ url, label }, i) => (
-            <Link key={i} href={url} prefetch>
-              <NavAnchor isActive={startsWith(url, router.pathname)}>
-                {label}
-              </NavAnchor>
-            </Link>
-          ))}
-        </Nav>
-
-        <div>
-          {toggleDarkmode && (
-            <IconButton
-              isActive={darkmode}
-              title={`Turn ${darkmode ? 'off' : 'on'} darkmode`}
-              aria-label="Darkmode"
-              aria-pressed={darkmode}
-              onClick={toggleDarkmode}
-            >
-              <MoonIcon width={24} height={24} full={darkmode} />
-            </IconButton>
-          )}
-          {toggleReducedMotion && (
-            <IconButton
-              isActive={reducedMotion}
-              title={`Turn ${reducedMotion ? 'off' : 'on'} reduced motion`}
-              aria-label="Reduced motion"
-              aria-pressed={reducedMotion}
-              onClick={toggleReducedMotion}
-            >
-              <MotionIcon width={24} height={24} full={reducedMotion} />
-            </IconButton>
-          )}
-        </div>
+        <NavigationContext.Provider value={this.state}>
+          {this.props.children}
+        </NavigationContext.Provider>
       </Header>
     );
-    /* eslint-enable jsx-a11y/anchor-is-valid */
   }
 }
+
+Navigation.Brand = Brand;
+Navigation.Links = Links;
+Navigation.Menu = Menu;
+
+export { NavigationContext };
 
 export default Navigation;

@@ -23,7 +23,7 @@ export { default as Meta } from './components/Meta';
 export { default as Theme } from './components/Theme';
 
 // Icons
-export { default as LogoIcon } from './components/icons/LogoIcon';
+export { default as PandaIcon } from './components/icons/PandaIcon';
 export { default as MoonIcon } from './components/icons/MoonIcon';
 export { default as MotionIcon } from './components/icons/MotionIcon';
 export { default as LoadingIcon } from './components/icons/LoadingIcon';

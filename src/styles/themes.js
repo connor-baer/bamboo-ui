@@ -93,6 +93,13 @@ const typography = {
   }
 };
 
+const iconSizes = {
+  byte: '14px',
+  kilo: '16px',
+  mega: '24px',
+  giga: '32px'
+};
+
 const borderRadius = {
   kilo: '1px',
   mega: '4px',
@@ -310,6 +317,7 @@ function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
     fontStack,
     fontWeight,
     typography,
+    iconSizes,
     borderRadius,
     breakpoints,
     colors: createColors(darkmode),

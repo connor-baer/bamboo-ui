@@ -1,7 +1,10 @@
 import Router from 'next/router';
 
-Router.router = {
+const router = {
+  asPath: window.location.pathname,
   push: () => {},
   prefetch: () => {},
   replace: () => {}
 };
+
+Router.router = router;

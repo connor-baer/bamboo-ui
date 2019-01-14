@@ -18,7 +18,9 @@ import injectGlobalStyles from '../../styles/global-styles';
 const transitionStyles = ({ theme, isTransitioning }) =>
   isTransitioning &&
   css`
-    * {
+    *,
+    *::before,
+    *::after {
       transition: background-color ${theme.animations.micro},
         color ${theme.animations.micro}, fill ${theme.animations.micro},
         border-color ${theme.animations.micro} !important;
