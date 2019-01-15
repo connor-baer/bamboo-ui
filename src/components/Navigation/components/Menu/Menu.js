@@ -98,8 +98,7 @@ const dropdownOpenStyles = ({ isOpen }) =>
 const Dropdown = styled('div')(dropdownBaseStyles, dropdownOpenStyles);
 
 const itemStyles = ({ theme }) => css`
-  display: flex;
-  align-items: center;
+  display: block;
   width: 100%;
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   color: ${theme.colors.bodyColor};
@@ -108,7 +107,6 @@ const itemStyles = ({ theme }) => css`
   border: 0;
   outline: none;
   background-color: transparent;
-  cursor: pointer;
   vertical-align: middle;
   font-size: inherit;
   line-height: inherit;
@@ -117,6 +115,18 @@ const itemStyles = ({ theme }) => css`
   ${theme.mq.kilo`
     padding: ${theme.spacings.bit} ${theme.spacings.mega};
   `};
+`;
+
+const Item = styled('div')(itemStyles);
+
+const hrStyles = ({ theme }) => css`
+  margin: ${theme.spacings.bit} 0 ${theme.spacings.byte};
+`;
+
+const MenuHr = styled(Hr)(hrStyles);
+
+const iconButtonStyles = ({ theme }) => css`
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -130,15 +140,7 @@ const itemStyles = ({ theme }) => css`
   }
 `;
 
-const Item = styled('div')(itemStyles);
-
-const hrStyles = ({ theme }) => css`
-  margin: ${theme.spacings.bit} 0 ${theme.spacings.byte};
-`;
-
-const StyledHr = styled(Hr)(hrStyles);
-
-const ItemButton = Item.withComponent('button');
+const IconButton = styled('button')(itemStyles, iconButtonStyles);
 
 const iconBaseStyles = ({ theme }) => css`
   display: inline-block;
@@ -216,10 +218,10 @@ class Menu extends Component {
         <Dropdown isOpen={isOpen}>
           {children}
 
-          {hasDivider && <StyledHr />}
+          {hasDivider && <MenuHr />}
 
           {toggleDarkmode && (
-            <ItemButton
+            <IconButton
               isActive={darkmode}
               aria-pressed={darkmode}
               onClick={toggleDarkmode}
@@ -228,11 +230,11 @@ class Menu extends Component {
                 <MoonIcon width={16} height={16} full={darkmode} />
               </Icon>
               Toggle darkmode
-            </ItemButton>
+            </IconButton>
           )}
 
           {toggleReducedMotion && (
-            <ItemButton
+            <IconButton
               isActive={reducedMotion}
               aria-pressed={reducedMotion}
               onClick={toggleReducedMotion}
@@ -241,7 +243,7 @@ class Menu extends Component {
                 <MotionIcon width={16} height={16} full={reducedMotion} />
               </Icon>
               Reduce motion
-            </ItemButton>
+            </IconButton>
           )}
         </Dropdown>
       </Wrapper>
@@ -250,6 +252,7 @@ class Menu extends Component {
 }
 
 Menu.Item = Item;
+Menu.Hr = MenuHr;
 
 /**
  * @component
