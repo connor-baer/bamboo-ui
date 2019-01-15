@@ -94,10 +94,10 @@ const typography = {
 };
 
 const iconSizes = {
-  byte: '14px',
+  byte: '12px',
   kilo: '16px',
   mega: '24px',
-  giga: '32px'
+  giga: '36px'
 };
 
 const borderRadius = {

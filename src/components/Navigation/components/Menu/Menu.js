@@ -98,11 +98,21 @@ const dropdownOpenStyles = ({ isOpen }) =>
 const Dropdown = styled('div')(dropdownBaseStyles, dropdownOpenStyles);
 
 const itemStyles = ({ theme }) => css`
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   color: ${theme.colors.bodyColor};
   transition: all ${theme.animations.micro};
+  overflow: visible;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
 
   ${theme.mq.kilo`
     padding: ${theme.spacings.bit} ${theme.spacings.mega};
@@ -111,10 +121,12 @@ const itemStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background: ${theme.colors.n100};
+    color: ${theme.colors.p500};
   }
 
   &:active {
     background: ${theme.colors.n300};
+    color: ${theme.colors.p500};
   }
 `;
 
@@ -126,25 +138,7 @@ const hrStyles = ({ theme }) => css`
 
 const StyledHr = styled(Hr)(hrStyles);
 
-const iconButtonStyles = ({ theme }) => css`
-  display: flex;
-  align-items: center;
-  padding: 0;
-  overflow: visible;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-  vertical-align: middle;
-  font-size: inherit;
-
-  &:hover,
-  &:focus {
-    color: ${theme.colors.p500};
-  }
-`;
-
-const IconButton = styled('button')(itemStyles, iconButtonStyles);
+const ItemButton = Item.withComponent('button');
 
 const iconBaseStyles = ({ theme }) => css`
   display: inline-block;
@@ -211,7 +205,11 @@ class Menu extends Component {
     return (
       <Wrapper>
         {userAvatarURL ? (
-          <UserPhoto src={userAvatarURL} onClick={this.handleClick} />
+          <UserPhoto
+            src={userAvatarURL}
+            onClick={this.handleClick}
+            alt="Profile photo"
+          />
         ) : (
           <Hamburger onClick={this.handleClick} isActive={isOpen} />
         )}
@@ -221,7 +219,7 @@ class Menu extends Component {
           {hasDivider && <StyledHr />}
 
           {toggleDarkmode && (
-            <IconButton
+            <ItemButton
               isActive={darkmode}
               aria-pressed={darkmode}
               onClick={toggleDarkmode}
@@ -230,11 +228,11 @@ class Menu extends Component {
                 <MoonIcon width={16} height={16} full={darkmode} />
               </Icon>
               Toggle darkmode
-            </IconButton>
+            </ItemButton>
           )}
 
           {toggleReducedMotion && (
-            <IconButton
+            <ItemButton
               isActive={reducedMotion}
               aria-pressed={reducedMotion}
               onClick={toggleReducedMotion}
@@ -243,7 +241,7 @@ class Menu extends Component {
                 <MotionIcon width={16} height={16} full={reducedMotion} />
               </Icon>
               Reduce motion
-            </IconButton>
+            </ItemButton>
           )}
         </Dropdown>
       </Wrapper>
