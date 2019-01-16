@@ -33,6 +33,8 @@ function Meta({
   const followString = follow ? 'follow' : 'nofollow';
   return (
     <Head>
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{titleString}</title>
       <meta name="robots" content={`${indexString}, ${followString}`} />
       {description && <meta name="description" content={description} />}
