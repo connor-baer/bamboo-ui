@@ -1,7 +1,7 @@
 {
   "name": "@madebyconnor/bamboo-ui",
   "sideEffects": false,
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A React UI component library made by Connor",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
