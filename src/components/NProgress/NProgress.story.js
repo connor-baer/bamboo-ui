@@ -5,7 +5,7 @@ import { number } from '@storybook/addon-knobs';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import NProgress from './NProgress';
+import NProgress from '.';
 
 storiesOf(`${GROUPS.COMPONENTS}|NProgress`, module).add(
   'NProgress',

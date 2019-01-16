@@ -13,6 +13,7 @@ export { default as Link } from './components/Link';
 export { default as Small } from './components/Small';
 
 // Sections
+export { default as NProgress } from './components/NProgress';
 export { default as Navigation } from './components/Navigation';
 export { default as Header } from './components/Header';
 export { default as Prefooter } from './components/Prefooter';
