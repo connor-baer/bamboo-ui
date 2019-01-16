@@ -9,17 +9,21 @@ import Link from '../Link';
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};
   font-weight: ${theme.fontWeight.bold};
-  box-shadow: inset 0 -0.04em 0 0 currentColor;
+  box-shadow: inset 0 -1px 0 0 currentColor;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${theme.colors.p500};
-    box-shadow: inset 0 -0.08em 0 0 currentColor;
+    box-shadow: inset 0 -2px 0 0 currentColor;
+  }
+
+  &:focus {
+    outline: thin solid currentColor;
+    outline-offset: 0.25em;
   }
 
   &:active {
     color: ${theme.colors.p300};
-    box-shadow: inset 0 -0.08em 0 0 currentColor;
+    box-shadow: inset 0 -2px 0 0 currentColor;
   }
 `;
 
