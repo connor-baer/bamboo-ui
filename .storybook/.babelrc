@@ -9,7 +9,8 @@
         "autoLabel": true,
         "hoist": true
       }
-    ]
+    ],
+    "inline-react-svg"
   ],
   "presets": [["env", { "loose": true, "modules": false }], "react"]
 }

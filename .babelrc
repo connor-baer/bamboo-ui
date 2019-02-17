@@ -11,7 +11,8 @@
             "autoLabel": true,
             "hoist": true
           }
-        ]
+        ],
+        "inline-react-svg"
       ],
       "presets": [["env", { "loose": true }], "react"]
     },
@@ -26,7 +27,8 @@
             "autoLabel": true,
             "hoist": true
           }
-        ]
+        ],
+        "inline-react-svg"
       ],
       "presets": [["env", { "loose": true, "modules": false }], "react"]
     },
@@ -41,7 +43,8 @@
             "autoLabel": true,
             "hoist": true
           }
-        ]
+        ],
+        "inline-react-svg"
       ],
       "presets": ["env", "react"]
     },
@@ -65,7 +68,8 @@
             },
             "extensions": [".svg", ".js"]
           }
-        ]
+        ],
+        "inline-react-svg"
       ]
     }
   }
