@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Collage from '.';
 

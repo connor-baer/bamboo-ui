@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { text, select, number } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Gallery from '.';
 

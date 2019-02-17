@@ -7,14 +7,9 @@
       "emotion",
       {
         "autoLabel": true,
-        "hoist": true,
-        "sourceMap": true
+        "hoist": true
       }
     ]
   ],
-  "presets": [
-    ["env", { "loose": true, "modules": false }],
-    "react",
-    "stage-3"
-  ]
+  "presets": [["env", { "loose": true, "modules": false }], "react"]
 }

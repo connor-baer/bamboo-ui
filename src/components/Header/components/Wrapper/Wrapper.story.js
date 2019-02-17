@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../../.storybook/groups';
 
 import Wrapper from './Wrapper';
 
+// eslint-disable-next-line react/prop-types
 function VisualizeSpacing({ children }) {
   return (
     <Fragment>

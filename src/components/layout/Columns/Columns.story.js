@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { Text } from '@sumup/circuit-ui';
 
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Columns from './Columns';
 

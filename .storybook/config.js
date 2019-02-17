@@ -12,9 +12,14 @@ import injectGlobalStyles from '../src/styles/global-styles';
 import Theme from '../src/components/Theme';
 
 import Story from './Story';
-import { OPTIONS } from './hierarchySeparators';
 
-injectGlobalStyles({ theme: themes.standard() });
+const custom = `
+html,
+body {
+  background: transparent;
+}`;
+
+injectGlobalStyles({ theme: themes.standard(), custom });
 
 // Sets the info addon's options.
 setDefaults({
@@ -22,7 +27,6 @@ setDefaults({
 });
 
 setOptions({
-  ...OPTIONS,
   name: 'Bamboo UI',
   url: 'https://github.com/connor-baer/bamboo-ui'
 });

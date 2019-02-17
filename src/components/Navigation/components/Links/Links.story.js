@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import * as knobs from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../../.storybook/groups';
 import Links from '.';
 
 storiesOf(`${GROUPS.COMPONENTS}|Navigation/Links`, module).add(

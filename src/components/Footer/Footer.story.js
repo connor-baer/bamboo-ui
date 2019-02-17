@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../.storybook/groups';
 
 import Anchor from '../Anchor';
 import Footer from './Footer';
@@ -15,7 +15,9 @@ storiesOf(`${GROUPS.COMPONENTS}|Footer`, module).add(
       siteName={text('Site name', 'Bamboo UI')}
       siteTwitter={text('Site twitter', 'connor-baer')}
     >
-      <Anchor href="https://bamboo.madebyconnor.co/disclaimer">Disclaimer</Anchor>
+      <Anchor href="https://bamboo.madebyconnor.co/disclaimer">
+        Disclaimer
+      </Anchor>
     </Footer>
   ))
 );

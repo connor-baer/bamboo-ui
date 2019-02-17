@@ -9,12 +9,11 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ]
       ],
-      "presets": [["env", { "loose": true }], "react", "stage-3"]
+      "presets": [["env", { "loose": true }], "react"]
     },
     "es": {
       "plugins": [
@@ -25,16 +24,11 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ]
       ],
-      "presets": [
-        ["env", { "loose": true, "modules": false }],
-        "react",
-        "stage-3"
-      ]
+      "presets": [["env", { "loose": true, "modules": false }], "react"]
     },
     "test": {
       "plugins": [
@@ -45,12 +39,11 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ]
       ],
-      "presets": ["env", "react", "stage-3"]
+      "presets": ["env", "react"]
     },
     "static": {
       "plugins": [
@@ -58,8 +51,7 @@
           "emotion",
           {
             "autoLabel": false,
-            "hoist": false,
-            "sourceMap": false
+            "hoist": false
           }
         ],
         "dynamic-import-node",

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean, number, color } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import MoonIcon from './MoonIcon';
 

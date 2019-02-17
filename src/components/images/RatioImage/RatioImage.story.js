@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { number, text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import RatioImage from './RatioImage';
 
