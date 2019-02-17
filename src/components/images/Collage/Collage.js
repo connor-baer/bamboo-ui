@@ -27,13 +27,24 @@ const baseWrapperStyles = ({ theme }) => css`
       margin-right: 0;
     }
   `};
+
+  ${theme.mq.untilKilo`
+    &:first-child {
+      display: none;
+    }
+  `};
+
+  ${theme.mq.untilMega`
+    &:last-child {
+      display: none;
+    }
+  `};
 `;
 
 const outerWrapperStyles = ({ theme }) => css`
-  display: none;
+  width: 37.6%;
 
-  ${theme.mq.kilo`
-    display: block;
+  ${theme.mq.mega`
     width: 27.3%;
   `};
 `;
@@ -42,6 +53,10 @@ const innerWrapperStyles = ({ theme }) => css`
   width: 100%;
 
   ${theme.mq.kilo`
+    width: 62.4%;
+  `};
+
+  ${theme.mq.mega`
     width: 45.4%;
   `};
 `;
