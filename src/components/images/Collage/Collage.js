@@ -22,7 +22,9 @@ const ImagesContainer = styled('div')(containerStyles);
 const baseWrapperStyles = ({ theme }) => css`
   ${theme.mq.kilo`
     margin-right: ${theme.spacings.mega};
+  `};
 
+  ${theme.mq.mega`
     &:last-child {
       margin-right: 0;
     }
@@ -35,6 +37,9 @@ const baseWrapperStyles = ({ theme }) => css`
   `};
 
   ${theme.mq.untilMega`
+    &:nth-child(2) {
+      margin-right: 0;
+    }
     &:last-child {
       display: none;
     }
