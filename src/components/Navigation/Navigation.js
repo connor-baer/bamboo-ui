@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { sharedPropTypes } from '@sumup/circuit-ui';
 
 import isServer from '../../util/is-server';
+import NavigationContext from './NavigationContext';
 import Brand from './components/Brand';
 import Links from './components/Links';
 import Menu from './components/Menu';
@@ -22,29 +25,29 @@ const headerBaseStyles = ({ theme }) => css`
     opacity: 1;
   }
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     padding: ${theme.spacings.giga};
-  `};
+  }
 `;
 
 const headerInvisibleStyles = ({ theme, isInvisible }) =>
   isInvisible &&
   css`
-    ${theme.mq.mega`
+    ${theme.mq.mega} {
       opacity: 0;
-    `};
+    }
   `;
 const headerFloatingStyles = ({ theme, isFloating }) =>
   isFloating &&
   css`
-    ${theme.mq.mega`
+    ${theme.mq.mega} {
       padding: ${theme.spacings.kilo} ${theme.spacings.giga};
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    `};
+    }
   `;
 
 const Header = styled('header')(
@@ -58,9 +61,11 @@ const INITIAL_STATE = {
   isInvisible: false
 };
 
-const NavigationContext = React.createContext(INITIAL_STATE);
-
 class Navigation extends Component {
+  static propTypes = {
+    children: sharedPropTypes.childrenPropType
+  };
+
   state = INITIAL_STATE;
 
   componentDidMount() {
@@ -124,7 +129,5 @@ class Navigation extends Component {
 Navigation.Brand = Brand;
 Navigation.Links = Links;
 Navigation.Menu = Menu;
-
-export { NavigationContext };
 
 export default Navigation;

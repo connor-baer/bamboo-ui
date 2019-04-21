@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { object, text } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/groups';
@@ -29,27 +28,24 @@ const links = [
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add(
-  'Navigation',
-  withInfo()(() => (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <Navigation>
-        <Navigation.Brand
-          siteName={text('Site name', 'Bamboo UI')}
-          siteLogo={text('Logo', '🎋')}
-        />
-        <Navigation.Links links={object('Links', links)} />
-        <Navigation.Menu
-          userAvatarURL={text(
-            'User avatar URL',
-            'https://source.unsplash.com/64x64/'
-          )}
-        >
-          <Link href="/">
-            <A>{text('Menu link', 'Account')}</A>
-          </Link>
-        </Navigation.Menu>
-      </Navigation>
-    </div>
-  ))
-);
+storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add('Navigation', () => (
+  <div style={{ width: '100vw', height: '100vh' }}>
+    <Navigation>
+      <Navigation.Brand
+        siteName={text('Site name', 'Bamboo UI')}
+        siteLogo={text('Logo', '🎋')}
+      />
+      <Navigation.Links links={object('Links', links)} />
+      <Navigation.Menu
+        userAvatarURL={text(
+          'User avatar URL',
+          'https://source.unsplash.com/64x64/'
+        )}
+      >
+        <Link href="/">
+          <A>{text('Menu link', 'Account')}</A>
+        </Link>
+      </Navigation.Menu>
+    </Navigation>
+  </div>
+));

@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   font-size: ${theme.typography.headings.peta.fontSize};
@@ -7,12 +8,12 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   margin-top: ${theme.spacings.kilo};
 
-  ${theme.mq.mega`
-    display: inline; 
+  ${theme.mq.mega} {
+    display: inline;
     margin-top: 0;
     font-size: ${theme.typography.headings.zetta.fontSize};
     line-height: ${theme.typography.headings.zetta.lineHeight};
-  `};
+  }
 `;
 
 const Subtitle = styled('h2')(baseStyles);

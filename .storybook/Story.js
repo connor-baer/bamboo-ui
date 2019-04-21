@@ -1,6 +1,15 @@
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
+
+import GlobalStyles from '../src/styles/global-styles';
+
+const custom = `
+html,
+body {
+  background: transparent;
+}`;
 
 const containerStyles = ({ theme }) => css`
   display: flex;
@@ -55,6 +64,7 @@ function Story({ theme, children }) {
   return (
     <Container>
       {children}
+      <GlobalStyles theme={theme} custom={custom} />
       <Options>
         <Darkmode theme={theme} />
         <ReducedMotion theme={theme} />

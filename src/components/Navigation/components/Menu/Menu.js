@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { Hamburger, sharedPropTypes, Hr } from '@sumup/circuit-ui';
 
 import MoonIcon from '../../../icons/MoonIcon';
@@ -10,9 +11,9 @@ import Image from '../../../images/Image';
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     position: relative;
-  `}
+  }
 `;
 
 const Wrapper = styled('div')(wrapperStyles);
@@ -32,10 +33,10 @@ const userPhotoStyles = ({ theme }) => css`
 const UserPhoto = styled(Image)(userPhotoStyles);
 
 const dropdownBaseStyles = ({ theme }) => css`
-  ${theme.mq.untilKilo`
+  ${theme.mq.untilKilo} {
     left: 0;
     width: 100%;
-  `};
+  }
 
   position: absolute;
   z-index: 999;
@@ -51,10 +52,10 @@ const dropdownBaseStyles = ({ theme }) => css`
   transition: visibility ${theme.animations.standard},
     opacity ${theme.animations.standard};
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     top: calc(100% + ${theme.spacings.byte});
     border-radius: ${theme.borderRadius.mega};
-  `};
+  }
 
   &::before,
   &::after {
@@ -70,9 +71,9 @@ const dropdownBaseStyles = ({ theme }) => css`
     border: 8px solid transparent;
     border-bottom-color: rgba(27, 31, 35, 0.12);
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       right: 8px;
-  `};
+    }
   }
 
   &::after {
@@ -82,9 +83,9 @@ const dropdownBaseStyles = ({ theme }) => css`
     border: 7px solid transparent;
     border-bottom-color: ${theme.colors.white};
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       right: 9px;
-  `};
+    }
   }
 `;
 
@@ -112,9 +113,9 @@ const itemStyles = ({ theme }) => css`
   line-height: inherit;
   text-align: inherit;
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     padding: ${theme.spacings.bit} ${theme.spacings.mega};
-  `};
+  }
 `;
 
 const Item = styled('div')(itemStyles);

@@ -1,5 +1,5 @@
 import openColor from 'open-color/open-color.json';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import { mapValues } from 'lodash/fp';
 
 const fonts = [

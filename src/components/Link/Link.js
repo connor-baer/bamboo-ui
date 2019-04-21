@@ -1,6 +1,8 @@
 import React, { Children, cloneElement } from 'react';
-import { isString, isEmpty } from 'lodash';
+import PropTypes from 'prop-types';
+import { isString, isEmpty } from 'lodash/fp';
 import NextLink from 'next/link';
+import { sharedPropTypes } from '@sumup/circuit-ui';
 
 export default function Link(props) {
   const { href, children, onClick } = props;
@@ -18,3 +20,9 @@ export default function Link(props) {
   const as = isString(href) ? href : `${href.pathname}/${href.query.slug}`;
   return <NextLink {...props} as={as} passHref />;
 }
+
+Link.propTypes = {
+  href: PropTypes.string,
+  children: sharedPropTypes.childrenPropType,
+  onClick: PropTypes.func
+};

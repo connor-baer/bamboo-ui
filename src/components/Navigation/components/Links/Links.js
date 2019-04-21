@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { startsWith, isEmpty } from 'lodash/fp';
 import { styleHelpers, sharedPropTypes } from '@sumup/circuit-ui';
 
 import Link from '../../../Link';
-import { NavigationContext } from '../../Navigation';
+import NavigationContext from '../../NavigationContext';
 
 const navBaseStyles = ({ theme }) => css`
-  ${theme.mq.untilMega`
+  ${theme.mq.untilMega} {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -17,7 +18,7 @@ const navBaseStyles = ({ theme }) => css`
     background: ${theme.colors.white};
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     transition: transform ${theme.animations.standard};
-  `};
+  }
 
   position: absolute;
   left: 0;
@@ -31,9 +32,9 @@ const navBaseStyles = ({ theme }) => css`
 const navInvisibleStyles = ({ theme, isInvisible }) =>
   isInvisible &&
   css`
-    ${theme.mq.untilMega`
-    transform: translateY(100%);
-  `};
+    ${theme.mq.untilMega} {
+      transform: translateY(100%);
+    }
   `;
 
 const Nav = styled('nav')(navBaseStyles, navInvisibleStyles);
@@ -48,17 +49,17 @@ const navAnchorBaseStyles = ({ theme }) => css`
   border-radius: 20px;
   padding: ${theme.spacings.kilo} ${theme.spacings.mega} 11px;
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     margin-right: ${theme.spacings.mega};
-  `};
+  }
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     margin-right: ${theme.spacings.bit};
-  `};
+  }
 
-  ${theme.mq.giga`
+  ${theme.mq.giga} {
     margin-right: ${theme.spacings.giga};
-  `};
+  }
 
   &:last-of-type {
     margin-right: 0;

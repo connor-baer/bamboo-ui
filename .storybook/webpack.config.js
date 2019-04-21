@@ -1,43 +1,34 @@
 const path = require('path');
-const webpack = require('@storybook/react/node_modules/webpack');
+const webpack = require('webpack');
 
 module.exports = ({ config, mode }) => {
   const isProduction = mode === 'PRODUCTION';
 
-  config.externals = {
-    ...config.externals,
-    jsdom: 'window',
-    cheerio: 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': 'window',
-    'react/addons': true
-  };
+  // modify storybook's file-loader rule to avoid conflicts with svgr
+  config.module.rules.find(rule =>
+    rule.test.test('.svg')
+  ).exclude = path.resolve(__dirname, '../src/');
 
   config.module.rules.push({
     test: /\.story\.jsx?$/,
-    loaders: [
-      {
-        loader: require.resolve('@storybook/addon-storysource/loader'),
-        options: {
-          prettierConfig: {
-            parser: 'babel'
-          }
-        }
-      }
-    ],
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
     enforce: 'pre'
   });
 
   config.module.rules.push({
-    test: /\.svg$/,
+    test: /.svg$/,
     use: [
-      { loader: 'babel-loader' },
       {
-        loader: 'react-svg-loader',
+        loader: '@svgr/webpack',
         options: {
-          es5: true
+          svgoConfig: {
+            plugins: {
+              removeViewBox: false
+            }
+          }
         }
-      }
+      },
+      'url-loader'
     ]
   });
 

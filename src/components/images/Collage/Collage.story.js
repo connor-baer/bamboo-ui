@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import { GROUPS } from '../../../../.storybook/groups';
 
@@ -33,11 +32,8 @@ const images = [
   }
 ];
 
-storiesOf(`${GROUPS.IMAGES}|Collage`, module).add(
-  'Collage',
-  withInfo()(() => (
-    <div style={{ width: '80vw' }}>
-      <Collage images={images} />
-    </div>
-  ))
-);
+storiesOf(`${GROUPS.IMAGES}|Collage`, module).add('Collage', () => (
+  <div style={{ width: '80vw' }}>
+    <Collage images={images} />
+  </div>
+));

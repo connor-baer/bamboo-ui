@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { text, select, number } from '@storybook/addon-knobs';
 
 import { GROUPS } from '../../../../.storybook/groups';
@@ -23,20 +22,17 @@ function generateImages(amount) {
     });
 }
 
-storiesOf(`${GROUPS.IMAGES}|Gallery`, module).add(
-  'Gallery',
-  withInfo()(() => (
-    <div style={{ width: '50vw' }}>
-      <Gallery
-        images={generateImages(Math.round(number('Number of images', 4)))}
-        caption={text('Caption', 'Random photos from Unsplash')}
-        align={select('Alignment', [
-          Gallery.CENTER,
-          Gallery.FULL,
-          Gallery.RIGHT,
-          Gallery.LEFT
-        ])}
-      />
-    </div>
-  ))
-);
+storiesOf(`${GROUPS.IMAGES}|Gallery`, module).add('Gallery', () => (
+  <div style={{ width: '50vw' }}>
+    <Gallery
+      images={generateImages(Math.round(number('Number of images', 4)))}
+      caption={text('Caption', 'Random photos from Unsplash')}
+      align={select('Alignment', [
+        Gallery.CENTER,
+        Gallery.FULL,
+        Gallery.RIGHT,
+        Gallery.LEFT
+      ])}
+    />
+  </div>
+));

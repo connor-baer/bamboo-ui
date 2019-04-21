@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import { GROUPS } from '../../../../../.storybook/groups';
 
@@ -35,11 +34,8 @@ function VisualizeSpacing({ children }) {
   );
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add(
-  'Header.Wrapper',
-  withInfo()(() => (
-    <VisualizeSpacing>
-      <Wrapper>Wrapper</Wrapper>
-    </VisualizeSpacing>
-  ))
-);
+storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add('Header.Wrapper', () => (
+  <VisualizeSpacing>
+    <Wrapper>Wrapper</Wrapper>
+  </VisualizeSpacing>
+));
