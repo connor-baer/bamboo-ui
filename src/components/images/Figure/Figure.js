@@ -32,7 +32,7 @@ function getSizes(theme, align) {
   return [gigaSize, megaSize, mobileSize].join(', ');
 }
 
-function Figure({ className, caption, align, theme, image }) {
+function Figure({ caption, align, theme, image, ...rest }) {
   if (!image.src) {
     return null;
   }
@@ -40,7 +40,7 @@ function Figure({ className, caption, align, theme, image }) {
   const sizes = getSizes(theme, align);
 
   return (
-    <Align align={align} className={className}>
+    <Align align={align} {...rest}>
       <Image {...omit('toString', image)} sizes={sizes} />
       {caption && <Caption>{caption}</Caption>}
     </Align>

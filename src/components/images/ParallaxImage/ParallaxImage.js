@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { omit } from 'lodash/fp';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
@@ -60,7 +61,6 @@ export default class ParallaxImage extends Component {
     ) {
       return;
     }
-    console.log('helloooooo');
     this.initIntersectionObserver();
   }
 

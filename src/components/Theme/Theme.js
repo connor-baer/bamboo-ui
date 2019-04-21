@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
@@ -13,7 +14,7 @@ import {
   loadFonts,
   preloadFonts
 } from '../../styles/load-fonts';
-import injectGlobalStyles from '../../styles/global-styles';
+import GlobalStyles from '../../styles/global-styles';
 
 const transitionStyles = ({ theme, isTransitioning }) =>
   isTransitioning &&
@@ -52,11 +53,6 @@ export default class Theme extends Component {
     const reducedMotion = cookies.reducedMotion === 'true';
 
     const theme = this.getTheme(themeId, { darkmode, reducedMotion });
-
-    const custom = assetPrefix
-      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
-      : '';
-    injectGlobalStyles({ theme, custom });
 
     if (assetPrefix && !isSaveData()) {
       loadFonts(theme.fonts);
@@ -158,18 +154,22 @@ export default class Theme extends Component {
     const { isTransitioning, themeId, ...config } = this.state;
     const { children, assetPrefix } = this.props;
     const theme = this.getTheme(themeId, config);
+    const custom = assetPrefix
+      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
+      : '';
     return (
-      <Fragment>
-        <Head>
-          <meta name="theme-color" content={theme.colors.bodyBg} />
-          {preloadFonts(assetPrefix, theme.fonts)}
-        </Head>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <Head>
+            <meta name="theme-color" content={theme.colors.bodyBg} />
+            {preloadFonts(assetPrefix, theme.fonts)}
+          </Head>
+          <GlobalStyles custom={custom} />
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>
-        </ThemeProvider>
-      </Fragment>
+        </Fragment>
+      </ThemeProvider>
     );
   }
 }

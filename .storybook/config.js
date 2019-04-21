@@ -1,34 +1,20 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
-import { setOptions } from '@storybook/addon-options';
+import centered from '@storybook/addon-centered/react';
 import { getAll } from 'es-cookie';
+
+import Story from './Story';
 
 import '../__mocks__/nextRouter';
 
 import themes from '../src/styles/themes';
-import injectGlobalStyles from '../src/styles/global-styles';
 import Theme from '../src/components/Theme';
-
-import Story from './Story';
-
-const custom = `
-html,
-body {
-  background: transparent;
-}`;
-
-injectGlobalStyles({ theme: themes.standard(), custom });
 
 // Sets the info addon's options.
 setDefaults({
   header: false
-});
-
-setOptions({
-  name: 'Bamboo UI',
-  url: 'https://github.com/connor-baer/bamboo-ui'
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);
@@ -48,8 +34,15 @@ const withStoryStyles = storyFn => {
 };
 
 const loadStories = () => {
+  addParameters({
+    options: {
+      name: '🎋 Bamboo UI',
+      url: 'https://github.com/connor-baer/bamboo-ui'
+    }
+  });
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
+  addDecorator(centered);
   addDecorator(withTheme);
   req.keys().forEach(filename => req(filename));
 };

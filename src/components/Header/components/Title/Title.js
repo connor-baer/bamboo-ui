@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { styleHelpers } from '@sumup/circuit-ui';
 
 /* eslint-disable no-irregular-whitespace */
@@ -8,15 +9,15 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};
 
   &::after {
-    ${theme.mq.mega`
+    ${theme.mq.mega} {
       content: ' ';
       display: inline;
-    `};
+    }
   }
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     display: inline;
-  `};
+  }
 `;
 /* eslint-enable no-irregular-whitespace */
 

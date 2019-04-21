@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   background-color: ${theme.colors.bodyBg};
@@ -7,12 +8,12 @@ const baseStyles = ({ theme }) => css`
   overflow: hidden;
   padding-bottom: ${theme.spacings.zetta};
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     ${'' /* Height of the footer */}
     min-height: calc(100vh - (168px + 65px));
     ${'' /* Height of the top navigation */}
     padding-top: 88px;
-  `};
+  }
 `;
 
 const sidebarStyles = ({ theme, hasSidebar }) =>
@@ -20,9 +21,9 @@ const sidebarStyles = ({ theme, hasSidebar }) =>
   css`
     width: 100vw;
 
-    ${theme.mq.mega`
+    ${theme.mq.mega} {
       width: calc(100vw - 320px);
-    `};
+    }
   `;
 
 const Main = styled('main')(baseStyles, sidebarStyles);

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
@@ -53,7 +54,9 @@ Anchor.propTypes = {
   children: sharedPropTypes.childrenPropType.isRequired,
   title: PropTypes.string,
   className: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  target: PropTypes.string,
+  rel: PropTypes.string
 };
 
 /**

@@ -6,9 +6,9 @@ import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import Subtitle from './components/Subtitle';
 
-function Header({ title, subtitle, children, className }) {
+function Header({ title, subtitle, children, ...rest }) {
   return (
-    <Wrapper className={className}>
+    <Wrapper {...rest}>
       {title && <Title hasColor={!!subtitle}>{title}</Title>}
       {subtitle && <Subtitle>{subtitle}</Subtitle>}
       {children}
@@ -19,7 +19,6 @@ function Header({ title, subtitle, children, className }) {
 Header.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  className: PropTypes.string,
   children: sharedPropTypes.childrenPropType
 };
 

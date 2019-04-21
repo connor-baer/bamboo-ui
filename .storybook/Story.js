@@ -1,17 +1,29 @@
-import React from 'react';
-import styled, { css } from 'react-emotion';
+import React, { useEffect } from 'react';
+import addons from '@storybook/addons';
+import { addDecorator } from '@storybook/react';
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 
-const containerStyles = ({ theme }) => css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: ${theme.colors.bodyColor};
-  background: ${theme.colors.bodyBg};
-`;
+import GlobalStyles from '../src/styles/global-styles';
 
-const Container = styled('div')(containerStyles);
+const channel = addons.getChannel();
+
+function ThemeToggle({ theme }) {
+  useEffect(
+    () => {
+      channel.on('DARK_MODE', theme.toggleDarkmode);
+    },
+    [channel, theme.toggleDarkmode]
+  );
+  return null;
+}
+
+const custom = `
+html,
+body {
+  background: transparent;
+}`;
 
 const optionStyles = ({ theme }) => css`
   position: fixed;
@@ -43,23 +55,20 @@ const buttonStyles = ({ theme }) => css`
 
 const Button = styled('button')(buttonStyles);
 
-const Darkmode = ({ theme }) => (
-  <Button onClick={theme.toggleDarkmode}>Dark</Button>
-);
-
 const ReducedMotion = ({ theme }) => (
-  <Button onClick={theme.toggleReducedMotion}>Motion</Button>
+  <Button onClick={theme.toggleReducedMotion}>Reduce motion</Button>
 );
 
 function Story({ theme, children }) {
   return (
-    <Container>
+    <div>
       {children}
+      <ThemeToggle theme={theme} />
+      <GlobalStyles theme={theme} custom={custom} />
       <Options>
-        <Darkmode theme={theme} />
         <ReducedMotion theme={theme} />
       </Options>
-    </Container>
+    </div>
   );
 }
 

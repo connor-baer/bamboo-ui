@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { isEmpty, omit } from 'lodash/fp';
 
 import { imagePropType } from '../../../util/shared-prop-types';
@@ -12,58 +13,58 @@ const containerStyles = ({ theme }) => css`
   justify-content: space-between;
   margin-bottom: ${theme.spacings.zetta};
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     flex-wrap: nowrap;
-  `};
+  }
 `;
 
 const ImagesContainer = styled('div')(containerStyles);
 
 const baseWrapperStyles = ({ theme }) => css`
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     margin-right: ${theme.spacings.mega};
-  `};
+  }
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     &:last-child {
       margin-right: 0;
     }
-  `};
+  }
 
-  ${theme.mq.untilKilo`
+  ${theme.mq.untilKilo} {
     &:first-child {
       display: none;
     }
-  `};
+  }
 
-  ${theme.mq.untilMega`
+  ${theme.mq.untilMega} {
     &:nth-child(2) {
       margin-right: 0;
     }
     &:last-child {
       display: none;
     }
-  `};
+  }
 `;
 
 const outerWrapperStyles = ({ theme }) => css`
   width: 37.6%;
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     width: 27.3%;
-  `};
+  }
 `;
 
 const innerWrapperStyles = ({ theme }) => css`
   width: 100%;
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     width: 62.4%;
-  `};
+  }
 
-  ${theme.mq.mega`
+  ${theme.mq.mega} {
     width: 45.4%;
-  `};
+  }
 `;
 
 const OuterWrapper = styled('div')(baseWrapperStyles, outerWrapperStyles);
@@ -74,6 +75,7 @@ function Collage({ images }) {
     return null;
   }
 
+  // FIXME: What is this?
   // const sizes = getSizes(theme);
 
   return (

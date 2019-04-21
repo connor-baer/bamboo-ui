@@ -1,4 +1,7 @@
-import { injectGlobalStyles } from '@sumup/circuit-ui';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { GlobalStyles as GlobalStylesCircuitUi } from '@sumup/circuit-ui';
+import { ThemeContext } from '@emotion/core';
 
 export const createGlobalStyles = ({ theme, custom = '' }) => `
   body,
@@ -33,11 +36,11 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
   h3,
   h4,
   h5 {
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       overflow-wrap: break-word;
       word-wrap: break-word;
       hyphens: auto;
-    `};
+    }
   }
 
   a {
@@ -86,7 +89,12 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
   ${custom}
 `;
 
-export default ({ theme, custom }) => {
+export default function GlobalStyles({ custom, ...rest }) {
+  const theme = useContext(ThemeContext);
   const mergedCustomStyles = createGlobalStyles({ theme, custom });
-  return injectGlobalStyles({ theme, custom: mergedCustomStyles });
+  return <GlobalStylesCircuitUi custom={mergedCustomStyles} {...rest} />;
+}
+
+GlobalStyles.propTypes = {
+  custom: PropTypes.string
 };
