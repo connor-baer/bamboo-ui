@@ -158,18 +158,18 @@ export default class Theme extends Component {
       ? theme.fonts.map(createFontFace(assetPrefix)).join('')
       : '';
     return (
-      <Fragment>
-        <Head>
-          <meta name="theme-color" content={theme.colors.bodyBg} />
-          {preloadFonts(assetPrefix, theme.fonts)}
-        </Head>
-        <GlobalStyles theme={theme} custom={custom} />
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <Head>
+            <meta name="theme-color" content={theme.colors.bodyBg} />
+            {preloadFonts(assetPrefix, theme.fonts)}
+          </Head>
+          <GlobalStyles custom={custom} />
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>
-        </ThemeProvider>
-      </Fragment>
+        </Fragment>
+      </ThemeProvider>
     );
   }
 }
