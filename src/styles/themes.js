@@ -1,5 +1,4 @@
 import openColor from 'open-color/open-color.json';
-import { css } from '@emotion/core';
 import { mapValues } from 'lodash/fp';
 
 const fonts = [
@@ -98,6 +97,11 @@ const iconSizes = {
   kilo: '16px',
   mega: '24px',
   giga: '36px'
+};
+
+const borderWidth = {
+  kilo: '1px',
+  mega: '2px'
 };
 
 const borderRadius = {
@@ -301,12 +305,10 @@ export const createMediaQueries = mapValues(mediaExpression => {
     typeof mediaExpression === 'string'
       ? {}
       : { prefix: '(min-width: ', suffix: 'px)' };
+
   const enhancedExpression = prefix + mediaExpression + suffix;
-  return (...args) => css`
-    @media ${enhancedExpression} {
-      ${css(...args)};
-    }
-  `;
+
+  return `@media ${enhancedExpression}`;
 });
 
 function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
@@ -318,6 +320,7 @@ function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
     fontWeight,
     typography,
     iconSizes,
+    borderWidth,
     borderRadius,
     breakpoints,
     colors: createColors(darkmode),
