@@ -14,7 +14,7 @@ import {
   loadFonts,
   preloadFonts
 } from '../../styles/load-fonts';
-import injectGlobalStyles from '../../styles/global-styles';
+import GlobalStyles from '../../styles/global-styles';
 
 const transitionStyles = ({ theme, isTransitioning }) =>
   isTransitioning &&
@@ -53,11 +53,6 @@ export default class Theme extends Component {
     const reducedMotion = cookies.reducedMotion === 'true';
 
     const theme = this.getTheme(themeId, { darkmode, reducedMotion });
-
-    const custom = assetPrefix
-      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
-      : '';
-    injectGlobalStyles({ theme, custom });
 
     if (assetPrefix && !isSaveData()) {
       loadFonts(theme.fonts);
@@ -159,12 +154,16 @@ export default class Theme extends Component {
     const { isTransitioning, themeId, ...config } = this.state;
     const { children, assetPrefix } = this.props;
     const theme = this.getTheme(themeId, config);
+    const custom = assetPrefix
+      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
+      : '';
     return (
       <Fragment>
         <Head>
           <meta name="theme-color" content={theme.colors.bodyBg} />
           {preloadFonts(assetPrefix, theme.fonts)}
         </Head>
+        <GlobalStyles theme={theme} custom={custom} />
         <ThemeProvider theme={theme}>
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
