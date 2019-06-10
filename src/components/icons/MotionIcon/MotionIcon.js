@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Motion from './svgs/motion.svg';
-import MotionFull from './svgs/motion-full.svg';
+import { ReactComponent as Motion } from './svgs/motion.svg';
+import { ReactComponent as MotionFull } from './svgs/motion-full.svg';
 
 function MotionIcon({ full, ...props }) {
   const Icon = full ? MotionFull : Motion;
