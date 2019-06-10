@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Moon from './svgs/moon.svg';
-import MoonFull from './svgs/moon-full.svg';
+import { ReactComponent as Moon } from './svgs/moon.svg';
+import { ReactComponent as MoonFull } from './svgs/moon-full.svg';
 
 function MoonIcon({ full, ...props }) {
   const Icon = full ? MoonFull : Moon;
