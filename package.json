@@ -10,7 +10,6 @@
     "README.md"
   ],
   "scripts": {
-    "commit": "git-cz",
     "fix": "yarn fix:eslint",
     "fix:eslint": "foundry run eslint --fix --quiet src/**/**/*.js",
     "test": "yarn test:lint-js && yarn test:unit",
@@ -25,7 +24,7 @@
     "start": "yarn test:unit && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
     "build": "yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
-    "build:storybook": "build-storybook -c .storybook -o dist/storybook",
+    "build:storybook": "build-storybook -c .storybook -o dist",
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
     "build:global-styles": "mkdir -p dist && BABEL_ENV=static ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
@@ -33,13 +32,11 @@
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
     "clean:js": "rimraf lib",
-    "predeploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME",
+    "predeploy": "rm -rf ./dist && mkdir dist && yarn build && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
     "prerelease": "yarn build:js",
     "release": "semantic-release",
     "coverage:upload": "codecov",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build",
     "prepublishOnly": "yarn build:js"
   },
   "repository": {
@@ -103,9 +100,6 @@
     "codecov": "^3.1.0",
     "component-playground": "^3.2.0",
     "cross-env": "^5.2.0",
-    "docz": "^1.0.0",
-    "docz-core": "^1.0.0",
-    "docz-theme-default": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "eslint-import-resolver-webpack": "^0.11.1",
