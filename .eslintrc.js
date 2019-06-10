@@ -4,6 +4,9 @@ const {
 } = require('@sumup/foundry/eslint');
 
 const customConfig = {
+  rules: {
+    'notice/notice': 'off'
+  },
   settings: {
     'import/resolver': {
       webpack: {
