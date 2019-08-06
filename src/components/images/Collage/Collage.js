@@ -70,7 +70,7 @@ const innerWrapperStyles = ({ theme }) => css`
 const OuterWrapper = styled('div')(baseWrapperStyles, outerWrapperStyles);
 const InnerWrapper = styled('div')(baseWrapperStyles, innerWrapperStyles);
 
-function Collage({ images }) {
+function Collage({ images = [] }) {
   if (isEmpty(images) || images.length < 3) {
     return null;
   }
@@ -107,10 +107,6 @@ function Collage({ images }) {
 
 Collage.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape(imagePropType))
-};
-
-Collage.defaultProps = {
-  images: []
 };
 
 /**

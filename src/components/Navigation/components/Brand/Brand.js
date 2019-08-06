@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers, sharedPropTypes } from '@sumup/circuit-ui';
+import { useRouter } from 'next/router';
 
+import { childrenPropType } from '../../../../util/shared-prop-types';
 import Link from '../../../Link';
 
 const anchorStyles = () => css`
@@ -40,7 +41,8 @@ const siteLogoHoverStyles = ({ theme }) =>
 const SiteLogo = styled('span')(siteLogoBaseStyles, siteLogoHoverStyles);
 
 const siteNameStyles = ({ theme }) => css`
-  ${styleHelpers.headingTera({ theme })};
+  font-size: ${theme.fontSizes.giga};
+  line-height: ${theme.lineHeights.kilo};
   display: inline-block;
   transition: color ${theme.animations.micro};
   font-weight: ${theme.fontWeight.bold};
@@ -58,7 +60,9 @@ const siteNameStyles = ({ theme }) => css`
 
 const SiteName = styled('div')(siteNameStyles);
 
-const Brand = ({ siteLogo, siteName, siteUrl, children, router }) => {
+function Brand({ siteLogo, siteName, siteUrl = '/', children }) {
+  const router = useRouter();
+
   const isHome = router.asPath === siteUrl;
   const href = isHome ? '#' : '/';
 
@@ -80,21 +84,13 @@ const Brand = ({ siteLogo, siteName, siteUrl, children, router }) => {
     </Link>
   );
   /* eslint-enable jsx-a11y/anchor-is-valid */
-};
+}
 
 Brand.propTypes = {
   siteLogo: PropTypes.element,
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
-  children: sharedPropTypes.childrenPropType,
-  router: PropTypes.shape({
-    asPath: PropTypes.string
-  })
-};
-
-Brand.defaultProps = {
-  siteUrl: '/',
-  router: {}
+  children: childrenPropType
 };
 
 /**

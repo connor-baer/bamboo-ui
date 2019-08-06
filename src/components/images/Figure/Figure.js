@@ -6,6 +6,7 @@ import {
   imagePropType,
   captionPropType
 } from '../../../util/shared-prop-types';
+import useTheme from '../../../hooks/use-theme';
 import Align from '../../layout/Align';
 import Image from '../Image';
 import Caption from '../Caption';
@@ -32,7 +33,9 @@ function getSizes(theme, align) {
   return [gigaSize, megaSize, mobileSize].join(', ');
 }
 
-function Figure({ caption, align, theme, image, ...rest }) {
+function Figure({ image = {}, align = Align.LEFT, caption, ...rest }) {
+  const theme = useTheme();
+
   if (!image.src) {
     return null;
   }
@@ -60,13 +63,7 @@ Figure.propTypes = {
     Figure.LEFT,
     Figure.CENTER,
     Figure.FULL
-  ]),
-  theme: PropTypes.object
-};
-
-Figure.defaultProps = {
-  align: Figure.LEFT,
-  image: {}
+  ])
 };
 
 /**

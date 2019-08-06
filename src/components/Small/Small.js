@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Text } from '@sumup/circuit-ui';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   letter-spacing: 0.2px;
   display: inline-block;
+  font-size: ${theme.fontSizes.byte};
 
   &::after {
     content: '·';
@@ -15,19 +15,13 @@ const baseStyles = ({ theme }) => css`
     padding-left: ${theme.spacings.kilo};
   }
 
-  &:last-child::after {
+  &:last-of-type::after {
     display: none;
     content: '';
   }
 `;
 
-const Small = styled(Text)(baseStyles);
-
-Small.defaultProps = {
-  element: 'small',
-  size: Text.KILO,
-  noMargin: true
-};
+const Small = styled('small')(baseStyles);
 
 /**
  * @component

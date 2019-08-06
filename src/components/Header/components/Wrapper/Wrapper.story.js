@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { GROUPS } from '../../../../../.storybook/groups';
@@ -8,7 +8,7 @@ import Wrapper from './Wrapper';
 // eslint-disable-next-line react/prop-types
 function VisualizeSpacing({ children }) {
   return (
-    <Fragment>
+    <>
       <div
         style={{
           borderBottom: '1px solid lightgrey',
@@ -30,7 +30,7 @@ function VisualizeSpacing({ children }) {
       >
         bottom margin
       </div>
-    </Fragment>
+    </>
   );
 }
 

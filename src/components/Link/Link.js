@@ -2,7 +2,8 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { isString, isEmpty } from 'lodash/fp';
 import NextLink from 'next/link';
-import { sharedPropTypes } from '@sumup/circuit-ui';
+
+import { childrenPropType } from '../../util/shared-prop-types';
 
 export default function Link(props) {
   const { href, children, onClick } = props;
@@ -23,6 +24,6 @@ export default function Link(props) {
 
 Link.propTypes = {
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: sharedPropTypes.childrenPropType,
+  children: childrenPropType,
   onClick: PropTypes.func
 };

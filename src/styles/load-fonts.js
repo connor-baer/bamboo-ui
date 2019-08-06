@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { css } from '@emotion/core';
 import { curry, differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
 
@@ -8,7 +9,7 @@ import addClass from '../util/add-class';
 export const createFontFace = curry(
   (assetPrefix, { name, weight, style, localName }) => {
     const fontPath = `${assetPrefix}/${name}-${weight}-${style}`;
-    return `
+    return css`
       @font-face {
         font-family: '${name}';
         font-style: ${style};

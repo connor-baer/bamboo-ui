@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../util/shared-prop-types';
 import isServer from '../../util/is-server';
 import NavigationContext from './NavigationContext';
 import Brand from './components/Brand';
@@ -63,7 +63,7 @@ const INITIAL_STATE = {
 
 class Navigation extends Component {
   static propTypes = {
-    children: sharedPropTypes.childrenPropType
+    children: childrenPropType
   };
 
   state = INITIAL_STATE;

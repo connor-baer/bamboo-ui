@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  font-size: ${theme.typography.headings.peta.fontSize};
-  line-height: ${theme.typography.headings.peta.lineHeight};
+  font-size: ${theme.fontSizes.tera};
+  line-height: ${theme.lineHeights.kilo};
   font-weight: ${theme.fontWeight.light};
   color: ${theme.colors.n700};
   margin-top: ${theme.spacings.kilo};
@@ -11,8 +11,7 @@ const baseStyles = ({ theme }) => css`
   ${theme.mq.mega} {
     display: inline;
     margin-top: 0;
-    font-size: ${theme.typography.headings.zetta.fontSize};
-    line-height: ${theme.typography.headings.zetta.lineHeight};
+    font-size: ${theme.fontSizes.peta};
   }
 `;
 

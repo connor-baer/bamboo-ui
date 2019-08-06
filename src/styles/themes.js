@@ -35,61 +35,25 @@ const fontWeight = {
   bold: '700'
 };
 
-const typography = {
-  headings: {
-    kilo: {
-      fontSize: '17px',
-      lineHeight: '24px'
-    },
-    mega: {
-      fontSize: '19px',
-      lineHeight: '24px'
-    },
-    giga: {
-      fontSize: '22px',
-      lineHeight: '28px'
-    },
-    tera: {
-      fontSize: '24px',
-      lineHeight: '32px'
-    },
-    peta: {
-      fontSize: '28px',
-      lineHeight: '36px'
-    },
-    exa: {
-      fontSize: '36px',
-      lineHeight: '44px'
-    },
-    zetta: {
-      fontSize: '42px',
-      lineHeight: '56px'
-    }
-  },
-  subHeadings: {
-    kilo: {
-      fontSize: '12px',
-      lineHeight: '20px'
-    },
-    mega: {
-      fontSize: '14px',
-      lineHeight: '18px'
-    }
-  },
-  text: {
-    kilo: {
-      fontSize: '14px',
-      lineHeight: '24px'
-    },
-    mega: {
-      fontSize: '16px',
-      lineHeight: '32px'
-    },
-    giga: {
-      fontSize: '21px',
-      lineHeight: '42px'
-    }
-  }
+const fontSizes = {
+  bit: '0.75rem',
+  byte: '0.875rem',
+  kilo: '1rem',
+  mega: '1.25rem',
+  giga: '1.5rem',
+  tera: '2rem',
+  peta: '2.5rem',
+  exa: '3rem',
+  zetta: '4rem'
+};
+
+const lineHeights = {
+  bit: '1em',
+  byte: '1.25em',
+  kilo: '1.5em',
+  mega: '1.75em',
+  giga: '2em',
+  tera: '2.5em'
 };
 
 const iconSizes = {
@@ -105,10 +69,16 @@ const borderWidth = {
 };
 
 const borderRadius = {
-  kilo: '1px',
+  kilo: '2px',
   mega: '4px',
   giga: '6px'
 };
+
+const zIndexes = {
+  nprogress: 999
+};
+
+const maxWidth = '80rem';
 
 const neutralsLight = {
   n100: openColor.gray[1],
@@ -231,7 +201,7 @@ export function createColors(darkmode = false) {
   };
 }
 
-export function createAnimations(reducedMotion = false) {
+function createAnimations(reducedMotion = false) {
   return {
     micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
     standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
@@ -239,66 +209,18 @@ export function createAnimations(reducedMotion = false) {
   };
 }
 
-export function createSpacings(base = 4) {
-  return {
-    bit: `${base * 1}px`,
-    byte: `${base * 2}px`,
-    kilo: `${base * 3}px`,
-    mega: `${base * 4}px`,
-    giga: `${base * 6}px`,
-    tera: `${base * 8}px`,
-    peta: `${base * 10}px`,
-    exa: `${base * 12}px`,
-    zetta: `${base * 14}px`
-  };
-}
-
-export function createGrid(base = 4) {
-  return {
-    default: {
-      priority: 0,
-      breakpoint: 'default',
-      cols: 12,
-      maxWidth: '1080px',
-      gutter: createSpacings(base).peta
-    },
-    untilKilo: {
-      priority: 1,
-      breakpoint: 'untilKilo',
-      cols: 12,
-      maxWidth: `400px`,
-      gutter: createSpacings(base).peta
-    },
-    kilo: {
-      priority: 2,
-      breakpoint: 'kilo',
-      cols: 12,
-      maxWidth: '700px',
-      gutter: createSpacings(base).peta
-    },
-    mega: {
-      priority: 3,
-      breakpoint: 'mega',
-      cols: 12,
-      maxWidth: '1000px',
-      gutter: createSpacings(base).exa
-    },
-    giga: {
-      priority: 4,
-      breakpoint: 'giga',
-      cols: 12,
-      maxWidth: '1000px',
-      gutter: createSpacings(base).exa
-    },
-    afterTera: {
-      priority: 5,
-      breakpoint: 'tera',
-      cols: 12,
-      maxWidth: '1200px',
-      gutter: createSpacings(base).exa
-    }
-  };
-}
+const spacings = {
+  bit: '0.25rem',
+  byte: '0.5rem',
+  kilo: '0.75rem',
+  mega: '1rem',
+  giga: '1.5rem',
+  tera: '2rem',
+  peta: '2.5rem',
+  exa: '3rem',
+  zetta: '4rem',
+  yotta: '5rem'
+};
 
 export const createMediaQueries = mapValues(mediaExpression => {
   const { prefix = '', suffix = '' } =
@@ -311,22 +233,24 @@ export const createMediaQueries = mapValues(mediaExpression => {
   return `@media ${enhancedExpression}`;
 });
 
-function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
+function standard({ darkmode, reducedMotion } = {}) {
   return {
     darkmode,
     reducedMotion,
     fonts,
     fontStack,
     fontWeight,
-    typography,
+    fontSizes,
+    lineHeights,
     iconSizes,
     borderWidth,
     borderRadius,
     breakpoints,
+    spacings,
+    zIndexes,
+    maxWidth,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
-    spacings: createSpacings(baseSpacing),
-    grid: createGrid(baseSpacing),
     mq: createMediaQueries(breakpoints)
   };
 }

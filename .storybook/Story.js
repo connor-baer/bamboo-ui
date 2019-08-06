@@ -10,20 +10,27 @@ import GlobalStyles from '../src/styles/global-styles';
 const channel = addons.getChannel();
 
 function ThemeToggle({ theme }) {
-  useEffect(
-    () => {
-      channel.on('DARK_MODE', theme.toggleDarkmode);
-    },
-    [channel, theme.toggleDarkmode]
-  );
+  useEffect(() => {
+    channel.on('DARK_MODE', theme.toggleDarkmode);
+  }, [channel, theme.toggleDarkmode]);
   return null;
 }
 
-const custom = `
-html,
-body {
-  background: transparent;
-}`;
+const globalStyles = ({ theme }) => css`
+  html,
+  body {
+    background: transparent;
+  }
+
+  body,
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: ${theme.fontStack.default} !important;
+  }
+`;
 
 const optionStyles = ({ theme }) => css`
   position: fixed;
@@ -64,7 +71,7 @@ function Story({ theme, children }) {
     <div>
       {children}
       <ThemeToggle theme={theme} />
-      <GlobalStyles theme={theme} custom={custom} />
+      <GlobalStyles styles={globalStyles} />
       <Options>
         <ReducedMotion theme={theme} />
       </Options>

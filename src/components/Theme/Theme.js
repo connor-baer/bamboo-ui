@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../util/shared-prop-types';
 import isServer from '../../util/is-server';
 import isSaveData from '../../util/is-save-data';
 import { setCookie } from '../../util/cookies';
@@ -36,7 +36,7 @@ export default class Theme extends Component {
     initialThemeId: PropTypes.string,
     themes: PropTypes.object.isRequired,
     assetPrefix: PropTypes.string,
-    children: sharedPropTypes.childrenPropType
+    children: childrenPropType
   };
 
   static defaultProps = {
@@ -152,23 +152,21 @@ export default class Theme extends Component {
 
   render() {
     const { isTransitioning, themeId, ...config } = this.state;
-    const { children, assetPrefix } = this.props;
+    const { children, assetPrefix = '' } = this.props;
     const theme = this.getTheme(themeId, config);
-    const custom = assetPrefix
-      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
-      : '';
+    const styles = () => theme.fonts.map(createFontFace(assetPrefix)).join('');
     return (
       <ThemeProvider theme={theme}>
-        <Fragment>
+        <>
           <Head>
             <meta name="theme-color" content={theme.colors.bodyBg} />
             {preloadFonts(assetPrefix, theme.fonts)}
           </Head>
-          <GlobalStyles custom={custom} />
+          <GlobalStyles styles={styles} />
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>
-        </Fragment>
+        </>
       </ThemeProvider>
     );
   }
