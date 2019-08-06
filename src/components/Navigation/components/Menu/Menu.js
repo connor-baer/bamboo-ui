@@ -7,7 +7,7 @@ import { childrenPropType } from '../../../../util/shared-prop-types';
 import MoonIcon from '../../../icons/MoonIcon';
 import MotionIcon from '../../../icons/MotionIcon';
 import Image from '../../../images/Image';
-import Hamburger from '../../../Hamburger';
+import Hamburger from '../../../icons/Hamburger';
 import Hr from '../../../Hr';
 
 const wrapperStyles = ({ theme }) => css`
