@@ -222,53 +222,6 @@ const spacings = {
   yotta: '5rem'
 };
 
-export function createGrid() {
-  return {
-    default: {
-      priority: 0,
-      breakpoint: 'default',
-      cols: 12,
-      maxWidth: '1080px',
-      gutter: spacings.peta
-    },
-    untilKilo: {
-      priority: 1,
-      breakpoint: 'untilKilo',
-      cols: 12,
-      maxWidth: `400px`,
-      gutter: spacings.peta
-    },
-    kilo: {
-      priority: 2,
-      breakpoint: 'kilo',
-      cols: 12,
-      maxWidth: '700px',
-      gutter: spacings.peta
-    },
-    mega: {
-      priority: 3,
-      breakpoint: 'mega',
-      cols: 12,
-      maxWidth: '1000px',
-      gutter: spacings.exa
-    },
-    giga: {
-      priority: 4,
-      breakpoint: 'giga',
-      cols: 12,
-      maxWidth: '1000px',
-      gutter: spacings.exa
-    },
-    afterTera: {
-      priority: 5,
-      breakpoint: 'tera',
-      cols: 12,
-      maxWidth: '1200px',
-      gutter: spacings.exa
-    }
-  };
-}
-
 export const createMediaQueries = mapValues(mediaExpression => {
   const { prefix = '', suffix = '' } =
     typeof mediaExpression === 'string'
@@ -298,7 +251,6 @@ function standard({ darkmode, reducedMotion } = {}) {
     maxWidth,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
-    grid: createGrid(),
     mq: createMediaQueries(breakpoints)
   };
 }

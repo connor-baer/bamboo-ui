@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Grid } from '@sumup/circuit-ui';
 
 import Link from '../Link';
 
 const wrapperStyles = ({ theme }) => css`
   background-color: ${theme.colors.n100};
-  padding-top: ${theme.spacings.zetta};
-  padding-bottom: ${theme.spacings.zetta};
   text-align: center;
+  padding: ${theme.spacings.zetta} ${theme.spacings.kilo};
+
+  ${theme.mq.mega} {
+    padding: ${theme.spacings.zetta} ${theme.spacings.giga};
+  }
 `;
 
 const Wrapper = styled('footer')(wrapperStyles);
@@ -21,6 +23,8 @@ const contentStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.light};
   text-align: center;
   color: ${theme.colors.n900};
+  max-width: ${theme.maxWidth};
+  margin: 0 auto;
 `;
 
 const Content = styled('p')(contentStyles);
@@ -42,16 +46,14 @@ function Prefooter({ text, linkLabel, linkUrl }) {
   /* eslint-disable no-irregular-whitespace */
   return (
     <Wrapper>
-      <Grid>
-        <Content>
-          {text && `${text} `}
-          {hasLink && (
-            <Link href={linkUrl}>
-              <Anchor>{linkLabel}</Anchor>
-            </Link>
-          )}
-        </Content>
-      </Grid>
+      <Content>
+        {text && `${text} `}
+        {hasLink && (
+          <Link href={linkUrl}>
+            <Anchor>{linkLabel}</Anchor>
+          </Link>
+        )}
+      </Content>
     </Wrapper>
   );
   /* eslint-enable no-irregular-whitespace */
