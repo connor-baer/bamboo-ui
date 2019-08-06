@@ -8,6 +8,7 @@ import {
   imagePropType,
   captionPropType
 } from '../../../util/shared-prop-types';
+import useTheme from '../../../hooks/use-theme';
 import Align from '../../layout/Align';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';
@@ -70,7 +71,9 @@ const multipleStyles = ({ theme, numberOfImages, align }) => {
 
 const ImageWrapper = styled('div')(singleStyles, multipleStyles);
 
-function Gallery({ caption, align, images, theme }) {
+function Gallery({ images, align = Align.LEFT, caption }) {
+  const theme = useTheme();
+
   if (isEmpty(images)) {
     return null;
   }
@@ -101,20 +104,14 @@ Gallery.CENTER = Align.CENTER;
 Gallery.FULL = Align.FULL;
 
 Gallery.propTypes = {
-  caption: captionPropType,
+  images: PropTypes.arrayOf(PropTypes.shape(imagePropType)),
   align: PropTypes.oneOf([
     Gallery.RIGHT,
     Gallery.LEFT,
     Gallery.CENTER,
     Gallery.FULL
   ]),
-  images: PropTypes.arrayOf(PropTypes.shape(imagePropType)),
-  theme: PropTypes.object
-};
-
-Gallery.defaultProps = {
-  align: Align.LEFT,
-  images: []
+  caption: captionPropType
 };
 
 /**

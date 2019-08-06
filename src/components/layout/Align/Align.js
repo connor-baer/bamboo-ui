@@ -9,7 +9,7 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.tera};
 `;
 
-const rightStyles = ({ theme, align }) =>
+const rightStyles = ({ theme, align = CENTER }) =>
   align === RIGHT &&
   css`
     ${theme.mq.kilo} {
@@ -29,7 +29,7 @@ const rightStyles = ({ theme, align }) =>
     }
   `;
 
-const leftStyles = ({ theme, align }) =>
+const leftStyles = ({ theme, align = CENTER }) =>
   align === LEFT &&
   css`
     ${theme.mq.kilo} {
@@ -49,7 +49,7 @@ const leftStyles = ({ theme, align }) =>
     }
   `;
 
-const fullStyles = ({ theme, align }) =>
+const fullStyles = ({ theme, align = CENTER }) =>
   align === FULL &&
   css`
     text-align: center;
@@ -74,10 +74,6 @@ Align.FULL = FULL;
 
 Align.propTypes = {
   align: PropTypes.oneOf([RIGHT, LEFT, CENTER, FULL])
-};
-
-Align.defaultProps = {
-  align: CENTER
 };
 
 /**

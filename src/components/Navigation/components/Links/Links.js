@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useRouter } from 'next/router';
 import { startsWith, isEmpty } from 'lodash/fp';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
@@ -81,7 +82,9 @@ const navAnchorActiveStyles = ({ theme, isActive }) =>
 
 const A = styled('a')(navAnchorBaseStyles, navAnchorActiveStyles);
 
-const Links = ({ links, router }) => {
+const Links = ({ links }) => {
+  const router = useRouter();
+
   if (isEmpty(links)) {
     return null;
   }
@@ -110,14 +113,7 @@ Links.propTypes = {
       url: PropTypes.string,
       icon: childrenPropType
     })
-  ),
-  router: PropTypes.shape({
-    asPath: PropTypes.string
-  })
-};
-
-Links.defaultProps = {
-  router: {}
+  )
 };
 
 /**

@@ -19,10 +19,9 @@ function Meta({
   title,
   description,
   url,
-  image,
-  alt,
-  index,
-  follow,
+  image = {},
+  index = true,
+  follow = true,
   siteName,
   siteTwitter,
   children
@@ -41,7 +40,7 @@ function Meta({
       {description && <meta property="og:description" content={description} />}
       {url && <meta property="og:url" content={url} />}
       {image.src && <meta property="og:image" content={image.src} />}
-      {alt && <meta name="twitter:image:alt" content={alt} />}
+      {image.alt && <meta name="twitter:image:alt" content={image.alt} />}
       {siteName && <meta property="og:site_name" content={siteName} />}
       {siteTwitter && (
         <meta name="twitter:creator" content={`@${siteTwitter}`} />
@@ -60,18 +59,11 @@ Meta.propTypes = {
   description: PropTypes.string.isRequired,
   url: PropTypes.string,
   image: PropTypes.shape(imagePropType).isRequired,
-  alt: PropTypes.string,
   index: PropTypes.bool,
   follow: PropTypes.bool,
   siteName: PropTypes.string.isRequired,
   siteTwitter: PropTypes.string,
   children: childrenPropType
-};
-
-Meta.defaultProps = {
-  index: true,
-  follow: true,
-  image: {}
 };
 
 /**

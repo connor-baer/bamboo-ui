@@ -87,7 +87,13 @@ const HamburgerLabel = styled('span')(labelBaseStyles);
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
-function Hamburger({ onClick, isActive, labelActive, labelInActive, ...rest }) {
+function Hamburger({
+  onClick = () => {},
+  isActive = false,
+  labelActive = 'Close menu',
+  labelInActive = 'Open menu',
+  ...rest
+}) {
   return (
     <HamburgerButton onClick={onClick} {...rest}>
       <HamburgerLayers isActive={isActive} />
@@ -113,13 +119,6 @@ Hamburger.propTypes = {
    * Label for the 'inactive' state. Important for accessibility.
    */
   labelInActive: PropTypes.string
-};
-
-Hamburger.defaultProps = {
-  onClick: () => {},
-  isActive: false,
-  labelActive: 'Close menu',
-  labelInActive: 'Open menu'
 };
 
 /**

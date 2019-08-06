@@ -9,14 +9,14 @@ const baseStyles = ({ theme }) => css`
   padding-bottom: ${theme.spacings.zetta};
 
   ${theme.mq.mega} {
-    ${'' /* Height of the footer */}
+    /* Height of the footer */
     min-height: calc(100vh - (168px + 65px));
-    ${'' /* Height of the top navigation */}
+    /* Height of the top navigation */
     padding-top: 88px;
   }
 `;
 
-const sidebarStyles = ({ theme, hasSidebar }) =>
+const sidebarStyles = ({ theme, hasSidebar = false }) =>
   hasSidebar &&
   css`
     width: 100vw;
@@ -30,10 +30,6 @@ const Main = styled('main')(baseStyles, sidebarStyles);
 
 Main.propTypes = {
   hasSidebar: PropTypes.bool
-};
-
-Main.defaultProps = {
-  hasSidebar: false
 };
 
 export default Main;

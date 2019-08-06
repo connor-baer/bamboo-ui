@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PandaIcon({ alt, ...props }) {
+function PandaIcon({ alt = 'Emoji of a panda', ...props }) {
   return (
     <img
       {...props}
@@ -14,10 +14,6 @@ function PandaIcon({ alt, ...props }) {
 
 PandaIcon.propTypes = {
   alt: PropTypes.string.isRequired
-};
-
-PandaIcon.defaultProps = {
-  alt: 'Emoji of a panda'
 };
 
 /**

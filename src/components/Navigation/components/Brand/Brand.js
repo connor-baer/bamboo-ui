@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useRouter } from 'next/router';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import Link from '../../../Link';
@@ -59,7 +60,9 @@ const siteNameStyles = ({ theme }) => css`
 
 const SiteName = styled('div')(siteNameStyles);
 
-const Brand = ({ siteLogo, siteName, siteUrl, children, router }) => {
+function Brand({ siteLogo, siteName, siteUrl = '/', children }) {
+  const router = useRouter();
+
   const isHome = router.asPath === siteUrl;
   const href = isHome ? '#' : '/';
 
@@ -81,21 +84,13 @@ const Brand = ({ siteLogo, siteName, siteUrl, children, router }) => {
     </Link>
   );
   /* eslint-enable jsx-a11y/anchor-is-valid */
-};
+}
 
 Brand.propTypes = {
   siteLogo: PropTypes.element,
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
-  children: childrenPropType,
-  router: PropTypes.shape({
-    asPath: PropTypes.string
-  })
-};
-
-Brand.defaultProps = {
-  siteUrl: '/',
-  router: {}
+  children: childrenPropType
 };
 
 /**
