@@ -78,6 +78,8 @@ export const themePropType = PropTypes.shape({
     mono: PropTypes.string
   }),
   fontSizes: PropTypes.shape({
+    bit: PropTypes.string.isRequired,
+    byte: PropTypes.string.isRequired,
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
@@ -90,6 +92,14 @@ export const themePropType = PropTypes.shape({
     light: PropTypes.string.isRequired,
     regular: PropTypes.string.isRequired,
     bold: PropTypes.string.isRequired
+  }).isRequired,
+  lineHeights: PropTypes.shape({
+    bit: PropTypes.string.isRequired,
+    byte: PropTypes.string.isRequired,
+    kilo: PropTypes.string.isRequired,
+    mega: PropTypes.string.isRequired,
+    giga: PropTypes.string.isRequired,
+    tera: PropTypes.string.isRequired
   }).isRequired
 });
 

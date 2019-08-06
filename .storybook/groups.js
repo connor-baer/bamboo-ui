@@ -3,5 +3,6 @@ export const GROUPS = {
   LAYOUT: 'Layout',
   TYPOGRAPHY: 'Typography',
   IMAGES: 'Images',
-  ICONS: 'Icons'
+  ICONS: 'Icons',
+  DOCS: 'Docs'
 };

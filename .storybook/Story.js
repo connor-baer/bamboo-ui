@@ -16,10 +16,19 @@ function ThemeToggle({ theme }) {
   return null;
 }
 
-const styles = () => css`
+const globalStyles = ({ theme }) => css`
   html,
   body {
     background: transparent;
+  }
+
+  body,
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: ${theme.fontStack.default} !important;
   }
 `;
 
@@ -62,7 +71,7 @@ function Story({ theme, children }) {
     <div>
       {children}
       <ThemeToggle theme={theme} />
-      <GlobalStyles styles={styles} />
+      <GlobalStyles styles={globalStyles} />
       <Options>
         <ReducedMotion theme={theme} />
       </Options>

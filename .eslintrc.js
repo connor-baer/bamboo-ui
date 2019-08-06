@@ -5,7 +5,8 @@ const {
 
 const customConfig = {
   rules: {
-    'notice/notice': 'off'
+    'notice/notice': 'off',
+    'emotion/jsx-import': 'off'
   },
   settings: {
     'import/resolver': {

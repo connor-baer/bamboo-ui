@@ -36,15 +36,24 @@ const fontWeight = {
 };
 
 const fontSizes = {
-  bit: '0.9rem',
-  byte: '1rem',
-  kilo: '1.25rem',
-  mega: 'rem',
-  giga: 'rem',
-  tera: 'rem',
-  peta: 'rem',
-  exa: 'rem',
-  zetta: 'rem'
+  bit: '0.75rem',
+  byte: '0.875rem',
+  kilo: '1rem',
+  mega: '1.25rem',
+  giga: '1.5rem',
+  tera: '2rem',
+  peta: '2.5rem',
+  exa: '3rem',
+  zetta: '4rem'
+};
+
+const lineHeights = {
+  bit: '1em',
+  byte: '1.25em',
+  kilo: '1.5em',
+  mega: '1.75em',
+  giga: '2em',
+  tera: '2.5em'
 };
 
 const typography = {
@@ -117,7 +126,7 @@ const borderWidth = {
 };
 
 const borderRadius = {
-  kilo: '1px',
+  kilo: '2px',
   mega: '4px',
   giga: '6px'
 };
@@ -330,6 +339,7 @@ function standard({ darkmode, reducedMotion } = {}) {
     fontStack,
     fontWeight,
     fontSizes,
+    lineHeights,
     typography,
     iconSizes,
     borderWidth,

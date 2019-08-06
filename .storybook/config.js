@@ -6,18 +6,15 @@ import centered from '@storybook/addon-centered/react';
 import { getAll } from 'es-cookie';
 
 import Story from './Story';
+import storybookTheme from './theme';
 
 import '../__mocks__/nextRouter';
 
 import themes from '../src/styles/themes';
 import Theme from '../src/components/Theme';
 
-// Sets the info addon's options.
-setDefaults({
-  header: false
-});
-
-const req = require.context('../src/components', true, /\.story\.js$/);
+const stories = require.context('../src/components', true, /\.story\.js$/);
+const docs = require.context('../src/docs', true, /\.story\.js$/);
 
 const withTheme = storyFn => (
   <Theme
@@ -34,17 +31,13 @@ const withStoryStyles = storyFn => {
 };
 
 const loadStories = () => {
-  addParameters({
-    options: {
-      name: '🎋 Bamboo UI',
-      url: 'https://github.com/connor-baer/bamboo-ui'
-    }
-  });
+  addParameters({ options: { theme: storybookTheme } });
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
   addDecorator(centered);
   addDecorator(withTheme);
-  req.keys().forEach(filename => req(filename));
+  stories.keys().forEach(filename => stories(filename));
+  docs.keys().forEach(filename => docs(filename));
 };
 
 configure(loadStories, module);

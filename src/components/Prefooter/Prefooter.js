@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Grid, styleHelpers } from '@sumup/circuit-ui';
+import { Grid } from '@sumup/circuit-ui';
 
 import Link from '../Link';
 
@@ -16,9 +16,10 @@ const wrapperStyles = ({ theme }) => css`
 const Wrapper = styled('footer')(wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
-  ${styleHelpers.headingZetta({ theme })};
-  text-align: center;
+  font-size: ${theme.fontSizes.tera};
+  line-height: ${theme.lineHeights.kilo};
   font-weight: ${theme.fontWeight.light};
+  text-align: center;
   color: ${theme.colors.n900};
 `;
 

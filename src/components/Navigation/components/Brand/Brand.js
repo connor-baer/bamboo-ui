@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers } from '@sumup/circuit-ui';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import Link from '../../../Link';
@@ -41,7 +40,8 @@ const siteLogoHoverStyles = ({ theme }) =>
 const SiteLogo = styled('span')(siteLogoBaseStyles, siteLogoHoverStyles);
 
 const siteNameStyles = ({ theme }) => css`
-  ${styleHelpers.headingTera({ theme })};
+  font-size: ${theme.fontSizes.giga};
+  line-height: ${theme.lineHeights.kilo};
   display: inline-block;
   transition: color ${theme.animations.micro};
   font-weight: ${theme.fontWeight.bold};

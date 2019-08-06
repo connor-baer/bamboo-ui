@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers } from '@sumup/circuit-ui';
 
 /* eslint-disable no-irregular-whitespace */
 const baseStyles = ({ theme }) => css`
-  ${styleHelpers.headingZetta({ theme })};
+  font-size: ${theme.fontSizes.peta};
   font-weight: ${theme.fontWeight.bold};
+  line-height: ${theme.lineHeights.kilo};
   color: ${theme.colors.p500};
 
   &::after {

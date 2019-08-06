@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { startsWith, isEmpty } from 'lodash/fp';
-import { styleHelpers } from '@sumup/circuit-ui';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import NavigationContext from '../../NavigationContext';
@@ -41,8 +40,8 @@ const navInvisibleStyles = ({ theme, isInvisible }) =>
 const Nav = styled('nav')(navBaseStyles, navInvisibleStyles);
 
 const navAnchorBaseStyles = ({ theme }) => css`
-  ${styleHelpers.textMega({ theme })};
   font-weight: ${theme.fontWeight.regular};
+  line-height: ${theme.lineHeights.kilo};
   line-height: 1;
   letter-spacing: 1px;
   display: inline-block;
