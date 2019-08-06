@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
-import { imagePropType } from '../../util/shared-prop-types';
+import { childrenPropType, imagePropType } from '../../util/shared-prop-types';
 
 function constructTitle(title, siteName) {
   const titleParts = [];
@@ -66,7 +65,7 @@ Meta.propTypes = {
   follow: PropTypes.bool,
   siteName: PropTypes.string.isRequired,
   siteTwitter: PropTypes.string,
-  children: sharedPropTypes.childrenPropType
+  children: childrenPropType
 };
 
 Meta.defaultProps = {

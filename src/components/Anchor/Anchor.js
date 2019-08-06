@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../util/shared-prop-types';
 import Link from '../Link';
 
 const baseStyles = ({ theme }) => css`
@@ -51,7 +51,7 @@ const Anchor = ({
 };
 
 Anchor.propTypes = {
-  children: sharedPropTypes.childrenPropType.isRequired,
+  children: childrenPropType.isRequired,
   title: PropTypes.string,
   className: PropTypes.string,
   id: PropTypes.string,

@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers, sharedPropTypes } from '@sumup/circuit-ui';
+import { styleHelpers } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../../../util/shared-prop-types';
 import Link from '../../../Link';
 
 const anchorStyles = () => css`
@@ -86,7 +87,7 @@ Brand.propTypes = {
   siteLogo: PropTypes.element,
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
-  children: sharedPropTypes.childrenPropType,
+  children: childrenPropType,
   router: PropTypes.shape({
     asPath: PropTypes.string
   })

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { startsWith, isEmpty } from 'lodash/fp';
-import { styleHelpers, sharedPropTypes } from '@sumup/circuit-ui';
+import { styleHelpers } from '@sumup/circuit-ui';
 
-import Link from '../../../Link';
+import { childrenPropType } from '../../../../util/shared-prop-types';
 import NavigationContext from '../../NavigationContext';
+import Link from '../../../Link';
 
 const navBaseStyles = ({ theme }) => css`
   ${theme.mq.untilMega} {
@@ -106,9 +107,9 @@ const Links = ({ links, router }) => {
 Links.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      label: sharedPropTypes.childrenPropType,
+      label: childrenPropType,
       url: PropTypes.string,
-      icon: sharedPropTypes.childrenPropType
+      icon: childrenPropType
     })
   ),
   router: PropTypes.shape({

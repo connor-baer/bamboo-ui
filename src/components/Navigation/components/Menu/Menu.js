@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Hamburger, sharedPropTypes, Hr } from '@sumup/circuit-ui';
+import { Hamburger, Hr } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../../../util/shared-prop-types';
 import MoonIcon from '../../../icons/MoonIcon';
 import MotionIcon from '../../../icons/MotionIcon';
 import Image from '../../../images/Image';
@@ -174,7 +175,7 @@ const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
 class Menu extends Component {
   static propTypes = {
     userAvatarURL: PropTypes.string,
-    children: sharedPropTypes.childrenPropType,
+    children: childrenPropType,
     theme: PropTypes.shape({
       toggleDarkmode: PropTypes.func,
       toggleReducedMotion: PropTypes.func,

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../util/shared-prop-types';
 import isServer from '../../util/is-server';
 import isSaveData from '../../util/is-save-data';
 import { setCookie } from '../../util/cookies';
@@ -36,7 +36,7 @@ export default class Theme extends Component {
     initialThemeId: PropTypes.string,
     themes: PropTypes.object.isRequired,
     assetPrefix: PropTypes.string,
-    children: sharedPropTypes.childrenPropType
+    children: childrenPropType
   };
 
   static defaultProps = {

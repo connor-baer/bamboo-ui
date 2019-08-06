@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Grid, sharedPropTypes } from '@sumup/circuit-ui';
+import { Grid } from '@sumup/circuit-ui';
 
+import { childrenPropType } from '../../util/shared-prop-types';
 import Anchor from '../Anchor';
 import Small from '../Small';
 
@@ -58,7 +59,7 @@ function Footer({ siteName, siteTwitter, children }) {
 Footer.propTypes = {
   siteName: PropTypes.string.isRequired,
   siteTwitter: PropTypes.string.isRequired,
-  children: sharedPropTypes.childrenPropType
+  children: childrenPropType
 };
 
 export default Footer;
