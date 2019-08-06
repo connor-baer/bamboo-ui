@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -157,7 +157,7 @@ export default class Theme extends Component {
     const styles = () => theme.fonts.map(createFontFace(assetPrefix)).join('');
     return (
       <ThemeProvider theme={theme}>
-        <Fragment>
+        <>
           <Head>
             <meta name="theme-color" content={theme.colors.bodyBg} />
             {preloadFonts(assetPrefix, theme.fonts)}
@@ -166,7 +166,7 @@ export default class Theme extends Component {
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>
-        </Fragment>
+        </>
       </ThemeProvider>
     );
   }

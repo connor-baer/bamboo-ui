@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme, columnCount = 2 }) => css`
   column-gap: ${theme.spacings.exa};
   column-count: 1;
   column-break-inside: avoid;
@@ -13,7 +13,7 @@ const baseStyles = ({ theme }) => css`
   }
 
   ${theme.mq.kilo} {
-    column-count: 2;
+    column-count: ${columnCount};
   }
 `;
 
@@ -27,18 +27,13 @@ const bugfixStyles = () => css`
 `;
 
 /**
- * Describe Columns here.
+ * Display content in multiple columns on wide viewports.
  */
 const Columns = styled('div')(baseStyles, bugfixStyles);
 
 Columns.propTypes = {
-  /**
-   * A consice description of the example prop.
-   */
-  example: PropTypes.string
+  columnCount: PropTypes.number
 };
-
-Columns.defaultProps = {};
 
 /**
  * @component

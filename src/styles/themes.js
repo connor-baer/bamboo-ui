@@ -56,63 +56,6 @@ const lineHeights = {
   tera: '2.5em'
 };
 
-const typography = {
-  headings: {
-    kilo: {
-      fontSize: '17px',
-      lineHeight: '24px'
-    },
-    mega: {
-      fontSize: '19px',
-      lineHeight: '24px'
-    },
-    giga: {
-      fontSize: '22px',
-      lineHeight: '28px'
-    },
-    tera: {
-      fontSize: '24px',
-      lineHeight: '32px'
-    },
-    peta: {
-      fontSize: '28px',
-      lineHeight: '36px'
-    },
-    exa: {
-      fontSize: '36px',
-      lineHeight: '44px'
-    },
-    zetta: {
-      fontSize: '42px',
-      lineHeight: '56px'
-    }
-  },
-  subHeadings: {
-    kilo: {
-      fontSize: '12px',
-      lineHeight: '20px'
-    },
-    mega: {
-      fontSize: '14px',
-      lineHeight: '18px'
-    }
-  },
-  text: {
-    kilo: {
-      fontSize: '14px',
-      lineHeight: '24px'
-    },
-    mega: {
-      fontSize: '16px',
-      lineHeight: '32px'
-    },
-    giga: {
-      fontSize: '21px',
-      lineHeight: '42px'
-    }
-  }
-};
-
 const iconSizes = {
   byte: '12px',
   kilo: '16px',
@@ -130,6 +73,12 @@ const borderRadius = {
   mega: '4px',
   giga: '6px'
 };
+
+const zIndexes = {
+  nprogress: 999
+};
+
+const maxWidth = '80rem';
 
 const neutralsLight = {
   n100: openColor.gray[1],
@@ -340,12 +289,13 @@ function standard({ darkmode, reducedMotion } = {}) {
     fontWeight,
     fontSizes,
     lineHeights,
-    typography,
     iconSizes,
     borderWidth,
     borderRadius,
     breakpoints,
     spacings,
+    zIndexes,
+    maxWidth,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
     grid: createGrid(),
