@@ -37,6 +37,7 @@ export default class NProgress extends Component {
 
   render() {
     const { theme } = this.props;
+    /* eslint-disable max-len */
     return (
       <style
         dangerouslySetInnerHTML={{
@@ -59,9 +60,7 @@ export default class NProgress extends Component {
             }
 
             #nprogress .peg {
-              box-shadow: 0 0 10px ${theme.colors.p500}, 0 0 5px ${
-            theme.colors.p500
-          };
+              box-shadow: 0 0 10px ${theme.colors.p500}, 0 0 5px ${theme.colors.p500};
               display: block;
               height: 100%;
               opacity: 1;
@@ -73,5 +72,6 @@ export default class NProgress extends Component {
         }}
       />
     );
+    /* eslint-enable max-len */
   }
 }
