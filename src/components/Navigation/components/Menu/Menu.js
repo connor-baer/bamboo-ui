@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Hamburger, Hr } from '@sumup/circuit-ui';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import MoonIcon from '../../../icons/MoonIcon';
 import MotionIcon from '../../../icons/MotionIcon';
 import Image from '../../../images/Image';
+import Hamburger from '../../../Hamburger';
+import Hr from '../../../Hr';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
