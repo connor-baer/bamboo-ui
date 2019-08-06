@@ -152,11 +152,9 @@ export default class Theme extends Component {
 
   render() {
     const { isTransitioning, themeId, ...config } = this.state;
-    const { children, assetPrefix } = this.props;
+    const { children, assetPrefix = '' } = this.props;
     const theme = this.getTheme(themeId, config);
-    const custom = assetPrefix
-      ? theme.fonts.map(createFontFace(assetPrefix)).join('')
-      : '';
+    const styles = () => theme.fonts.map(createFontFace(assetPrefix)).join('');
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
@@ -164,7 +162,7 @@ export default class Theme extends Component {
             <meta name="theme-color" content={theme.colors.bodyBg} />
             {preloadFonts(assetPrefix, theme.fonts)}
           </Head>
-          <GlobalStyles custom={custom} />
+          <GlobalStyles styles={styles} />
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>

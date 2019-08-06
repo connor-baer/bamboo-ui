@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import NProgressJS from 'nprogress';
-import { sharedPropTypes } from '@sumup/circuit-ui';
+
+import { themePropType } from '../../util/shared-prop-types';
 
 export default class NProgress extends Component {
   static propTypes = {
     delay: PropTypes.number,
-    theme: sharedPropTypes.themePropType
+    theme: themePropType
   };
 
   static defaultProps = {

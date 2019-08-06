@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { GlobalStyles as GlobalStylesCircuitUi } from '@sumup/circuit-ui';
-import { ThemeContext } from '@emotion/core';
+import { Global, css } from '@emotion/core';
 
-export const createGlobalStyles = ({ theme, custom = '' }) => `
+export const createGlobalStyles = ({ theme }) => css`
   body,
   button,
   input,
   optgroup,
   select,
   textarea {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
     font-weight: ${theme.fontWeight.regular};
     text-decoration-skip: edges;
   }
@@ -54,47 +53,16 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
       cursor: pointer;
     }
   }
-
-  #nprogress {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    background: ${theme.colors.white};
-    height: 3px;
-    pointer-events: none;
-    z-index: 1001;
-
-    .bar {
-      background: ${theme.colors.p500};
-      height: 100%;
-      width: 100%;
-    }
-
-    .peg {
-      box-shadow: 0 0 10px ${theme.colors.p500}, 0 0 5px ${theme.colors.p500};
-      display: block;
-      height: 100%;
-      opacity: 1;
-      position: absolute;
-      right: 0;
-      transform: rotate(3deg) translate(0, -4px);
-      width: 100px;
-    }
-  }
-
-  /**
-   * Allow custom styles to override the default styles
-   */
-  ${custom}
 `;
 
-export default function GlobalStyles({ custom, ...rest }) {
-  const theme = useContext(ThemeContext);
-  const mergedCustomStyles = createGlobalStyles({ theme, custom });
-  return <GlobalStylesCircuitUi custom={mergedCustomStyles} {...rest} />;
+export default function GlobalStyles({ styles }) {
+  return (
+    <Global
+      styles={theme => [createGlobalStyles({ theme }), styles({ theme })]}
+    />
+  );
 }
 
 GlobalStyles.propTypes = {
-  custom: PropTypes.string
+  styles: PropTypes.func
 };

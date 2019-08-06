@@ -35,6 +35,18 @@ const fontWeight = {
   bold: '700'
 };
 
+const fontSizes = {
+  bit: '0.9rem',
+  byte: '1rem',
+  kilo: '1.25rem',
+  mega: 'rem',
+  giga: 'rem',
+  tera: 'rem',
+  peta: 'rem',
+  exa: 'rem',
+  zetta: 'rem'
+};
+
 const typography = {
   headings: {
     kilo: {
@@ -231,7 +243,7 @@ export function createColors(darkmode = false) {
   };
 }
 
-export function createAnimations(reducedMotion = false) {
+function createAnimations(reducedMotion = false) {
   return {
     micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
     standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
@@ -239,63 +251,62 @@ export function createAnimations(reducedMotion = false) {
   };
 }
 
-export function createSpacings(base = 4) {
-  return {
-    bit: `${base * 1}px`,
-    byte: `${base * 2}px`,
-    kilo: `${base * 3}px`,
-    mega: `${base * 4}px`,
-    giga: `${base * 6}px`,
-    tera: `${base * 8}px`,
-    peta: `${base * 10}px`,
-    exa: `${base * 12}px`,
-    zetta: `${base * 14}px`
-  };
-}
+const spacings = {
+  bit: '0.25rem',
+  byte: '0.5rem',
+  kilo: '0.75rem',
+  mega: '1rem',
+  giga: '1.5rem',
+  tera: '2rem',
+  peta: '2.5rem',
+  exa: '3rem',
+  zetta: '4rem',
+  yotta: '5rem'
+};
 
-export function createGrid(base = 4) {
+export function createGrid() {
   return {
     default: {
       priority: 0,
       breakpoint: 'default',
       cols: 12,
       maxWidth: '1080px',
-      gutter: createSpacings(base).peta
+      gutter: spacings.peta
     },
     untilKilo: {
       priority: 1,
       breakpoint: 'untilKilo',
       cols: 12,
       maxWidth: `400px`,
-      gutter: createSpacings(base).peta
+      gutter: spacings.peta
     },
     kilo: {
       priority: 2,
       breakpoint: 'kilo',
       cols: 12,
       maxWidth: '700px',
-      gutter: createSpacings(base).peta
+      gutter: spacings.peta
     },
     mega: {
       priority: 3,
       breakpoint: 'mega',
       cols: 12,
       maxWidth: '1000px',
-      gutter: createSpacings(base).exa
+      gutter: spacings.exa
     },
     giga: {
       priority: 4,
       breakpoint: 'giga',
       cols: 12,
       maxWidth: '1000px',
-      gutter: createSpacings(base).exa
+      gutter: spacings.exa
     },
     afterTera: {
       priority: 5,
       breakpoint: 'tera',
       cols: 12,
       maxWidth: '1200px',
-      gutter: createSpacings(base).exa
+      gutter: spacings.exa
     }
   };
 }
@@ -311,22 +322,23 @@ export const createMediaQueries = mapValues(mediaExpression => {
   return `@media ${enhancedExpression}`;
 });
 
-function standard({ darkmode, baseSpacing, reducedMotion } = {}) {
+function standard({ darkmode, reducedMotion } = {}) {
   return {
     darkmode,
     reducedMotion,
     fonts,
     fontStack,
     fontWeight,
+    fontSizes,
     typography,
     iconSizes,
     borderWidth,
     borderRadius,
     breakpoints,
+    spacings,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
-    spacings: createSpacings(baseSpacing),
-    grid: createGrid(baseSpacing),
+    grid: createGrid(),
     mq: createMediaQueries(breakpoints)
   };
 }

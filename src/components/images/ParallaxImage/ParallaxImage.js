@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { omit } from 'lodash/fp';
-import { sharedPropTypes } from '@sumup/circuit-ui';
 
-import { imagePropType } from '../../../util/shared-prop-types';
+import { themePropType, imagePropType } from '../../../util/shared-prop-types';
 import isServer from '../../../util/is-server';
 import Image from '../Image';
 
@@ -35,7 +34,7 @@ export default class ParallaxImage extends Component {
   static propTypes = {
     ...imagePropType,
     speed: PropTypes.number,
-    theme: sharedPropTypes.themePropType,
+    theme: themePropType,
     className: PropTypes.string
   };
 
