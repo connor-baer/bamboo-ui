@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../../../.storybook/groups';
+
 import Menu from '.';
-import Link from '../../../Link';
 
 const A = Menu.Item.withComponent('a');
 
@@ -15,8 +15,6 @@ storiesOf(`${GROUPS.COMPONENTS}|Navigation/Menu`, module).add('Menu', () => (
       'https://source.unsplash.com/64x64/'
     )}
   >
-    <Link href="/">
-      <A>{text('Menu link', 'Account')}</A>
-    </Link>
+    <A href="/">{text('Menu link', 'Account')}</A>
   </Menu>
 ));

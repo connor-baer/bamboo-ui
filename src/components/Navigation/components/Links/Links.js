@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useRouter } from 'next/router';
-import { startsWith, isEmpty } from 'lodash/fp';
+import { isEmpty } from 'lodash/fp';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import NavigationContext from '../../NavigationContext';
@@ -82,9 +81,7 @@ const navAnchorActiveStyles = ({ theme, isActive }) =>
 
 const A = styled('a')(navAnchorBaseStyles, navAnchorActiveStyles);
 
-const Links = ({ links }) => {
-  const router = useRouter();
-
+function Links({ links }) {
   if (isEmpty(links)) {
     return null;
   }
@@ -93,9 +90,9 @@ const Links = ({ links }) => {
     <NavigationContext.Consumer>
       {({ isInvisible }) => (
         <Nav isInvisible={isInvisible}>
-          {links.map(({ url, label, icon }, i) => (
+          {links.map(({ url, label, icon, isActive }, i) => (
             <Link key={i} href={url} prefetch>
-              <A isActive={startsWith(url, router.asPath)}>
+              <A isActive={isActive}>
                 {icon} {label}
               </A>
             </Link>
@@ -104,7 +101,7 @@ const Links = ({ links }) => {
       )}
     </NavigationContext.Consumer>
   );
-};
+}
 
 Links.propTypes = {
   links: PropTypes.arrayOf(

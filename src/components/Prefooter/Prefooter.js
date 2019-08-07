@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Link from '../Link';
+import useComponents from '../../hooks/use-components';
 
 const wrapperStyles = ({ theme }) => css`
   background-color: ${theme.colors.n100};
@@ -42,7 +42,10 @@ const anchorStyles = ({ theme }) => css`
 const Anchor = styled('a')(anchorStyles);
 
 function Prefooter({ text, linkLabel, linkUrl }) {
+  const { Link } = useComponents();
+
   const hasLink = linkLabel && linkUrl;
+
   /* eslint-disable no-irregular-whitespace */
   return (
     <Wrapper>

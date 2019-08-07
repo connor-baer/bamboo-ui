@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 
-import { childrenPropType, imagePropType } from '../../util/shared-prop-types';
+import useComponents from '../../hooks/use-components';
+import { imagePropType } from '../../util/shared-prop-types';
 
 function constructTitle(title, siteName) {
   const titleParts = [];
@@ -23,12 +23,14 @@ function Meta({
   index = true,
   follow = true,
   siteName,
-  siteTwitter,
-  children
+  siteTwitter
 }) {
+  const { Head } = useComponents();
+
   const titleString = constructTitle(title, siteName);
   const indexString = index ? 'index' : 'noindex';
   const followString = follow ? 'follow' : 'nofollow';
+
   return (
     <Head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -49,7 +51,6 @@ function Meta({
         name="twitter:card"
         content={image ? 'summary_large_image' : 'summary'}
       />
-      {children}
     </Head>
   );
 }
@@ -62,8 +63,7 @@ Meta.propTypes = {
   index: PropTypes.bool,
   follow: PropTypes.bool,
   siteName: PropTypes.string.isRequired,
-  siteTwitter: PropTypes.string,
-  children: childrenPropType
+  siteTwitter: PropTypes.string
 };
 
 /**
