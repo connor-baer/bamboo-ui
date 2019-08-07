@@ -47,7 +47,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
   display: inline-block;
   color: ${theme.colors.n700};
   border-radius: 20px;
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega} 11px;
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega} ${theme.spacings.byte};
 
   ${theme.mq.kilo} {
     margin-right: ${theme.spacings.mega};
