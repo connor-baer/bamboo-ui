@@ -1,6 +1,6 @@
 ---
 name: Report a bug
-about: Create a bug report to help us improve Circuit UI
+about: Create a bug report to help us improve Bamboo UI
 ---
 
 ## Describe the bug
