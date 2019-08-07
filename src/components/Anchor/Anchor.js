@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
+import useComponents from '../../hooks/use-components';
 import { childrenPropType } from '../../util/shared-prop-types';
-import Link from '../Link';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};
@@ -39,6 +39,8 @@ const Anchor = ({
   rel,
   ...otherProps
 }) => {
+  const { Link } = useComponents();
+
   if (isEmpty(otherProps.href)) {
     return <span {...{ title, className, id }}>{children}</span>;
   }

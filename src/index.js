@@ -9,25 +9,26 @@ import themes, * as themeHelpers from './styles/themes';
 // Typography
 export { default as Anchor } from './components/Anchor';
 export { default as Intro } from './components/Intro';
-export { default as Link } from './components/Link';
 export { default as Small } from './components/Small';
 
 // Sections
-export { default as NProgress } from './components/NProgress';
 export { default as Navigation } from './components/Navigation';
 export { default as Header } from './components/Header';
 export { default as Prefooter } from './components/Prefooter';
 export { default as Footer } from './components/Footer';
 
 // Utility
+export { default as LoadingBar } from './components/LoadingBar';
 export { default as Meta } from './components/Meta';
 export { default as Theme } from './components/Theme';
+export { default as Hr } from './components/Hr';
 
 // Icons
 export { default as PandaIcon } from './components/icons/PandaIcon';
 export { default as MoonIcon } from './components/icons/MoonIcon';
 export { default as MotionIcon } from './components/icons/MotionIcon';
 export { default as LoadingIcon } from './components/icons/LoadingIcon';
+export { default as Hamburger } from './components/icons/Hamburger';
 
 // Images
 export { default as Caption } from './components/images/Caption';
@@ -45,12 +46,20 @@ export { default as Columns } from './components/layout/Columns';
 export { default as Main } from './components/layout/Main';
 
 /**
+ * Hooks
+ */
+
+export { default as useTheme } from './hooks/use-theme';
+export { default as useComponents } from './hooks/use-components';
+
+/**
  * Utils
  */
 
 export { sharedPropTypes, cookies };
 export { default as isServer } from './util/is-server';
 export { default as isSaveData } from './util/is-save-data';
+export { default as ComponentsContext } from './util/components-context';
 
 /**
  * Themes

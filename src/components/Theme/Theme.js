@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
+import ComponentsContext from '../../util/components-context';
 import { childrenPropType } from '../../util/shared-prop-types';
 import isServer from '../../util/is-server';
 import isSaveData from '../../util/is-save-data';
@@ -44,6 +44,8 @@ export default class Theme extends Component {
     themes: {},
     cookies: {}
   };
+
+  static contextType = ComponentsContext;
 
   constructor(props) {
     super(props);
@@ -153,6 +155,7 @@ export default class Theme extends Component {
   render() {
     const { isTransitioning, themeId, ...config } = this.state;
     const { children, assetPrefix = '' } = this.props;
+    const { Head } = this.context;
     const theme = this.getTheme(themeId, config);
     const styles = () => theme.fonts.map(createFontFace(assetPrefix)).join('');
     return (

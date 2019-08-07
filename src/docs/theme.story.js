@@ -49,7 +49,7 @@ function FontSize({ fontSizeName }) {
       <span
         css={theme => css`
           font-size: ${theme.fontSizes[fontSizeName]};
-          line-height: 1;
+          line-height: 1.5;
         `}
       >
         {fontSizeName}

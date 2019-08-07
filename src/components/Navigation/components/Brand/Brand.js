@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useRouter } from 'next/router';
 
+import useComponents from '../../../../hooks/use-components';
 import { childrenPropType } from '../../../../util/shared-prop-types';
-import Link from '../../../Link';
 
 const anchorStyles = () => css`
   position: relative;
@@ -60,23 +59,22 @@ const siteNameStyles = ({ theme }) => css`
 
 const SiteName = styled('div')(siteNameStyles);
 
-function Brand({ siteLogo, siteName, siteUrl = '/', children }) {
-  const router = useRouter();
+function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
+  const { Link } = useComponents();
 
-  const isHome = router.asPath === siteUrl;
-  const href = isHome ? '#' : '/';
+  const href = isHomepage ? '#' : siteUrl;
 
   /* eslint-disable jsx-a11y/anchor-is-valid */
   if (children) {
     return (
-      <Link href={href} prefetch={!isHome}>
+      <Link href={href} prefetch={!isHomepage}>
         <A>{children}</A>
       </Link>
     );
   }
 
   return (
-    <Link href={href} prefetch={!isHome}>
+    <Link href={href} prefetch={!isHomepage}>
       <A>
         <SiteLogo>{siteLogo}</SiteLogo>
         <SiteName>{siteName}</SiteName>
@@ -90,6 +88,7 @@ Brand.propTypes = {
   siteLogo: PropTypes.element,
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
+  isHomepage: PropTypes.bool,
   children: childrenPropType
 };
 

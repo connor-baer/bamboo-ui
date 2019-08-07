@@ -4,7 +4,6 @@ import { object, text } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/groups';
 
-import Link from '../Link';
 import Navigation from '.';
 
 const A = Navigation.Menu.Item.withComponent('a');
@@ -42,9 +41,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add('Navigation', () => (
           'https://source.unsplash.com/64x64/'
         )}
       >
-        <Link href="/">
-          <A>{text('Menu link', 'Account')}</A>
-        </Link>
+        <A href="/">{text('Menu link', 'Account')}</A>
       </Navigation.Menu>
     </Navigation>
   </div>

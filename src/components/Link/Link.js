@@ -1,25 +1,11 @@
-import React, { Children, cloneElement } from 'react';
+import { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { isString, isEmpty } from 'lodash/fp';
-import NextLink from 'next/link';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
-export default function Link(props) {
-  const { href, children, onClick } = props;
-
-  if (isEmpty(children)) {
-    return null;
-  }
-
+export default function Link({ children, ...props }) {
   const child = Children.only(children);
-
-  if (isEmpty(href)) {
-    return cloneElement(child, { onClick });
-  }
-
-  const as = isString(href) ? href : `${href.pathname}/${href.query.slug}`;
-  return <NextLink {...props} as={as} passHref />;
+  return cloneElement(child, props);
 }
 
 Link.propTypes = {
