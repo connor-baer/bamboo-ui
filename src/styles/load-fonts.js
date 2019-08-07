@@ -37,7 +37,7 @@ export const preloadFonts = curry((assetPrefix, fonts) =>
   })
 );
 
-export function loadFonts(fonts, timeout = 5000) {
+export function loadFonts(fonts, timeout = 3000) {
   if (isServer || isEmpty(fonts)) {
     return;
   }
@@ -70,12 +70,14 @@ export function loadFonts(fonts, timeout = 5000) {
           .map(({ family, style, weight }) => `${family} ${weight} ${style}`)
           .join(', ')}"`
       );
-      addClass(document.documentElement, 'fonts-loaded');
-      // Optimization for repeat views
-      sessionStorage.setItem('prevLoadedFonts', JSON.stringify(fonts));
     })
     .catch(e => {
       // eslint-disable-next-line no-console
       console.warn(`Failed to load font "${e.family}"`);
+    })
+    .finally(() => {
+      addClass(document.documentElement, 'fonts-loaded');
+      // Optimization for repeat views
+      sessionStorage.setItem('prevLoadedFonts', JSON.stringify(fonts));
     });
 }
