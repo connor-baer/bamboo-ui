@@ -24,7 +24,8 @@ const transitionStyles = ({ theme, isTransitioning }) =>
     *::after {
       transition: background-color ${theme.animations.micro},
         color ${theme.animations.micro}, fill ${theme.animations.micro},
-        border-color ${theme.animations.micro} !important;
+        border-color ${theme.animations.micro} !important,
+        text-shadow ${theme.animations.micro} !important;
     }
   `;
 

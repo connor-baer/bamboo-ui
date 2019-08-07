@@ -172,9 +172,11 @@ export const createGlobalStyles = ({ theme }) => css`
   optgroup,
   select,
   textarea {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
     font-weight: ${theme.fontWeight.regular};
-    text-decoration-skip: edges;
+    text-decoration-skip: ink;
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
