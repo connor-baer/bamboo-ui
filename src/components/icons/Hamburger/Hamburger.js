@@ -15,6 +15,12 @@ const buttonBaseStyles = ({ theme }) => css`
   background: none;
   border: 0;
   position: relative;
+  outline-offset: 0.25em;
+  color: ${theme.colors.n900};
+
+  &:focus {
+    outline: thin dotted currentColor;
+  }
 `;
 
 const HamburgerButton = styled('button')(buttonBaseStyles);

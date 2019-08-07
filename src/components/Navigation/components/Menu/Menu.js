@@ -230,7 +230,7 @@ class Menu extends Component {
               onClick={toggleDarkmode}
             >
               <Icon isActive={darkmode}>
-                <MoonIcon width={16} height={16} full={darkmode} />
+                <MoonIcon width={16} height={16} full={darkmode} alt="" />
               </Icon>
               Toggle darkmode
             </IconButton>
@@ -243,7 +243,12 @@ class Menu extends Component {
               onClick={toggleReducedMotion}
             >
               <Icon isActive={reducedMotion}>
-                <MotionIcon width={16} height={16} full={reducedMotion} />
+                <MotionIcon
+                  width={16}
+                  height={16}
+                  full={reducedMotion}
+                  alt=""
+                />
               </Icon>
               Reduce motion
             </IconButton>

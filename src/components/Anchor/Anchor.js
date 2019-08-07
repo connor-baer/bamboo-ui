@@ -24,7 +24,7 @@ const baseStyles = ({ theme }) => css`
   }
 
   &:focus {
-    outline: thin double currentColor;
+    outline: thin dotted currentColor;
   }
 
   &:active {
