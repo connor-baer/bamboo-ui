@@ -18,12 +18,12 @@ const links = [
   {
     icon: '🐨',
     label: 'Koala',
-    url: '/'
+    url: '/koala'
   },
   {
     icon: '🐻',
     label: 'Grizzly',
-    url: '/'
+    url: '/grizzly'
   }
 ];
 
