@@ -8,13 +8,16 @@ import Menu from '.';
 
 const A = Menu.Item.withComponent('a');
 
-storiesOf(`${GROUPS.COMPONENTS}|Navigation/Menu`, module).add('Menu', () => (
-  <Menu
-    userAvatarURL={text(
-      'User avatar URL',
-      'https://source.unsplash.com/64x64/'
-    )}
-  >
-    <A href="/">{text('Menu link', 'Account')}</A>
-  </Menu>
-));
+storiesOf(`${GROUPS.COMPONENTS}|Navigation/Menu`, module).add('Menu', () => {
+  const menuLink = text('Menu link', 'Account');
+  return (
+    <Menu
+      userAvatarURL={text(
+        'User avatar URL',
+        'https://source.unsplash.com/64x64/'
+      )}
+    >
+      {menuLink && <A href="/">{menuLink}</A>}
+    </Menu>
+  );
+});

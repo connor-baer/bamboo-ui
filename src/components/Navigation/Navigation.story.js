@@ -27,22 +27,25 @@ const links = [
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add('Navigation', () => (
-  <div style={{ width: '100vw', height: '100vh' }}>
-    <Navigation>
-      <Navigation.Brand
-        siteName={text('Site name', 'Bamboo UI')}
-        siteLogo={text('Logo', '🎋')}
-      />
-      <Navigation.Links links={object('Links', links)} />
-      <Navigation.Menu
-        userAvatarURL={text(
-          'User avatar URL',
-          'https://source.unsplash.com/64x64/'
-        )}
-      >
-        <A href="/">{text('Menu link', 'Account')}</A>
-      </Navigation.Menu>
-    </Navigation>
-  </div>
-));
+storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add('Navigation', () => {
+  const menuLink = text('Menu link', 'Account');
+  return (
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Navigation>
+        <Navigation.Brand
+          siteName={text('Site name', 'Bamboo UI')}
+          siteLogo={text('Logo', '🎋')}
+        />
+        <Navigation.Links links={object('Links', links)} />
+        <Navigation.Menu
+          userAvatarURL={text(
+            'User avatar URL',
+            'https://source.unsplash.com/64x64/'
+          )}
+        >
+          {menuLink && <A href="/">{menuLink}</A>}
+        </Navigation.Menu>
+      </Navigation>
+    </div>
+  );
+});

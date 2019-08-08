@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
+import useTheme from '../../../../hooks/use-theme';
+import SettingsIcon from '../../../icons/SettingsIcon';
 import MoonIcon from '../../../icons/MoonIcon';
 import MotionIcon from '../../../icons/MotionIcon';
 import Image from '../../../images/Image';
@@ -173,94 +175,113 @@ const iconActiveStyles = ({ theme, isActive }) =>
 
 const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
 
-class Menu extends Component {
-  static propTypes = {
-    userAvatarURL: PropTypes.string,
-    children: childrenPropType,
-    theme: PropTypes.shape({
-      toggleDarkmode: PropTypes.func,
-      toggleReducedMotion: PropTypes.func,
-      darkmode: PropTypes.bool,
-      reducedMotion: PropTypes.bool
-    })
-  };
+const settingsButtonStyles = ({ theme }) => css`
+  line-height: 0;
+  padding: ${theme.spacings.bit};
+  fill: ${theme.colors.n700};
 
-  static defaultProps = {
-    theme: {}
-  };
-
-  state = {
-    isOpen: false
-  };
-
-  handleClick = () => {
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-  };
-
-  render() {
-    const { children, theme, userAvatarURL } = this.props;
-    const { isOpen } = this.state;
-    const {
-      toggleDarkmode,
-      toggleReducedMotion,
-      darkmode,
-      reducedMotion
-    } = theme;
-    const hasDivider = children && toggleDarkmode && toggleReducedMotion;
-    return (
-      <Wrapper>
-        {userAvatarURL ? (
-          <UserPhoto
-            src={userAvatarURL}
-            onClick={this.handleClick}
-            alt="Profile photo"
-          />
-        ) : (
-          <Hamburger onClick={this.handleClick} isActive={isOpen} />
-        )}
-        <Dropdown isOpen={isOpen}>
-          {children}
-
-          {hasDivider && <MenuHr />}
-
-          {toggleDarkmode && (
-            <IconButton
-              isActive={darkmode}
-              aria-pressed={darkmode}
-              onClick={toggleDarkmode}
-            >
-              <Icon isActive={darkmode}>
-                <MoonIcon width={16} height={16} full={darkmode} alt="" />
-              </Icon>
-              Toggle darkmode
-            </IconButton>
-          )}
-
-          {toggleReducedMotion && (
-            <IconButton
-              isActive={reducedMotion}
-              aria-pressed={reducedMotion}
-              onClick={toggleReducedMotion}
-            >
-              <Icon isActive={reducedMotion}>
-                <MotionIcon
-                  width={16}
-                  height={16}
-                  full={reducedMotion}
-                  alt=""
-                />
-              </Icon>
-              Reduce motion
-            </IconButton>
-          )}
-        </Dropdown>
-      </Wrapper>
-    );
+  ${theme.mq.kilo} {
+    padding: ${theme.spacings.bit};
   }
+`;
+
+const SettingsButton = styled('button')(itemStyles, settingsButtonStyles);
+
+function Menu({ children, userAvatarURL }) {
+  const theme = useTheme();
+  const [isOpen, setOpen] = useState(false);
+
+  const handleClick = () => setOpen(!isOpen);
+  const {
+    toggleDarkmode,
+    toggleReducedMotion,
+    darkmode,
+    reducedMotion
+  } = theme;
+  const hasDivider = children && (toggleDarkmode || toggleReducedMotion);
+
+  const renderIcon = () => {
+    if (!children) {
+      return (
+        <SettingsButton
+          isActive={isOpen}
+          aria-pressed={isOpen}
+          onClick={handleClick}
+        >
+          <SettingsIcon
+            width={theme.iconSizes.mega}
+            height={theme.iconSizes.mega}
+          />
+        </SettingsButton>
+      );
+    }
+    if (userAvatarURL) {
+      return (
+        <UserPhoto
+          src={userAvatarURL}
+          onClick={handleClick}
+          alt="Profile photo"
+        />
+      );
+    }
+    return <Hamburger onClick={handleClick} isActive={isOpen} />;
+  };
+
+  return (
+    <Wrapper>
+      {renderIcon()}
+      <Dropdown isOpen={isOpen}>
+        {children}
+
+        {hasDivider && <MenuHr />}
+
+        {toggleDarkmode && (
+          <IconButton
+            isActive={darkmode}
+            aria-pressed={darkmode}
+            onClick={toggleDarkmode}
+          >
+            <Icon isActive={darkmode}>
+              <MoonIcon
+                width={theme.iconSizes.kilo}
+                height={theme.iconSizes.kilo}
+                full={darkmode}
+                alt=""
+              />
+            </Icon>
+            Toggle darkmode
+          </IconButton>
+        )}
+
+        {toggleReducedMotion && (
+          <IconButton
+            isActive={reducedMotion}
+            aria-pressed={reducedMotion}
+            onClick={toggleReducedMotion}
+          >
+            <Icon isActive={reducedMotion}>
+              <MotionIcon
+                width={theme.iconSizes.kilo}
+                height={theme.iconSizes.kilo}
+                full={reducedMotion}
+                alt=""
+              />
+            </Icon>
+            Reduce motion
+          </IconButton>
+        )}
+      </Dropdown>
+    </Wrapper>
+  );
 }
 
 Menu.Item = Item;
 Menu.Hr = MenuHr;
+
+Menu.propTypes = {
+  userAvatarURL: PropTypes.string,
+  children: childrenPropType
+};
 
 /**
  * @component
