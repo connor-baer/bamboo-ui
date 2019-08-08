@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
+import useTheme from '../../hooks/use-theme';
 import Anchor from '../Anchor';
 import Small from '../Small';
 
@@ -35,6 +36,7 @@ const contentStyles = ({ theme }) => css`
 const Content = styled('div')(contentStyles);
 
 function Footer({ siteName, siteTwitter, children }) {
+  const theme = useTheme();
   const currentYear = new Date().getFullYear();
   /* eslint-disable jsx-a11y/anchor-is-valid */
   return (
@@ -46,6 +48,7 @@ function Footer({ siteName, siteTwitter, children }) {
         {siteTwitter && (
           <Small>
             <Anchor
+              backgroundColor={theme.colors.n100}
               href={`https://twitter.com/${siteTwitter}`}
               title={`Visit @${siteTwitter} profile on Twitter`}
             >

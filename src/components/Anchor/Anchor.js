@@ -9,44 +9,41 @@ import { childrenPropType } from '../../util/shared-prop-types';
 import { focusOutline } from '../../styles/shared';
 
 /* eslint-disable max-len */
-const baseStyles = ({ theme }) => css`
-  color: ${theme.colors.p500};
-  font-weight: ${theme.fontWeight.bold};
-  border-bottom: 1px solid currentColor;
-  text-shadow: 0.03em 0 ${theme.colors.bodyBg}, -0.03em 0 ${theme.colors.bodyBg},
-    0 0.03em ${theme.colors.bodyBg}, 0 -0.03em ${theme.colors.bodyBg},
-    0.06em 0 ${theme.colors.bodyBg}, -0.06em 0 ${theme.colors.bodyBg},
-    0.09em 0 ${theme.colors.bodyBg}, -0.09em 0 ${theme.colors.bodyBg};
+const baseStyles = ({ theme, backgroundColor }) => {
+  const textShadowColor = backgroundColor || theme.colors.bodyBg;
+  return css`
+    color: ${theme.colors.p500};
+    font-weight: ${theme.fontWeight.bold};
+    border-bottom: 1px solid currentColor;
+    text-shadow: 1px 1px ${textShadowColor}, 1px -1px ${textShadowColor},
+      -1px 1px ${textShadowColor}, -1px -1px ${textShadowColor};
 
-  &:hover {
-    color: ${theme.colors.p700};
-    border-bottom-width: 2px;
-  }
+    &:hover {
+      color: ${theme.colors.p700};
+      border-bottom-width: 2px;
+    }
 
-  &:active {
-    color: ${theme.colors.p300};
-    border-bottom-width: 2px;
-  }
+    &:active {
+      color: ${theme.colors.p300};
+      border-bottom-width: 2px;
+    }
 
-  &::selection {
-    text-shadow: 0.03em 0 ${theme.colors.selectionBg},
-      -0.03em 0 ${theme.colors.selectionBg},
-      0 0.03em ${theme.colors.selectionBg},
-      0 -0.03em ${theme.colors.selectionBg},
-      0.06em 0 ${theme.colors.selectionBg},
-      -0.06em 0 ${theme.colors.selectionBg},
-      0.09em 0 ${theme.colors.selectionBg},
-      -0.09em 0 ${theme.colors.selectionBg};
-  }
+    &::selection {
+      text-shadow: 1px 1px ${theme.colors.selectionBg},
+        1px -1px ${theme.colors.selectionBg},
+        -1px 1px ${theme.colors.selectionBg},
+        -1px -1px ${theme.colors.selectionBg};
+    }
 
-  &::before,
-  &::after,
-  *,
-  *::before,
-  *::after {
-    text-shadow: none;
-  }
-`;
+    &::before,
+    &::after,
+    *,
+    *::before,
+    *::after {
+      text-shadow: none;
+    }
+  `;
+};
 /* eslint-enable max-len */
 
 const simpleUnderlineStyles = ({ simpleUnderline }) =>
@@ -66,6 +63,7 @@ const Anchor = ({
   title,
   className,
   simpleUnderline = false,
+  backgroundColor,
   id,
   target,
   rel,
@@ -79,7 +77,17 @@ const Anchor = ({
 
   return (
     <Link {...otherProps}>
-      <A {...{ title, className, id, target, rel, simpleUnderline }}>
+      <A
+        {...{
+          title,
+          className,
+          id,
+          target,
+          rel,
+          simpleUnderline,
+          backgroundColor
+        }}
+      >
         {children}
       </A>
     </Link>
@@ -91,6 +99,7 @@ Anchor.propTypes = {
   title: PropTypes.string,
   className: PropTypes.string,
   simpleUnderline: PropTypes.bool,
+  backgroundColor: PropTypes.string,
   id: PropTypes.string,
   target: PropTypes.string,
   rel: PropTypes.string

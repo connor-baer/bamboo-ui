@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import useComponents from '../../hooks/use-components';
+import Anchor from '../Anchor';
 
 const wrapperStyles = ({ theme }) => css`
   background-color: ${theme.colors.n100};
@@ -32,28 +33,21 @@ const Content = styled('p')(contentStyles);
 const anchorStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
   color: ${theme.colors.p500};
-
-  &:hover,
-  &:focus {
-    box-shadow: inset 0 -0.08em 0 0 ${theme.colors.p500};
-  }
 `;
 
-const Anchor = styled('a')(anchorStyles);
+const StyledAnchor = styled(Anchor)(anchorStyles);
 
 function Prefooter({ text, linkLabel, linkUrl }) {
   const { Link } = useComponents();
-
-  const hasLink = linkLabel && linkUrl;
 
   /* eslint-disable no-irregular-whitespace */
   return (
     <Wrapper>
       <Content>
         {text && `${text} `}
-        {hasLink && (
+        {linkLabel && (
           <Link href={linkUrl}>
-            <Anchor>{linkLabel}</Anchor>
+            <StyledAnchor>{linkLabel}</StyledAnchor>
           </Link>
         )}
       </Content>
