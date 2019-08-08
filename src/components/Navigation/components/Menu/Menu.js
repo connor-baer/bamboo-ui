@@ -70,25 +70,25 @@ const dropdownBaseStyles = ({ theme }) => css`
 
   &::before {
     left: auto;
-    right: 20px;
+    right: 22px;
     top: -16px;
     border: 8px solid transparent;
     border-bottom-color: rgba(27, 31, 35, 0.12);
 
     ${theme.mq.kilo} {
-      right: 8px;
+      right: 10px;
     }
   }
 
   &::after {
     left: auto;
-    right: 21px;
+    right: 23px;
     top: -14px;
     border: 7px solid transparent;
     border-bottom-color: ${theme.colors.white};
 
     ${theme.mq.kilo} {
-      right: 9px;
+      right: 11px;
     }
   }
 `;
@@ -177,11 +177,11 @@ const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
 
 const settingsButtonStyles = ({ theme }) => css`
   line-height: 0;
-  padding: ${theme.spacings.bit};
+  padding: calc(${theme.spacings.byte} + 2px);
   fill: ${theme.colors.n700};
 
   ${theme.mq.kilo} {
-    padding: ${theme.spacings.bit};
+    padding: calc(${theme.spacings.byte} + 2px);
   }
 `;
 
@@ -209,8 +209,8 @@ function Menu({ children, userAvatarURL }) {
           onClick={handleClick}
         >
           <SettingsIcon
-            width={theme.iconSizes.mega}
-            height={theme.iconSizes.mega}
+            width={theme.iconSizes.kilo}
+            height={theme.iconSizes.kilo}
           />
         </SettingsButton>
       );
