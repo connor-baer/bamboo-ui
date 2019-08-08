@@ -54,7 +54,6 @@
     "lodash": "^4.17.4",
     "nprogress": "^0.2.0",
     "open-color": "^1.6.3",
-    "polished": "^3.1.0",
     "prop-types": "^15.6.0",
     "recompose": "^0.26.0"
   },

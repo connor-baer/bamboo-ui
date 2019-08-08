@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
+
+import { focusOutline, hideVisually } from '../../../styles/shared';
 
 const LAYER_HEIGHT = '2px';
 
@@ -15,15 +16,10 @@ const buttonBaseStyles = ({ theme }) => css`
   background: none;
   border: 0;
   position: relative;
-  outline-offset: 0.25em;
   color: ${theme.colors.n900};
-
-  &:focus {
-    outline: thin dotted currentColor;
-  }
 `;
 
-const HamburgerButton = styled('button')(buttonBaseStyles);
+const HamburgerButton = styled('button')(buttonBaseStyles, focusOutline);
 
 const layersBaseStyles = ({ theme }) => css`
   margin-top: calc(${LAYER_HEIGHT} / -2);
@@ -84,11 +80,7 @@ const layersActiveStyles = ({ theme, isActive }) =>
 
 const HamburgerLayers = styled('span')(layersBaseStyles, layersActiveStyles);
 
-const labelBaseStyles = () => css`
-  ${hideVisually()};
-`;
-
-const HamburgerLabel = styled('span')(labelBaseStyles);
+const HamburgerLabel = styled('span')(hideVisually);
 
 /**
  * A hamburger button for menus. Morphs into a close icon when active.

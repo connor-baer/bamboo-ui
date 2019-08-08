@@ -6,12 +6,12 @@ import { isEmpty } from 'lodash/fp';
 
 import useComponents from '../../hooks/use-components';
 import { childrenPropType } from '../../util/shared-prop-types';
+import { focusOutline } from '../../styles/shared';
 
 /* eslint-disable max-len */
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};
   font-weight: ${theme.fontWeight.bold};
-  outline-offset: 0.25em;
   border-bottom: 1px solid currentColor;
   text-shadow: 0.03em 0 ${theme.colors.bodyBg}, -0.03em 0 ${theme.colors.bodyBg},
     0 0.03em ${theme.colors.bodyBg}, 0 -0.03em ${theme.colors.bodyBg},
@@ -21,10 +21,6 @@ const baseStyles = ({ theme }) => css`
   &:hover {
     color: ${theme.colors.p700};
     border-bottom-width: 2px;
-  }
-
-  &:focus {
-    outline: thin dotted currentColor;
   }
 
   &:active {
@@ -63,7 +59,7 @@ const simpleUnderlineStyles = ({ simpleUnderline }) =>
     }
   `;
 
-const A = styled('a')(baseStyles, simpleUnderlineStyles);
+const A = styled('a')(baseStyles, focusOutline, simpleUnderlineStyles);
 
 const Anchor = ({
   children,

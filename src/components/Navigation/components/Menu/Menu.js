@@ -4,10 +4,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
+import { focusOutline } from '../../../../styles/shared';
 import useTheme from '../../../../hooks/use-theme';
-import SettingsIcon from '../../../icons/SettingsIcon';
 import MoonIcon from '../../../icons/MoonIcon';
-import MotionIcon from '../../../icons/MotionIcon';
 import Image from '../../../images/Image';
 import Hamburger from '../../../icons/Hamburger';
 import Hr from '../../../Hr';
@@ -175,7 +174,7 @@ const iconActiveStyles = ({ theme, isActive }) =>
 
 const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
 
-const settingsButtonStyles = ({ theme }) => css`
+const darkmodeButtonStyles = ({ theme }) => css`
   line-height: 0;
   padding: calc(${theme.spacings.byte} + 2px);
   fill: ${theme.colors.n700};
@@ -185,51 +184,52 @@ const settingsButtonStyles = ({ theme }) => css`
   }
 `;
 
-const SettingsButton = styled('button')(itemStyles, settingsButtonStyles);
+const DarkmodeButton = styled('button')(
+  itemStyles,
+  focusOutline,
+  darkmodeButtonStyles
+);
 
 function Menu({ children, userAvatarURL }) {
   const theme = useTheme();
   const [isOpen, setOpen] = useState(false);
 
+  const { toggleDarkmode, darkmode } = theme;
   const handleClick = () => setOpen(!isOpen);
-  const {
-    toggleDarkmode,
-    toggleReducedMotion,
-    darkmode,
-    reducedMotion
-  } = theme;
-  const hasDivider = children && (toggleDarkmode || toggleReducedMotion);
+  const hasContent = !!children;
+  const hasDivider = hasContent && toggleDarkmode;
 
-  const renderIcon = () => {
-    if (!children) {
-      return (
-        <SettingsButton
-          isActive={isOpen}
-          aria-pressed={isOpen}
-          onClick={handleClick}
+  if (!hasContent) {
+    return (
+      <Wrapper>
+        <DarkmodeButton
+          isActive={darkmode}
+          aria-pressed={darkmode}
+          onClick={toggleDarkmode}
         >
-          <SettingsIcon
+          <MoonIcon
             width={theme.iconSizes.kilo}
             height={theme.iconSizes.kilo}
+            full={darkmode}
+            alt="Toggle darkmode"
           />
-        </SettingsButton>
-      );
-    }
-    if (userAvatarURL) {
-      return (
+        </DarkmodeButton>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
+      {userAvatarURL ? (
         <UserPhoto
           src={userAvatarURL}
           onClick={handleClick}
           alt="Profile photo"
         />
-      );
-    }
-    return <Hamburger onClick={handleClick} isActive={isOpen} />;
-  };
+      ) : (
+        <Hamburger onClick={handleClick} isActive={isOpen} />
+      )}
 
-  return (
-    <Wrapper>
-      {renderIcon()}
       <Dropdown isOpen={isOpen}>
         {children}
 
@@ -250,24 +250,6 @@ function Menu({ children, userAvatarURL }) {
               />
             </Icon>
             Toggle darkmode
-          </IconButton>
-        )}
-
-        {toggleReducedMotion && (
-          <IconButton
-            isActive={reducedMotion}
-            aria-pressed={reducedMotion}
-            onClick={toggleReducedMotion}
-          >
-            <Icon isActive={reducedMotion}>
-              <MotionIcon
-                width={theme.iconSizes.kilo}
-                height={theme.iconSizes.kilo}
-                full={reducedMotion}
-                alt=""
-              />
-            </Icon>
-            Reduce motion
           </IconButton>
         )}
       </Dropdown>

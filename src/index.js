@@ -1,5 +1,6 @@
 import * as sharedPropTypes from './util/shared-prop-types';
 import * as cookies from './util/cookies';
+import * as styleHelpers from './styles/shared';
 import themes, * as themeHelpers from './styles/themes';
 
 /**
@@ -26,7 +27,6 @@ export { default as Hr } from './components/Hr';
 // Icons
 export { default as PandaIcon } from './components/icons/PandaIcon';
 export { default as MoonIcon } from './components/icons/MoonIcon';
-export { default as MotionIcon } from './components/icons/MotionIcon';
 export { default as LoadingIcon } from './components/icons/LoadingIcon';
 export { default as Hamburger } from './components/icons/Hamburger';
 
@@ -65,5 +65,5 @@ export { default as ComponentsContext } from './util/components-context';
  * Styles
  */
 
-export { themes, themeHelpers };
+export { styleHelpers, themes, themeHelpers };
 export { default as GlobalStyles } from './styles/global-styles';
