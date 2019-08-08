@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import isServer from '../../util/is-server';
+import useAnimationFrame from '../../hooks/use-animation-frame';
 import NavigationContext from './NavigationContext';
 import Brand from './components/Brand';
 import Links from './components/Links';
@@ -56,78 +56,51 @@ const Header = styled('header')(
   headerFloatingStyles
 );
 
-const INITIAL_STATE = {
-  isFloating: false,
-  isInvisible: false
-};
+function Navigation({ children }) {
+  const [isFloating, setFloating] = useState(false);
+  const [isInvisible, setInvisible] = useState(true);
+  const currentScrollY = useRef();
+  const currentScrollDirection = useRef();
 
-class Navigation extends Component {
-  static propTypes = {
-    children: childrenPropType
-  };
-
-  state = INITIAL_STATE;
-
-  componentDidMount() {
-    if (isServer) {
-      return;
-    }
-    this.initScrollListener();
-  }
-
-  componentWillUnmount() {
-    if (isServer) {
-      return;
-    }
-    this.removeScrollListener();
-  }
-
-  initScrollListener = () => {
-    this.currentScrollY = 0;
-    window.addEventListener('scroll', this.debouncedHandleScroll);
-    this.listeningForScroll = true;
-  };
-
-  removeScrollListener = () => {
-    if (this.listeningForScroll) {
-      window.removeEventListener('scroll', this.debouncedHandleScroll);
-      this.listeningForScroll = false;
-    }
-  };
-
-  cancelScroll = () => {
-    if (this.timeoutScroll) {
-      window.cancelAnimationFrame(this.timeoutScroll);
-    }
-  };
-
-  debouncedHandleScroll = () => {
-    this.cancelScroll();
-    this.timeoutScroll = window.requestAnimationFrame(this.handleScroll);
-  };
-
-  handleScroll = () => {
+  const handleScroll = useAnimationFrame(() => {
     const latestKnownScrollY = window.scrollY;
-    const scrolledDown = this.currentScrollY < latestKnownScrollY;
-    const isFloating = latestKnownScrollY > 44;
-    const isInvisible = isFloating && scrolledDown;
-    this.setState({ isFloating, isInvisible });
-    this.currentScrollY = latestKnownScrollY;
-  };
+    const scrolledDown =
+      currentScrollY.current === latestKnownScrollY
+        ? currentScrollDirection.current
+        : currentScrollY.current <= latestKnownScrollY;
 
-  render() {
-    return (
-      <Header {...this.state}>
-        <NavigationContext.Provider value={this.state}>
-          {this.props.children}
-        </NavigationContext.Provider>
-      </Header>
-    );
-  }
+    setFloating(latestKnownScrollY > 44);
+    setInvisible(isFloating && scrolledDown);
+
+    currentScrollY.current = latestKnownScrollY;
+    currentScrollDirection.current = scrolledDown;
+  });
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+  return (
+    <Header isInvisible={isInvisible} isFloating={isFloating}>
+      <NavigationContext.Provider value={{ isFloating, isInvisible }}>
+        {children}
+      </NavigationContext.Provider>
+    </Header>
+  );
 }
 
 Navigation.Brand = Brand;
 Navigation.Links = Links;
 Navigation.Menu = Menu;
 
+Navigation.propTypes = {
+  children: childrenPropType
+};
+
+/**
+ * @component
+ */
 export default Navigation;
