@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
+import { isFunction, isArray } from 'lodash/fp';
 
 export const createGlobalStyles = ({ theme }) => css`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -226,11 +227,30 @@ export const createGlobalStyles = ({ theme }) => css`
 export default function GlobalStyles({ styles }) {
   return (
     <Global
-      styles={theme => [createGlobalStyles({ theme }), styles({ theme })]}
+      styles={theme => {
+        const allStyles = [];
+        const defaultStyles = createGlobalStyles({ theme });
+
+        allStyles.push(defaultStyles);
+
+        if (isFunction(styles)) {
+          allStyles.push(styles({ theme }));
+        } else if (isArray(styles)) {
+          allStyles.push(...styles);
+        } else if (styles) {
+          allStyles.push(styles);
+        }
+
+        return allStyles;
+      }}
     />
   );
 }
 
 GlobalStyles.propTypes = {
-  styles: PropTypes.func
+  styles: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.array
+  ])
 };

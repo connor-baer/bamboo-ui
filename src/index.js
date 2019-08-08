@@ -62,7 +62,8 @@ export { default as isSaveData } from './util/is-save-data';
 export { default as ComponentsContext } from './util/components-context';
 
 /**
- * Themes
+ * Styles
  */
 
 export { themes, themeHelpers };
+export { default as GlobalStyles } from './styles/global-styles';
