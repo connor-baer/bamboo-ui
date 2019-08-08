@@ -5,8 +5,8 @@ import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
+import useComponents from '../../../../hooks/use-components';
 import NavigationContext from '../../NavigationContext';
-import Link from '../../../Link';
 
 const navBaseStyles = ({ theme }) => css`
   ${theme.mq.untilMega} {
@@ -82,6 +82,7 @@ const navAnchorActiveStyles = ({ theme, isActive }) =>
 const A = styled('a')(navAnchorBaseStyles, navAnchorActiveStyles);
 
 function Links({ links }) {
+  const { Link } = useComponents();
   if (isEmpty(links)) {
     return null;
   }
