@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
 import ComponentsContext from '../../util/components-context';
@@ -14,7 +14,6 @@ import {
   loadFonts,
   preloadFonts
 } from '../../styles/load-fonts';
-import GlobalStyles from '../../styles/global-styles';
 
 const transitionStyles = ({ theme, isTransitioning }) =>
   isTransitioning &&
@@ -158,7 +157,7 @@ export default class Theme extends Component {
     const { children, assetPrefix = '' } = this.props;
     const { Head } = this.context;
     const theme = this.getTheme(themeId, config);
-    const styles = () => theme.fonts.map(createFontFace(assetPrefix)).join('');
+    const styles = () => theme.fonts.map(createFontFace(assetPrefix));
     return (
       <ThemeProvider theme={theme}>
         <>
@@ -166,7 +165,7 @@ export default class Theme extends Component {
             <meta name="theme-color" content={theme.colors.bodyBg} />
             {preloadFonts(assetPrefix, theme.fonts)}
           </Head>
-          <GlobalStyles styles={styles} />
+          <Global styles={styles} />
           <ThemeTransition isTransitioning={isTransitioning}>
             {children}
           </ThemeTransition>
