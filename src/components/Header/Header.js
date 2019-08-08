@@ -9,7 +9,7 @@ import Subtitle from './components/Subtitle';
 function Header({ title, subtitle, children, ...rest }) {
   return (
     <Wrapper {...rest}>
-      {title && <Title hasColor={!!subtitle}>{title}</Title>}
+      {title && <Title hasSubtitle={!!subtitle}>{title}</Title>}
       {subtitle && <Subtitle>{subtitle}</Subtitle>}
       {children}
     </Wrapper>
