@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.peta};
-  line-height: ${theme.lineHeights.kilo};
+  font-size: ${theme.fontSizes.tera};
+  line-height: ${theme.lineHeights.byte};
   font-weight: ${theme.fontWeight.light};
   color: ${theme.colors.n700};
   margin-top: ${theme.spacings.kilo};

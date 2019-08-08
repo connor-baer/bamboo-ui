@@ -3,9 +3,9 @@ import { css } from '@emotion/core';
 
 /* eslint-disable no-irregular-whitespace */
 const baseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.exa};
+  font-size: ${theme.fontSizes.peta};
   font-weight: ${theme.fontWeight.bold};
-  line-height: ${theme.lineHeights.kilo};
+  line-height: ${theme.lineHeights.byte};
   color: ${theme.colors.p500};
 
   &::after {
@@ -16,6 +16,7 @@ const baseStyles = ({ theme }) => css`
   }
 
   ${theme.mq.mega} {
+    font-size: ${theme.fontSizes.exa};
     display: inline;
   }
 `;

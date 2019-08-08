@@ -48,8 +48,8 @@ const fontSizes = {
 };
 
 const lineHeights = {
-  bit: '1em',
-  byte: '1.25em',
+  bit: '125em',
+  byte: '1.33em',
   kilo: '1.5em',
   mega: '1.75em',
   giga: '2em',
