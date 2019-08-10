@@ -17,6 +17,7 @@ const navBaseStyles = ({ theme }) => css`
     padding: ${theme.spacings.kilo};
     background: ${theme.colors.white};
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid ${theme.colors.n300};
     transition: transform ${theme.animations.standard};
   }
 

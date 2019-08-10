@@ -83,6 +83,7 @@ function Navigation({ children }) {
       window.removeEventListener('scroll', handleScroll);
     };
   });
+
   return (
     <Header isInvisible={isInvisible} isFloating={isFloating}>
       <NavigationContext.Provider value={{ isFloating, isInvisible }}>
