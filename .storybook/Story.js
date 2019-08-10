@@ -3,18 +3,11 @@ import addons from '@storybook/addons';
 import { addDecorator } from '@storybook/react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { withTheme } from 'emotion-theming';
 
+import useTheme from '../src/hooks/use-theme';
 import GlobalStyles from '../src/styles/global-styles';
 
 const channel = addons.getChannel();
-
-function ThemeToggle({ theme }) {
-  useEffect(() => {
-    channel.on('DARK_MODE', theme.toggleDarkmode);
-  }, [channel, theme.toggleDarkmode]);
-  return null;
-}
 
 const globalStyles = ({ theme }) => css`
   html,
@@ -66,11 +59,17 @@ const ReducedMotion = ({ theme }) => (
   <Button onClick={theme.toggleReducedMotion}>Reduce motion</Button>
 );
 
-function Story({ theme, children }) {
+export default function Story({ children }) {
+  const theme = useTheme();
+
+  useEffect(() => {
+    channel.on('DARK_MODE', theme.toggleDarkmode);
+    return () => channel.off('DARK_MODE', theme.toggleDarkmode);
+  }, [channel, theme.toggleDarkmode]);
+
   return (
     <div>
       {children}
-      <ThemeToggle theme={theme} />
       <GlobalStyles styles={globalStyles} />
       <Options>
         <ReducedMotion theme={theme} />
@@ -78,5 +77,3 @@ function Story({ theme, children }) {
     </div>
   );
 }
-
-export default withTheme(Story);

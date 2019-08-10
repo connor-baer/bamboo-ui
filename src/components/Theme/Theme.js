@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -15,20 +14,16 @@ import {
   preloadFonts
 } from '../../styles/load-fonts';
 
-const transitionStyles = ({ theme, isTransitioning }) =>
-  isTransitioning &&
-  css`
-    *,
-    *::before,
-    *::after {
-      transition: background-color ${theme.animations.micro},
-        color ${theme.animations.micro}, fill ${theme.animations.micro},
-        border-color ${theme.animations.micro} !important,
-        text-shadow ${theme.animations.micro} !important;
-    }
-  `;
-
-const ThemeTransition = styled('div')(transitionStyles);
+const transitionStyles = ({ theme }) => css`
+  *,
+  *::before,
+  *::after {
+    transition: background-color ${theme.animations.micro},
+      color ${theme.animations.micro}, fill ${theme.animations.micro},
+      border-color ${theme.animations.micro} !important,
+      text-shadow ${theme.animations.micro} !important;
+  }
+`;
 
 export default class Theme extends Component {
   static propTypes = {
@@ -118,10 +113,10 @@ export default class Theme extends Component {
       });
     });
 
-  toggleState = key => () => {
-    const value = !this.state[key];
-    setCookie(key, value);
-    return this.animateStateChange({ [key]: value });
+  toggleState = key => value => {
+    const newValue = value || !this.state[key];
+    setCookie(key, newValue);
+    return this.animateStateChange({ [key]: newValue });
   };
 
   toggleDarkmode = this.toggleState('darkmode');
@@ -157,7 +152,10 @@ export default class Theme extends Component {
     const { children, assetPrefix = '' } = this.props;
     const { Head } = this.context;
     const theme = this.getTheme(themeId, config);
-    const styles = () => theme.fonts.map(createFontFace(assetPrefix));
+    const styles = theme.fonts.map(createFontFace(assetPrefix));
+    if (isTransitioning) {
+      styles.push(transitionStyles({ theme }));
+    }
     return (
       <ThemeProvider theme={theme}>
         <>
@@ -166,9 +164,7 @@ export default class Theme extends Component {
             {preloadFonts(assetPrefix, theme.fonts)}
           </Head>
           <Global styles={styles} />
-          <ThemeTransition isTransitioning={isTransitioning}>
-            {children}
-          </ThemeTransition>
+          {children}
         </>
       </ThemeProvider>
     );
