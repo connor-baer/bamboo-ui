@@ -37,6 +37,7 @@ function Meta({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{titleString}</title>
       <meta name="robots" content={`${indexString}, ${followString}`} />
+      {url && <link rel="canonical" href={url} />}
       {description && <meta name="description" content={description} />}
       {title && <meta property="og:title" content={title} />}
       {description && <meta property="og:description" content={description} />}
@@ -56,13 +57,13 @@ function Meta({
 }
 
 Meta.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  url: PropTypes.string,
+  url: PropTypes.string.isRequired,
   image: PropTypes.shape(imagePropType).isRequired,
   index: PropTypes.bool,
   follow: PropTypes.bool,
-  siteName: PropTypes.string.isRequired,
+  siteName: PropTypes.string,
   siteTwitter: PropTypes.string
 };
 

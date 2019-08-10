@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { isNil } from 'lodash/fp';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -114,7 +115,7 @@ export default class Theme extends Component {
     });
 
   toggleState = key => value => {
-    const newValue = typeof value !== 'undefined' ? value : !this.state[key];
+    const newValue = isNil(value) ? !this.state[key] : value;
     setCookie(key, newValue);
     return this.animateStateChange({ [key]: newValue });
   };
