@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { imagePropType } from '../../../util/shared-prop-types';
-import Image from '../Image';
+import useComponents from '../../../hooks/use-components';
 
 const wrapperBaseStyles = () => css`
   display: block;
@@ -44,12 +44,16 @@ const imageAspectRatioStyles = ({ aspectRatio }) =>
     object-fit: cover;
   `;
 
-const StyledImage = styled(Image)(imageBaseStyles, imageAspectRatioStyles);
-
 function RatioImage({ aspectRatio, className, ...props }) {
+  const { Image } = useComponents();
+
   return (
     <Wrapper aspectRatio={aspectRatio} className={className}>
-      <StyledImage aspectRatio={aspectRatio} {...props} />
+      <Image
+        aspectRatio={aspectRatio}
+        css={[imageBaseStyles, imageAspectRatioStyles({ aspectRatio })]}
+        {...props}
+      />
     </Wrapper>
   );
 }

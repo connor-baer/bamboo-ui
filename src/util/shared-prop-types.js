@@ -105,8 +105,8 @@ export const themePropType = PropTypes.shape({
 
 export const imagePropType = {
   src: PropTypes.string.isRequired,
-  srcSet: PropTypes.string,
-  colors: PropTypes.arrayOf(PropTypes.string),
+  srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   alt: PropTypes.string.isRequired
 };
 

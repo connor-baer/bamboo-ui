@@ -5,9 +5,9 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { focusOutline } from '../../../../styles/shared';
+import useComponents from '../../../../hooks/use-components';
 import useTheme from '../../../../hooks/use-theme';
 import MoonIcon from '../../../icons/MoonIcon';
-import Image from '../../../images/Image';
 import Hamburger from '../../../icons/Hamburger';
 import Hr from '../../../Hr';
 
@@ -21,7 +21,8 @@ const wrapperStyles = ({ theme }) => css`
 
 const Wrapper = styled('div')(wrapperStyles);
 
-const userPhotoStyles = ({ theme }) => css`
+// Passed to the css prop.
+const userPhotoStyles = theme => css`
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};
   object-fit: cover;
@@ -32,8 +33,6 @@ const userPhotoStyles = ({ theme }) => css`
     cursor: pointer;
   }
 `;
-
-const UserPhoto = styled(Image)(userPhotoStyles);
 
 const dropdownBaseStyles = ({ theme }) => css`
   ${theme.mq.untilKilo} {
@@ -192,6 +191,7 @@ const DarkmodeButton = styled('button')(
 
 function Menu({ children, userAvatarURL }) {
   const theme = useTheme();
+  const { Image } = useComponents();
   const [isOpen, setOpen] = useState(false);
 
   const { toggleDarkmode, darkmode } = theme;
@@ -221,7 +221,8 @@ function Menu({ children, userAvatarURL }) {
   return (
     <Wrapper>
       {userAvatarURL ? (
-        <UserPhoto
+        <Image
+          css={userPhotoStyles}
           src={userAvatarURL}
           onClick={handleClick}
           alt="Profile photo"

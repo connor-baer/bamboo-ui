@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isEmpty, omit } from 'lodash/fp';
+import { isEmpty } from 'lodash/fp';
 
 import {
   imagePropType,
@@ -85,11 +85,7 @@ function Gallery({ images, align = Align.LEFT, caption }) {
       <ImagesContainer>
         {images.map((image, i) => (
           <ImageWrapper key={i} align={align} numberOfImages={images.length}>
-            <RatioImage
-              {...omit('toString', image)}
-              sizes={sizes}
-              aspectRatio={1 / 1}
-            />
+            <RatioImage {...image} sizes={sizes} aspectRatio={1 / 1} />
           </ImageWrapper>
         ))}
       </ImagesContainer>

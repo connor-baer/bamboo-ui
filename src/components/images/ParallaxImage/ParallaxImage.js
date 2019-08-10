@@ -2,11 +2,10 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { omit } from 'lodash/fp';
 
 import { themePropType, imagePropType } from '../../../util/shared-prop-types';
+import ComponentsContext from '../../../util/components-context';
 import isServer from '../../../util/is-server';
-import Image from '../Image';
 
 const containerStyles = () => css`
   position: relative;
@@ -28,8 +27,6 @@ const imageStyles = () => css`
   object-fit: cover;
 `;
 
-const StyledImage = styled(Image)(imageStyles);
-
 export default class ParallaxImage extends Component {
   static propTypes = {
     ...imagePropType,
@@ -42,6 +39,8 @@ export default class ParallaxImage extends Component {
     speed: 75,
     theme: {}
   };
+
+  static contextType = ComponentsContext;
 
   constructor(props) {
     super(props);
@@ -146,6 +145,7 @@ export default class ParallaxImage extends Component {
 
   render() {
     const { className, speed, theme, ...image } = this.props;
+    const { Image } = this.context;
     const { translateY } = this.state;
 
     if (!image.src) {
@@ -154,8 +154,9 @@ export default class ParallaxImage extends Component {
 
     return (
       <Container innerRef={this.containerRef} className={className}>
-        <StyledImage
-          {...omit('toString', image)}
+        <Image
+          {...image}
+          css={imageStyles}
           sizes="100vw"
           style={{ transform: `translate3d(0, ${translateY}%, 0)` }}
         />

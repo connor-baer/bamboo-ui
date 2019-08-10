@@ -64,7 +64,6 @@ export default function Story({ children }) {
 
   useEffect(() => {
     channel.on('DARK_MODE', theme.toggleDarkmode);
-    return () => channel.off('DARK_MODE', theme.toggleDarkmode);
   }, [channel, theme.toggleDarkmode]);
 
   return (

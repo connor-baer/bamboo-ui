@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isEmpty, omit } from 'lodash/fp';
+import { isEmpty } from 'lodash/fp';
 
 import { imagePropType } from '../../../util/shared-prop-types';
 import RatioImage from '../RatioImage';
@@ -81,25 +81,13 @@ function Collage({ images = [] }) {
   return (
     <ImagesContainer>
       <OuterWrapper>
-        <RatioImage
-          {...omit('toString', images[0])}
-          sizes={''}
-          aspectRatio={1 / 1}
-        />
+        <RatioImage {...images[0]} sizes={''} aspectRatio={1 / 1} />
       </OuterWrapper>
       <InnerWrapper>
-        <RatioImage
-          {...omit('toString', images[1])}
-          sizes={''}
-          aspectRatio={1.66 / 1}
-        />
+        <RatioImage {...images[1]} sizes={''} aspectRatio={1.66 / 1} />
       </InnerWrapper>
       <OuterWrapper>
-        <RatioImage
-          {...omit('toString', images[2])}
-          sizes={''}
-          aspectRatio={1 / 1}
-        />
+        <RatioImage {...images[2]} sizes={''} aspectRatio={1 / 1} />
       </OuterWrapper>
     </ImagesContainer>
   );

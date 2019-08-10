@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -15,18 +14,15 @@ const baseStyles = () => css`
   color: transparent;
 `;
 
-const placeholderStyles = ({ theme, colors, src }) =>
+const placeholderStyles = ({ theme, src }) =>
   !isTransparent(src) &&
   css`
-    background: ${colors ? colors[0] : theme.colors.n300};
+    background: ${theme.colors.n300};
   `;
 
 const Image = styled('img')(baseStyles, placeholderStyles);
 
-Image.propTypes = {
-  ...imagePropType,
-  sizes: PropTypes.string
-};
+Image.propTypes = imagePropType;
 
 /**
  * @component
