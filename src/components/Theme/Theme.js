@@ -114,7 +114,7 @@ export default class Theme extends Component {
     });
 
   toggleState = key => value => {
-    const newValue = value || !this.state[key];
+    const newValue = typeof value !== 'undefined' ? value : !this.state[key];
     setCookie(key, newValue);
     return this.animateStateChange({ [key]: newValue });
   };
