@@ -8,7 +8,7 @@ import ComponentsContext from '../../util/components-context';
 import { childrenPropType } from '../../util/shared-prop-types';
 import isServer from '../../util/is-server';
 import isSaveData from '../../util/is-save-data';
-import { setCookie } from '../../util/cookies';
+import { getAllCookies, setCookie } from '../../util/cookies';
 import {
   createFontFace,
   loadFonts,
@@ -28,7 +28,6 @@ const transitionStyles = ({ theme }) => css`
 
 export default class Theme extends Component {
   static propTypes = {
-    cookies: PropTypes.object,
     initialThemeId: PropTypes.string,
     themes: PropTypes.object.isRequired,
     assetPrefix: PropTypes.string,
@@ -37,8 +36,7 @@ export default class Theme extends Component {
 
   static defaultProps = {
     initialThemeId: 'standard',
-    themes: {},
-    cookies: {}
+    themes: {}
   };
 
   static contextType = ComponentsContext;
@@ -46,7 +44,8 @@ export default class Theme extends Component {
   constructor(props) {
     super(props);
 
-    const { cookies, assetPrefix, initialThemeId: themeId } = props;
+    const { assetPrefix, initialThemeId: themeId } = props;
+    const cookies = getAllCookies();
     const darkmode = cookies.darkmode === 'true';
     const reducedMotion = cookies.reducedMotion === 'true';
 

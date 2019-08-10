@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 import { curry, differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
@@ -29,10 +29,7 @@ export const preloadFonts = curry((assetPrefix, fonts) =>
     const fullName = `${name}-${weight}-${style}`;
     const fontPath = `${assetPrefix}/${fullName}`;
     return (
-      <Fragment key={fullName}>
-        <link rel="preload" href={`${fontPath}.woff2`} as="font" />
-        <link rel="preload" href={`${fontPath}.woff`} as="font" />
-      </Fragment>
+      <link key={fullName} rel="preload" href={`${fontPath}.woff2`} as="font" />
     );
   })
 );
