@@ -135,7 +135,7 @@ export default class ParallaxImage extends Component {
     const scrollHeight =
       this.containerRef.current.clientHeight + window.innerHeight;
     const scrollRatio = window.scrollY / scrollHeight;
-    const translateY = (scrollRatio * this.props.speed).toFixed(1);
+    const translateY = (scrollRatio * this.props.speed).toFixed(2);
 
     if (translateY === this.state.translateY) {
       return;
