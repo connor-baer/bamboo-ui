@@ -16,7 +16,7 @@ const wrapperStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled('footer')(wrapperStyles);
+const Wrapper = styled('aside')(wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
   font-size: ${theme.fontSizes.tera};
