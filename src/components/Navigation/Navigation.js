@@ -58,7 +58,7 @@ const Header = styled('header')(
 
 function Navigation({ children }) {
   const [isFloating, setFloating] = useState(false);
-  const [isInvisible, setInvisible] = useState(true);
+  const [isInvisible, setInvisible] = useState(false);
   const currentScrollY = useRef();
   const currentScrollDirection = useRef();
 
