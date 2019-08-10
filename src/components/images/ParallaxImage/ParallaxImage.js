@@ -153,7 +153,7 @@ export default class ParallaxImage extends Component {
     }
 
     return (
-      <Container innerRef={this.containerRef} className={className}>
+      <Container ref={this.containerRef} className={className}>
         <Image
           {...image}
           css={imageStyles}
