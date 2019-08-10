@@ -4,7 +4,7 @@ import isServer from '../util/is-server';
 
 // Silence React warnings during SSR. Taken from:
 // https://medium.com/@alexandereardon/uselayouteffect-and-ssr-192986cdcf7a
-const useIsomorphicLayoutEffect = isServer ? useLayoutEffect : useEffect;
+const useIsomorphicLayoutEffect = isServer ? useEffect : useLayoutEffect;
 
 export default function useAnimationFrame(callback) {
   const callbackRef = useRef(callback);
