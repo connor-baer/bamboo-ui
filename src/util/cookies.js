@@ -1,4 +1,4 @@
-import { set, get as getCookie, getAll as getAllCookies } from 'es-cookie';
+import { set, get as getCookie, getAll } from 'es-cookie';
 
 import isServer from './is-server';
 
@@ -15,4 +15,11 @@ export function setCookie(name, value, options) {
   });
 }
 
-export { getCookie, getAllCookies };
+export function getAllCookies() {
+  if (isServer) {
+    return {};
+  }
+  return getAll();
+}
+
+export { getCookie };
