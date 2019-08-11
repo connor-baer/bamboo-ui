@@ -31,7 +31,7 @@ const imageBaseStyles = () => css`
   width: 100%;
 `;
 
-const imageAspectRatioStyles = aspectRatio =>
+const imageAspectRatioStyles = aspectRatio => () =>
   aspectRatio &&
   css`
     position: absolute;
