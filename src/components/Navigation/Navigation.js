@@ -41,11 +41,13 @@ const headerInvisibleStyles = ({ theme, isInvisible }) =>
       opacity: 0;
     }
   `;
+
 const headerFloatingStyles = ({ theme, isFloating }) =>
   isFloating &&
   css`
     ${theme.mq.mega} {
-      padding: ${theme.spacings.kilo} ${theme.spacings.giga};
+      padding-top: ${theme.spacings.kilo};
+      padding-top: ${theme.spacings.kilo};
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
   `;

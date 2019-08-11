@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
+import { fullWidthStyles } from '../../styles/shared';
 import useTheme from '../../hooks/use-theme';
 import Anchor from '../Anchor';
 import Small from '../Small';
@@ -14,17 +15,15 @@ const wrapperStyles = ({ theme }) => css`
   padding: ${theme.spacings.mega} ${theme.spacings.kilo};
 
   ${theme.mq.mega} {
-    padding: ${theme.spacings.mega} ${theme.spacings.giga};
+    padding-top: ${theme.spacings.mega};
+    padding-bottom: ${theme.spacings.mega};
   }
 `;
 
-const Wrapper = styled('footer')(wrapperStyles);
+const Wrapper = styled('footer')(fullWidthStyles, wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
-  display: block;
   text-align: center;
-  max-width: ${theme.maxWidth};
-  margin: 0 auto;
 
   small,
   a {

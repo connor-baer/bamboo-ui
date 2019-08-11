@@ -20,3 +20,33 @@ export const focusOutline = () => css`
     outline: thin dotted currentColor;
   }
 `;
+
+export const fullWidthStyles = ({ theme }) => css`
+  max-width: ${theme.maxWidth};
+  margin-right: auto;
+  margin-left: auto;
+
+  ${theme.mq.kilo} {
+    padding-right: ${theme.spacings.tera};
+    padding-left: ${theme.spacings.tera};
+  }
+`;
+
+export const pageWidthStyles = ({ theme }) => css`
+  max-width: ${theme.pageWidth};
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: ${theme.spacings.mega};
+  padding-left: ${theme.spacings.mega};
+
+  ${theme.mq.kilo} {
+    padding-right: ${theme.spacings.tera};
+    padding-left: ${theme.spacings.tera};
+  }
+`;
+
+export const gridStyles = () => css`
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] minmax(0, 1fr));
+  grid-column-gap: 1rem;
+`;

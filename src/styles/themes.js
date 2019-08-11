@@ -79,6 +79,7 @@ const zIndexes = {
 };
 
 const maxWidth = '80rem';
+const pageWidth = '72rem';
 
 const neutralsLight = {
   n100: openColor.gray[1],
@@ -249,6 +250,7 @@ function standard({ darkmode, reducedMotion } = {}) {
     spacings,
     zIndexes,
     maxWidth,
+    pageWidth,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
     mq: createMediaQueries(breakpoints)

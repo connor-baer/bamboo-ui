@@ -1,6 +1,6 @@
-import * as sharedPropTypes from './util/shared-prop-types';
 import * as cookies from './util/cookies';
-import * as styleHelpers from './styles/shared';
+import * as sharedPropTypes from './util/shared-prop-types';
+import * as sharedStyles from './styles/shared';
 import themes, * as themeHelpers from './styles/themes';
 
 /**
@@ -65,5 +65,5 @@ export { default as ComponentsContext } from './util/components-context';
  * Styles
  */
 
-export { styleHelpers, themes, themeHelpers };
+export { sharedStyles, themes, themeHelpers };
 export { default as GlobalStyles } from './styles/global-styles';

@@ -1,17 +1,19 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
+import { pageWidthStyles } from '../../../../styles/shared';
+
+const wrapperStyles = ({ theme }) => css`
   margin-top: ${theme.spacings.exa};
   margin-bottom: ${theme.spacings.exa};
 
   ${theme.mq.kilo} {
-    margin-top: 96px;
-    margin-bottom: 96px;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 `;
 
-const Wrapper = styled('header')(baseStyles);
+const Wrapper = styled('header')(pageWidthStyles, wrapperStyles);
 
 /**
  * @component
