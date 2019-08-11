@@ -145,11 +145,11 @@ export const createGlobalStyles = ({ theme }) => css`
     line-height: ${theme.lineHeights.kilo};
     font-size: 16px;
 
-    ${theme.mq.kilo} {
+    ${theme.mq.giga} {
       font-size: 18px;
     }
 
-    ${theme.mq.tera} {
+    @media (min-width: 2000px) {
       font-size: 20px;
     }
 

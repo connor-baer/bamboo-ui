@@ -169,7 +169,7 @@ const breakpoints = {
   giga: 960,
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
   tera: 1280,
-  afterTera: '(min-width: 1280px)'
+  peta: 1440
 };
 
 export function createColors(darkmode = false) {
