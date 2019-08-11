@@ -142,6 +142,16 @@ export const createGlobalStyles = ({ theme }) => css`
 
   html {
     box-sizing: border-box;
+    line-height: ${theme.lineHeights.kilo};
+    font-size: 16px;
+
+    ${theme.mq.kilo} {
+      font-size: 18px;
+    }
+
+    ${theme.mq.tera} {
+      font-size: 20px;
+    }
 
     [type='button'] {
       appearance: none;
@@ -151,16 +161,6 @@ export const createGlobalStyles = ({ theme }) => css`
   body {
     color: ${theme.colors.bodyColor};
     background-color: ${theme.colors.bodyBg};
-    font-size: 16px;
-    line-height: ${theme.lineHeights.kilo};
-
-    ${theme.mq.kilo} {
-      font-size: 18px;
-    }
-
-    ${theme.mq.tera} {
-      font-size: 18px;
-    }
   }
 
   /**

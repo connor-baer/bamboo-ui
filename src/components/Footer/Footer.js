@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { fullWidthStyles } from '../../styles/shared';
+import { fullWidth } from '../../styles/shared';
 import useTheme from '../../hooks/use-theme';
 import Anchor from '../Anchor';
 import Small from '../Small';
@@ -20,7 +20,7 @@ const wrapperStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled('footer')(fullWidthStyles, wrapperStyles);
+const Wrapper = styled('footer')(wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
   text-align: center;
@@ -32,7 +32,7 @@ const contentStyles = ({ theme }) => css`
   }
 `;
 
-const Content = styled('div')(contentStyles);
+const Content = styled('div')(fullWidth, contentStyles);
 
 function Footer({ siteName, siteTwitter, children }) {
   const theme = useTheme();

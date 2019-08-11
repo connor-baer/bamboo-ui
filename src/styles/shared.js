@@ -21,7 +21,7 @@ export const focusOutline = () => css`
   }
 `;
 
-export const fullWidthStyles = ({ theme }) => css`
+export const fullWidth = ({ theme }) => css`
   max-width: ${theme.maxWidth};
   margin-right: auto;
   margin-left: auto;
@@ -32,7 +32,7 @@ export const fullWidthStyles = ({ theme }) => css`
   }
 `;
 
-export const pageWidthStyles = ({ theme }) => css`
+export const pageWidth = ({ theme }) => css`
   max-width: ${theme.pageWidth};
   margin-right: auto;
   margin-left: auto;
@@ -45,8 +45,12 @@ export const pageWidthStyles = ({ theme }) => css`
   }
 `;
 
-export const gridStyles = () => css`
+export const grid = ({ theme }) => css`
   display: grid;
   grid-template-columns: repeat(12, [col-start] minmax(0, 1fr));
-  grid-column-gap: 1rem;
+  grid-column-gap: ${theme.spacings.mega};
+
+  ${theme.mq.kilo} {
+    grid-column-gap: ${theme.spacings.tera};
+  }
 `;

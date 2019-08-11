@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { pageWidthStyles } from '../../../../styles/shared';
+import { pageWidth } from '../../../../styles/shared';
 
 const wrapperStyles = ({ theme }) => css`
   margin-top: ${theme.spacings.exa};
@@ -13,7 +13,7 @@ const wrapperStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled('header')(pageWidthStyles, wrapperStyles);
+const Wrapper = styled('header')(pageWidth, wrapperStyles);
 
 /**
  * @component
