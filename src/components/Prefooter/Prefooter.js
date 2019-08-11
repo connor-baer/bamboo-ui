@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import useComponents from '../../hooks/use-components';
+import useTheme from '../../hooks/use-theme';
 import Anchor from '../Anchor';
 
 const wrapperStyles = ({ theme }) => css`
@@ -38,6 +39,7 @@ const anchorStyles = ({ theme }) => css`
 const StyledAnchor = styled(Anchor)(anchorStyles);
 
 function Prefooter({ text, linkLabel, linkUrl }) {
+  const theme = useTheme();
   const { Link } = useComponents();
 
   /* eslint-disable no-irregular-whitespace */
@@ -47,7 +49,9 @@ function Prefooter({ text, linkLabel, linkUrl }) {
         {text && `${text} `}
         {linkLabel && (
           <Link href={linkUrl}>
-            <StyledAnchor>{linkLabel}</StyledAnchor>
+            <StyledAnchor backgroundColor={theme.colors.n100}>
+              {linkLabel}
+            </StyledAnchor>
           </Link>
         )}
       </Content>

@@ -47,7 +47,7 @@ const headerFloatingStyles = ({ theme, isFloating }) =>
   css`
     ${theme.mq.mega} {
       padding-top: ${theme.spacings.kilo};
-      padding-top: ${theme.spacings.kilo};
+      padding-bottom: ${theme.spacings.kilo};
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
   `;
