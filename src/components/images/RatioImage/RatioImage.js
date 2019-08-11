@@ -14,7 +14,7 @@ const wrapperBaseStyles = () => css`
   width: 100%;
 `;
 
-const wrapperAspectRatioStyles = aspectRatio => () =>
+const wrapperAspectRatioStyles = ({ aspectRatio }) => () =>
   aspectRatio &&
   css`
     height: 0;
@@ -24,25 +24,23 @@ const wrapperAspectRatioStyles = aspectRatio => () =>
 
 const Wrapper = styled('div')(wrapperBaseStyles, wrapperAspectRatioStyles);
 
-const imageBaseStyles = () => css`
+const imageBaseStyles = css`
   display: block;
   height: auto;
   max-height: 100%;
   width: 100%;
 `;
 
-const imageAspectRatioStyles = aspectRatio => () =>
-  aspectRatio &&
-  css`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  `;
+const imageAspectRatioStyles = css`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 function RatioImage({ aspectRatio, className, ...props }) {
   const { Image } = useComponents();
@@ -51,7 +49,7 @@ function RatioImage({ aspectRatio, className, ...props }) {
     <Wrapper aspectRatio={aspectRatio} className={className}>
       <Image
         aspectRatio={aspectRatio}
-        css={[imageBaseStyles, imageAspectRatioStyles(aspectRatio)]}
+        css={[imageBaseStyles, aspectRatio && imageAspectRatioStyles]}
         {...props}
       />
     </Wrapper>

@@ -6,8 +6,8 @@ import {
   captionPropType
 } from '../../../util/shared-prop-types';
 import useTheme from '../../../hooks/use-theme';
-import useComponents from '../../../hooks/use-components';
 import Align from '../../layout/Align';
+import RatioImage from '../RatioImage';
 import Caption from '../Caption';
 
 function getSizes(theme, align) {
@@ -34,7 +34,6 @@ function getSizes(theme, align) {
 
 function Figure({ image = {}, align = Align.LEFT, caption, ...rest }) {
   const theme = useTheme();
-  const { Image } = useComponents();
 
   if (!image.src) {
     return null;
@@ -44,7 +43,7 @@ function Figure({ image = {}, align = Align.LEFT, caption, ...rest }) {
 
   return (
     <Align align={align} {...rest}>
-      <Image {...image} sizes={sizes} />
+      <RatioImage {...image} sizes={sizes} />
       {caption && <Caption>{caption}</Caption>}
     </Align>
   );
