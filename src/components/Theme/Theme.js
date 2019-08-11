@@ -15,13 +15,13 @@ import {
   preloadFonts
 } from '../../styles/load-fonts';
 
-const transitionStyles = ({ theme }) => css`
+const transitionStyles = theme => css`
   *,
   *::before,
   *::after {
     transition: background-color ${theme.animations.micro},
       color ${theme.animations.micro}, fill ${theme.animations.micro},
-      border-color ${theme.animations.micro} !important,
+      border-color ${theme.animations.micro},
       text-shadow ${theme.animations.micro} !important;
   }
 `;
@@ -153,9 +153,6 @@ export default class Theme extends Component {
     const { Head } = this.context;
     const theme = this.getTheme(themeId, config);
     const styles = theme.fonts.map(createFontFace(assetPrefix));
-    if (isTransitioning) {
-      styles.push(transitionStyles({ theme }));
-    }
     return (
       <ThemeProvider theme={theme}>
         <>
@@ -164,6 +161,7 @@ export default class Theme extends Component {
             {preloadFonts(assetPrefix, theme.fonts)}
           </Head>
           <Global styles={styles} />
+          {isTransitioning && <Global styles={transitionStyles} />}
           {children}
         </>
       </ThemeProvider>

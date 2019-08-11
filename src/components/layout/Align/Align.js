@@ -60,8 +60,8 @@ const fullStyles = ({ theme, align = CENTER }) =>
     }
 
     ${theme.mq.tera} {
-      margin: ${theme.spacings.exa} -26.66%;
-      width: calc(100% + 26.66% * 2);
+      margin: ${theme.spacings.exa} -26%;
+      width: calc(100% + 26% * 2);
     }
   `;
 

@@ -222,6 +222,10 @@ export const createGlobalStyles = ({ theme }) => css`
   code {
     font-family: ${theme.fontStack.mono};
   }
+
+  style {
+    display: none !important;
+  }
 `;
 
 export default function GlobalStyles({ styles }) {

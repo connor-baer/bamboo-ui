@@ -14,7 +14,7 @@ const wrapperBaseStyles = () => css`
   width: 100%;
 `;
 
-const wrapperAspectRatioStyles = ({ aspectRatio }) =>
+const wrapperAspectRatioStyles = aspectRatio => () =>
   aspectRatio &&
   css`
     height: 0;
@@ -51,7 +51,7 @@ function RatioImage({ aspectRatio, className, ...props }) {
     <Wrapper aspectRatio={aspectRatio} className={className}>
       <Image
         aspectRatio={aspectRatio}
-        css={[imageBaseStyles, imageAspectRatioStyles({ aspectRatio })]}
+        css={[imageBaseStyles, imageAspectRatioStyles(aspectRatio)]}
         {...props}
       />
     </Wrapper>

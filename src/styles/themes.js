@@ -168,8 +168,7 @@ const breakpoints = {
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
   giga: 960,
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280,
-  peta: 1440
+  tera: 1280
 };
 
 export function createColors(darkmode = false) {
