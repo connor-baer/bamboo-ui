@@ -85,8 +85,7 @@ export const themePropType = PropTypes.shape({
     giga: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired,
     peta: PropTypes.string.isRequired,
-    exa: PropTypes.string.isRequired,
-    zetta: PropTypes.string.isRequired
+    exa: PropTypes.string.isRequired
   }).isRequired,
   fontWeight: PropTypes.shape({
     light: PropTypes.string.isRequired,
@@ -102,6 +101,24 @@ export const themePropType = PropTypes.shape({
     tera: PropTypes.string.isRequired
   }).isRequired
 });
+
+export const textPropType = {
+  children: childrenPropType.isRequired,
+  type: PropTypes.oneOf(['sans', 'serif', 'mono']),
+  size: PropTypes.oneOf([
+    'bit',
+    'byte',
+    'kilo',
+    'mega',
+    'giga',
+    'tera',
+    'peta',
+    'exa'
+  ]),
+  weight: PropTypes.oneOf(['light', 'regular', 'bold']),
+  slope: PropTypes.oneOf(['normal', 'italic']),
+  lineHeight: PropTypes.oneOf(['bit', 'byte', 'kilo', 'mega', 'giga', 'tera'])
+};
 
 export const imagePropType = {
   src: PropTypes.string.isRequired,
