@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -37,19 +38,24 @@ const sizeStyles = ({ theme, size }) => {
   return null;
 };
 
-const Heading = styled(Text)(baseStyles, sizeStyles);
+const StyledText = styled(Text)(baseStyles, sizeStyles);
+
+function Heading(props) {
+  return (
+    <StyledText
+      as="h2"
+      size="tera"
+      weight="bold"
+      slope="normal"
+      lineHeight="bit"
+      {...props}
+    />
+  );
+}
 
 Heading.propTypes = {
   as: PropTypes.string,
   ...textPropType
-};
-
-Heading.defaultProps = {
-  as: 'h2',
-  size: 'tera',
-  weight: 'bold',
-  slope: 'normal',
-  lineHeight: 'bit'
 };
 
 /**

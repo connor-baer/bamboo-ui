@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -22,13 +23,11 @@ const withSubtitleStyles = ({ theme, hasSubtitle }) =>
   `;
 /* eslint-enable no-irregular-whitespace */
 
-const Title = styled(Heading)(baseStyles, withSubtitleStyles);
+const StyledHeading = styled(Heading)(baseStyles, withSubtitleStyles);
 
-Title.defaultProps = {
-  as: 'h1',
-  size: 'peta',
-  weight: 'bold'
-};
+function Title(props) {
+  return <StyledHeading as="h1" size="peta" weight="bold" {...props} />;
+}
 
 /**
  * @component

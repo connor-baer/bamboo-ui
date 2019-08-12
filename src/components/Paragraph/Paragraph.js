@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -10,19 +11,24 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const Paragraph = styled(Text)(baseStyles);
+const StyledText = styled(Text)(baseStyles);
+
+function Paragraph(props) {
+  return (
+    <StyledText
+      as="p"
+      size="kilo"
+      weight="regular"
+      slope="normal"
+      lineHeight="mega"
+      {...props}
+    />
+  );
+}
 
 Paragraph.propTypes = {
   as: PropTypes.string,
   ...textPropType
-};
-
-Paragraph.defaultProps = {
-  as: 'p',
-  size: 'kilo',
-  weight: 'regular',
-  slope: 'normal',
-  lineHeight: 'mega'
 };
 
 /**

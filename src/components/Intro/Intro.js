@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -8,14 +9,13 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const Intro = styled(Paragraph)(baseStyles);
+const StyledParagraph = styled(Paragraph)(baseStyles);
+
+function Intro(props) {
+  return <StyledParagraph size="giga" weight="light" {...props} />;
+}
 
 Intro.propTypes = textPropType;
-
-Intro.defaultProps = {
-  size: 'giga',
-  weight: 'light'
-};
 
 /**
  * @component

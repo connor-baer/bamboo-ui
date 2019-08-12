@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -17,13 +18,11 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const Subtitle = styled(Heading)(baseStyles);
+const StyledHeading = styled(Heading)(baseStyles);
 
-Subtitle.defaultProps = {
-  as: 'h2',
-  size: 'peta',
-  weight: 'light'
-};
+function Subtitle(props) {
+  return <StyledHeading as="h2" size="peta" weight="light" {...props} />;
+}
 
 /**
  * @component
