@@ -5,6 +5,7 @@ import { css } from '@emotion/core';
 
 import useComponents from '../../hooks/use-components';
 import useTheme from '../../hooks/use-theme';
+import Heading from '../Heading';
 import Anchor from '../Anchor';
 
 const wrapperStyles = ({ theme }) => css`
@@ -20,16 +21,13 @@ const wrapperStyles = ({ theme }) => css`
 const Wrapper = styled('aside')(wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.tera};
-  line-height: ${theme.lineHeights.kilo};
-  font-weight: ${theme.fontWeight.light};
   text-align: center;
   color: ${theme.colors.n900};
   max-width: ${theme.maxWidth};
   margin: 0 auto;
 `;
 
-const Content = styled('p')(contentStyles);
+const Content = styled(Heading)(contentStyles);
 
 const anchorStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
@@ -45,7 +43,7 @@ function Prefooter({ text, linkLabel, linkUrl }) {
   /* eslint-disable no-irregular-whitespace */
   return (
     <Wrapper>
-      <Content>
+      <Content as="p" size="tera" weight="light">
         {text && `${text} `}
         {linkLabel && (
           <Link href={linkUrl}>

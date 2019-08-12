@@ -145,11 +145,11 @@ export const createGlobalStyles = ({ theme }) => css`
     line-height: ${theme.lineHeights.kilo};
     font-size: 16px;
 
-    ${theme.mq.giga} {
+    ${theme.mq.mega} {
       font-size: 18px;
     }
 
-    @media (min-width: 2000px) {
+    ${theme.mq.tera} {
       font-size: 20px;
     }
 
@@ -192,18 +192,6 @@ export const createGlobalStyles = ({ theme }) => css`
   *::selection {
     background-color: ${theme.colors.selectionBg};
     color: ${theme.colors.selectionColor};
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    ${theme.mq.untilKilo} {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      hyphens: auto;
-    }
   }
 
   a {

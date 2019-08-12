@@ -25,7 +25,7 @@ const fonts = [
 const fontStack = {
   default: 'Overpass, Helvetica, Arial, sans-serif',
   sans: 'Overpass, Helvetica, Arial, sans-serif',
-  serif: 'Overpass, Helvetica, Arial, sans-serif',
+  serif: 'Lora, Merriweather, Georgia, Times New Roman, serif',
   mono: 'Courier New, mono-space'
 };
 
@@ -43,12 +43,11 @@ const fontSizes = {
   giga: '1.5rem',
   tera: '2rem',
   peta: '2.5rem',
-  exa: '3rem',
-  zetta: '4rem'
+  exa: '3rem'
 };
 
 const lineHeights = {
-  bit: '125em',
+  bit: '1.25em',
   byte: '1.33em',
   kilo: '1.5em',
   mega: '1.75em',

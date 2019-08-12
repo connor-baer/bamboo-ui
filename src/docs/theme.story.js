@@ -72,13 +72,13 @@ FontSize.propTypes = {
 };
 
 storiesOf(`${GROUPS.DOCS}|Theme`, module)
-  .add('Spacings', () =>
-    Object.keys(Themes.standard().spacings).map(spacingName => (
-      <Spacing key={spacingName} spacingName={spacingName} />
-    ))
-  )
-  .add('Font sizes', () =>
+  .add('Typography', () =>
     Object.keys(Themes.standard().fontSizes).map(fontSizeName => (
       <FontSize key={fontSizeName} fontSizeName={fontSizeName} />
+    ))
+  )
+  .add('Spacing', () =>
+    Object.keys(Themes.standard().spacings).map(spacingName => (
+      <Spacing key={spacingName} spacingName={spacingName} />
     ))
   );

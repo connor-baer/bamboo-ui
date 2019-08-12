@@ -1,19 +1,20 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { textPropType } from '../../util/shared-prop-types';
+import Paragraph from '../Paragraph';
 
 const baseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.giga};
-  font-weight: ${theme.fontWeight.light};
-  line-height: ${theme.lineHeights.mega};
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const Intro = styled('h2')(baseStyles);
+const Intro = styled(Paragraph)(baseStyles);
 
-Intro.propTypes = {
-  children: childrenPropType.isRequired
+Intro.propTypes = textPropType;
+
+Intro.defaultProps = {
+  size: 'giga',
+  weight: 'light'
 };
 
 /**

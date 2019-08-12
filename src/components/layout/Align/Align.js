@@ -14,7 +14,7 @@ const rightStyles = ({ theme, align = CENTER }) =>
   css`
     ${theme.mq.kilo} {
       float: right;
-      margin-top: ${theme.spacings.kilo};
+      margin-top: ${theme.spacings.mega};
       margin-bottom: ${theme.spacings.giga};
       padding-left: ${theme.spacings.peta};
       width: calc(50% + ${theme.spacings.peta} / 2);
@@ -34,7 +34,7 @@ const leftStyles = ({ theme, align = CENTER }) =>
   css`
     ${theme.mq.kilo} {
       float: left;
-      margin-top: ${theme.spacings.kilo};
+      margin-top: ${theme.spacings.mega};
       margin-bottom: ${theme.spacings.giga};
       padding-right: ${theme.spacings.peta};
       width: calc(50% + ${theme.spacings.peta} / 2);
