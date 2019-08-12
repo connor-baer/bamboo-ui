@@ -1,21 +1,29 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.giga};
-  line-height: ${theme.lineHeights.byte};
-  font-weight: ${theme.fontWeight.light};
-  color: ${theme.colors.n700};
-  margin-top: ${theme.spacings.kilo};
+import Heading from '../../../Heading';
 
-  ${theme.mq.mega} {
+const baseStyles = ({ theme }) => css`
+  color: ${theme.colors.n700};
+
+  ${theme.mq.untilKilo} {
+    font-size: ${theme.fontSizes.giga};
+    margin-top: ${theme.spacings.kilo};
+  }
+
+  ${theme.mq.kilo} {
     display: inline;
     margin-top: 0;
-    font-size: ${theme.fontSizes.peta};
   }
 `;
 
-const Subtitle = styled('h2')(baseStyles);
+const Subtitle = styled(Heading)(baseStyles);
+
+Subtitle.defaultProps = {
+  as: 'h2',
+  size: 'peta',
+  weight: 'light'
+};
 
 /**
  * @component

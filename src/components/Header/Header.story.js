@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
+import { css } from '@emotion/core';
 
 import { GROUPS } from '../../../.storybook/groups';
 
@@ -8,12 +9,25 @@ import Header from './Header';
 import Small from '../Small';
 
 storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add('Header', () => (
-  <Header
-    title={text('Title', 'Bamboo UI')}
-    subtitle={text('Subtitle', 'A React component libary')}
+  <div
+    css={css`
+      width: 90vw;
+      max-width: 40rem;
+    `}
   >
-    <div>
-      <Small>{text('Children', 'Made by Connor')}</Small>
-    </div>
-  </Header>
+    <Header
+      title={text('Title', 'Bamboo UI')}
+      subtitle={text('Subtitle', 'A React component libary')}
+    >
+      <div
+        css={theme =>
+          css`
+            margin-top: ${theme.spacings.kilo};
+          `
+        }
+      >
+        <Small>{text('Children', 'Made by Connor')}</Small>
+      </div>
+    </Header>
+  </div>
 ));

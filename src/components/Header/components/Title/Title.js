@@ -1,25 +1,17 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.peta};
-  font-weight: ${theme.fontWeight.bold};
-  line-height: ${theme.lineHeights.byte};
-  color: ${theme.colors.p500};
+import Heading from '../../../Heading';
 
-  ${theme.mq.mega} {
-    font-size: ${theme.fontSizes.exa};
-  }
+const baseStyles = ({ theme }) => css`
+  color: ${theme.colors.p500};
 `;
 
 /* eslint-disable no-irregular-whitespace */
 const withSubtitleStyles = ({ theme, hasSubtitle }) =>
   hasSubtitle &&
   css`
-    font-size: ${theme.fontSizes.tera};
-
-    ${theme.mq.mega} {
-      font-size: ${theme.fontSizes.peta};
+    ${theme.mq.kilo} {
       display: inline;
 
       &::after {
@@ -30,7 +22,13 @@ const withSubtitleStyles = ({ theme, hasSubtitle }) =>
   `;
 /* eslint-enable no-irregular-whitespace */
 
-const Title = styled('h1')(baseStyles, withSubtitleStyles);
+const Title = styled(Heading)(baseStyles, withSubtitleStyles);
+
+Title.defaultProps = {
+  as: 'h1',
+  size: 'peta',
+  weight: 'bold'
+};
 
 /**
  * @component

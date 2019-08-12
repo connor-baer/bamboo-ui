@@ -8,6 +8,9 @@ import themes, * as themeHelpers from './styles/themes';
  */
 
 // Typography
+export { default as Text } from './components/Text';
+export { default as Paragraph } from './components/Paragraph';
+export { default as Heading } from './components/Heading';
 export { default as Anchor } from './components/Anchor';
 export { default as Intro } from './components/Intro';
 export { default as Small } from './components/Small';
