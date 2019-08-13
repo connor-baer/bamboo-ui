@@ -5,7 +5,9 @@ import { css } from '@emotion/core';
 const baseStyles = ({ theme, columnCount = 2 }) => css`
   column-gap: ${theme.spacings.exa};
   column-count: 1;
+  column-fill: balance;
   column-break-inside: avoid;
+  break-inside: avoid;
 
   > * {
     display: inline-block;

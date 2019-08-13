@@ -69,10 +69,10 @@ const slideStyles = count => theme => {
   `;
 };
 
-function Slider({ children }) {
+function Slider({ children, ...rest }) {
   const count = Children.count(children);
   return (
-    <Container>
+    <Container {...rest}>
       {Children.map(children, child =>
         cloneElement(child, { css: slideStyles(count) })
       )}

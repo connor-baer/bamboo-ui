@@ -42,15 +42,11 @@ const containerStyles = () => css`
 `;
 const ImagesContainer = styled('div')(containerStyles);
 
-const singleStyles = ({ numberOfImages }) =>
-  numberOfImages === 1 &&
-  css`
-    width: 100%;
-  `;
-
-const multipleStyles = ({ theme, numberOfImages, align }) => {
+const wrapperStyles = ({ theme, numberOfImages, align }) => {
   if (numberOfImages === 1) {
-    return null;
+    return css`
+      width: 100%;
+    `;
   }
 
   if (align === Align.CENTER || align === Align.FULL) {
@@ -69,7 +65,7 @@ const multipleStyles = ({ theme, numberOfImages, align }) => {
   `;
 };
 
-const ImageWrapper = styled('div')(singleStyles, multipleStyles);
+const ImageWrapper = styled('div')(wrapperStyles);
 
 function Gallery({ images, align = Align.LEFT, caption }) {
   const theme = useTheme();
