@@ -13,7 +13,8 @@ export const hideVisually = () => css`
   width: 1px;
 `;
 
-export const focusOutline = () => css`
+export const focusOutline = ({ theme }) => css`
+  outline-radius: ${theme.borderRadius.kilo};
   outline-offset: 0.25em;
 
   &:focus {

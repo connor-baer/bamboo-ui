@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
 import { isFunction, isArray } from 'lodash/fp';
 
+import { focusOutline } from './shared';
+
 export const createGlobalStyles = ({ theme }) => css`
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
@@ -191,6 +193,7 @@ export const createGlobalStyles = ({ theme }) => css`
   }
 
   a {
+    ${focusOutline({ theme })};
     text-decoration: none;
     color: inherit;
     transition: all ${theme.animations.micro};

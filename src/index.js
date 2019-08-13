@@ -20,6 +20,7 @@ export { default as Navigation } from './components/Navigation';
 export { default as Header } from './components/Header';
 export { default as Prefooter } from './components/Prefooter';
 export { default as Footer } from './components/Footer';
+export { default as Slider } from './components/Slider';
 
 // Utility
 export { default as LoadingBar } from './components/LoadingBar';
