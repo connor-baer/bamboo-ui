@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -26,10 +25,7 @@ function Paragraph(props) {
   );
 }
 
-Paragraph.propTypes = {
-  as: PropTypes.string,
-  ...textPropType
-};
+Paragraph.propTypes = textPropType;
 
 /**
  * @component

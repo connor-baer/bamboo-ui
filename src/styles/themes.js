@@ -218,7 +218,7 @@ const spacings = {
   peta: '2.5rem',
   exa: '3rem',
   zetta: '4rem',
-  yotta: '5rem'
+  yotta: '6rem'
 };
 
 export const createMediaQueries = mapValues(mediaExpression => {

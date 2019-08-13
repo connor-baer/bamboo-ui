@@ -6,6 +6,10 @@ import Heading from '../../../Heading';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};
+
+  ${theme.mq.untilKilo} {
+    margin-top: ${theme.spacings.mega};
+  }
 `;
 
 /* eslint-disable no-irregular-whitespace */

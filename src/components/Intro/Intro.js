@@ -12,7 +12,9 @@ const baseStyles = ({ theme }) => css`
 const StyledParagraph = styled(Paragraph)(baseStyles);
 
 function Intro(props) {
-  return <StyledParagraph size="giga" weight="light" {...props} />;
+  return (
+    <StyledParagraph size="giga" weight="light" lineHeight="mega" {...props} />
+  );
 }
 
 Intro.propTypes = textPropType;

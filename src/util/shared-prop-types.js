@@ -103,6 +103,7 @@ export const themePropType = PropTypes.shape({
 });
 
 export const textPropType = {
+  as: PropTypes.string,
   children: childrenPropType.isRequired,
   type: PropTypes.oneOf(['sans', 'serif', 'mono']),
   size: PropTypes.oneOf([

@@ -9,6 +9,7 @@ const baseStyles = ({ theme }) => css`
 
   ${theme.mq.untilKilo} {
     font-size: ${theme.fontSizes.giga};
+    line-height: ${theme.lineHeights.kilo};
     margin-top: ${theme.spacings.kilo};
   }
 
