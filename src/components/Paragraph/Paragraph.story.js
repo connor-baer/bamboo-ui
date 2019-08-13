@@ -16,7 +16,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Paragraph`, module).add('Paragraph', () => {
   const size = select(
     'Size',
     ['bit', 'byte', 'kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta'],
-    'kilo'
+    'mega'
   );
   const weight = select('Weight', ['regular', 'bold'], 'regular');
   const slope = select('Slope', ['normal', 'italic'], 'normal');

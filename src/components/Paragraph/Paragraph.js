@@ -17,10 +17,10 @@ function Paragraph(props) {
   return (
     <StyledText
       as="p"
-      size="kilo"
+      size="mega"
       weight="regular"
       slope="normal"
-      lineHeight="mega"
+      lineHeight="giga"
       {...props}
     />
   );

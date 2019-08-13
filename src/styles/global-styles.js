@@ -149,10 +149,6 @@ export const createGlobalStyles = ({ theme }) => css`
       font-size: 18px;
     }
 
-    ${theme.mq.tera} {
-      font-size: 20px;
-    }
-
     [type='button'] {
       appearance: none;
     }

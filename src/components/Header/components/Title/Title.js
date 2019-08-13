@@ -26,7 +26,7 @@ const withSubtitleStyles = ({ theme, hasSubtitle }) =>
 const StyledHeading = styled(Heading)(baseStyles, withSubtitleStyles);
 
 function Title(props) {
-  return <StyledHeading as="h1" size="peta" weight="bold" {...props} />;
+  return <StyledHeading as="h1" size="exa" weight="bold" {...props} />;
 }
 
 /**

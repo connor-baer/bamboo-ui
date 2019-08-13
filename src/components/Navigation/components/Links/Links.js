@@ -41,8 +41,8 @@ const navInvisibleStyles = ({ theme, isInvisible }) =>
 const Nav = styled('nav')(navBaseStyles, navInvisibleStyles);
 
 const navAnchorBaseStyles = ({ theme }) => css`
+  font-size: ${theme.fontSizes.byte};
   font-weight: ${theme.fontWeight.regular};
-  line-height: ${theme.lineHeights.kilo};
   line-height: 1;
   letter-spacing: 1px;
   display: inline-block;
