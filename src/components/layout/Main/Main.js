@@ -2,17 +2,16 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+const HEIGHT_NAVIGATION = '5.5rem';
+const HEIGHT_FOOTER = '10.5rem + 3rem';
+
 const baseStyles = ({ theme }) => css`
-  background-color: ${theme.colors.bodyBg};
-  color: ${theme.colors.bodyColor};
   overflow: hidden;
   padding-bottom: ${theme.spacings.zetta};
 
   ${theme.mq.mega} {
-    /* Height of the footer */
-    min-height: calc(100vh - (168px + 65px));
-    /* Height of the top navigation */
-    padding-top: 88px;
+    min-height: calc(100vh - (${HEIGHT_FOOTER}));
+    padding-top: ${HEIGHT_NAVIGATION};
   }
 `;
 

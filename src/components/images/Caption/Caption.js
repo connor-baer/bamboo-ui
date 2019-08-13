@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { textPropType, captionPropType } from '../../../util/shared-prop-types';
-import Paragraph from '../../Paragraph';
+import Paragraph from '../../typography/Paragraph';
 
 const baseStyles = ({ theme }) => css`
   display: block;

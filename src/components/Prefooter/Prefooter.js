@@ -5,8 +5,8 @@ import { css } from '@emotion/core';
 
 import useComponents from '../../hooks/use-components';
 import useTheme from '../../hooks/use-theme';
-import Heading from '../Heading';
-import Anchor from '../Anchor';
+import Heading from '../typography/Heading';
+import Anchor from '../typography/Anchor';
 
 const wrapperStyles = ({ theme }) => css`
   background-color: ${theme.colors.n100};

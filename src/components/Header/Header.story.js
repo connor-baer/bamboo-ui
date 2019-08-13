@@ -6,7 +6,7 @@ import { css } from '@emotion/core';
 import { GROUPS } from '../../../.storybook/groups';
 
 import Header from './Header';
-import Small from '../Small';
+import Small from '../typography/Small';
 
 storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add('Header', () => (
   <div

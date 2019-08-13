@@ -19,7 +19,7 @@ const wrapperAspectRatioStyles = ({ aspectRatio }) => () =>
   css`
     height: 0;
     width: 100%;
-    padding-top: ${(1 / aspectRatio) * 100}%;
+    padding-top: ${((1 / aspectRatio) * 100).toFixed(2)}%;
   `;
 
 const Wrapper = styled('div')(wrapperBaseStyles, wrapperAspectRatioStyles);

@@ -8,12 +8,12 @@ import themes, * as themeHelpers from './styles/themes';
  */
 
 // Typography
-export { default as Text } from './components/Text';
-export { default as Paragraph } from './components/Paragraph';
-export { default as Heading } from './components/Heading';
-export { default as Anchor } from './components/Anchor';
-export { default as Intro } from './components/Intro';
-export { default as Small } from './components/Small';
+export { default as Text } from './components/typography/Text';
+export { default as Paragraph } from './components/typography/Paragraph';
+export { default as Heading } from './components/typography/Heading';
+export { default as Anchor } from './components/typography/Anchor';
+export { default as Intro } from './components/typography/Intro';
+export { default as Small } from './components/typography/Small';
 
 // Sections
 export { default as Navigation } from './components/Navigation';

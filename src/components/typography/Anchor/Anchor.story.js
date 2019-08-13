@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/groups';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Anchor from './Anchor';
 

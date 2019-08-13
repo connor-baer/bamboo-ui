@@ -6,13 +6,16 @@ import { css } from '@emotion/core';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { fullWidth } from '../../styles/shared';
 import useTheme from '../../hooks/use-theme';
-import Anchor from '../Anchor';
-import Small from '../Small';
+import Anchor from '../typography/Anchor';
+import Small from '../typography/Small';
+
+const HEIGHT_NAVIGATION = '4rem';
 
 const wrapperStyles = ({ theme }) => css`
-  border-top: 1px solid ${theme.colors.n300};
+  border-topa: 1px solid ${theme.colors.n300};
   background-color: ${theme.colors.n100};
-  padding: ${theme.spacings.mega} ${theme.spacings.kilo};
+  padding: ${theme.spacings.mega} ${theme.spacings.kilo}
+    calc(${theme.spacings.mega} + ${HEIGHT_NAVIGATION});
 
   ${theme.mq.mega} {
     padding-top: ${theme.spacings.mega};

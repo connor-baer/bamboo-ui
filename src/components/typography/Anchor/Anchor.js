@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
-import useComponents from '../../hooks/use-components';
-import { childrenPropType } from '../../util/shared-prop-types';
-import { focusOutline } from '../../styles/shared';
+import useComponents from '../../../hooks/use-components';
+import { childrenPropType } from '../../../util/shared-prop-types';
+import { focusOutline } from '../../../styles/shared';
 
 /* eslint-disable max-len */
 const baseStyles = ({ theme, backgroundColor }) => {

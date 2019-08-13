@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Heading from '../../../Heading';
+import Heading from '../../../typography/Heading';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.colors.p500};

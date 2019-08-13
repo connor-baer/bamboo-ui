@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../.storybook/groups';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Text from './Text';
 

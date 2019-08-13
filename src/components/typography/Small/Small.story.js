@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/groups';
+import { GROUPS } from '../../../../.storybook/groups';
 
 import Small from './Small';
 
