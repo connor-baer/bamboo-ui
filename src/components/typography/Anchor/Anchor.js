@@ -60,49 +60,43 @@ const A = styled('a')(baseStyles, focusOutline, simpleUnderlineStyles);
 
 const Anchor = ({
   children,
-  title,
-  className,
-  simpleUnderline = false,
-  backgroundColor,
-  id,
-  target,
-  rel,
-  ...otherProps
+  href,
+  as,
+  prefetch,
+  replace,
+  shallow,
+  scroll,
+  ...rest
 }) => {
   const { Link } = useComponents();
 
-  if (isEmpty(otherProps.href)) {
-    return <span {...{ title, className, id }}>{children}</span>;
+  if (isEmpty(href)) {
+    return <span {...rest}>{children}</span>;
   }
 
   return (
-    <Link {...otherProps}>
-      <A
-        {...{
-          title,
-          className,
-          id,
-          target,
-          rel,
-          simpleUnderline,
-          backgroundColor
-        }}
-      >
-        {children}
-      </A>
+    <Link
+      href={href}
+      as={as}
+      prefetch={prefetch}
+      replace={replace}
+      shallow={shallow}
+      scroll={scroll}
+      passHref={true}
+    >
+      <A {...rest}>{children}</A>
     </Link>
   );
 };
 
 Anchor.propTypes = {
   children: childrenPropType.isRequired,
-  title: PropTypes.string,
-  className: PropTypes.string,
-  simpleUnderline: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  id: PropTypes.string,
-  target: PropTypes.string,
-  rel: PropTypes.string
+  href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  prefetch: PropTypes.bool,
+  replace: PropTypes.bool,
+  shallow: PropTypes.bool,
+  scroll: PropTypes.bool
 };
 
 /**

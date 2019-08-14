@@ -22,10 +22,10 @@ export function ComponentsProvider({ value: innerComponents = {}, children }) {
 
 ComponentsProvider.propTypes = {
   value: PropTypes.shape({
-    Head: PropTypes.element,
-    Link: PropTypes.element,
-    Image: PropTypes.element,
-    Align: PropTypes.element
+    Head: PropTypes.any,
+    Link: PropTypes.any,
+    Image: PropTypes.any,
+    Align: PropTypes.any
   }),
   children: childrenPropType
 };
