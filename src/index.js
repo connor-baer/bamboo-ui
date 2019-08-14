@@ -54,7 +54,10 @@ export { default as Main } from './components/layout/Main';
  */
 
 export { default as useTheme } from './hooks/use-theme';
-export { default as useComponents } from './hooks/use-components';
+export {
+  default as useComponents,
+  ComponentsProvider
+} from './hooks/use-components';
 
 /**
  * Utils
@@ -63,7 +66,6 @@ export { default as useComponents } from './hooks/use-components';
 export { sharedPropTypes, cookies };
 export { default as isServer } from './util/is-server';
 export { default as isSaveData } from './util/is-save-data';
-export { default as ComponentsContext } from './util/components-context';
 
 /**
  * Styles
