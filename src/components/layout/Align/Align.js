@@ -16,8 +16,9 @@ const rightStyles = ({ theme, align = CENTER }) =>
       float: right;
       margin-top: ${theme.spacings.mega};
       margin-bottom: ${theme.spacings.giga};
+      margin-right: -10.5%;
       padding-left: ${theme.spacings.peta};
-      width: calc(50% + ${theme.spacings.peta} / 2);
+      width: calc(60.5% + ${theme.spacings.peta} / 2);
     }
 
     ${theme.mq.mega} {
@@ -32,8 +33,9 @@ const leftStyles = ({ theme, align = CENTER }) =>
       float: left;
       margin-top: ${theme.spacings.mega};
       margin-bottom: ${theme.spacings.giga};
+      margin-left: -10.5%;
       padding-right: ${theme.spacings.peta};
-      width: calc(50% + ${theme.spacings.peta} / 2);
+      width: calc(60.5% + ${theme.spacings.peta} / 2);
     }
 
     ${theme.mq.mega} {
@@ -45,6 +47,11 @@ const fullStyles = ({ theme, align = CENTER }) =>
   align === FULL &&
   css`
     text-align: center;
+
+    ${theme.mq.kilo} {
+      margin: ${theme.spacings.peta} -10.5%;
+      width: calc(100% + 10.5% * 2);
+    }
 
     ${theme.mq.mega} {
       margin: ${theme.spacings.exa} -26%;

@@ -6,24 +6,29 @@ import {
   captionPropType
 } from '../../../util/shared-prop-types';
 import useTheme from '../../../hooks/use-theme';
-import Align from '../../layout/Align';
+import useComponents from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';
 
+const RIGHT = 'right';
+const LEFT = 'left';
+const CENTER = 'center';
+const FULL = 'full';
+
 function getSizes(theme, align) {
   const gigaMap = {
-    [Align.RIGHT]: '360px',
-    [Align.LEFT]: '360px',
-    [Align.CENTER]: '755px',
-    [Align.FULL]: '1155px'
+    [RIGHT]: '360px',
+    [LEFT]: '360px',
+    [CENTER]: '755px',
+    [FULL]: '1155px'
   };
   const gigaSize = `(min-width: ${theme.breakpoints.giga}px) ${gigaMap[align]}`;
 
   const megaMap = {
-    [Align.RIGHT]: '380px',
-    [Align.LEFT]: '380px',
-    [Align.CENTER]: '790px',
-    [Align.FULL]: '950px'
+    [RIGHT]: '380px',
+    [LEFT]: '380px',
+    [CENTER]: '790px',
+    [FULL]: '950px'
   };
   const megaSize = `(min-width: ${theme.breakpoints.mega}px) ${megaMap[align]}`;
 
@@ -32,8 +37,9 @@ function getSizes(theme, align) {
   return [gigaSize, megaSize, mobileSize].join(', ');
 }
 
-function Figure({ image = {}, align = Align.LEFT, caption, ...rest }) {
+function Figure({ image = {}, align = LEFT, caption, ...rest }) {
   const theme = useTheme();
+  const { Align } = useComponents();
 
   if (!image.src) {
     return null;
@@ -42,17 +48,17 @@ function Figure({ image = {}, align = Align.LEFT, caption, ...rest }) {
   const sizes = getSizes(theme, align);
 
   return (
-    <Align align={align} {...rest}>
+    <Align {...rest} align={align} as="figure">
       <RatioImage {...image} sizes={sizes} />
       {caption && <Caption>{caption}</Caption>}
     </Align>
   );
 }
 
-Figure.RIGHT = Align.RIGHT;
-Figure.LEFT = Align.LEFT;
-Figure.CENTER = Align.CENTER;
-Figure.FULL = Align.FULL;
+Figure.RIGHT = RIGHT;
+Figure.LEFT = LEFT;
+Figure.CENTER = CENTER;
+Figure.FULL = FULL;
 
 Figure.propTypes = {
   image: PropTypes.shape(imagePropType),
