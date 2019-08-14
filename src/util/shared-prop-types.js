@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { RIGHT, LEFT, CENTER, FULL } from '../constants/align';
+
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
   PropTypes.node
@@ -132,3 +134,5 @@ export const captionPropType = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.element
 ]);
+
+export const alignPropType = PropTypes.oneOf([RIGHT, LEFT, CENTER, FULL]);

@@ -3,17 +3,14 @@ import PropTypes from 'prop-types';
 
 import {
   imagePropType,
-  captionPropType
+  captionPropType,
+  alignPropType
 } from '../../../util/shared-prop-types';
 import useTheme from '../../../hooks/use-theme';
 import useComponents from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';
-
-const RIGHT = 'right';
-const LEFT = 'left';
-const CENTER = 'center';
-const FULL = 'full';
+import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 function getSizes(theme, align) {
   const gigaMap = {
@@ -63,12 +60,7 @@ Figure.FULL = FULL;
 Figure.propTypes = {
   image: PropTypes.shape(imagePropType),
   caption: captionPropType,
-  align: PropTypes.oneOf([
-    Figure.RIGHT,
-    Figure.LEFT,
-    Figure.CENTER,
-    Figure.FULL
-  ])
+  align: alignPropType
 };
 
 /**

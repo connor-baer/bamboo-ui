@@ -6,17 +6,15 @@ import { isEmpty } from 'lodash/fp';
 
 import {
   imagePropType,
-  captionPropType
+  captionPropType,
+  alignPropType
 } from '../../../util/shared-prop-types';
 import useTheme from '../../../hooks/use-theme';
 import useComponents from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';
 
-const RIGHT = 'right';
-const LEFT = 'left';
-const CENTER = 'center';
-const FULL = 'full';
+import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 function getSizes(theme, align) {
   const gigaMap = {
@@ -103,12 +101,7 @@ Gallery.FULL = FULL;
 
 Gallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape(imagePropType)),
-  align: PropTypes.oneOf([
-    Gallery.RIGHT,
-    Gallery.LEFT,
-    Gallery.CENTER,
-    Gallery.FULL
-  ]),
+  align: alignPropType,
   caption: captionPropType
 };
 
