@@ -78,7 +78,7 @@ const zIndexes = {
 };
 
 const maxWidth = '80rem';
-const pageWidth = '72rem';
+const pageWidth = '75rem';
 
 const neutralsLight = {
   n100: openColor.gray[1],

@@ -17,7 +17,7 @@ export const focusOutline = ({ theme }) => css`
   outline-radius: ${theme.borderRadius.kilo};
   outline-offset: 0.25em;
 
-  &:focus {
+  &:focus-visible {
     outline: thin dotted currentColor;
   }
 `;
