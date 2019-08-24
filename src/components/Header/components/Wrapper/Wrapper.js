@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const wrapperStyles = ({ theme }) => css`
-  margin-top: ${theme.spacings.tera};
-  margin-bottom: ${theme.spacings.tera};
+  margin-top: ${theme.spacings.exa};
+  margin-bottom: ${theme.spacings.exa};
 
   ${theme.mq.kilo} {
-    margin-top: ${theme.spacings.exa};
-    margin-bottom: ${theme.spacings.exa};
+    margin-top: ${theme.spacings.zetta};
+    margin-bottom: ${theme.spacings.zetta};
   }
 
   ${theme.mq.mega} {

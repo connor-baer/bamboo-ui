@@ -14,10 +14,10 @@ const baseStyles = () => css`
   color: transparent;
 `;
 
-const placeholderStyles = ({ theme, src }) =>
+const placeholderStyles = ({ theme, src, color }) =>
   !isTransparent(src) &&
   css`
-    background: ${theme.colors.n300};
+    background: ${color || theme.colors.n300};
   `;
 
 const Image = styled('img')(baseStyles, placeholderStyles);

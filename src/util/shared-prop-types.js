@@ -127,7 +127,8 @@ export const imagePropType = {
   src: PropTypes.string.isRequired,
   srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  color: PropTypes.string
 };
 
 export const captionPropType = PropTypes.oneOfType([
