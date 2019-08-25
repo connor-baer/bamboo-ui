@@ -36,10 +36,8 @@ export default function Theme({
 }) {
   const cookies = getAllCookies();
   const { Head } = useComponents();
-  const [darkmode, setDarkmode] = useState(cookies.darkmode === 'true');
-  const [reducedMotion, setReducedMotion] = useState(
-    cookies.reducedMotion === 'true'
-  );
+  const [darkmode, setDarkmode] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const [isTransitioning, setTransitioning] = useState(false);
   const [themeId, setThemeId] = useState(initialThemeId);
   const timerId = useRef(null);
@@ -71,8 +69,21 @@ export default function Theme({
     });
   }, []);
 
-  useMedia('(prefers-reduced-motion)', updateReducedMotion);
   useMedia('(prefers-color-scheme: dark)', updateDarkmode);
+  useMedia('(prefers-reduced-motion)', updateReducedMotion);
+
+  useEffect(() => {
+    const hasDarkmodeCookie = cookies.darkmode === 'true';
+    if (hasDarkmodeCookie !== darkmode) {
+      updateDarkmode(hasDarkmodeCookie);
+    }
+  });
+  useEffect(() => {
+    const hasReducedMotionCookie = cookies.reducedMotion === 'true';
+    if (hasReducedMotionCookie !== reducedMotion) {
+      updateReducedMotion(hasReducedMotionCookie);
+    }
+  });
 
   const toggleDarkmode = value =>
     updateDarkmode(isBoolean(value) ? value : !darkmode);

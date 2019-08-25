@@ -93,7 +93,7 @@ function Links({ links }) {
       {({ isInvisible }) => (
         <Nav isInvisible={isInvisible}>
           {links.map(({ url, label, icon, isActive }, i) => (
-            <Link key={i} href={url} prefetch>
+            <Link key={i} href={url}>
               <A isActive={isActive}>
                 {icon} {label}
               </A>
