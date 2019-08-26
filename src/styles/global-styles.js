@@ -145,7 +145,11 @@ export const createGlobalStyles = ({ theme }) => css`
   html {
     box-sizing: border-box;
     line-height: ${theme.lineHeights.kilo};
-    font-size: 16px;
+    font-size: 14px;
+
+    ${theme.mq.kilo} {
+      font-size: 16px;
+    }
 
     ${theme.mq.mega} {
       font-size: 18px;
