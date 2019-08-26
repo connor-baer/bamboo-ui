@@ -6,10 +6,15 @@ import FontFaceObserver from 'fontfaceobserver';
 import isServer from '../util/is-server';
 import addClass from '../util/add-class';
 
-export const createFontFace = curry(
-  (assetPrefix, { name, weight, style, localName }) => {
-    const fontPath = `${assetPrefix}/${name}-${weight}-${style}`;
-    return css`
+function constructSrc(assetPrefix, font) {
+  const { name, weight, style } = font;
+  return `${assetPrefix}/${name.replace(/\s+/g, '-')}-${weight}-${style}`;
+}
+
+export const createFontFace = curry((assetPrefix, font) => {
+  const { name, weight, style, localName } = font;
+  const fontPath = constructSrc(assetPrefix, font);
+  return css`
       @font-face {
         font-family: '${name}';
         font-style: ${style};
@@ -21,15 +26,13 @@ export const createFontFace = curry(
           url('${fontPath}.woff') format('woff');
       };
   `;
-  }
-);
+});
 
 export const preloadFonts = curry((assetPrefix, fonts) =>
-  fonts.map(({ name, weight, style }) => {
-    const fullName = `${name}-${weight}-${style}`;
-    const fontPath = `${assetPrefix}/${fullName}`;
+  fonts.map(font => {
+    const fontPath = constructSrc(assetPrefix, font);
     return (
-      <link key={fullName} rel="preload" href={`${fontPath}.woff2`} as="font" />
+      <link key={fontPath} rel="preload" href={`${fontPath}.woff2`} as="font" />
     );
   })
 );
