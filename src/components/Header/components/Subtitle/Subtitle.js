@@ -8,7 +8,7 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
 
   ${theme.mq.untilKilo} {
-    font-size: ${theme.fontSizes.giga};
+    font-size: ${theme.fontSizes.tera};
     line-height: ${theme.lineHeights.kilo};
     margin-top: ${theme.spacings.kilo};
   }
