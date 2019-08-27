@@ -7,6 +7,34 @@ import { GROUPS } from '../../.storybook/groups';
 
 import Themes from '../styles/themes';
 
+function FontSize({ fontSizeName }) {
+  return (
+    <p>
+      <span
+        css={theme => css`
+          font-size: ${theme.fontSizes[fontSizeName]};
+          line-height: 1.5;
+        `}
+      >
+        {fontSizeName}
+      </span>
+      <span
+        css={theme => css`
+          margin-left: ${theme.spacings.kilo};
+          color: ${theme.colors.n500};
+          font-size: ${theme.fontSizes.byte};
+        `}
+      >
+        {Themes.standard().fontSizes[fontSizeName]}
+      </span>
+    </p>
+  );
+}
+
+FontSize.propTypes = {
+  fontSizeName: PropTypes.string.isRequired
+};
+
 function Spacing({ spacingName }) {
   return (
     <div
@@ -43,17 +71,17 @@ Spacing.propTypes = {
   spacingName: PropTypes.string.isRequired
 };
 
-function FontSize({ fontSizeName }) {
+function Color({ colorName }) {
   return (
     <p>
       <span
         css={theme => css`
-          font-size: ${theme.fontSizes[fontSizeName]};
-          line-height: 1.5;
+          display: inline-block;
+          width: ${theme.spacings.giga};
+          height: ${theme.spacings.giga};
+          background: ${theme.colors[colorName]};
         `}
-      >
-        {fontSizeName}
-      </span>
+      ></span>
       <span
         css={theme => css`
           margin-left: ${theme.spacings.kilo};
@@ -61,14 +89,14 @@ function FontSize({ fontSizeName }) {
           font-size: ${theme.fontSizes.byte};
         `}
       >
-        {Themes.standard().spacings[fontSizeName]}
+        {colorName}: {Themes.standard().colors[colorName]}
       </span>
     </p>
   );
 }
 
-FontSize.propTypes = {
-  fontSizeName: PropTypes.string.isRequired
+Color.propTypes = {
+  colorName: PropTypes.string.isRequired
 };
 
 storiesOf(`${GROUPS.DOCS}|Theme`, module)
@@ -80,5 +108,10 @@ storiesOf(`${GROUPS.DOCS}|Theme`, module)
   .add('Spacing', () =>
     Object.keys(Themes.standard().spacings).map(spacingName => (
       <Spacing key={spacingName} spacingName={spacingName} />
+    ))
+  )
+  .add('Colors', () =>
+    Object.keys(Themes.standard().colors).map(colorName => (
+      <Color key={colorName} colorName={colorName} />
     ))
   );

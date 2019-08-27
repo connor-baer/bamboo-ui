@@ -1,5 +1,7 @@
 import openColor from 'open-color/open-color.json';
-import { mapValues } from 'lodash/fp';
+import { mapValues, startsWith } from 'lodash/fp';
+
+import { formatHSLA, HEXtoHSLA } from './utils';
 
 const fonts = [
   {
@@ -144,6 +146,7 @@ const reds = {
   r900: openColor.red[9]
 };
 
+// const primary = createPalette('p', '#1fb7e3');
 const primary = {
   p100: '#00ccd2',
   p300: '#00ccd2',
@@ -180,7 +183,7 @@ export function createColors(darkmode = false) {
   const bodyBg = darkmode ? offBlack : openColor.white;
   const bodyColor = darkmode ? openColor.white : offBlack;
   const neutrals = darkmode ? neutralsDark : neutralsLight;
-  return {
+  const colors = {
     white,
     black,
     bodyBg,
@@ -198,6 +201,11 @@ export function createColors(darkmode = false) {
     ...primary,
     ...misc
   };
+  return Object.keys(colors).reduce((acc, name) => {
+    const color = colors[name];
+    acc[name] = startsWith('hsl', color) ? color : formatHSLA(HEXtoHSLA(color));
+    return acc;
+  }, {});
 }
 
 function createAnimations(reducedMotion = false) {
