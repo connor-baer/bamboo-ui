@@ -1,4 +1,4 @@
-import { isString } from 'lodash/fp';
+import { isString, min } from 'lodash/fp';
 
 export function parseRGBA(rgbaString) {
   // eslint-disable-next-line max-len
@@ -14,14 +14,14 @@ export function formatRGBA(rgba) {
 
 export function parseHSLA(hslaString) {
   // eslint-disable-next-line max-len
-  const hslaRegex = /^hsla?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*(\d+(?:\.\d)?)\s*)?\)$/i;
+  const hslaRegex = /^hsla?\(\s*(\d+(?:\.\d)?)deg\s*,\s*(\d+(?:\.\d)?)%\s*,\s*(\d+(?:\.\d)?)%\s*(?:,\s*(\d+(?:\.\d)?)\s*)?\)$/i;
   const [, h, s, l, a = 1] = hslaRegex.exec(hslaString);
-  return [h, s, l, a];
+  return [Number(h), Number(s), Number(l), Number(a)];
 }
 
 export function formatHSLA(hsla) {
   const [h, s, l, a = 1] = hsla;
-  return `hsla(${h}deg, ${s}%, ${l}%, ${a})`;
+  return `hsla(${h}deg, ${min([s, 100])}%, ${min([l, 100])}%, ${a})`;
 }
 
 export function HEXtoRGBA(hex) {
@@ -104,15 +104,15 @@ export function HEXtoHSLA(hex) {
 export function createPalette(prefix, color) {
   const [h, s, l, a] = HEXtoHSLA(color);
   return {
-    [`${prefix}000`]: formatHSLA([h, s + 40, l + 27, a]),
+    // [`${prefix}000`]: formatHSLA([h, s + 40, l + 27, a]),
     [`${prefix}100`]: formatHSLA([h, s + 32, l + 24, a]),
-    [`${prefix}200`]: formatHSLA([h, s + 24, l + 18, a]),
+    // [`${prefix}200`]: formatHSLA([h, s + 24, l + 18, a]),
     [`${prefix}300`]: formatHSLA([h, s + 16, l + 12, a]),
-    [`${prefix}400`]: formatHSLA([h, s + 8, l + 6, a]),
+    // [`${prefix}400`]: formatHSLA([h, s + 8, l + 6, a]),
     [`${prefix}500`]: formatHSLA([h, s, l, a]),
-    [`${prefix}600`]: formatHSLA([h, s - 8, l - 6, a]),
+    // [`${prefix}600`]: formatHSLA([h, s - 8, l - 6, a]),
     [`${prefix}700`]: formatHSLA([h, s - 16, l - 12, a]),
-    [`${prefix}800`]: formatHSLA([h, s - 24, l - 18, a]),
+    // [`${prefix}800`]: formatHSLA([h, s - 24, l - 18, a]),
     [`${prefix}900`]: formatHSLA([h, s - 32, l - 24, a])
   };
 }

@@ -1,7 +1,7 @@
 import openColor from 'open-color/open-color.json';
 import { mapValues, startsWith } from 'lodash/fp';
 
-import { formatHSLA, HEXtoHSLA } from './utils';
+import { formatHSLA, HEXtoHSLA, createPalette } from './utils';
 
 const fonts = [
   {
@@ -146,20 +146,7 @@ const reds = {
   r900: openColor.red[9]
 };
 
-// const primary = createPalette('p', '#1fb7e3');
-const primary = {
-  p100: '#00ccd2',
-  p300: '#00ccd2',
-  p500: '#1fb7e3',
-  p700: '#1fb7e3',
-  p900: '#1fb7e3'
-};
-
-const misc = {
-  danger: reds.r500,
-  success: greens.g700,
-  warning: yellows.y700
-};
+const primary = createPalette('p', '#1fb7e3');
 
 const breakpoints = {
   untilKilo: '(max-width: 479px)',
@@ -174,6 +161,9 @@ const breakpoints = {
 };
 
 export function createColors(darkmode = false) {
+  const danger = reds.r500;
+  const success = greens.g700;
+  const warning = yellows.y700;
   const shadow = '#0C0F14';
   const selectionBg = openColor.yellow[3];
   const selectionColor = openColor.black;
@@ -184,13 +174,6 @@ export function createColors(darkmode = false) {
   const bodyColor = darkmode ? openColor.white : offBlack;
   const neutrals = darkmode ? neutralsDark : neutralsLight;
   const colors = {
-    white,
-    black,
-    bodyBg,
-    bodyColor,
-    selectionBg,
-    selectionColor,
-    shadow,
     ...neutrals,
     ...violets,
     ...blues,
@@ -199,7 +182,16 @@ export function createColors(darkmode = false) {
     ...oranges,
     ...reds,
     ...primary,
-    ...misc
+    danger,
+    success,
+    warning,
+    white,
+    black,
+    bodyBg,
+    bodyColor,
+    selectionBg,
+    selectionColor,
+    shadow
   };
   return Object.keys(colors).reduce((acc, name) => {
     const color = colors[name];
