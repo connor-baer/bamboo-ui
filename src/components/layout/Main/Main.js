@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+const SIDEBAR = 'sidebar';
+const SPLIT = 'split';
+
 const HEIGHT_NAVIGATION = '5.5rem';
 const HEIGHT_FOOTER = '10.5rem + 3rem';
 
@@ -17,8 +20,8 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const sidebarStyles = ({ theme, hasSidebar = false }) =>
-  hasSidebar &&
+const sidebarStyles = ({ theme, variant }) =>
+  variant === SIDEBAR &&
   css`
     width: 100vw;
 
@@ -27,10 +30,23 @@ const sidebarStyles = ({ theme, hasSidebar = false }) =>
     }
   `;
 
-const Main = styled('main')(baseStyles, sidebarStyles);
+const splitStyles = ({ theme, variant }) =>
+  variant === SPLIT &&
+  css`
+    width: 100vw;
+
+    ${theme.mq.mega} {
+      width: 50vw;
+    }
+  `;
+
+const Main = styled('main')(baseStyles, sidebarStyles, splitStyles);
 
 Main.propTypes = {
-  hasSidebar: PropTypes.bool
+  variant: PropTypes.oneOf([SIDEBAR, SPLIT])
 };
+
+Main.SIDEBAR = SIDEBAR;
+Main.SPLIT = SPLIT;
 
 export default Main;
