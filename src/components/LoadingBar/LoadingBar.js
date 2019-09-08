@@ -34,14 +34,14 @@ export default function LoadingBar({ isLoading, startDelay = 500 }) {
         }
 
         #nprogress .bar {
-          background: ${theme.colors.p500};
+          background: ${theme.colors.p600};
           height: 100%;
           width: 100%;
         }
 
         #nprogress .peg {
-          box-shadow: 0 0 10px ${theme.colors.p500},
-            0 0 5px ${theme.colors.p500};
+          box-shadow: 0 0 10px ${theme.colors.p600},
+            0 0 5px ${theme.colors.p600};
           display: block;
           height: 100%;
           opacity: 1;

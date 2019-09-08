@@ -24,7 +24,7 @@ const Box = styled('div')(boxStyles);
 
 const sizeStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.kilo};
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n600};
   font-size: ${theme.fontSizes.byte};
 `;
 

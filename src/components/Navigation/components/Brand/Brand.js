@@ -53,7 +53,7 @@ const siteNameStyles = ({ theme }) => css`
 
   a:hover > &,
   a:focus > & {
-    color: ${theme.colors.p500};
+    color: ${theme.colors.p600};
   }
 `;
 

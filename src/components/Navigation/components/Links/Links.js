@@ -69,7 +69,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background-color: ${theme.colors.n100};
-    color: ${theme.colors.p500};
+    color: ${theme.colors.p600};
   }
 `;
 

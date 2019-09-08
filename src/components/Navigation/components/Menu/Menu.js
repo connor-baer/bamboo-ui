@@ -134,12 +134,12 @@ const iconButtonStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background: ${theme.colors.n100};
-    color: ${theme.colors.p500};
+    color: ${theme.colors.p600};
   }
 
   &:active {
     background: ${theme.colors.n300};
-    color: ${theme.colors.p500};
+    color: ${theme.colors.p600};
   }
 `;
 
@@ -160,7 +160,7 @@ const iconBaseStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background-color: ${theme.colors.n100};
-    fill: ${theme.colors.p500};
+    fill: ${theme.colors.p600};
   }
 `;
 

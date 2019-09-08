@@ -24,7 +24,7 @@ const ColorBox = styled('span')(colorStyles);
 
 const nameStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.kilo};
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n600};
   font-size: ${theme.fontSizes.byte};
 `;
 

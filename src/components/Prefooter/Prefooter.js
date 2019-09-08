@@ -31,7 +31,7 @@ const Content = styled(Heading)(contentStyles);
 
 const anchorStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
-  color: ${theme.colors.p500};
+  color: ${theme.colors.p600};
 `;
 
 const StyledAnchor = styled(Anchor)(anchorStyles);

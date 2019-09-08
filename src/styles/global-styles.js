@@ -204,7 +204,7 @@ export const createGlobalStyles = ({ theme }) => css`
 
     &:hover,
     &:focus {
-      color: ${theme.colors.p500};
+      color: ${theme.colors.p600};
       cursor: pointer;
     }
   }

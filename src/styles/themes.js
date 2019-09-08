@@ -1,7 +1,8 @@
 import openColor from 'open-color/open-color.json';
-import { mapValues, startsWith } from 'lodash/fp';
+import { mapValues, isString } from 'lodash/fp';
+import { toColorString } from 'polished';
 
-import { formatHSLA, HEXtoHSLA, createPalette } from './utils';
+import { createPalette } from './utils';
 
 const fonts = [
   {
@@ -83,66 +84,106 @@ const maxWidth = '80rem';
 const pageWidth = '75rem';
 
 const neutralsLight = {
+  n000: openColor.gray[0],
   n100: openColor.gray[1],
+  n200: openColor.gray[2],
   n300: openColor.gray[3],
+  n400: openColor.gray[4],
   n500: openColor.gray[6],
+  n600: openColor.gray[6],
   n700: openColor.gray[7],
+  n800: openColor.gray[8],
   n900: openColor.gray[9]
 };
 
 const neutralsDark = {
-  n100: openColor.gray[9],
-  n300: openColor.gray[7],
-  n500: openColor.gray[5],
-  n700: openColor.gray[3],
-  n900: openColor.gray[1]
+  n000: openColor.gray[9],
+  n100: openColor.gray[8],
+  n200: openColor.gray[7],
+  n300: openColor.gray[6],
+  n400: openColor.gray[5],
+  n500: openColor.gray[4],
+  n600: openColor.gray[3],
+  n700: openColor.gray[2],
+  n800: openColor.gray[1],
+  n900: openColor.gray[0]
 };
 
 const violets = {
+  v000: openColor.violet[0],
   v100: openColor.violet[1],
+  v200: openColor.violet[2],
   v300: openColor.violet[3],
+  v400: openColor.violet[4],
   v500: openColor.violet[5],
+  v600: openColor.violet[6],
   v700: openColor.violet[7],
+  v800: openColor.violet[8],
   v900: openColor.violet[9]
 };
 
 const blues = {
+  b000: openColor.blue[0],
   b100: openColor.blue[1],
+  b200: openColor.blue[2],
   b300: openColor.blue[3],
+  b400: openColor.blue[4],
   b500: openColor.blue[5],
+  b600: openColor.blue[6],
   b700: openColor.blue[7],
+  b800: openColor.blue[8],
   b900: openColor.blue[9]
 };
 
 const greens = {
+  g000: openColor.green[0],
   g100: openColor.green[1],
+  g200: openColor.green[2],
   g300: openColor.green[3],
+  g400: openColor.green[4],
   g500: openColor.green[5],
+  g600: openColor.green[6],
   g700: openColor.green[7],
+  g800: openColor.green[8],
   g900: openColor.green[9]
 };
 
 const yellows = {
+  y000: openColor.yellow[0],
   y100: openColor.yellow[1],
+  y200: openColor.yellow[2],
   y300: openColor.yellow[3],
+  y400: openColor.yellow[4],
   y500: openColor.yellow[5],
+  y600: openColor.yellow[6],
   y700: openColor.yellow[7],
+  y800: openColor.yellow[8],
   y900: openColor.yellow[9]
 };
 
 const oranges = {
+  o000: openColor.orange[0],
   o100: openColor.orange[1],
+  o200: openColor.orange[2],
   o300: openColor.orange[3],
+  o400: openColor.orange[4],
   o500: openColor.orange[5],
+  o600: openColor.orange[6],
   o700: openColor.orange[7],
+  o800: openColor.orange[8],
   o900: openColor.orange[9]
 };
 
 const reds = {
+  r000: openColor.red[0],
   r100: openColor.red[1],
+  r200: openColor.red[2],
   r300: openColor.red[3],
+  r400: openColor.red[4],
   r500: openColor.red[5],
+  r600: openColor.red[6],
   r700: openColor.red[7],
+  r800: openColor.red[8],
   r900: openColor.red[9]
 };
 
@@ -161,7 +202,7 @@ const breakpoints = {
 };
 
 export function createColors(darkmode = false) {
-  const danger = reds.r500;
+  const danger = reds.r600;
   const success = greens.g700;
   const warning = yellows.y700;
   const shadow = '#0C0F14';
@@ -195,7 +236,7 @@ export function createColors(darkmode = false) {
   };
   return Object.keys(colors).reduce((acc, name) => {
     const color = colors[name];
-    acc[name] = startsWith('hsl', color) ? color : formatHSLA(HEXtoHSLA(color));
+    acc[name] = isString(color) ? color : toColorString(color);
     return acc;
   }, {});
 }

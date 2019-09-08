@@ -12,19 +12,19 @@ import { focusOutline } from '../../../styles/shared';
 const baseStyles = ({ theme, backgroundColor }) => {
   const textShadowColor = backgroundColor || theme.colors.bodyBg;
   return css`
-    color: ${theme.colors.p500};
+    color: ${theme.colors.p600};
     font-weight: ${theme.fontWeight.bold};
     border-bottom: 1px solid currentColor;
     text-shadow: 1px 1px ${textShadowColor}, 1px -1px ${textShadowColor},
       -1px 1px ${textShadowColor}, -1px -1px ${textShadowColor};
 
     &:hover {
-      color: ${theme.colors.p700};
+      color: ${theme.colors.p500};
       border-bottom-width: 2px;
     }
 
     &:active {
-      color: ${theme.colors.p300};
+      color: ${theme.colors.p700};
       border-bottom-width: 2px;
     }
 

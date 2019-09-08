@@ -30,7 +30,7 @@ const contentStyles = ({ theme }) => css`
 
   small,
   a {
-    color: ${theme.colors.n500};
+    color: ${theme.colors.n600};
     font-weight: ${theme.fontWeight.regular};
   }
 `;
