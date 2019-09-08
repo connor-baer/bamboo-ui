@@ -125,7 +125,7 @@ export default function Theme({
         <Head>
           <meta name="theme-color" content={theme.colors.bodyBg} />
           <meta name="msapplication-TileColor" content={theme.colors.p500} />
-          {preloadFonts(theme.fonts)}
+          {preloadFonts(assetPrefix, theme.fonts)}
         </Head>
 
         <Global styles={globalStyles} />

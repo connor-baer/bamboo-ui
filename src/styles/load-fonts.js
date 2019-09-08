@@ -28,7 +28,7 @@ export const createFontFace = curry((assetPrefix, font) => {
   `;
 });
 
-export const preloadFonts = curry((assetPrefix, fonts) =>
+export const preloadFonts = curry((assetPrefix = '', fonts) =>
   fonts.map(font => {
     const fontPath = constructSrc(assetPrefix, font);
     return (
