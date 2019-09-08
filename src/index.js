@@ -49,6 +49,8 @@ export { default as Align } from './components/layout/Align';
 export { default as Columns } from './components/layout/Columns';
 export { default as Main } from './components/layout/Main';
 
+export { default as Button } from './components/Button';
+
 /**
  * Hooks
  */
