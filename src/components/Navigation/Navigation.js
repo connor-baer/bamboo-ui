@@ -58,7 +58,7 @@ const Header = styled('header')(
   headerFloatingStyles
 );
 
-function Navigation({ children }) {
+function Navigation({ children, ...rest }) {
   const [isFloating, setFloating] = useState(false);
   const [isInvisible, setInvisible] = useState(false);
   const currentScrollY = useRef();
@@ -87,7 +87,7 @@ function Navigation({ children }) {
   });
 
   return (
-    <Header isInvisible={isInvisible} isFloating={isFloating}>
+    <Header isInvisible={isInvisible} isFloating={isFloating} {...rest}>
       <NavigationContext.Provider value={{ isFloating, isInvisible }}>
         {children}
       </NavigationContext.Provider>
