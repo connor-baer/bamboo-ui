@@ -128,7 +128,19 @@ export const themePropType = PropTypes.shape({
     mega: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  breakpoints: {
+    untilKilo: PropTypes.string.isRequired,
+    kilo: PropTypes.string.isRequired,
+    kiloToMega: PropTypes.string.isRequired,
+    mega: PropTypes.string.isRequired,
+    untilMega: PropTypes.string.isRequired,
+    megaToGiga: PropTypes.string.isRequired,
+    giga: PropTypes.string.isRequired,
+    untilGiga: PropTypes.string.isRequired,
+    gigaToTera: PropTypes.string.isRequired,
+    tera: PropTypes.string.isRequired
+  }
 });
 
 export const textPropType = {

@@ -197,6 +197,7 @@ const breakpoints = {
   untilMega: '(max-width: 767px)',
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
   giga: 960,
+  untilGiga: '(max-width: 959px)',
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
   tera: 1280
 };

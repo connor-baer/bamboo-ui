@@ -14,33 +14,29 @@ const DESTRUCTIVE = 'destructive';
 const baseStyles = ({ theme }) => {
   const shadow = transparentize(0.75, theme.colors.shadow);
   return css`
-    display: block;
+    display: inline-block;
     font-weight: ${theme.fontWeight.bold};
     font-size: inherit;
-    padding: ${theme.spacings.kilo} ${theme.spacings.giga};
-    margin-top: ${theme.spacings.byte};
-    margin-bottom: ${theme.spacings.byte};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     transition: all ${theme.animations.micro};
     border-width: 2px;
     border-style: solid;
     border-color: transparent;
-    border-radius: ${theme.borderRadius.kilo};
+    border-radius: ${theme.borderRadius.giga};
     outline: none;
     line-height: 1;
-    box-shadow: 0 2px 4px ${shadow};
+    box-shadow: 0 1px 4px ${shadow};
     cursor: pointer;
     color: #fff;
 
     &:hover,
     &:focus {
-      transform: translateY(-1px);
-      box-shadow: 0 3px 6px ${shadow};
+      box-shadow: 0 2px 8px ${shadow};
       color: #fff;
     }
 
     &:active {
-      transform: translateY(2px);
-      box-shadow: 0 0 2px ${shadow};
+      box-shadow: 0 0 3px ${shadow};
       color: #fff;
     }
 
@@ -57,7 +53,6 @@ const primaryStyles = ({ theme, variant }) =>
 
     &:hover,
     &:focus {
-      transform: translateY(-1px);
       background-color: ${theme.colors.p500};
     }
 
@@ -66,7 +61,6 @@ const primaryStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      transform: translateY(2px);
       background-color: ${theme.colors.p700};
     }
   `;
@@ -79,7 +73,6 @@ const secondaryStyles = ({ theme, variant }) =>
 
     &:hover,
     &:focus {
-      transform: translateY(-1px);
       background-color: ${theme.colors.white};
       color: ${theme.colors.p600};
     }
@@ -89,7 +82,6 @@ const secondaryStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      transform: translateY(2px);
       background-color: ${theme.colors.n200};
       color: ${theme.colors.p600};
     }
@@ -106,7 +98,6 @@ const destructiveStyles = ({ theme, variant }) =>
 
     &:hover,
     &:focus {
-      transform: translateY(-1px);
       background-color: ${theme.colors.r500};
     }
 
@@ -115,7 +106,6 @@ const destructiveStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      transform: translateY(2px);
       background-color: ${theme.colors.r700};
     }
   `;
