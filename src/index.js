@@ -75,4 +75,4 @@ export { default as isSaveData } from './util/is-save-data';
  */
 
 export { sharedStyles, themes, themeHelpers };
-export { default as GlobalStyles } from './styles/global-styles';
+export { BaseStyles } from './styles/base-styles';

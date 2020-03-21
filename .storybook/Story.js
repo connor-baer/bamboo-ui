@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import addons from '@storybook/addons';
 import { addDecorator } from '@storybook/react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, Global } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
-import GlobalStyles from '../src/styles/global-styles';
+import { BaseStyles } from '../src/styles/base-styles';
 
 const channel = addons.getChannel();
 
-const globalStyles = ({ theme }) => css`
+const globalStyles = theme => css`
   html,
   body {
     background: transparent;
@@ -69,7 +69,8 @@ export default function Story({ children }) {
   return (
     <div>
       {children}
-      <GlobalStyles styles={globalStyles} />
+      <BaseStyles />
+      <Global styles={globalStyles} />
       <Options>
         <ReducedMotion theme={theme} />
       </Options>

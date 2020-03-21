@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
-import { isFunction, isArray } from 'lodash/fp';
 
 import { focusOutline } from './shared';
 
-export const createGlobalStyles = ({ theme }) => css`
+export const createBaseStyles = theme => css`
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
    * License: none (public domain)
@@ -219,33 +217,6 @@ export const createGlobalStyles = ({ theme }) => css`
   }
 `;
 
-export default function GlobalStyles({ styles }) {
-  return (
-    <Global
-      styles={theme => {
-        const allStyles = [];
-        const defaultStyles = createGlobalStyles({ theme });
-
-        allStyles.push(defaultStyles);
-
-        if (isFunction(styles)) {
-          allStyles.push(styles({ theme }));
-        } else if (isArray(styles)) {
-          allStyles.push(...styles);
-        } else if (styles) {
-          allStyles.push(styles);
-        }
-
-        return allStyles;
-      }}
-    />
-  );
+export function BaseStyles() {
+  return <Global styles={createBaseStyles} />;
 }
-
-GlobalStyles.propTypes = {
-  styles: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object,
-    PropTypes.array
-  ])
-};
