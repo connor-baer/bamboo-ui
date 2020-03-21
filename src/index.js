@@ -55,7 +55,6 @@ export { default as Button } from './components/Button';
  * Hooks
  */
 
-export { default as useTheme } from './hooks/use-theme';
 export { default as useMedia } from './hooks/use-media';
 export { default as useAnimationFrame } from './hooks/use-animation-frame';
 export {

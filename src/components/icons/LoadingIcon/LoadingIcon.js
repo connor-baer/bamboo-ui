@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from 'emotion-theming';
 
-import useTheme from '../../../hooks/use-theme';
 import { ReactComponent as Loading } from './svgs/loading.svg';
 
 function LoadingIcon({ width = 48, height = 48, color }) {

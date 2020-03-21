@@ -58,16 +58,7 @@ const simpleUnderlineStyles = ({ simpleUnderline }) =>
 
 const A = styled('a')(baseStyles, focusOutline, simpleUnderlineStyles);
 
-const Anchor = ({
-  children,
-  href,
-  as,
-  prefetch,
-  replace,
-  shallow,
-  scroll,
-  ...rest
-}) => {
+const Anchor = ({ children, href, as, replace, shallow, scroll, ...rest }) => {
   const { Link } = useComponents();
 
   if (isEmpty(href)) {
@@ -78,7 +69,6 @@ const Anchor = ({
     <Link
       href={href}
       as={as}
-      prefetch={prefetch}
       replace={replace}
       shallow={shallow}
       scroll={scroll}
@@ -93,7 +83,6 @@ Anchor.propTypes = {
   children: childrenPropType.isRequired,
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  prefetch: PropTypes.bool,
   replace: PropTypes.bool,
   shallow: PropTypes.bool,
   scroll: PropTypes.bool

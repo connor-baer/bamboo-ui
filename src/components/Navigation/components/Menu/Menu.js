@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { focusOutline } from '../../../../styles/shared';
 import useComponents from '../../../../hooks/use-components';
-import useTheme from '../../../../hooks/use-theme';
 import MoonIcon from '../../../icons/MoonIcon';
 import Hamburger from '../../../icons/Hamburger';
 import Hr from '../../../Hr';
@@ -177,6 +177,7 @@ const darkmodeButtonStyles = ({ theme }) => css`
   line-height: 0;
   padding: calc(${theme.spacings.byte} + 2px);
   fill: ${theme.colors.n700};
+  cursor: pointer;
 
   ${theme.mq.kilo} {
     padding: calc(${theme.spacings.byte} + 2px);

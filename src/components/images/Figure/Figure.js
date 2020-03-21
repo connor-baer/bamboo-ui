@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from 'emotion-theming';
 
 import {
   imagePropType,
   captionPropType,
   alignPropType
 } from '../../../util/shared-prop-types';
-import useTheme from '../../../hooks/use-theme';
 import useComponents from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';

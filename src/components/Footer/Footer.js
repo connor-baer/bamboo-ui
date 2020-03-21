@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import { fullWidth } from '../../styles/shared';
-import useTheme from '../../hooks/use-theme';
 import Anchor from '../typography/Anchor';
 import Small from '../typography/Small';
 
@@ -67,7 +67,7 @@ function Footer({ siteName, siteTwitter, children }) {
 
 Footer.propTypes = {
   siteName: PropTypes.string.isRequired,
-  siteTwitter: PropTypes.string.isRequired,
+  siteTwitter: PropTypes.string,
   children: childrenPropType
 };
 

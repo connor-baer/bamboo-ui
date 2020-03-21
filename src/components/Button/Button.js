@@ -141,7 +141,6 @@ export default function Button({
   onClick,
   href,
   as,
-  prefetch,
   replace,
   shallow,
   scroll,
@@ -168,7 +167,6 @@ export default function Button({
       <Link
         href={href}
         as={as}
-        prefetch={prefetch}
         replace={replace}
         shallow={shallow}
         scroll={scroll}
@@ -196,7 +194,6 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  prefetch: PropTypes.bool,
   replace: PropTypes.bool,
   shallow: PropTypes.bool,
   scroll: PropTypes.bool

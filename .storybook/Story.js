@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import addons from '@storybook/addons';
 import { addDecorator } from '@storybook/react';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
-import useTheme from '../src/hooks/use-theme';
 import GlobalStyles from '../src/styles/global-styles';
 
 const channel = addons.getChannel();

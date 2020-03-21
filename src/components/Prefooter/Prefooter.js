@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 import useComponents from '../../hooks/use-components';
-import useTheme from '../../hooks/use-theme';
 import Heading from '../typography/Heading';
 import Anchor from '../typography/Anchor';
 

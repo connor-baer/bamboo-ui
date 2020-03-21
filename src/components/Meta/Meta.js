@@ -9,7 +9,7 @@ function constructTitle(title, siteName) {
   if (title) {
     titleParts.push(title);
   }
-  if (siteName) {
+  if (siteName && siteName !== title) {
     titleParts.push(siteName);
   }
   return titleParts.join(' · ');
