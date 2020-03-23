@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Columns from './Columns';
 
-storiesOf(`${GROUPS.LAYOUT}|Columns`, module).add('Columns', () => (
+storiesOf('Layout/Columns', module).add('Columns', () => (
   <div style={{ width: '80vw' }}>
     <Columns columnCount={number('Column count', 2)}>
       <p>

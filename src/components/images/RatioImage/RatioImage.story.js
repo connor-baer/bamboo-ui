@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import RatioImage from './RatioImage';
 
-storiesOf(`${GROUPS.IMAGES}|RatioImage`, module).add('RatioImage', () => (
+storiesOf('Images/RatioImage', module).add('RatioImage', () => (
   <div style={{ width: '50vw' }}>
     <RatioImage
       src={'https://source.unsplash.com/600x400/'}

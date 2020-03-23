@@ -77,7 +77,6 @@
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "^5.0.10",
     "@sumup/foundry": "^1.4.0-alpha.1",
-    "@svgr/webpack": "^4.1.0",
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.8",
     "@testing-library/react-hooks": "^1.1.0",

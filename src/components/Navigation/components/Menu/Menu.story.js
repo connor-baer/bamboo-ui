@@ -2,13 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../../../.storybook/groups';
-
 import Menu from '.';
 
 const A = Menu.Item.withComponent('a');
 
-storiesOf(`${GROUPS.COMPONENTS}|Navigation/Menu`, module).add('Menu', () => {
+storiesOf('Components/Navigation/Menu', module).add('Menu', () => {
   const menuLink = text('Menu link', 'Account');
   return (
     <Menu

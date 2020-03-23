@@ -2,8 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { object, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/groups';
-
 import Navigation from '.';
 
 const A = Navigation.Menu.Item.withComponent('a');
@@ -27,7 +25,7 @@ const links = [
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-storiesOf(`${GROUPS.COMPONENTS}|Navigation`, module).add('Navigation', () => {
+storiesOf('Components/Navigation', module).add('Navigation', () => {
   const menuLink = text('Menu link', 'Account');
   return (
     <div style={{ width: '100vw', height: '100vh' }}>

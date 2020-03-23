@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../.storybook/groups';
-
 import CoverImage from '../images/CoverImage';
 import Slider from './Slider';
 
@@ -29,7 +27,7 @@ function generateSlides(amount) {
     });
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Slider`, module).add('Slider', () => (
+storiesOf('Components/Slider', module).add('Slider', () => (
   <div
     css={css`
       width: 100vw;

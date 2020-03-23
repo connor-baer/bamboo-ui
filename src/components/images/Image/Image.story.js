@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Image from './Image';
 
-storiesOf(`${GROUPS.IMAGES}|Image`, module).add('Image', () => (
+storiesOf('Images/Image', module).add('Image', () => (
   <div style={{ width: '50vw' }}>
     <Image
       src={'https://source.unsplash.com/600x400/'}

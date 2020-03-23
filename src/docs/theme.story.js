@@ -1,14 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../.storybook/groups';
-
 import Themes from '../styles/themes';
 import FontSize from './components/FontSize';
 import Spacing from './components/Spacing';
 import Color from './components/Color';
 
-storiesOf(`${GROUPS.DOCS}|Theme`, module)
+storiesOf('Docs/Theme', module)
   .add('Typography', () =>
     Object.keys(Themes.standard().fontSizes).map(fontSizeName => (
       <FontSize key={fontSizeName} fontSizeName={fontSizeName} />

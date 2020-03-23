@@ -3,12 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../.storybook/groups';
-
 import Header from './Header';
 import Small from '../typography/Small';
 
-storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add('Header', () => (
+storiesOf('Components/Header', module).add('Header', () => (
   <div
     css={css`
       width: 90vw;

@@ -2,8 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select, number } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Gallery from '.';
 
 function generateImages(amount) {
@@ -22,7 +20,7 @@ function generateImages(amount) {
     });
 }
 
-storiesOf(`${GROUPS.IMAGES}|Gallery`, module).add('Gallery', () => (
+storiesOf('Images/Gallery', module).add('Gallery', () => (
   <div style={{ width: '50vw' }}>
     <Gallery
       images={generateImages(Math.round(number('Number of images', 4)))}

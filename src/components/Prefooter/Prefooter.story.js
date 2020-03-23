@@ -3,11 +3,9 @@ import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/groups';
-
 import Prefooter from './Prefooter';
 
-storiesOf(`${GROUPS.COMPONENTS}|Prefooter`, module).add('Prefooter', () => (
+storiesOf('Components/Prefooter', module).add('Prefooter', () => (
   <div
     css={css`
       width: 100vw;

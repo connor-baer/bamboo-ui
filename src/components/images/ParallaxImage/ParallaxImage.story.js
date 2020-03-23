@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import ParallaxImage from './ParallaxImage';
 
-storiesOf(`${GROUPS.IMAGES}|ParallaxImage`, module).add('ParallaxImage', () => (
+storiesOf('Images/ParallaxImage', module).add('ParallaxImage', () => (
   <div style={{ width: '100vw' }}>
     <ParallaxImage
       src={'https://source.unsplash.com/600x400/'}

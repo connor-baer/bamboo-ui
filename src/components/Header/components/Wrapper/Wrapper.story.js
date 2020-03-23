@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../../../.storybook/groups';
-
 import Wrapper from './Wrapper';
 
 // eslint-disable-next-line react/prop-types
@@ -34,7 +32,7 @@ function VisualizeSpacing({ children }) {
   );
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Header`, module).add('Header.Wrapper', () => (
+storiesOf('Components/Header', module).add('Header.Wrapper', () => (
   <VisualizeSpacing>
     <Wrapper>Wrapper</Wrapper>
   </VisualizeSpacing>

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../.storybook/groups';
 import Hr from './Hr';
 
 const Container = styled('div')`
@@ -10,7 +9,7 @@ const Container = styled('div')`
   max-width: 90%;
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|Hr`, module)
+storiesOf('Components/Hr', module)
   .add('Hr', () => (
     <Container>
       <Hr />

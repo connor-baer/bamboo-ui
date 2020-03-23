@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import CoverImage from './CoverImage';
 
-storiesOf(`${GROUPS.IMAGES}|CoverImage`, module)
+storiesOf('Images/CoverImage', module)
   .add('CoverImage', () => (
     <div style={{ width: '50vw' }}>
       <CoverImage

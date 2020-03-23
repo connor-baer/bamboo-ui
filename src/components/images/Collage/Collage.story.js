@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Collage from '.';
 
 const images = [
@@ -32,7 +30,7 @@ const images = [
   }
 ];
 
-storiesOf(`${GROUPS.IMAGES}|Collage`, module).add('Collage', () => (
+storiesOf('Images/Collage', module).add('Collage', () => (
   <div style={{ width: '80vw' }}>
     <Collage images={images} />
   </div>

@@ -3,12 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Intro from './Intro';
 
 /* eslint-disable max-len */
-storiesOf(`${GROUPS.TYPOGRAPHY}|Intro`, module).add('Intro', () => (
+storiesOf('Typography/Intro', module).add('Intro', () => (
   <div
     css={css`
       width: 90vw;

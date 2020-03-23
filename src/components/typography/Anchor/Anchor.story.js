@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Anchor from './Anchor';
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|Anchor`, module)
+storiesOf('Typography/Anchor', module)
   .add('Anchor', () => (
     <Anchor
       href={text('Link', 'https://github.com/connor-baer/bamboo-ui')}

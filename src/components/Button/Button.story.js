@@ -3,12 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/groups';
 import Button from './Button';
 
 const variants = [Button.PRIMARY, Button.SECONDARY, Button.DESTRUCTIVE];
 
-storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
+storiesOf('Components/Button', module)
   .add('Button', () => (
     <Button
       variant={select('Variant', variants, variants[0])}

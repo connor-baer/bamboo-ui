@@ -3,11 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Heading from './Heading';
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module).add('Heading', () => {
+storiesOf('Typography/Heading', module).add('Heading', () => {
   const heading = text(
     'Text',
     'Bacon ipsum dolor amet beef ham hock pig  cow tail meatloaf'

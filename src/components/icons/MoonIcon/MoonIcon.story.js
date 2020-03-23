@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, color } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import MoonIcon from './MoonIcon';
 
-storiesOf(`${GROUPS.ICONS}|MoonIcon`, module).add('MoonIcon', () => (
+storiesOf('Icons/MoonIcon', module).add('MoonIcon', () => (
   <MoonIcon
     full={boolean('Full', false)}
     width={number('Size', 48)}

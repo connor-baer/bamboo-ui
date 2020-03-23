@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Figure from '.';
 
-storiesOf(`${GROUPS.IMAGES}|Figure`, module).add('Figure', () => (
+storiesOf('Images/Figure', module).add('Figure', () => (
   <div style={{ width: '50vw' }}>
     <Figure
       image={{

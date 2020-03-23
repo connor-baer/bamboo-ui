@@ -2,11 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../../.storybook/groups';
-
 import Align from './Align';
 
-storiesOf(`${GROUPS.LAYOUT}|Align`, module).add('Align', () => (
+storiesOf('Layout/Align', module).add('Align', () => (
   <div style={{ width: '50vw' }}>
     <Align
       align={select('Alignment', [
