@@ -48,7 +48,7 @@ const CoverImage = styled(RatioImage)(wrapperStyles, imageStyles);
 
 CoverImage.propTypes = {
   ...imagePropType,
-  aspectRatio: PropTypes.number
+  aspectRatio: PropTypes.number,
 };
 
 /**

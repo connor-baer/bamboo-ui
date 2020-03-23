@@ -11,5 +11,5 @@ export default function Link({ children, ...props }) {
 Link.propTypes = {
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: childrenPropType,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };

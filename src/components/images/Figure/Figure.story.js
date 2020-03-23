@@ -11,16 +11,16 @@ storiesOf('Images/Figure', module).add('Figure', () => (
         src: 'https://source.unsplash.com/600x400/',
         srcSet: [
           'https://source.unsplash.com/600x400/ 600w',
-          'https://source.unsplash.com/1200x800/ 1200w'
+          'https://source.unsplash.com/1200x800/ 1200w',
         ].join(', '),
-        alt: text('Alt text', 'A random photo from Unsplash')
+        alt: text('Alt text', 'A random photo from Unsplash'),
       }}
       caption={text('Caption', 'This is just a random photo from Unsplash')}
       align={select('Alignment', [
         Figure.CENTER,
         Figure.FULL,
         Figure.RIGHT,
-        Figure.LEFT
+        Figure.LEFT,
       ])}
     />
   </div>

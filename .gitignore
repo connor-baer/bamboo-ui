@@ -9,9 +9,8 @@ jest-test-results.json
 __coverage__
 __reports__
 dist
-lib
+build
 .out
-.docz
 bamboo-ui-global.css
 
 # Packages #

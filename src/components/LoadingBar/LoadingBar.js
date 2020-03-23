@@ -21,7 +21,7 @@ export default function LoadingBar({ isLoading, startDelay = 500 }) {
 
   return (
     <Global
-      styles={theme => css`
+      styles={(theme) => css`
         #nprogress {
           position: fixed;
           top: 0;
@@ -57,5 +57,5 @@ export default function LoadingBar({ isLoading, startDelay = 500 }) {
 
 LoadingBar.propTypes = {
   isLoading: PropTypes.bool,
-  startDelay: PropTypes.number
+  startDelay: PropTypes.number,
 };

@@ -59,7 +59,7 @@ function RatioImage({ aspectRatio, className, ...props }) {
 RatioImage.propTypes = {
   ...imagePropType,
   aspectRatio: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 /**

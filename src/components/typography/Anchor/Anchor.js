@@ -85,7 +85,7 @@ Anchor.propTypes = {
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   replace: PropTypes.bool,
   shallow: PropTypes.bool,
-  scroll: PropTypes.bool
+  scroll: PropTypes.bool,
 };
 
 /**

@@ -55,7 +55,7 @@ const headerFloatingStyles = ({ theme, isFloating }) =>
 const Header = styled('header')(
   headerBaseStyles,
   headerInvisibleStyles,
-  headerFloatingStyles
+  headerFloatingStyles,
 );
 
 function Navigation({ children, ...rest }) {
@@ -100,7 +100,7 @@ Navigation.Links = Links;
 Navigation.Menu = Menu;
 
 Navigation.propTypes = {
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 /**

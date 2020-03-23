@@ -5,7 +5,7 @@ import { useTheme } from 'emotion-theming';
 import {
   imagePropType,
   captionPropType,
-  alignPropType
+  alignPropType,
 } from '../../../util/shared-prop-types';
 import useComponents from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
@@ -17,7 +17,7 @@ function getSizes(theme, align) {
     [RIGHT]: '360px',
     [LEFT]: '360px',
     [CENTER]: '755px',
-    [FULL]: '1155px'
+    [FULL]: '1155px',
   };
   const gigaSize = `(min-width: ${theme.breakpoints.giga}px) ${gigaMap[align]}`;
 
@@ -25,7 +25,7 @@ function getSizes(theme, align) {
     [RIGHT]: '380px',
     [LEFT]: '380px',
     [CENTER]: '790px',
-    [FULL]: '950px'
+    [FULL]: '950px',
   };
   const megaSize = `(min-width: ${theme.breakpoints.mega}px) ${megaMap[align]}`;
 
@@ -60,7 +60,7 @@ Figure.FULL = FULL;
 Figure.propTypes = {
   image: PropTypes.shape(imagePropType),
   caption: captionPropType,
-  align: alignPropType
+  align: alignPropType,
 };
 
 /**

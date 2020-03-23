@@ -12,7 +12,7 @@ storiesOf('Components/Navigation/Menu', module).add('Menu', () => {
     <Menu
       userAvatarURL={text(
         'User avatar URL',
-        'https://source.unsplash.com/64x64/'
+        'https://source.unsplash.com/64x64/',
       )}
     >
       {menuLink && <A href="/">{menuLink}</A>}

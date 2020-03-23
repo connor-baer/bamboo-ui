@@ -13,9 +13,9 @@ function generateImages(amount) {
         src: `https://source.unsplash.com/${500 + n}x${400 + n}/`,
         srcSet: [
           `https://source.unsplash.com/${500 + n}x${400 + n}/ ${500 + n}w`,
-          `https://source.unsplash.com/${1000 + n}x${800 + n}/ ${1000 + n}w`
+          `https://source.unsplash.com/${1000 + n}x${800 + n}/ ${1000 + n}w`,
         ].join(', '),
-        alt: 'A random image'
+        alt: 'A random image',
       };
     });
 }
@@ -29,7 +29,7 @@ storiesOf('Images/Gallery', module).add('Gallery', () => (
         Gallery.CENTER,
         Gallery.FULL,
         Gallery.RIGHT,
-        Gallery.LEFT
+        Gallery.LEFT,
       ])}
     />
   </div>

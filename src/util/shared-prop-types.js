@@ -4,7 +4,7 @@ import { RIGHT, LEFT, CENTER, FULL } from '../constants/align';
 
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
-  PropTypes.node
+  PropTypes.node,
 ]);
 
 export const themePropType = PropTypes.shape({
@@ -77,7 +77,7 @@ export const themePropType = PropTypes.shape({
     bodyColor: PropTypes.string.isRequired,
     danger: PropTypes.string.isRequired,
     warning: PropTypes.string.isRequired,
-    success: PropTypes.string.isRequired
+    success: PropTypes.string.isRequired,
   }).isRequired,
   spacings: PropTypes.shape({
     bit: PropTypes.string.isRequired,
@@ -89,22 +89,22 @@ export const themePropType = PropTypes.shape({
     peta: PropTypes.string.isRequired,
     exa: PropTypes.string.isRequired,
     zetta: PropTypes.string.isRequired,
-    yotta: PropTypes.string.isRequired
+    yotta: PropTypes.string.isRequired,
   }).isRequired,
   iconSizes: PropTypes.shape({
     kilo: PropTypes.string.isRequired,
-    mega: PropTypes.string.isRequired
+    mega: PropTypes.string.isRequired,
   }),
   borderRadius: PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
-    giga: PropTypes.string.isRequired
+    giga: PropTypes.string.isRequired,
   }).isRequired,
   fontStack: PropTypes.shape({
     default: PropTypes.string.isRequired,
     sans: PropTypes.string,
     serif: PropTypes.string,
-    mono: PropTypes.string
+    mono: PropTypes.string,
   }),
   fontSizes: PropTypes.shape({
     bit: PropTypes.string.isRequired,
@@ -114,12 +114,12 @@ export const themePropType = PropTypes.shape({
     giga: PropTypes.string.isRequired,
     tera: PropTypes.string.isRequired,
     peta: PropTypes.string.isRequired,
-    exa: PropTypes.string.isRequired
+    exa: PropTypes.string.isRequired,
   }).isRequired,
   fontWeight: PropTypes.shape({
     light: PropTypes.string.isRequired,
     regular: PropTypes.string.isRequired,
-    bold: PropTypes.string.isRequired
+    bold: PropTypes.string.isRequired,
   }).isRequired,
   lineHeights: PropTypes.shape({
     bit: PropTypes.string.isRequired,
@@ -127,7 +127,7 @@ export const themePropType = PropTypes.shape({
     kilo: PropTypes.string.isRequired,
     mega: PropTypes.string.isRequired,
     giga: PropTypes.string.isRequired,
-    tera: PropTypes.string.isRequired
+    tera: PropTypes.string.isRequired,
   }).isRequired,
   breakpoints: {
     untilKilo: PropTypes.string.isRequired,
@@ -139,8 +139,8 @@ export const themePropType = PropTypes.shape({
     giga: PropTypes.string.isRequired,
     untilGiga: PropTypes.string.isRequired,
     gigaToTera: PropTypes.string.isRequired,
-    tera: PropTypes.string.isRequired
-  }
+    tera: PropTypes.string.isRequired,
+  },
 });
 
 export const textPropType = {
@@ -155,11 +155,11 @@ export const textPropType = {
     'giga',
     'tera',
     'peta',
-    'exa'
+    'exa',
   ]),
   weight: PropTypes.oneOf(['light', 'regular', 'bold']),
   slope: PropTypes.oneOf(['normal', 'italic']),
-  lineHeight: PropTypes.oneOf(['bit', 'byte', 'kilo', 'mega', 'giga', 'tera'])
+  lineHeight: PropTypes.oneOf(['bit', 'byte', 'kilo', 'mega', 'giga', 'tera']),
 };
 
 export const imagePropType = {
@@ -167,12 +167,12 @@ export const imagePropType = {
   srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   alt: PropTypes.string.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 export const captionPropType = PropTypes.oneOfType([
   PropTypes.string,
-  PropTypes.element
+  PropTypes.element,
 ]);
 
 export const alignPropType = PropTypes.oneOf([RIGHT, LEFT, CENTER, FULL]);

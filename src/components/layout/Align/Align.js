@@ -58,7 +58,7 @@ Align.CENTER = CENTER;
 Align.FULL = FULL;
 
 Align.propTypes = {
-  align: alignPropType
+  align: alignPropType,
 };
 
 /**

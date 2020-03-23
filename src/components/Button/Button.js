@@ -124,14 +124,14 @@ const StyledButton = styled('button')(
   primaryStyles,
   secondaryStyles,
   destructiveStyles,
-  disabledStyles
+  disabledStyles,
 );
 const Anchor = styled('a')(
   baseStyles,
   primaryStyles,
   secondaryStyles,
   destructiveStyles,
-  disabledStyles
+  disabledStyles,
 );
 
 export default function Button({
@@ -196,7 +196,7 @@ Button.propTypes = {
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   replace: PropTypes.bool,
   shallow: PropTypes.bool,
-  scroll: PropTypes.bool
+  scroll: PropTypes.bool,
 };
 
 Button.PRIMARY = PRIMARY;

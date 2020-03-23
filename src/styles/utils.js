@@ -10,7 +10,7 @@ const palette = [
   { saturation: 0.08, luminance: 0.06 },
   { saturation: 0.16, luminance: 0.12 },
   { saturation: 0.24, luminance: 0.18 },
-  { saturation: 0.32, luminance: 0.24 }
+  { saturation: 0.32, luminance: 0.24 },
 ];
 
 export function createPalette(prefix, color) {
@@ -22,8 +22,8 @@ export function createPalette(prefix, color) {
       ...acc,
       [key]: saturateFn(
         Math.abs(saturation),
-        luminanceFn(Math.abs(luminance), color)
-      )
+        luminanceFn(Math.abs(luminance), color),
+      ),
     };
   }, {});
 }

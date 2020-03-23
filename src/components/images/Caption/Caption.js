@@ -16,12 +16,12 @@ const Caption = styled(Paragraph)(baseStyles);
 
 Caption.propTypes = {
   ...textPropType,
-  children: captionPropType
+  children: captionPropType,
 };
 
 Caption.defaultProps = {
   as: 'figcaption',
-  size: 'byte'
+  size: 'byte',
 };
 
 /**

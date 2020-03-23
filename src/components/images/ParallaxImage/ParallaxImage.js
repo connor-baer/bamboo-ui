@@ -32,12 +32,12 @@ export default class ParallaxImage extends Component {
     ...imagePropType,
     speed: PropTypes.number,
     theme: themePropType,
-    className: PropTypes.string
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     speed: 75,
-    theme: {}
+    theme: {},
   };
 
   static contextType = ComponentsContext;
@@ -47,7 +47,7 @@ export default class ParallaxImage extends Component {
     this.containerRef = createRef();
 
     this.state = {
-      translateY: 0
+      translateY: 0,
     };
   }
 
@@ -84,7 +84,7 @@ export default class ParallaxImage extends Component {
 
   initIntersectionObserver = () => {
     this.sectionObserver = new IntersectionObserver(this.handleIntersection, {
-      rootMargin: '50px'
+      rootMargin: '50px',
     });
     this.sectionObserver.observe(this.containerRef.current);
     this.listeningForIntersection = true;

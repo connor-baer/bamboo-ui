@@ -6,7 +6,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import isServer from '../util/is-server';
 import addClass from '../util/add-class';
 
-export const createFontFace = font => {
+export const createFontFace = (font) => {
   const { name, weight, style, localName, sources } = font;
   const urls = sources
     .map(({ url, format }) => `url('${url}') format('${format}')`)
@@ -22,11 +22,11 @@ export const createFontFace = font => {
   `;
 };
 
-export const preloadFonts = fonts =>
+export const preloadFonts = (fonts) =>
   fonts.map(({ sources }) =>
     sources.map(({ url }) => (
       <link key={url} href={url} rel="preload" as="font" />
-    ))
+    )),
   );
 
 export function loadFonts(fonts, timeout = 3000) {
@@ -55,15 +55,15 @@ export function loadFonts(fonts, timeout = 3000) {
   });
 
   Promise.all(fontPromises)
-    .then(loaded => {
+    .then((loaded) => {
       // eslint-disable-next-line no-console
       console.info(
         `Loaded fonts "${loaded
           .map(({ family, style, weight }) => `${family} ${weight} ${style}`)
-          .join(', ')}"`
+          .join(', ')}"`,
       );
     })
-    .catch(e => {
+    .catch((e) => {
       // eslint-disable-next-line no-console
       console.warn(`Failed to load font "${e.family}"`);
     })

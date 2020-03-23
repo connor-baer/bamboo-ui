@@ -23,7 +23,7 @@ function Meta({
   index = true,
   follow = true,
   siteName,
-  siteTwitter
+  siteTwitter,
 }) {
   const { Head } = useComponents();
 
@@ -64,7 +64,7 @@ Meta.propTypes = {
   index: PropTypes.bool,
   follow: PropTypes.bool,
   siteName: PropTypes.string,
-  siteTwitter: PropTypes.string
+  siteTwitter: PropTypes.string,
 };
 
 /**

@@ -42,5 +42,5 @@ export default function Color({ colorName }) {
 }
 
 Color.propTypes = {
-  colorName: PropTypes.string.isRequired
+  colorName: PropTypes.string.isRequired,
 };

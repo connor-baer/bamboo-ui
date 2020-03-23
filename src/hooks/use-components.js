@@ -25,9 +25,9 @@ ComponentsProvider.propTypes = {
     Head: PropTypes.any,
     Link: PropTypes.any,
     Image: PropTypes.any,
-    Align: PropTypes.any
+    Align: PropTypes.any,
   }),
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 export default function useComponents() {

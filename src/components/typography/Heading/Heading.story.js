@@ -8,7 +8,7 @@ import Heading from './Heading';
 storiesOf('Typography/Heading', module).add('Heading', () => {
   const heading = text(
     'Text',
-    'Bacon ipsum dolor amet beef ham hock pig  cow tail meatloaf'
+    'Bacon ipsum dolor amet beef ham hock pig  cow tail meatloaf',
   );
   const type = select('Type', ['sans', 'serif', 'mono'], 'sans');
   const size = select('Size', ['mega', 'giga', 'tera', 'peta', 'exa'], 'tera');

@@ -15,13 +15,13 @@ const fonts = [
     sources: [
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff2`,
-        format: 'woff2'
+        format: 'woff2',
       },
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff`,
-        format: 'woff'
-      }
-    ]
+        format: 'woff',
+      },
+    ],
   },
   {
     name: 'Merriweather Sans',
@@ -31,13 +31,13 @@ const fonts = [
     sources: [
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff2`,
-        format: 'woff2'
+        format: 'woff2',
       },
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff`,
-        format: 'woff'
-      }
-    ]
+        format: 'woff',
+      },
+    ],
   },
   {
     name: 'Merriweather Sans',
@@ -47,13 +47,13 @@ const fonts = [
     sources: [
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff2`,
-        format: 'woff2'
+        format: 'woff2',
       },
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff`,
-        format: 'woff'
-      }
-    ]
+        format: 'woff',
+      },
+    ],
   },
   {
     name: 'Merriweather',
@@ -63,14 +63,14 @@ const fonts = [
     sources: [
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff2`,
-        format: 'woff2'
+        format: 'woff2',
       },
       {
         url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff`,
-        format: 'woff'
-      }
-    ]
-  }
+        format: 'woff',
+      },
+    ],
+  },
 ];
 
 const fontStack = {
@@ -81,13 +81,13 @@ const fontStack = {
     // eslint-disable-next-line max-len
     '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   serif: 'Merriweather, Georgia, Times New Roman, serif',
-  mono: 'Courier New, mono-space'
+  mono: 'Courier New, mono-space',
 };
 
 const fontWeight = {
   light: '300',
   regular: '400',
-  bold: '700'
+  bold: '700',
 };
 
 const fontSizes = {
@@ -98,7 +98,7 @@ const fontSizes = {
   giga: '1.5rem',
   tera: '2rem',
   peta: '2.5rem',
-  exa: '3rem'
+  exa: '3rem',
 };
 
 const lineHeights = {
@@ -107,29 +107,29 @@ const lineHeights = {
   kilo: '1.5em',
   mega: '1.75em',
   giga: '2em',
-  tera: '2.5em'
+  tera: '2.5em',
 };
 
 const iconSizes = {
   byte: '12px',
   kilo: '16px',
   mega: '24px',
-  giga: '36px'
+  giga: '36px',
 };
 
 const borderWidth = {
   kilo: '1px',
-  mega: '2px'
+  mega: '2px',
 };
 
 const borderRadius = {
   kilo: '2px',
   mega: '4px',
-  giga: '6px'
+  giga: '6px',
 };
 
 const zIndexes = {
-  nprogress: 999
+  nprogress: 999,
 };
 
 const maxWidth = '80rem';
@@ -145,7 +145,7 @@ const neutralsLight = {
   n600: openColor.gray[6],
   n700: openColor.gray[7],
   n800: openColor.gray[8],
-  n900: openColor.gray[9]
+  n900: openColor.gray[9],
 };
 
 const neutralsDark = {
@@ -158,7 +158,7 @@ const neutralsDark = {
   n600: openColor.gray[3],
   n700: openColor.gray[2],
   n800: openColor.gray[1],
-  n900: openColor.gray[0]
+  n900: openColor.gray[0],
 };
 
 const violets = {
@@ -171,7 +171,7 @@ const violets = {
   v600: openColor.violet[6],
   v700: openColor.violet[7],
   v800: openColor.violet[8],
-  v900: openColor.violet[9]
+  v900: openColor.violet[9],
 };
 
 const blues = {
@@ -184,7 +184,7 @@ const blues = {
   b600: openColor.blue[6],
   b700: openColor.blue[7],
   b800: openColor.blue[8],
-  b900: openColor.blue[9]
+  b900: openColor.blue[9],
 };
 
 const greens = {
@@ -197,7 +197,7 @@ const greens = {
   g600: openColor.green[6],
   g700: openColor.green[7],
   g800: openColor.green[8],
-  g900: openColor.green[9]
+  g900: openColor.green[9],
 };
 
 const yellows = {
@@ -210,7 +210,7 @@ const yellows = {
   y600: openColor.yellow[6],
   y700: openColor.yellow[7],
   y800: openColor.yellow[8],
-  y900: openColor.yellow[9]
+  y900: openColor.yellow[9],
 };
 
 const oranges = {
@@ -223,7 +223,7 @@ const oranges = {
   o600: openColor.orange[6],
   o700: openColor.orange[7],
   o800: openColor.orange[8],
-  o900: openColor.orange[9]
+  o900: openColor.orange[9],
 };
 
 const reds = {
@@ -236,7 +236,7 @@ const reds = {
   r600: openColor.red[6],
   r700: openColor.red[7],
   r800: openColor.red[8],
-  r900: openColor.red[9]
+  r900: openColor.red[9],
 };
 
 const primary = createPalette('p', '#1fb7e3');
@@ -251,7 +251,7 @@ const breakpoints = {
   giga: 960,
   untilGiga: '(max-width: 959px)',
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280
+  tera: 1280,
 };
 
 export function createColors(darkmode = false) {
@@ -285,7 +285,7 @@ export function createColors(darkmode = false) {
     bodyColor,
     selectionBg,
     selectionColor,
-    shadow
+    shadow,
   };
   return Object.keys(colors).reduce((acc, name) => {
     const color = colors[name];
@@ -298,7 +298,7 @@ function createAnimations(reducedMotion = false) {
   return {
     micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
     standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
-    motion: reducedMotion ? '0s' : '320ms cubic-bezier(0, 0, 0.2, 1)'
+    motion: reducedMotion ? '0s' : '320ms cubic-bezier(0, 0, 0.2, 1)',
   };
 }
 
@@ -312,10 +312,10 @@ const spacings = {
   peta: '2.5rem',
   exa: '3rem',
   zetta: '4rem',
-  yotta: '6rem'
+  yotta: '6rem',
 };
 
-export const createMediaQueries = mapValues(mediaExpression => {
+export const createMediaQueries = mapValues((mediaExpression) => {
   const { prefix = '', suffix = '' } =
     typeof mediaExpression === 'string'
       ? {}
@@ -345,7 +345,7 @@ function standard({ darkmode, reducedMotion } = {}) {
     pageWidth,
     colors: createColors(darkmode),
     animations: createAnimations(reducedMotion),
-    mq: createMediaQueries(breakpoints)
+    mq: createMediaQueries(breakpoints),
   };
 }
 

@@ -11,7 +11,7 @@ function MoonIcon({ full = false, ...props }) {
 
 MoonIcon.propTypes = {
   alt: PropTypes.string.isRequired,
-  full: PropTypes.bool
+  full: PropTypes.bool,
 };
 
 /**

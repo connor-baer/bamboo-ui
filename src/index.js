@@ -59,7 +59,7 @@ export { default as useMedia } from './hooks/use-media';
 export { default as useAnimationFrame } from './hooks/use-animation-frame';
 export {
   default as useComponents,
-  ComponentsProvider
+  ComponentsProvider,
 } from './hooks/use-components';
 
 /**

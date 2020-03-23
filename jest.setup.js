@@ -1,4 +1,3 @@
-/* global expect */
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
@@ -11,7 +10,7 @@ import themes from './src/styles/themes';
 
 const theme = themes.standard();
 
-const renderWithTheme = renderFn => (component, ...rest) =>
+const renderWithTheme = (renderFn) => (component, ...rest) =>
   renderFn(<ThemeProvider theme={theme}>{component}</ThemeProvider>, rest);
 
 global.render = renderWithTheme(render);
@@ -34,6 +33,6 @@ expect.addSnapshotSerializer(
   createSerializer({
     classNameReplacer(className, index) {
       return `bamboo-${index}`;
-    }
-  })
+    },
+  }),
 );

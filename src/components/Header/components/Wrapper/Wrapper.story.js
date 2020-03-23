@@ -12,7 +12,7 @@ function VisualizeSpacing({ children }) {
           borderBottom: '1px solid lightgrey',
           textAlign: 'center',
           color: 'grey',
-          fontSize: '12px'
+          fontSize: '12px',
         }}
       >
         top margin
@@ -23,7 +23,7 @@ function VisualizeSpacing({ children }) {
           borderTop: '1px solid lightgrey',
           textAlign: 'center',
           color: 'grey',
-          fontSize: '12px'
+          fontSize: '12px',
         }}
       >
         bottom margin

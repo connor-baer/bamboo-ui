@@ -68,7 +68,7 @@ function Footer({ siteName, siteTwitter, children }) {
 Footer.propTypes = {
   siteName: PropTypes.string.isRequired,
   siteTwitter: PropTypes.string,
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 export default Footer;

@@ -30,5 +30,5 @@ export default function FontSize({ fontSizeName }) {
 }
 
 FontSize.propTypes = {
-  fontSizeName: PropTypes.string.isRequired
+  fontSizeName: PropTypes.string.isRequired,
 };

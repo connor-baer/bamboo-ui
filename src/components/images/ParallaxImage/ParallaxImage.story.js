@@ -10,7 +10,7 @@ storiesOf('Images/ParallaxImage', module).add('ParallaxImage', () => (
       src={'https://source.unsplash.com/600x400/'}
       srcSet={[
         'https://source.unsplash.com/600x400/ 600w',
-        'https://source.unsplash.com/1200x800/ 1200w'
+        'https://source.unsplash.com/1200x800/ 1200w',
       ].join(', ')}
       alt={text('Alt text', 'A random image')}
       speed={number('Speed', 75)}

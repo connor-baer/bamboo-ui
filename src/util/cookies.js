@@ -11,7 +11,7 @@ export function setCookie(name, value, options) {
   const defaultOptions = { expires: 365 * 5 };
   return set(name, value, {
     ...defaultOptions,
-    ...options
+    ...options,
   });
 }
 

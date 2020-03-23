@@ -89,7 +89,7 @@ Brand.propTypes = {
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
   isHomepage: PropTypes.bool,
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 /**

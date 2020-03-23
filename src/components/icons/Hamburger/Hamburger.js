@@ -116,7 +116,7 @@ Hamburger.propTypes = {
   /**
    * Label for the 'inactive' state. Important for accessibility.
    */
-  labelInActive: PropTypes.string
+  labelInActive: PropTypes.string,
 };
 
 /**

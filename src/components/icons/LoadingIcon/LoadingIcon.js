@@ -13,7 +13,7 @@ function LoadingIcon({ width = 48, height = 48, color }) {
 LoadingIcon.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 /**

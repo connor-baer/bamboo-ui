@@ -11,7 +11,7 @@ storiesOf('Layout/Align', module).add('Align', () => (
         Align.CENTER,
         Align.FULL,
         Align.RIGHT,
-        Align.LEFT
+        Align.LEFT,
       ])}
     >
       Growl black roar black koala grizzly, brown bees growl ursa minor cub

@@ -9,7 +9,7 @@ const cloneElement = (element, props) =>
     key: element.key,
     ref: element.ref,
     ...element.props,
-    ...props
+    ...props,
   });
 
 const containerStyles = ({ theme }) => css`
@@ -42,7 +42,7 @@ const containerStyles = ({ theme }) => css`
 
 const Container = styled('div')(containerStyles);
 
-const slideStyles = count => theme => {
+const slideStyles = (count) => (theme) => {
   const width = (100 / count).toFixed(2);
 
   return css`
@@ -73,15 +73,15 @@ function Slider({ children, ...rest }) {
   const count = Children.count(children);
   return (
     <Container {...rest}>
-      {Children.map(children, child =>
-        cloneElement(child, { css: slideStyles(count) })
+      {Children.map(children, (child) =>
+        cloneElement(child, { css: slideStyles(count) }),
       )}
     </Container>
   );
 }
 
 Slider.propTypes = {
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 /**

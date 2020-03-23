@@ -151,9 +151,9 @@ Links.propTypes = {
     PropTypes.shape({
       label: childrenPropType,
       url: PropTypes.string,
-      icon: childrenPropType
-    })
-  )
+      icon: childrenPropType,
+    }),
+  ),
 };
 
 /**

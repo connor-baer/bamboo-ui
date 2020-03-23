@@ -41,5 +41,5 @@ export default function Spacing({ spacingName }) {
 }
 
 Spacing.propTypes = {
-  spacingName: PropTypes.string.isRequired
+  spacingName: PropTypes.string.isRequired,
 };

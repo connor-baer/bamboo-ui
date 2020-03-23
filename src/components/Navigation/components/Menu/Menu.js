@@ -22,7 +22,7 @@ const wrapperStyles = ({ theme }) => css`
 const Wrapper = styled('div')(wrapperStyles);
 
 // Passed to the css prop.
-const userPhotoStyles = theme => css`
+const userPhotoStyles = (theme) => css`
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};
   object-fit: cover;
@@ -187,7 +187,7 @@ const darkmodeButtonStyles = ({ theme }) => css`
 const DarkmodeButton = styled('button')(
   itemStyles,
   focusOutline,
-  darkmodeButtonStyles
+  darkmodeButtonStyles,
 );
 
 function Menu({ children, userAvatarURL }) {
@@ -264,7 +264,7 @@ Menu.Hr = MenuHr;
 
 Menu.propTypes = {
   userAvatarURL: PropTypes.string,
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 /**

@@ -10,5 +10,5 @@ export default function Head({ children }) {
 }
 
 Head.propTypes = {
-  children: childrenPropType
+  children: childrenPropType,
 };

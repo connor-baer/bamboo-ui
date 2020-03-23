@@ -19,7 +19,7 @@ function Header({ title, subtitle, children, ...rest }) {
 Header.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 Header.Wrapper = Wrapper;

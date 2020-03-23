@@ -43,7 +43,7 @@ const splitStyles = ({ theme, variant }) =>
 const Main = styled('main')(baseStyles, sidebarStyles, splitStyles);
 
 Main.propTypes = {
-  variant: PropTypes.oneOf([SIDEBAR, SPLIT])
+  variant: PropTypes.oneOf([SIDEBAR, SPLIT]),
 };
 
 Main.SIDEBAR = SIDEBAR;

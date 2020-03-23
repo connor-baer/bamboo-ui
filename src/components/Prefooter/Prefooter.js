@@ -61,7 +61,7 @@ function Prefooter({ text, linkLabel, linkUrl }) {
 Prefooter.propTypes = {
   text: PropTypes.string,
   linkLabel: PropTypes.string,
-  linkUrl: PropTypes.string
+  linkUrl: PropTypes.string,
 };
 
 /**

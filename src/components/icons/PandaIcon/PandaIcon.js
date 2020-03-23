@@ -13,7 +13,7 @@ function PandaIcon({ alt = 'Emoji of a panda', ...props }) {
 }
 
 PandaIcon.propTypes = {
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
 };
 
 /**

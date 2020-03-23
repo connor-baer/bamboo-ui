@@ -94,7 +94,7 @@ function Collage({ images = [] }) {
 }
 
 Collage.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.shape(imagePropType))
+  images: PropTypes.arrayOf(PropTypes.shape(imagePropType)),
 };
 
 /**

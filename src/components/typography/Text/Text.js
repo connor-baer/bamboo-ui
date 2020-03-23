@@ -27,8 +27,8 @@ const lineHeightStyles = ({ theme, lineHeight = 'kilo' }) => css`
 `;
 
 const Text = styled('span', {
-  shouldForwardProp: prop =>
-    isPropValid(prop) && prop !== 'type' && prop !== 'slope'
+  shouldForwardProp: (prop) =>
+    isPropValid(prop) && prop !== 'type' && prop !== 'slope',
 })(typeStyles, sizeStyles, weightStyles, slopeStyles, lineHeightStyles);
 
 Text.propTypes = textPropType;

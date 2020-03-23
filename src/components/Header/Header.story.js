@@ -18,7 +18,7 @@ storiesOf('Components/Header', module).add('Header', () => (
       subtitle={text('Subtitle', 'A React component libary')}
     >
       <div
-        css={theme =>
+        css={(theme) =>
           css`
             margin-top: ${theme.spacings.kilo};
           `

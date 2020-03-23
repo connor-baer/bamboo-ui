@@ -10,18 +10,18 @@ const links = [
   {
     icon: '🐼',
     label: 'Panda',
-    url: '/'
+    url: '/',
   },
   {
     icon: '🐨',
     label: 'Koala',
-    url: '/koala'
+    url: '/koala',
   },
   {
     icon: '🐻',
     label: 'Grizzly',
-    url: '/grizzly'
-  }
+    url: '/grizzly',
+  },
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -38,7 +38,7 @@ storiesOf('Components/Navigation', module).add('Navigation', () => {
         <Navigation.Menu
           userAvatarURL={text(
             'User avatar URL',
-            'https://source.unsplash.com/64x64/'
+            'https://source.unsplash.com/64x64/',
           )}
         >
           {menuLink && <A href="/">{menuLink}</A>}

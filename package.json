@@ -3,10 +3,10 @@
   "sideEffects": false,
   "version": "0.0.0-semantically-released",
   "description": "A React UI component library made by Connor",
-  "main": "lib/index.js",
-  "module": "lib/es/index.js",
+  "main": "build/index.js",
+  "module": "build/es/index.js",
   "files": [
-    "lib",
+    "build",
     "README.md"
   ],
   "scripts": {
@@ -21,9 +21,9 @@
     "prebuild": "yarn test:unit:output",
     "build:storybook": "build-storybook -c .storybook -o dist",
     "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
-    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
-    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
-    "clean:js": "rimraf lib",
+    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir build --ignore *.spec.js,*.story.js",
+    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir build/es --ignore *.spec.js,*.story.js",
+    "clean:js": "rimraf build",
     "predeploy": "rm -rf ./dist && mkdir dist && yarn build:storybook && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
     "prerelease": "yarn build:js",

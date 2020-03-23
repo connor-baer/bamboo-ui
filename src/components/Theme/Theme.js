@@ -12,12 +12,12 @@ import useMedia from '../../hooks/use-media';
 import {
   createFontFace,
   loadFonts,
-  preloadFonts
+  preloadFonts,
 } from '../../styles/load-fonts';
 
 const TRANSITION_DURATION = 200; // milliseconds
 
-const transitionStyles = theme => css`
+const transitionStyles = (theme) => css`
   *,
   *::before,
   *::after {
@@ -31,7 +31,7 @@ const transitionStyles = theme => css`
 export default function Theme({
   initialThemeId = 'standard',
   themes = {},
-  children
+  children,
 }) {
   const cookies = getAllCookies();
   const { Head } = useComponents();
@@ -41,7 +41,7 @@ export default function Theme({
   const [themeId, setThemeId] = useState(initialThemeId);
   const timerId = useRef(null);
 
-  const animate = callback => {
+  const animate = (callback) => {
     if (timerId.current) {
       clearTimeout(timerId.current);
     } else {
@@ -56,12 +56,12 @@ export default function Theme({
     }, TRANSITION_DURATION);
   };
 
-  const updateReducedMotion = useCallback(isReducedMotion => {
+  const updateReducedMotion = useCallback((isReducedMotion) => {
     setCookie('reducedMotion', isReducedMotion);
     setReducedMotion(isReducedMotion);
   }, []);
 
-  const updateDarkmode = useCallback(isDark => {
+  const updateDarkmode = useCallback((isDark) => {
     animate(() => {
       setCookie('darkmode', isDark);
       setDarkmode(isDark);
@@ -84,11 +84,11 @@ export default function Theme({
     }
   });
 
-  const toggleDarkmode = value =>
+  const toggleDarkmode = (value) =>
     updateDarkmode(isBoolean(value) ? value : !darkmode);
-  const toggleReducedMotion = value =>
+  const toggleReducedMotion = (value) =>
     updateReducedMotion(isBoolean(value) ? value : !reducedMotion);
-  const setTheme = newThemeId =>
+  const setTheme = (newThemeId) =>
     new Promise((resolve, reject) => {
       if (newThemeId === themeId) {
         resolve();
@@ -107,7 +107,7 @@ export default function Theme({
     ...themeFn({ darkmode, reducedMotion }),
     setTheme,
     toggleDarkmode,
-    toggleReducedMotion
+    toggleReducedMotion,
   };
 
   const globalStyles = theme.fonts.map(createFontFace);
@@ -139,5 +139,5 @@ export default function Theme({
 Theme.propTypes = {
   initialThemeId: PropTypes.string,
   themes: PropTypes.object.isRequired,
-  children: childrenPropType
+  children: childrenPropType,
 };

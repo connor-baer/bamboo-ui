@@ -34,7 +34,7 @@ const bugfixStyles = () => css`
 const Columns = styled('div')(baseStyles, bugfixStyles);
 
 Columns.propTypes = {
-  columnCount: PropTypes.number
+  columnCount: PropTypes.number,
 };
 
 /**
