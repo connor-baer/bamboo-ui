@@ -13,11 +13,7 @@ import Theme from '../src/components/Theme';
 const stories = require.context('../src/components', true, /\.story\.js$/);
 const docs = require.context('../src/docs', true, /\.story\.js$/);
 
-const withTheme = storyFn => (
-  <Theme themes={themes} assetPrefix="https://connorbaer.co/static/fonts">
-    {storyFn()}
-  </Theme>
-);
+const withTheme = storyFn => <Theme themes={themes}>{storyFn()}</Theme>;
 
 const withStoryStyles = storyFn => {
   return <Story>{storyFn()}</Story>;

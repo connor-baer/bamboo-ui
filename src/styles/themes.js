@@ -4,31 +4,83 @@ import { toColorString } from 'polished';
 
 import { createPalette } from './utils';
 
+const ASSET_BASEURL = 'https://assets.connor.li';
+
 const fonts = [
   {
-    name: 'Overpass',
-    localName: 'Overpass Light',
+    name: 'Merriweather Sans',
+    localName: 'Merriweather Sans Light',
     weight: '300',
-    style: 'normal'
+    style: 'normal',
+    sources: [
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff2`,
+        format: 'woff2'
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff`,
+        format: 'woff'
+      }
+    ]
   },
   {
-    name: 'Overpass',
-    localName: 'Overpass Regular',
+    name: 'Merriweather Sans',
+    localName: 'Merriweather Sans',
     weight: '400',
-    style: 'normal'
+    style: 'normal',
+    sources: [
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff2`,
+        format: 'woff2'
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff`,
+        format: 'woff'
+      }
+    ]
   },
   {
-    name: 'Overpass',
-    localName: 'Overpass Bold',
+    name: 'Merriweather Sans',
+    localName: 'Merriweather Sans Bold',
     weight: '700',
-    style: 'normal'
+    style: 'normal',
+    sources: [
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff2`,
+        format: 'woff2'
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff`,
+        format: 'woff'
+      }
+    ]
+  },
+  {
+    name: 'Merriweather',
+    localName: 'Merriweather',
+    weight: '400',
+    style: 'normal',
+    sources: [
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff2`,
+        format: 'woff2'
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff`,
+        format: 'woff'
+      }
+    ]
   }
 ];
 
 const fontStack = {
-  default: 'Overpass, Helvetica, Arial, sans-serif',
-  sans: 'Overpass, Helvetica, Arial, sans-serif',
-  serif: 'Lora, Merriweather, Georgia, Times New Roman, serif',
+  default:
+    // eslint-disable-next-line max-len
+    '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  sans:
+    // eslint-disable-next-line max-len
+    '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  serif: 'Merriweather, Georgia, Times New Roman, serif',
   mono: 'Courier New, mono-space'
 };
 

@@ -1,41 +1,33 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { curry, differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
+import { differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
 
 import isServer from '../util/is-server';
 import addClass from '../util/add-class';
 
-function constructSrc(assetPrefix, font) {
-  const { name, weight, style } = font;
-  return `${assetPrefix}/${name.replace(/\s+/g, '-')}-${weight}-${style}`;
-}
-
-export const createFontFace = curry((assetPrefix, font) => {
-  const { name, weight, style, localName } = font;
-  const fontPath = constructSrc(assetPrefix, font);
+export const createFontFace = font => {
+  const { name, weight, style, localName, sources } = font;
+  const urls = sources
+    .map(({ url, format }) => `url('${url}') format('${format}')`)
+    .join(', ');
   return css`
       @font-face {
         font-family: '${name}';
         font-style: ${style};
         font-weight: ${weight};
         font-display: swap;
-        src:
-          local('${localName || name}'),
-          url('${fontPath}.woff2') format('woff2'),
-          url('${fontPath}.woff') format('woff');
+        src: local('${localName || name}'), ${urls};
       };
   `;
-});
+};
 
-export const preloadFonts = curry((assetPrefix = '', fonts) =>
-  fonts.map(font => {
-    const fontPath = constructSrc(assetPrefix, font);
-    return (
-      <link key={fontPath} rel="preload" href={`${fontPath}.woff2`} as="font" />
-    );
-  })
-);
+export const preloadFonts = fonts =>
+  fonts.map(({ sources }) =>
+    sources.map(({ url }) => (
+      <link key={url} href={url} rel="preload" as="font" />
+    ))
+  );
 
 export function loadFonts(fonts, timeout = 3000) {
   if (isServer || isEmpty(fonts)) {

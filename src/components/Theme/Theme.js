@@ -31,7 +31,6 @@ const transitionStyles = theme => css`
 export default function Theme({
   initialThemeId = 'standard',
   themes = {},
-  assetPrefix,
   children
 }) {
   const cookies = getAllCookies();
@@ -111,13 +110,13 @@ export default function Theme({
     toggleReducedMotion
   };
 
-  const globalStyles = theme.fonts.map(createFontFace(assetPrefix));
+  const globalStyles = theme.fonts.map(createFontFace);
 
   useEffect(() => {
-    if (assetPrefix && !isSaveData()) {
+    if (!isSaveData()) {
       loadFonts(theme.fonts);
     }
-  }, [assetPrefix, theme.fonts]);
+  }, [theme.fonts]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -125,7 +124,7 @@ export default function Theme({
         <Head>
           <meta name="theme-color" content={theme.colors.bodyBg} />
           <meta name="msapplication-TileColor" content={theme.colors.p500} />
-          {preloadFonts(assetPrefix, theme.fonts)}
+          {preloadFonts(theme.fonts)}
         </Head>
 
         <Global styles={globalStyles} />
@@ -140,6 +139,5 @@ export default function Theme({
 Theme.propTypes = {
   initialThemeId: PropTypes.string,
   themes: PropTypes.object.isRequired,
-  assetPrefix: PropTypes.string,
   children: childrenPropType
 };
