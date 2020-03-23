@@ -185,7 +185,7 @@ export const createBaseStyles = (theme) => css`
     text-rendering: optimizeLegibility;
 
     .fonts-loaded & {
-      font-family: ${theme.fontStack.default};
+      font-family: ${theme.fontStack.sans};
     }
   }
 

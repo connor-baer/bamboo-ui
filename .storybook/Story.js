@@ -9,7 +9,7 @@ import { BaseStyles } from '../src/styles/base-styles';
 
 const channel = addons.getChannel();
 
-const globalStyles = theme => css`
+const globalStyles = (theme) => css`
   html,
   body {
     background: transparent;
@@ -21,7 +21,7 @@ const globalStyles = theme => css`
   optgroup,
   select,
   textarea {
-    font-family: ${theme.fontStack.default} !important;
+    font-family: ${theme.fontStack.sans} !important;
   }
 `;
 
