@@ -1,24 +1,6 @@
-const {
-  react: baseConfig,
-  overwritePresets
-} = require('@sumup/foundry/eslint');
-
-const customConfig = {
-  rules: {
-    'notice/notice': 'off',
-    'emotion/jsx-import': 'off'
-  },
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: {
-          resolve: {
-            extensions: ['.js', '.jsx']
-          }
-        }
-      }
-    }
-  }
-};
-
-module.exports = overwritePresets(baseConfig, customConfig);
+module.exports = require('@sumup/foundry/eslint')({
+  language: 'JavaScript',
+  environments: ['Browser'],
+  frameworks: ['React', 'Emotion', 'Jest'],
+  openSource: false,
+});
