@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 import { useAnimationFrame } from '../../hooks/use-animation-frame';
 import NavigationContext from './NavigationContext';
 import Brand from './components/Brand';

@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 import { isServer } from '../../util/is-server';
 
 const headRoot = isServer ? null : document.head;

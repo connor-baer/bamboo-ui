@@ -1,7 +1,7 @@
 import { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
-import { childrenPropType } from '../../../util/shared-prop-types';
+import { childrenPropType } from '../../../util/prop-types';
 
 export default function Link({ children, ...props }) {
   const child = Children.only(children);

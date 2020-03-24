@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { useComponents } from '../../../../hooks/use-components';
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import { childrenPropType } from '../../../../util/prop-types';
 
 const anchorStyles = () => css`
   position: relative;
@@ -53,7 +53,7 @@ const siteNameStyles = ({ theme }) => css`
 
   a:hover > &,
   a:focus > & {
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
   }
 `;
 

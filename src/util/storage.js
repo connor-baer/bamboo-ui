@@ -76,18 +76,3 @@ export function storageFactory(storage) {
 
 export const localStore = storageFactory(localStorage);
 export const sessionStore = storageFactory(sessionStorage);
-
-export function serialize(value) {
-  return JSON.stringify(value);
-}
-
-export function parse(value) {
-  if (!value) {
-    return null;
-  }
-  try {
-    return JSON.parse(value);
-  } catch (error) {
-    return null;
-  }
-}

@@ -1,7 +1,7 @@
 import React, { useContext, createContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { childrenPropType } from '../util/shared-prop-types';
+import { childrenPropType } from '../util/prop-types';
 import Head from '../components/Head';
 import Link from '../components/typography/Link';
 import Image from '../components/images/Image';

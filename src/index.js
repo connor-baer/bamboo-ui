@@ -1,6 +1,6 @@
 import * as cookies from './util/cookies';
-import * as sharedPropTypes from './util/shared-prop-types';
-import * as sharedStyles from './styles/shared';
+import * as propTypes from './util/prop-types';
+import * as styles from './styles/shared';
 import * as themes from './styles/theme';
 
 /**
@@ -63,13 +63,14 @@ export { useComponents, ComponentsProvider } from './hooks/use-components';
  * Utils
  */
 
-export { sharedPropTypes, cookies };
+export { propTypes, cookies };
 export { isServer } from './util/is-server';
 export { isSaveData } from './util/is-save-data';
+export { sessionStore, localStore } from './util/storage';
 
 /**
  * Styles
  */
 
-export { sharedStyles, themes };
+export { styles, themes };
 export { BaseStyles } from './styles/base-styles';

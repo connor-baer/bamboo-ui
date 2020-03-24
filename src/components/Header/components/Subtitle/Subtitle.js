@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import Heading from '../../../typography/Heading';
 
 const baseStyles = ({ theme }) => css`
-  color: ${theme.color.neutral[700]};
+  color: ${theme.color.primary[900]};
   font-size: ${theme.fontSize.xl};
   line-height: ${theme.lineHeight.m};
   margin-top: ${theme.spacing.s};

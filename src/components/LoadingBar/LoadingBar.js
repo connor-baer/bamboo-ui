@@ -27,21 +27,21 @@ export default function LoadingBar({ isLoading, startDelay = 500 }) {
           top: 0;
           right: 0;
           left: 0;
-          background: ${theme.color.white};
+          background: #fff;
           height: 3px;
           pointer-events: none;
           z-index: ${theme.zIndex.nprogress};
         }
 
         #nprogress .bar {
-          background: ${theme.color.primary[600]};
+          background: ${theme.color.primary[500]};
           height: 100%;
           width: 100%;
         }
 
         #nprogress .peg {
-          box-shadow: 0 0 10px ${theme.color.primary[600]},
-            0 0 5px ${theme.color.primary[600]};
+          box-shadow: 0 0 10px ${theme.color.primary[500]},
+            0 0 5px ${theme.color.primary[500]};
           display: block;
           height: 100%;
           opacity: 1;

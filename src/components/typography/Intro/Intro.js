@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { textPropType } from '../../../util/shared-prop-types';
+import { textPropType } from '../../../util/prop-types';
 import Paragraph from '../Paragraph';
 
 const baseStyles = ({ theme }) => css`

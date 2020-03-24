@@ -5,14 +5,14 @@ import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
 import { useComponents } from '../../../hooks/use-components';
-import { childrenPropType } from '../../../util/shared-prop-types';
+import { childrenPropType } from '../../../util/prop-types';
 import { focusOutline } from '../../../styles/shared';
 
 /* eslint-disable max-len */
 const baseStyles = ({ theme, backgroundColor }) => {
   const textShadowColor = backgroundColor || theme.color.bodyBg;
   return css`
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
     font-weight: ${theme.fontWeight.bold};
     border-bottom: 1px solid currentColor;
     text-shadow: 1px 1px ${textShadowColor}, 1px -1px ${textShadowColor},

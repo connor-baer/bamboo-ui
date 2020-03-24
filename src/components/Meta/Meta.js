@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useComponents } from '../../hooks/use-components';
-import { imagePropType } from '../../util/shared-prop-types';
+import { imagePropType } from '../../util/prop-types';
 
 function constructTitle(title, siteName) {
   const titleParts = [];

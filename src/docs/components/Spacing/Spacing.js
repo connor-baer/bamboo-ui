@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { themePropType } from '../../../util/shared-prop-types';
+import { themePropType } from '../../../util/prop-types';
 
 const wrapperStyles = ({ theme }) => css`
   display: flex;
@@ -24,7 +24,7 @@ const Box = styled('div')(boxStyles);
 
 const sizeStyles = ({ theme }) => css`
   margin-left: ${theme.spacing.s};
-  color: ${theme.color.neutral[600]};
+  color: ${theme.color.neutral[500]};
   font-size: ${theme.fontSize.s};
 `;
 

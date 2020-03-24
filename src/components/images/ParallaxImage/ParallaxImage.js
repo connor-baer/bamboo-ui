@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { themePropType, imagePropType } from '../../../util/shared-prop-types';
+import { themePropType, imagePropType } from '../../../util/prop-types';
 import { ComponentsContext } from '../../../hooks/use-components';
 import { isServer } from '../../../util/is-server';
 

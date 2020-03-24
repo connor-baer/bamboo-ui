@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { imagePropType } from '../../../util/shared-prop-types';
+import { imagePropType } from '../../../util/prop-types';
 
 function isTransparent(src) {
   return src && src.includes('.png');

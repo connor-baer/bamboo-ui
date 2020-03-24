@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 import { useComponents } from '../../hooks/use-components';
 
 const PRIMARY = 'primary';
@@ -45,11 +45,11 @@ const baseStyles = ({ theme }) => css`
 const primaryStyles = ({ theme, variant }) =>
   variant === PRIMARY &&
   css`
-    background-color: ${theme.color.primary[600]};
+    background-color: ${theme.color.primary[500]};
 
     &:hover,
     &:focus {
-      background-color: ${theme.color.primary[500]};
+      background-color: ${theme.color.primary[700]};
     }
 
     &:focus {
@@ -57,7 +57,7 @@ const primaryStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      background-color: ${theme.color.primary[700]};
+      background-color: ${theme.color.primary[500]};
     }
   `;
 
@@ -65,12 +65,12 @@ const secondaryStyles = ({ theme, variant }) =>
   variant === SECONDARY &&
   css`
     background-color: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
 
     &:hover,
     &:focus {
       background-color: ${theme.color.white};
-      color: ${theme.color.primary[600]};
+      color: ${theme.color.primary[500]};
     }
 
     &:focus {
@@ -78,23 +78,25 @@ const secondaryStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      background-color: ${theme.color.neutral[200]};
-      color: ${theme.color.primary[600]};
+      background-color: ${theme.color.neutral[100]};
+      color: ${theme.color.primary[500]};
     }
 
     svg {
-      fill: ${theme.color.primary[600]};
+      fill: ${theme.color.primary[500]};
     }
   `;
 
 const destructiveStyles = ({ theme, variant }) =>
   variant === DESTRUCTIVE &&
   css`
-    background-color: ${theme.color.red[600]};
+    background-color: ${theme.color.red[500]};
+    color: ${theme.color.white};
 
     &:hover,
     &:focus {
-      background-color: ${theme.color.red[500]};
+      background-color: ${theme.color.red[700]};
+      color: ${theme.color.white};
     }
 
     &:focus {
@@ -102,7 +104,8 @@ const destructiveStyles = ({ theme, variant }) =>
     }
 
     &:active {
-      background-color: ${theme.color.red[700]};
+      background-color: ${theme.color.red[500]};
+      color: ${theme.color.white};
     }
   `;
 
@@ -111,8 +114,8 @@ const disabledStyles = ({ disabled }) =>
   css`
     cursor: not-allowed;
     pointer-events: none;
-    opacity: 0.75;
-    filter: grayscale(25%);
+    opacity: 0.66;
+    filter: grayscale(33%);
   `;
 
 const StyledButton = styled('button')(

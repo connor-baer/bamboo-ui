@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { imagePropType } from '../../../util/shared-prop-types';
+import { imagePropType } from '../../../util/prop-types';
 import { useComponents } from '../../../hooks/use-components';
 
 const wrapperBaseStyles = () => css`

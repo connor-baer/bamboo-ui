@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { alignPropType } from '../../../util/shared-prop-types';
+import { alignPropType } from '../../../util/prop-types';
 import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 const baseStyles = ({ theme }) => css`

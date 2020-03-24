@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import { childrenPropType } from '../../../../util/prop-types';
 import { focusOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
 import MoonIcon from '../../../icons/MoonIcon';
@@ -131,12 +131,12 @@ const iconButtonStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
   }
 
   &:active {
     background: ${theme.color.neutral[300]};
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
   }
 `;
 
@@ -157,7 +157,7 @@ const iconBaseStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background-color: ${theme.color.neutral[100]};
-    fill: ${theme.color.primary[600]};
+    fill: ${theme.color.primary[500]};
   }
 `;
 

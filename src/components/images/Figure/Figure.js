@@ -6,7 +6,7 @@ import {
   imagePropType,
   captionPropType,
   alignPropType,
-} from '../../../util/shared-prop-types';
+} from '../../../util/prop-types';
 import { useComponents } from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isObject, get } from 'lodash/fp';
 
-import { themePropType } from '../../../util/shared-prop-types';
+import { themePropType } from '../../../util/prop-types';
 
 const groupStyles = ({ theme }) => css`
   margin: ${theme.spacing.l} 0;
@@ -31,7 +31,7 @@ const ColorBox = styled('span')(colorStyles);
 
 const nameStyles = ({ theme }) => css`
   margin-left: ${theme.spacing.s};
-  color: ${theme.color.neutral[600]};
+  color: ${theme.color.neutral[500]};
   font-size: ${theme.fontSize.s};
 `;
 

@@ -1,4 +1,4 @@
-import { storageFactory, parse, serialize } from './storage';
+import { storageFactory } from './storage';
 
 describe('StorageService', () => {
   describe('storageFactory', () => {
@@ -106,40 +106,6 @@ describe('StorageService', () => {
         const expected = 1;
         expect(actual).toBe(expected);
       });
-    });
-  });
-
-  describe('parse', () => {
-    it('should parse a string to JSON', () => {
-      const string =
-        // eslint-disable-next-line max-len
-        '{"string":"foo","boolean":true,"number":42,"object":{"hello":"world"},"array":["foo","bar"]}';
-      const actual = parse(string);
-      const expected = {
-        string: 'foo',
-        boolean: true,
-        number: 42,
-        object: { hello: 'world' },
-        array: ['foo', 'bar'],
-      };
-      expect(actual).toEqual(expected);
-    });
-  });
-
-  describe('serialize', () => {
-    it('should stringify JSON', () => {
-      const json = {
-        string: 'foo',
-        boolean: true,
-        number: 42,
-        object: { hello: 'world' },
-        array: ['foo', 'bar'],
-      };
-      const actual = serialize(json);
-      const expected =
-        // eslint-disable-next-line max-len
-        '{"string":"foo","boolean":true,"number":42,"object":{"hello":"world"},"array":["foo","bar"]}';
-      expect(actual).toBe(expected);
     });
   });
 });

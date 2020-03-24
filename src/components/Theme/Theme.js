@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 import { isSaveData } from '../../util/is-save-data';
 import { useMedia } from '../../hooks/use-media';
 import { useComponents } from '../../hooks/use-components';

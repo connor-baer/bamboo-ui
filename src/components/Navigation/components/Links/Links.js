@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import { childrenPropType } from '../../../../util/prop-types';
 import { useComponents } from '../../../../hooks/use-components';
 import NavigationContext from '../../NavigationContext';
 
@@ -20,7 +20,7 @@ const navBaseStyles = ({ theme }) => css`
   padding: ${theme.spacing.s};
   background: ${theme.color.white};
   box-shadow: 0 0px 4px ${theme.color.shadow};
-  border-top: 1px solid ${theme.color.neutral[200]};
+  border-top: 1px solid ${theme.color.neutral[300]};
   transition: transform ${theme.animation.standard};
 
   ${theme.mq.desk} {
@@ -102,7 +102,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
   &:hover,
   &:focus {
     background-color: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[600]};
+    color: ${theme.color.primary[500]};
   }
 `;
 

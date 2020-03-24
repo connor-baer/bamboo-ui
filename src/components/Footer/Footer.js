@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 import { fullWidth } from '../../styles/shared';
 import Anchor from '../typography/Anchor';
 import Small from '../typography/Small';
@@ -30,7 +30,7 @@ const contentStyles = ({ theme }) => css`
 
   small,
   a {
-    color: ${theme.color.neutral[600]};
+    color: ${theme.color.neutral[500]};
     font-weight: ${theme.fontWeight.regular};
   }
 `;

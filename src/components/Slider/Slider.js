@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/prop-types';
 
 const cloneElement = (element, props) =>
   jsx(element.type, {
