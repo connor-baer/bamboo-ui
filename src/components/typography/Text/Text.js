@@ -10,8 +10,8 @@ const typeStyles = ({ theme, type }) =>
     font-family: ${theme.fontStack[type]};
   `;
 
-const sizeStyles = ({ theme, size = 'kilo' }) => css`
-  font-size: ${theme.fontSizes[size]};
+const sizeStyles = ({ theme, size = 'm' }) => css`
+  font-size: ${theme.fontSize[size]};
 `;
 
 const weightStyles = ({ theme, weight = 'regular' }) => css`
@@ -22,8 +22,8 @@ const slopeStyles = ({ slope = 'normal' }) => css`
   font-style: ${slope};
 `;
 
-const lineHeightStyles = ({ theme, lineHeight = 'kilo' }) => css`
-  line-height: ${theme.lineHeights[lineHeight]};
+const lineHeightStyles = ({ theme, lineHeight = 'm' }) => css`
+  line-height: ${theme.lineHeight[lineHeight]};
 `;
 
 const Text = styled('span', {

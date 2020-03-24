@@ -11,18 +11,10 @@ const children =
 
 storiesOf('Typography/Text', module).add('Text', () => {
   const type = select('Type', ['sans', 'serif', 'mono'], 'sans');
-  const size = select(
-    'Size',
-    ['bit', 'byte', 'kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta'],
-    'kilo',
-  );
+  const size = select('Size', ['s', 'm', 'l', 'xl', 'xxl'], 'm');
   const weight = select('Weight', ['light', 'regular', 'bold'], 'regular');
   const slope = select('Slope', ['normal', 'italic'], 'normal');
-  const lineHeight = select(
-    'Line height',
-    ['bit', 'byte', 'kilo', 'mega', 'giga', 'tera'],
-    'kilo',
-  );
+  const lineHeight = select('Line height', ['s', 'm', 'l'], 'm');
   return (
     <div
       css={css`

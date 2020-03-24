@@ -15,27 +15,25 @@ const cloneElement = (element, props) =>
 const containerStyles = ({ theme }) => css`
   display: flex;
   flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 ${theme.spacing.gutter};
+  overflow-x: scroll;
+  padding: 0;
 
-  ${theme.mq.untilMega} {
-    scroll-snap-type: x mandatory;
-    scroll-padding: 0 ${theme.spacings.tera};
-    overflow-x: scroll;
-    padding: 0;
-
-    &::after {
-      content: '';
-      display: block;
-      width: ${theme.spacings.tera};
-      height: ${theme.spacings.tera};
-      flex-shrink: 0;
-    }
+  &::after {
+    content: '';
+    display: block;
+    width: ${theme.spacing.gutter};
+    height: 1px;
+    flex-shrink: 0;
   }
 
-  ${theme.mq.untilKilo} {
-    scroll-padding: 0 ${theme.spacings.mega};
+  ${theme.mq.desk} {
+    scroll-snap-type: none;
+    overflow-x: hidden;
 
     &::after {
-      width: ${theme.spacings.mega};
+      display: none;
     }
   }
 `;
@@ -46,21 +44,22 @@ const slideStyles = (count) => (theme) => {
   const width = (100 / count).toFixed(2);
 
   return css`
-    ${theme.mq.untilMega} {
-      margin-left: ${theme.spacings.tera};
-      scroll-snap-align: start;
-      width: 75vw;
-      max-width: 25rem;
-      flex-shrink: 0;
+    margin-left: ${theme.spacing.gutter};
+    scroll-snap-align: start;
+    width: 75vw;
+    max-width: 18rem;
+    flex-shrink: 0;
+
+    ${theme.mq.lap} {
+      width: 40vw;
     }
 
-    ${theme.mq.untilKilo} {
-      margin-left: ${theme.spacings.mega};
-    }
-
-    ${theme.mq.mega} {
+    ${theme.mq.desk} {
       width: ${width}%;
-      margin-right: ${theme.spacings.tera};
+      max-width: auto;
+      flex-shrink: 1;
+      margin-left: 0;
+      margin-right: ${theme.spacing.gutter};
 
       &:last-of-type {
         margin-right: 0;

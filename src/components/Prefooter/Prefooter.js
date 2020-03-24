@@ -4,17 +4,17 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
-import useComponents from '../../hooks/use-components';
+import { useComponents } from '../../hooks/use-components';
 import Heading from '../typography/Heading';
 import Anchor from '../typography/Anchor';
 
 const wrapperStyles = ({ theme }) => css`
-  background-color: ${theme.colors.n100};
+  background-color: ${theme.color.neutral[100]};
   text-align: center;
-  padding: ${theme.spacings.zetta} ${theme.spacings.kilo};
+  padding: ${theme.spacing.xxxxl} ${theme.spacing.s};
 
-  ${theme.mq.mega} {
-    padding: ${theme.spacings.zetta} ${theme.spacings.giga};
+  ${theme.mq.lap} {
+    padding: ${theme.spacing.xxxxl} ${theme.spacing.l};
   }
 `;
 
@@ -22,7 +22,7 @@ const Wrapper = styled('aside')(wrapperStyles);
 
 const contentStyles = ({ theme }) => css`
   text-align: center;
-  color: ${theme.colors.n900};
+  color: ${theme.color.neutral[900]};
   max-width: ${theme.maxWidth};
   margin: 0 auto;
 `;
@@ -31,7 +31,7 @@ const Content = styled(Heading)(contentStyles);
 
 const anchorStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
-  color: ${theme.colors.p600};
+  color: ${theme.color.primary[600]};
 `;
 
 const StyledAnchor = styled(Anchor)(anchorStyles);
@@ -43,11 +43,11 @@ function Prefooter({ text, linkLabel, linkUrl }) {
   /* eslint-disable no-irregular-whitespace */
   return (
     <Wrapper>
-      <Content as="p" size="tera" weight="light">
+      <Content as="p" size="xl" weight="light">
         {text && `${text} `}
         {linkLabel && (
           <Link href={linkUrl}>
-            <StyledAnchor backgroundColor={theme.colors.n100}>
+            <StyledAnchor backgroundColor={theme.color.neutral[100]}>
               {linkLabel}
             </StyledAnchor>
           </Link>

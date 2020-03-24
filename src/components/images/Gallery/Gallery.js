@@ -10,32 +10,32 @@ import {
   captionPropType,
   alignPropType,
 } from '../../../util/shared-prop-types';
-import useComponents from '../../../hooks/use-components';
+import { useComponents } from '../../../hooks/use-components';
 import RatioImage from '../RatioImage';
 import Caption from '../Caption';
 
 import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 function getSizes(theme, align) {
-  const gigaMap = {
+  const lapMap = {
     [RIGHT]: '360px',
     [LEFT]: '360px',
     [CENTER]: '755px',
     [FULL]: '1155px',
   };
-  const gigaSize = `(min-width: ${theme.breakpoints.giga}px) ${gigaMap[align]}`;
+  const lapSize = `(min-width: ${theme.breakpoints.lap}) ${lapMap[align]}`;
 
-  const megaMap = {
+  const handMap = {
     [RIGHT]: '380px',
     [LEFT]: '380px',
     [CENTER]: '790px',
     [FULL]: '950px',
   };
-  const megaSize = `(min-width: ${theme.breakpoints.mega}px) ${megaMap[align]}`;
+  const handSize = `(min-width: ${theme.breakpoints.hand}) ${handMap[align]}`;
 
   const mobileSize = '100vw';
 
-  return [gigaSize, megaSize, mobileSize].join(', ');
+  return [lapSize, handSize, mobileSize].join(', ');
 }
 
 const containerStyles = () => css`
@@ -54,13 +54,13 @@ const wrapperStyles = ({ theme, numberOfImages, align }) => {
 
   if (align === CENTER || align === FULL) {
     return css`
-      width: calc((100% / ${numberOfImages}) - ${theme.spacings.mega});
+      width: calc((100% / ${numberOfImages}) - (${theme.spacing.gutter} / 2));
     `;
   }
 
   return css`
-    width: calc(50% - ${theme.spacings.kilo});
-    margin-bottom: ${theme.spacings.giga};
+    width: calc(50% - (${theme.spacing.gutter} / 4));
+    margin-bottom: calc(${theme.spacing.gutter} / 2);
 
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;

@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
 
-import isServer from '../util/is-server';
+import { isServer } from '../util/is-server';
 import addClass from '../util/add-class';
 
 export const createFontFace = (font) => {

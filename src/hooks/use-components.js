@@ -30,6 +30,6 @@ ComponentsProvider.propTypes = {
   children: childrenPropType,
 };
 
-export default function useComponents() {
+export function useComponents() {
   return useContext(ComponentsContext);
 }

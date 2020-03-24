@@ -6,15 +6,13 @@ import { textPropType } from '../../../util/shared-prop-types';
 import Paragraph from '../Paragraph';
 
 const baseStyles = ({ theme }) => css`
-  margin-bottom: ${theme.spacings.giga};
+  margin-bottom: ${theme.spacing.l};
 `;
 
 const StyledParagraph = styled(Paragraph)(baseStyles);
 
 function Intro(props) {
-  return (
-    <StyledParagraph size="giga" weight="light" lineHeight="mega" {...props} />
-  );
+  return <StyledParagraph size="l" weight="light" lineHeight="m" {...props} />;
 }
 
 Intro.propTypes = textPropType;

@@ -142,16 +142,7 @@ export const createBaseStyles = (theme) => css`
 
   html {
     box-sizing: border-box;
-    line-height: ${theme.lineHeights.kilo};
-    font-size: 14px;
-
-    ${theme.mq.kilo} {
-      font-size: 16px;
-    }
-
-    ${theme.mq.mega} {
-      font-size: 18px;
-    }
+    font-size: 16px;
 
     [type='button'] {
       appearance: none;
@@ -159,8 +150,8 @@ export const createBaseStyles = (theme) => css`
   }
 
   body {
-    color: ${theme.colors.bodyColor};
-    background-color: ${theme.colors.bodyBg};
+    color: ${theme.color.bodyColor};
+    background-color: ${theme.color.bodyBg};
   }
 
   /**
@@ -177,6 +168,7 @@ export const createBaseStyles = (theme) => css`
       Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol';
     font-weight: ${theme.fontWeight.regular};
+    line-height: ${theme.lineHeight.m};
     text-decoration-skip: ink;
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
@@ -190,19 +182,19 @@ export const createBaseStyles = (theme) => css`
   }
 
   *::selection {
-    background-color: ${theme.colors.selectionBg};
-    color: ${theme.colors.selectionColor};
+    background-color: ${theme.color.selectionBg};
+    color: ${theme.color.selectionColor};
   }
 
   a {
     ${focusOutline({ theme })};
     text-decoration: none;
     color: inherit;
-    transition: all ${theme.animations.micro};
+    transition: all ${theme.animation.micro};
 
     &:hover,
     &:focus {
-      color: ${theme.colors.p600};
+      color: ${theme.color.primary[600]};
       cursor: pointer;
     }
   }

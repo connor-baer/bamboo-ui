@@ -2,111 +2,107 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { transparentize } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import useComponents from '../../hooks/use-components';
+import { useComponents } from '../../hooks/use-components';
 
 const PRIMARY = 'primary';
 const SECONDARY = 'secondary';
 const DESTRUCTIVE = 'destructive';
 
-const baseStyles = ({ theme }) => {
-  const shadow = transparentize(0.75, theme.colors.shadow);
-  return css`
-    display: inline-block;
-    font-weight: ${theme.fontWeight.bold};
-    font-size: inherit;
-    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-    transition: all ${theme.animations.micro};
-    border-width: 2px;
-    border-style: solid;
-    border-color: transparent;
-    border-radius: ${theme.borderRadius.giga};
-    outline: none;
-    line-height: 1;
-    box-shadow: 0 1px 4px ${shadow};
-    cursor: pointer;
+const baseStyles = ({ theme }) => css`
+  display: inline-block;
+  font-weight: ${theme.fontWeight.bold};
+  font-size: inherit;
+  padding: ${theme.spacing.s} ${theme.spacing.m};
+  transition: all ${theme.animation.micro};
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: ${theme.borderRadius.m};
+  outline: none;
+  line-height: 1;
+  box-shadow: 0 1px 4px ${theme.color.shadow};
+  cursor: pointer;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 8px ${theme.color.shadow};
     color: #fff;
+  }
 
-    &:hover,
-    &:focus {
-      box-shadow: 0 2px 8px ${shadow};
-      color: #fff;
-    }
+  &:active {
+    box-shadow: 0 0 3px ${theme.color.shadow};
+    color: #fff;
+  }
 
-    &:active {
-      box-shadow: 0 0 3px ${shadow};
-      color: #fff;
-    }
-
-    svg {
-      fill: #fff;
-    }
-  `;
-};
+  svg {
+    fill: #fff;
+  }
+`;
 
 const primaryStyles = ({ theme, variant }) =>
   variant === PRIMARY &&
   css`
-    background-color: ${theme.colors.p600};
+    background-color: ${theme.color.primary[600]};
 
     &:hover,
     &:focus {
-      background-color: ${theme.colors.p500};
+      background-color: ${theme.color.primary[500]};
     }
 
     &:focus {
-      border-color: ${theme.colors.p700};
+      border-color: ${theme.color.primary[700]};
     }
 
     &:active {
-      background-color: ${theme.colors.p700};
+      background-color: ${theme.color.primary[700]};
     }
   `;
 
 const secondaryStyles = ({ theme, variant }) =>
   variant === SECONDARY &&
   css`
-    background-color: ${theme.colors.n000};
-    color: ${theme.colors.p600};
+    background-color: ${theme.color.neutral[100]};
+    color: ${theme.color.primary[600]};
 
     &:hover,
     &:focus {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.p600};
+      background-color: ${theme.color.white};
+      color: ${theme.color.primary[600]};
     }
 
     &:focus {
-      border-color: ${theme.colors.n300};
+      border-color: ${theme.color.neutral[300]};
     }
 
     &:active {
-      background-color: ${theme.colors.n200};
-      color: ${theme.colors.p600};
+      background-color: ${theme.color.neutral[200]};
+      color: ${theme.color.primary[600]};
     }
 
     svg {
-      fill: ${theme.colors.p600};
+      fill: ${theme.color.primary[600]};
     }
   `;
 
 const destructiveStyles = ({ theme, variant }) =>
   variant === DESTRUCTIVE &&
   css`
-    background-color: ${theme.colors.r600};
+    background-color: ${theme.color.red[600]};
 
     &:hover,
     &:focus {
-      background-color: ${theme.colors.r500};
+      background-color: ${theme.color.red[500]};
     }
 
     &:focus {
-      border-color: ${theme.colors.r700};
+      border-color: ${theme.color.red[700]};
     }
 
     &:active {
-      background-color: ${theme.colors.r700};
+      background-color: ${theme.color.red[700]};
     }
   `;
 

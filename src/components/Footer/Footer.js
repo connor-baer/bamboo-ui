@@ -12,14 +12,14 @@ import Small from '../typography/Small';
 const HEIGHT_NAVIGATION = '4rem';
 
 const wrapperStyles = ({ theme }) => css`
-  border-topa: 1px solid ${theme.colors.n300};
-  background-color: ${theme.colors.n100};
-  padding: ${theme.spacings.mega} ${theme.spacings.kilo}
-    calc(${theme.spacings.mega} + ${HEIGHT_NAVIGATION});
+  border-top: 1px solid ${theme.color.neutral[300]};
+  background-color: ${theme.color.neutral[100]};
+  padding: ${theme.spacing.m} ${theme.spacing.s}
+    calc(${theme.spacing.m} + ${HEIGHT_NAVIGATION});
 
-  ${theme.mq.mega} {
-    padding-top: ${theme.spacings.mega};
-    padding-bottom: ${theme.spacings.mega};
+  ${theme.mq.lap} {
+    padding-top: ${theme.spacing.m};
+    padding-bottom: ${theme.spacing.m};
   }
 `;
 
@@ -30,7 +30,7 @@ const contentStyles = ({ theme }) => css`
 
   small,
   a {
-    color: ${theme.colors.n600};
+    color: ${theme.color.neutral[600]};
     font-weight: ${theme.fontWeight.regular};
   }
 `;
@@ -50,7 +50,7 @@ function Footer({ siteName, siteTwitter, children }) {
         {siteTwitter && (
           <Small>
             <Anchor
-              backgroundColor={theme.colors.n100}
+              backgroundColor={theme.color.neutral[100]}
               href={`https://twitter.com/${siteTwitter}`}
               title={`Visit @${siteTwitter} profile on Twitter`}
             >

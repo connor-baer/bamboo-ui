@@ -12,11 +12,7 @@ const children =
 storiesOf('Typography/Paragraph', module).add('Paragraph', () => {
   const paragraph = text('Text', children);
   const type = select('Type', ['sans', 'serif', 'mono'], 'sans');
-  const size = select(
-    'Size',
-    ['bit', 'byte', 'kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta'],
-    'mega',
-  );
+  const size = select('Size', ['s', 'm', 'l', 'xl', 'xxl'], 'm');
   const weight = select('Weight', ['regular', 'bold'], 'regular');
   const slope = select('Slope', ['normal', 'italic'], 'normal');
   return (

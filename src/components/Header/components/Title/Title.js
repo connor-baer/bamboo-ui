@@ -5,18 +5,15 @@ import { css } from '@emotion/core';
 import Heading from '../../../typography/Heading';
 
 const baseStyles = ({ theme }) => css`
-  color: ${theme.colors.p600};
-
-  ${theme.mq.untilKilo} {
-    margin-top: ${theme.spacings.mega};
-  }
+  color: ${theme.color.primary[600]};
+  margin-top: ${theme.spacing.m};
 `;
 
 /* eslint-disable no-irregular-whitespace */
 const withSubtitleStyles = ({ theme, hasSubtitle }) =>
   hasSubtitle &&
   css`
-    ${theme.mq.kilo} {
+    ${theme.mq.hand} {
       display: inline;
 
       &::after {
@@ -30,7 +27,7 @@ const withSubtitleStyles = ({ theme, hasSubtitle }) =>
 const StyledHeading = styled(Heading)(baseStyles, withSubtitleStyles);
 
 function Title(props) {
-  return <StyledHeading as="h1" size="exa" weight="bold" {...props} />;
+  return <StyledHeading as="h1" size="xxl" weight="bold" {...props} />;
 }
 
 /**

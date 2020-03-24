@@ -6,7 +6,7 @@ import { useTheme } from 'emotion-theming';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { focusOutline } from '../../../../styles/shared';
-import useComponents from '../../../../hooks/use-components';
+import { useComponents } from '../../../../hooks/use-components';
 import MoonIcon from '../../../icons/MoonIcon';
 import Hamburger from '../../../icons/Hamburger';
 import Hr from '../../../Hr';
@@ -14,7 +14,7 @@ import Hr from '../../../Hr';
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
 
-  ${theme.mq.kilo} {
+  ${theme.mq.hand} {
     position: relative;
   }
 `;
@@ -23,8 +23,8 @@ const Wrapper = styled('div')(wrapperStyles);
 
 // Passed to the css prop.
 const userPhotoStyles = (theme) => css`
-  width: ${theme.iconSizes.giga};
-  height: ${theme.iconSizes.giga};
+  width: ${theme.iconSize.xl};
+  height: ${theme.iconSize.xl};
   object-fit: cover;
   border-radius: 50%;
 
@@ -35,28 +35,25 @@ const userPhotoStyles = (theme) => css`
 `;
 
 const dropdownBaseStyles = ({ theme }) => css`
-  ${theme.mq.untilKilo} {
-    left: 0;
-    width: 100%;
-  }
-
   position: absolute;
   z-index: 999;
   top: 100%;
   right: 0;
   width: 220px;
-  padding: ${theme.spacings.bit} 0;
+  padding: ${theme.spacing.xxs} 0;
   visibility: hidden;
   opacity: 0;
-  background: ${theme.colors.white};
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  border-radius: ${theme.borderRadius.mega};
-  transition: visibility ${theme.animations.standard},
-    opacity ${theme.animations.standard};
+  background: ${theme.color.white};
+  box-shadow: 0 0 4px ${theme.color.shadow};
+  border-radius: ${theme.borderRadius.s};
+  transition: visibility ${theme.animation.standard},
+    opacity ${theme.animation.standard};
 
-  ${theme.mq.kilo} {
-    top: calc(100% + ${theme.spacings.byte});
-    border-radius: ${theme.borderRadius.mega};
+  ${theme.mq.hand} {
+    width: 220px;
+    top: calc(100% + ${theme.spacing.xs});
+    left: auto;
+    border-radius: ${theme.borderRadius.s};
   }
 
   &::before,
@@ -68,25 +65,25 @@ const dropdownBaseStyles = ({ theme }) => css`
 
   &::before {
     left: auto;
-    right: 22px;
+    right: 28px;
     top: -16px;
     border: 8px solid transparent;
     border-bottom-color: rgba(27, 31, 35, 0.12);
 
-    ${theme.mq.kilo} {
-      right: 10px;
+    ${theme.mq.hand} {
+      right: 16px;
     }
   }
 
   &::after {
     left: auto;
-    right: 23px;
+    right: 29px;
     top: -14px;
     border: 7px solid transparent;
-    border-bottom-color: ${theme.colors.white};
+    border-bottom-color: ${theme.color.white};
 
-    ${theme.mq.kilo} {
-      right: 11px;
+    ${theme.mq.hand} {
+      right: 17px;
     }
   }
 `;
@@ -103,9 +100,9 @@ const Dropdown = styled('div')(dropdownBaseStyles, dropdownOpenStyles);
 const itemStyles = ({ theme }) => css`
   display: block;
   width: 100%;
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  color: ${theme.colors.bodyColor};
-  transition: all ${theme.animations.micro};
+  padding: ${theme.spacing.s} ${theme.spacing.m};
+  color: ${theme.color.bodyColor};
+  transition: all ${theme.animation.micro};
   overflow: visible;
   border: 0;
   outline: none;
@@ -115,15 +112,15 @@ const itemStyles = ({ theme }) => css`
   line-height: inherit;
   text-align: inherit;
 
-  ${theme.mq.kilo} {
-    padding: ${theme.spacings.bit} ${theme.spacings.mega};
+  ${theme.mq.hand} {
+    padding: ${theme.spacing.xxs} ${theme.spacing.m};
   }
 `;
 
 const Item = styled('div')(itemStyles);
 
 const hrStyles = ({ theme }) => css`
-  margin: ${theme.spacings.bit} 0 ${theme.spacings.byte};
+  margin: ${theme.spacing.xxs} 0 ${theme.spacing.xs};
 `;
 
 const MenuHr = styled(Hr)(hrStyles);
@@ -133,13 +130,13 @@ const iconButtonStyles = ({ theme }) => css`
 
   &:hover,
   &:focus {
-    background: ${theme.colors.n100};
-    color: ${theme.colors.p600};
+    background: ${theme.color.neutral[100]};
+    color: ${theme.color.primary[600]};
   }
 
   &:active {
-    background: ${theme.colors.n300};
-    color: ${theme.colors.p600};
+    background: ${theme.color.neutral[300]};
+    color: ${theme.color.primary[600]};
   }
 `;
 
@@ -148,39 +145,39 @@ const IconButton = styled('button')(itemStyles, iconButtonStyles);
 const iconBaseStyles = ({ theme }) => css`
   display: inline-block;
   position: relative;
-  left: -${theme.spacings.byte};
-  padding: ${theme.spacings.byte};
+  left: -${theme.spacing.xs};
+  padding: ${theme.spacing.xs};
   margin-top: -2px;
-  transition: fill ${theme.animations.micro},
-    background-color ${theme.animations.micro};
+  transition: fill ${theme.animation.micro},
+    background-color ${theme.animation.micro};
   line-height: 0;
-  fill: ${theme.colors.bodyColor};
+  fill: ${theme.color.bodyColor};
   border-radius: 50%;
 
   &:hover,
   &:focus {
-    background-color: ${theme.colors.n100};
-    fill: ${theme.colors.p600};
+    background-color: ${theme.color.neutral[100]};
+    fill: ${theme.color.primary[600]};
   }
 `;
 
 const iconActiveStyles = ({ theme, isActive }) =>
   isActive &&
   css`
-    background-color: ${theme.colors.n100};
-    fill: ${theme.colors.n700};
+    background-color: ${theme.color.neutral[100]};
+    fill: ${theme.color.neutral[700]};
   `;
 
 const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
 
 const darkmodeButtonStyles = ({ theme }) => css`
   line-height: 0;
-  padding: calc(${theme.spacings.byte} + 2px);
-  fill: ${theme.colors.n700};
+  padding: calc(${theme.spacing.xs} + 2px);
+  fill: ${theme.color.neutral[700]};
   cursor: pointer;
 
-  ${theme.mq.kilo} {
-    padding: calc(${theme.spacings.byte} + 2px);
+  ${theme.mq.hand} {
+    padding: calc(${theme.spacing.xs} + 2px);
   }
 `;
 
@@ -200,6 +197,10 @@ function Menu({ children, userAvatarURL }) {
   const hasContent = !!children;
   const hasDivider = hasContent && toggleDarkmode;
 
+  if (!hasContent && !toggleDarkmode) {
+    return null;
+  }
+
   if (!hasContent) {
     return (
       <Wrapper>
@@ -209,8 +210,8 @@ function Menu({ children, userAvatarURL }) {
           onClick={toggleDarkmode}
         >
           <MoonIcon
-            width={theme.iconSizes.kilo}
-            height={theme.iconSizes.kilo}
+            width={theme.iconSize.m}
+            height={theme.iconSize.m}
             full={darkmode}
             alt="Toggle darkmode"
           />
@@ -245,8 +246,8 @@ function Menu({ children, userAvatarURL }) {
           >
             <Icon isActive={darkmode}>
               <MoonIcon
-                width={theme.iconSizes.kilo}
-                height={theme.iconSizes.kilo}
+                width={theme.iconSize.m}
+                height={theme.iconSize.m}
                 full={darkmode}
                 alt=""
               />

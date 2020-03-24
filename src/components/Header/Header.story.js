@@ -20,7 +20,7 @@ storiesOf('Components/Header', module).add('Header', () => (
       <div
         css={(theme) =>
           css`
-            margin-top: ${theme.spacings.kilo};
+            margin-top: ${theme.spacing.s};
           `
         }
       >

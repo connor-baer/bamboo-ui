@@ -5,19 +5,19 @@ import centered from '@storybook/addon-centered/react';
 
 import Story from './Story';
 
-import themes from '../src/styles/themes';
+import { standard } from '../src/styles/theme';
 import Theme from '../src/components/Theme';
 
-const withTheme = storyFn => <Theme themes={themes}>{storyFn()}</Theme>;
+const withTheme = (storyFn) => <Theme theme={standard}>{storyFn()}</Theme>;
 
-const withStoryStyles = storyFn => {
+const withStoryStyles = (storyFn) => {
   return <Story>{storyFn()}</Story>;
 };
 
 addParameters({
   options: {
-    showRoots: true
-  }
+    showRoots: true,
+  },
 });
 
 addDecorator(withKnobs);

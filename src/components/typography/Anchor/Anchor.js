@@ -4,35 +4,34 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
-import useComponents from '../../../hooks/use-components';
+import { useComponents } from '../../../hooks/use-components';
 import { childrenPropType } from '../../../util/shared-prop-types';
 import { focusOutline } from '../../../styles/shared';
 
 /* eslint-disable max-len */
 const baseStyles = ({ theme, backgroundColor }) => {
-  const textShadowColor = backgroundColor || theme.colors.bodyBg;
+  const textShadowColor = backgroundColor || theme.color.bodyBg;
   return css`
-    color: ${theme.colors.p600};
+    color: ${theme.color.primary[600]};
     font-weight: ${theme.fontWeight.bold};
     border-bottom: 1px solid currentColor;
     text-shadow: 1px 1px ${textShadowColor}, 1px -1px ${textShadowColor},
       -1px 1px ${textShadowColor}, -1px -1px ${textShadowColor};
 
     &:hover {
-      color: ${theme.colors.p500};
+      color: ${theme.color.primary[500]};
       border-bottom-width: 2px;
     }
 
     &:active {
-      color: ${theme.colors.p700};
+      color: ${theme.color.primary[700]};
       border-bottom-width: 2px;
     }
 
     &::selection {
-      text-shadow: 1px 1px ${theme.colors.selectionBg},
-        1px -1px ${theme.colors.selectionBg},
-        -1px 1px ${theme.colors.selectionBg},
-        -1px -1px ${theme.colors.selectionBg};
+      text-shadow: 1px 1px ${theme.color.selectionBg},
+        1px -1px ${theme.color.selectionBg}, -1px 1px ${theme.color.selectionBg},
+        -1px -1px ${theme.color.selectionBg};
     }
 
     &::before,

@@ -6,7 +6,7 @@ import { imagePropType } from '../../../util/shared-prop-types';
 import RatioImage from '../RatioImage';
 
 const wrapperStyles = ({ theme }) => css`
-  border-radius: ${theme.borderRadius.giga};
+  border-radius: ${theme.borderRadius.m};
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   &::after {
@@ -15,8 +15,8 @@ const wrapperStyles = ({ theme }) => css`
     right: 0;
     bottom: 0;
     left: 0;
-    transition: opacity ${theme.animations.standard};
-    background: radial-gradient(transparent, ${theme.colors.shadow});
+    transition: opacity ${theme.animation.standard};
+    background: radial-gradient(transparent, #000);
     content: '';
     opacity: 0;
   }
@@ -33,7 +33,7 @@ const imageStyles = ({ theme }) =>
   !theme.reducedMotion &&
   css`
     img {
-      transition: transform ${theme.animations.motion};
+      transition: transform ${theme.animation.motion};
       will-change: transform;
       backface-visibility: hidden;
 

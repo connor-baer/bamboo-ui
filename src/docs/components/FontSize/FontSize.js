@@ -2,33 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
+
+import { themePropType } from '../../../util/shared-prop-types';
 
 const nameStyles = ({ theme, fontSizeName }) => css`
-  font-size: ${theme.fontSizes[fontSizeName]};
+  font-size: ${theme.fontSize[fontSizeName]};
   line-height: 1.5;
 `;
 
 const Name = styled('span')(nameStyles);
 
 const sizeStyles = ({ theme }) => css`
-  margin-left: ${theme.spacings.kilo};
-  color: ${theme.colors.n600};
-  font-size: ${theme.fontSizes.byte};
+  margin-left: ${theme.spacing.s};
+  color: ${theme.color.neutral[600]};
+  font-size: ${theme.fontSize.s};
 `;
 
 const Size = styled('span')(sizeStyles);
 
-export default function FontSize({ fontSizeName }) {
-  const theme = useTheme();
+export default function FontSize({ theme, fontSizeName }) {
   return (
     <p>
       <Name fontSizeName={fontSizeName}>{fontSizeName}</Name>
-      <Size>{theme.fontSizes[fontSizeName]}</Size>
+      <Size>{theme.fontSize[fontSizeName]}</Size>
     </p>
   );
 }
 
 FontSize.propTypes = {
+  theme: themePropType.isRequired,
   fontSizeName: PropTypes.string.isRequired,
 };

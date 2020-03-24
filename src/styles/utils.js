@@ -32,3 +32,13 @@ export function transparentize(hsla, alpha) {
   const [h, s, l] = hsla;
   return [h, s, l, alpha];
 }
+
+export function createMediaQueries(breakpoints) {
+  return Object.keys(breakpoints).reduce(
+    (mediaQueries, key) => ({
+      ...mediaQueries,
+      [key]: `@media screen and (min-width: ${breakpoints[key]})`,
+    }),
+    {},
+  );
+}

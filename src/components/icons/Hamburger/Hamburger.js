@@ -11,12 +11,12 @@ const buttonBaseStyles = ({ theme }) => css`
   box-sizing: content-box;
   cursor: pointer;
   display: inline-block;
-  padding: ${theme.spacings.mega} ${theme.spacings.byte};
-  width: ${theme.iconSizes.kilo};
+  padding: ${theme.spacing.m} ${theme.spacing.xs};
+  width: ${theme.iconSize.m};
   background: none;
   border: 0;
   position: relative;
-  color: ${theme.colors.n900};
+  color: ${theme.color.neutral[900]};
 `;
 
 const HamburgerButton = styled('button')(buttonBaseStyles, focusOutline);
@@ -24,13 +24,13 @@ const HamburgerButton = styled('button')(buttonBaseStyles, focusOutline);
 const layersBaseStyles = ({ theme }) => css`
   margin-top: calc(${LAYER_HEIGHT} / -2);
   top: 50%;
-  width: calc(${theme.iconSizes.kilo} * 0.77);
+  width: calc(${theme.iconSize.m} * 0.77);
 
   &,
   &::after,
   &::before {
-    background-color: ${theme.colors.n900};
-    border-radius: ${theme.borderRadius.kilo};
+    background-color: ${theme.color.neutral[900]};
+    border-radius: ${theme.borderRadius.s};
     display: block;
     height: ${LAYER_HEIGHT};
     position: absolute;
@@ -45,13 +45,13 @@ const layersBaseStyles = ({ theme }) => css`
   }
 
   &::before {
-    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT}) * -1));
-    width: ${theme.iconSizes.kilo};
+    transform: translateY(calc((${theme.spacing.xxs} + ${LAYER_HEIGHT}) * -1));
+    width: ${theme.iconSize.m};
   }
 
   &::after {
-    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT})));
-    width: calc(${theme.iconSizes.kilo} * 0.88);
+    transform: translateY(calc((${theme.spacing.xxs} + ${LAYER_HEIGHT})));
+    width: calc(${theme.iconSize.m} * 0.88);
   }
 `;
 
@@ -65,7 +65,7 @@ const layersActiveStyles = ({ theme, isActive }) =>
     &::after {
       transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
         transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
-      width: ${theme.iconSizes.kilo};
+      width: ${theme.iconSize.m};
     }
 
     &::before {

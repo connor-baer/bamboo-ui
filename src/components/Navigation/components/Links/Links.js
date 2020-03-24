@@ -3,68 +3,63 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
-import { transparentize } from 'polished';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
-import useComponents from '../../../../hooks/use-components';
+import { useComponents } from '../../../../hooks/use-components';
 import NavigationContext from '../../NavigationContext';
 
 const navBaseStyles = ({ theme }) => css`
-  ${theme.mq.untilMega} {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: ${theme.spacings.kilo};
-    background: ${theme.colors.white};
-    box-shadow: 0 0px 4px ${transparentize(0.75, theme.colors.shadow)};
-    border-top: 1px solid ${theme.colors.n200};
-    transition: transform ${theme.animations.standard};
-  }
-
-  position: absolute;
+  position: fixed;
   left: 0;
+  bottom: 0;
   right: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: ${theme.spacing.s};
+  background: ${theme.color.white};
+  box-shadow: 0 0px 4px ${theme.color.shadow};
+  border-top: 1px solid ${theme.color.neutral[200]};
+  transition: transform ${theme.animation.standard};
+
+  ${theme.mq.desk} {
+    position: absolute;
+    bottom: auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border: none;
+    transition: none;
+  }
 `;
 
 const navWideStyles = ({ theme, length }) =>
   length > 3 &&
   css`
-    ${theme.mq.untilKilo} {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    &::after {
       display: block;
-      overflow-x: scroll;
-      white-space: nowrap;
+      content: '';
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      height: ${theme.spacing.xxxxl};
+      width: ${theme.spacing.xxxxl};
+      background: linear-gradient(to right, transparent, ${theme.color.white});
     }
 
-    ${theme.mq.untilMega} {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      padding: ${theme.spacings.kilo};
-      background: ${theme.colors.white};
-      box-shadow: 0 0px 4px ${transparentize(0.75, theme.colors.shadow)};
-      border-top: 1px solid ${theme.colors.n200};
-      transition: transform ${theme.animations.standard};
+    ${theme.mq.desk} {
+      display: flex;
+      overflow-x: hidden;
+      white-space: wrap;
 
       &::after {
-        display: block;
-        content: '';
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-        height: ${theme.spacings.zetta};
-        width: ${theme.spacings.zetta};
-        background: linear-gradient(
-          to right,
-          ${transparentize(0.99, theme.colors.white)},
-          ${theme.colors.white}
-        );
+        display: none;
       }
     }
   `;
@@ -72,34 +67,32 @@ const navWideStyles = ({ theme, length }) =>
 const navInvisibleStyles = ({ theme, isInvisible }) =>
   isInvisible &&
   css`
-    ${theme.mq.untilMega} {
-      transform: translateY(100%);
+    transform: translateY(100%);
+
+    ${theme.mq.desk} {
+      transform: none;
     }
   `;
 
 const Nav = styled('nav')(navBaseStyles, navWideStyles, navInvisibleStyles);
 
 const navAnchorBaseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSizes.kilo};
+  font-size: ${theme.fontSize.m};
   font-weight: ${theme.fontWeight.regular};
   line-height: 1;
   letter-spacing: 1px;
   display: inline-block;
-  color: ${theme.colors.n700};
+  color: ${theme.color.neutral[700]};
   border-radius: 20px;
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  padding: ${theme.spacing.s} ${theme.spacing.m};
 
-  ${theme.mq.kilo} {
-    font-size: ${theme.fontSizes.byte};
-    margin-right: ${theme.spacings.mega};
+  ${theme.mq.hand} {
+    font-size: ${theme.fontSize.s};
+    margin-right: ${theme.spacing.m};
   }
 
-  ${theme.mq.mega} {
-    margin-right: 0;
-  }
-
-  ${theme.mq.giga} {
-    margin-right: ${theme.spacings.giga};
+  ${theme.mq.lap} {
+    margin-right: ${theme.spacing.l};
   }
 
   &:last-of-type {
@@ -108,15 +101,15 @@ const navAnchorBaseStyles = ({ theme }) => css`
 
   &:hover,
   &:focus {
-    background-color: ${theme.colors.n100};
-    color: ${theme.colors.p600};
+    background-color: ${theme.color.neutral[100]};
+    color: ${theme.color.primary[600]};
   }
 `;
 
 const navAnchorActiveStyles = ({ theme, isActive }) =>
   isActive &&
   css`
-    background-color: ${theme.colors.n100};
+    background-color: ${theme.color.neutral[100]};
     font-weight: ${theme.fontWeight.bold};
   `;
 

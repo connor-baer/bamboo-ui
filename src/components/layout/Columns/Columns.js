@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const baseStyles = ({ theme, columnCount = 2 }) => css`
-  column-gap: ${theme.spacings.exa};
+  column-gap: ${theme.spacing.gutter};
   column-count: 1;
   column-fill: balance;
   column-break-inside: avoid;
@@ -14,7 +14,7 @@ const baseStyles = ({ theme, columnCount = 2 }) => css`
     width: 100%;
   }
 
-  ${theme.mq.kilo} {
+  ${theme.mq.hand} {
     column-count: ${columnCount};
   }
 `;

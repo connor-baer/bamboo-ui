@@ -6,10 +6,10 @@ import Paragraph from '../../typography/Paragraph';
 
 const baseStyles = ({ theme }) => css`
   display: block;
-  margin-top: ${theme.spacings.giga};
+  margin-top: ${theme.spacing.l};
   margin-bottom: 0;
   letter-spacing: 0.2px;
-  color: ${theme.colors.n700};
+  color: ${theme.color.neutral[700]};
 `;
 
 const Caption = styled(Paragraph)(baseStyles);
@@ -21,7 +21,8 @@ Caption.propTypes = {
 
 Caption.defaultProps = {
   as: 'figcaption',
-  size: 'byte',
+  size: 's',
+  lineHeight: 'm',
 };
 
 /**

@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 
 import { themePropType, imagePropType } from '../../../util/shared-prop-types';
 import { ComponentsContext } from '../../../hooks/use-components';
-import isServer from '../../../util/is-server';
+import { isServer } from '../../../util/is-server';
 
 const containerStyles = () => css`
   position: relative;

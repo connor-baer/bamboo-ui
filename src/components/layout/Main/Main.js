@@ -10,11 +10,11 @@ const HEIGHT_FOOTER = '10.5rem + 3rem';
 
 const baseStyles = ({ theme }) => css`
   overflow: hidden;
-  padding-bottom: ${theme.spacings.zetta};
-  color: ${theme.colors.bodyColor};
-  background-color: ${theme.colors.bodyBg};
+  padding-bottom: ${theme.spacing.xxxxl};
+  color: ${theme.color.bodyColor};
+  background-color: ${theme.color.bodyBg};
 
-  ${theme.mq.mega} {
+  ${theme.mq.lap} {
     min-height: calc(100vh - (${HEIGHT_FOOTER}));
     padding-top: ${HEIGHT_NAVIGATION};
   }
@@ -25,7 +25,7 @@ const sidebarStyles = ({ theme, variant }) =>
   css`
     width: 100vw;
 
-    ${theme.mq.mega} {
+    ${theme.mq.lap} {
       width: calc(100vw - 20rem);
     }
   `;
@@ -35,7 +35,7 @@ const splitStyles = ({ theme, variant }) =>
   css`
     width: 100vw;
 
-    ${theme.mq.mega} {
+    ${theme.mq.lap} {
       width: 50vw;
     }
   `;

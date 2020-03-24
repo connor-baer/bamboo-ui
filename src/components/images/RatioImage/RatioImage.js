@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { imagePropType } from '../../../util/shared-prop-types';
-import useComponents from '../../../hooks/use-components';
+import { useComponents } from '../../../hooks/use-components';
 
 const wrapperBaseStyles = () => css`
   display: block;

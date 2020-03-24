@@ -17,7 +17,7 @@ const baseStyles = () => css`
 const placeholderStyles = ({ theme, src, color }) =>
   !isTransparent(src) &&
   css`
-    background: ${color || theme.colors.n300};
+    background: ${color || theme.color.neutral[300]};
   `;
 
 const Image = styled('img')(baseStyles, placeholderStyles);

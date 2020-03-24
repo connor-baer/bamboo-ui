@@ -2,17 +2,17 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const wrapperStyles = ({ theme }) => css`
-  margin-top: ${theme.spacings.exa};
-  margin-bottom: ${theme.spacings.exa};
+  margin-top: ${theme.spacing.xxxl};
+  margin-bottom: ${theme.spacing.xxxl};
 
-  ${theme.mq.kilo} {
-    margin-top: ${theme.spacings.zetta};
-    margin-bottom: ${theme.spacings.zetta};
+  ${theme.mq.hand} {
+    margin-top: ${theme.spacing.xxxxl};
+    margin-bottom: ${theme.spacing.xxxxl};
   }
 
-  ${theme.mq.mega} {
-    margin-top: ${theme.spacings.yotta};
-    margin-bottom: ${theme.spacings.yotta};
+  ${theme.mq.lap} {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 `;
 

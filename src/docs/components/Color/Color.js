@@ -2,45 +2,70 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
+import { isObject, get } from 'lodash/fp';
+
+import { themePropType } from '../../../util/shared-prop-types';
+
+const groupStyles = ({ theme }) => css`
+  margin: ${theme.spacing.l} 0;
+`;
+
+const Group = styled('div')(groupStyles);
 
 const wrapperStyles = ({ theme }) => css`
   display: flex;
   align-items: center;
-  margin: ${theme.spacings.kilo} 0;
+  margin: ${theme.spacing.s} 0;
 `;
 
 const Wrapper = styled('div')(wrapperStyles);
 
-const colorStyles = ({ theme, colorName }) => css`
+const colorStyles = ({ theme, colorPath }) => css`
   display: inline-block;
-  width: ${theme.spacings.giga};
-  height: ${theme.spacings.giga};
-  background: ${theme.colors[colorName]};
+  width: ${theme.spacing.l};
+  height: ${theme.spacing.l};
+  background: ${get(colorPath, theme.color)};
 `;
 
 const ColorBox = styled('span')(colorStyles);
 
 const nameStyles = ({ theme }) => css`
-  margin-left: ${theme.spacings.kilo};
-  color: ${theme.colors.n600};
-  font-size: ${theme.fontSizes.byte};
+  margin-left: ${theme.spacing.s};
+  color: ${theme.color.neutral[600]};
+  font-size: ${theme.fontSize.s};
 `;
 
 const Name = styled('span')(nameStyles);
 
-export default function Color({ colorName }) {
-  const theme = useTheme();
+export default function Color({ theme, color }) {
+  const [colorName, colorValue] = color;
+
+  if (isObject(colorValue)) {
+    return (
+      <Group>
+        <h3>{colorName}</h3>
+        {Object.keys(colorValue).map((colorIndex) => (
+          <Wrapper key={colorIndex}>
+            <ColorBox colorPath={[colorName, colorIndex]} />
+            <Name>
+              {colorIndex}: {theme.color[colorName][colorIndex]}
+            </Name>
+          </Wrapper>
+        ))}
+      </Group>
+    );
+  }
   return (
     <Wrapper>
-      <ColorBox colorName={colorName} />
+      <ColorBox colorPath={colorName} />
       <Name>
-        {colorName}: {theme.colors[colorName]}
+        {colorName}: {theme.color[colorName]}
       </Name>
     </Wrapper>
   );
 }
 
 Color.propTypes = {
-  colorName: PropTypes.string.isRequired,
+  theme: themePropType.isRequired,
+  color: PropTypes.array,
 };

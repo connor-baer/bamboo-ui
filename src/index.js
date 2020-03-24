@@ -1,7 +1,7 @@
 import * as cookies from './util/cookies';
 import * as sharedPropTypes from './util/shared-prop-types';
 import * as sharedStyles from './styles/shared';
-import themes, * as themeHelpers from './styles/themes';
+import * as themes from './styles/theme';
 
 /**
  * Components
@@ -55,24 +55,21 @@ export { default as Button } from './components/Button';
  * Hooks
  */
 
-export { default as useMedia } from './hooks/use-media';
-export { default as useAnimationFrame } from './hooks/use-animation-frame';
-export {
-  default as useComponents,
-  ComponentsProvider,
-} from './hooks/use-components';
+export { useMedia } from './hooks/use-media';
+export { useAnimationFrame } from './hooks/use-animation-frame';
+export { useComponents, ComponentsProvider } from './hooks/use-components';
 
 /**
  * Utils
  */
 
 export { sharedPropTypes, cookies };
-export { default as isServer } from './util/is-server';
-export { default as isSaveData } from './util/is-save-data';
+export { isServer } from './util/is-server';
+export { isSaveData } from './util/is-save-data';
 
 /**
  * Styles
  */
 
-export { sharedStyles, themes, themeHelpers };
+export { sharedStyles, themes };
 export { BaseStyles } from './styles/base-styles';

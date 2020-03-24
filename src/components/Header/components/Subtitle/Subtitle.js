@@ -5,16 +5,15 @@ import { css } from '@emotion/core';
 import Heading from '../../../typography/Heading';
 
 const baseStyles = ({ theme }) => css`
-  color: ${theme.colors.n700};
+  color: ${theme.color.neutral[700]};
+  font-size: ${theme.fontSize.xl};
+  line-height: ${theme.lineHeight.m};
+  margin-top: ${theme.spacing.s};
 
-  ${theme.mq.untilKilo} {
-    font-size: ${theme.fontSizes.tera};
-    line-height: ${theme.lineHeights.kilo};
-    margin-top: ${theme.spacings.kilo};
-  }
-
-  ${theme.mq.kilo} {
+  ${theme.mq.hand} {
     display: inline;
+    font-size: ${theme.fontSize.xxl};
+    line-height: ${theme.lineHeight.s};
     margin-top: 0;
   }
 `;
@@ -22,7 +21,7 @@ const baseStyles = ({ theme }) => css`
 const StyledHeading = styled(Heading)(baseStyles);
 
 function Subtitle(props) {
-  return <StyledHeading as="h2" size="exa" weight="light" {...props} />;
+  return <StyledHeading as="h2" weight="light" {...props} />;
 }
 
 /**

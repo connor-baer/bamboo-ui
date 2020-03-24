@@ -11,9 +11,8 @@ const containerStyles = ({ theme }) => css`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: ${theme.spacings.zetta};
 
-  ${theme.mq.kilo} {
+  ${theme.mq.hand} {
     flex-wrap: nowrap;
   }
 `;
@@ -21,28 +20,31 @@ const containerStyles = ({ theme }) => css`
 const ImagesContainer = styled('div')(containerStyles);
 
 const baseWrapperStyles = ({ theme }) => css`
-  ${theme.mq.kilo} {
-    margin-right: ${theme.spacings.mega};
+  &:first-child {
+    display: none;
+  }
+  &:nth-child(2) {
+    margin-right: 0;
+  }
+  &:last-child {
+    display: none;
   }
 
-  ${theme.mq.mega} {
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+  ${theme.mq.hand} {
+    margin-right: calc(${theme.spacing.gutter} / 2);
 
-  ${theme.mq.untilKilo} {
     &:first-child {
-      display: none;
+      display: block;
     }
   }
 
-  ${theme.mq.untilMega} {
-    &:nth-child(2) {
+  ${theme.mq.desk} {
+    &:last-child {
+      display: block;
       margin-right: 0;
     }
-    &:last-child {
-      display: none;
+    &:nth-child(2) {
+      margin-right: calc(${theme.spacing.gutter} / 2);
     }
   }
 `;
@@ -50,7 +52,7 @@ const baseWrapperStyles = ({ theme }) => css`
 const outerWrapperStyles = ({ theme }) => css`
   width: 37.6%;
 
-  ${theme.mq.mega} {
+  ${theme.mq.desk} {
     width: 27.3%;
   }
 `;
@@ -58,11 +60,11 @@ const outerWrapperStyles = ({ theme }) => css`
 const innerWrapperStyles = ({ theme }) => css`
   width: 100%;
 
-  ${theme.mq.kilo} {
+  ${theme.mq.hand} {
     width: 62.4%;
   }
 
-  ${theme.mq.mega} {
+  ${theme.mq.desk} {
     width: 45.4%;
   }
 `;

@@ -1,15 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function useMedia(expression, callback) {
+export function useMedia(expression, callback) {
+  const query = window.matchMedia(expression);
+  const [matches, setMatches] = useState(query.matches);
+
   useEffect(() => {
-    const query = window.matchMedia(expression);
-
-    if (query.matches) {
-      callback(true);
+    if (callback) {
+      callback(query.matches);
     }
 
     const handleChange = () => {
-      callback(query.matches);
+      setMatches(query.matches);
+      if (callback) {
+        callback(query.matches);
+      }
     };
 
     query.addListener(handleChange);
@@ -17,5 +21,7 @@ export default function useMedia(expression, callback) {
     return () => {
       query.removeListener(handleChange);
     };
-  }, [expression, callback]);
+  }, [query, callback]);
+
+  return matches;
 }

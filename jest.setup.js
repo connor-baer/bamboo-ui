@@ -6,9 +6,7 @@ import { createSerializer } from 'jest-emotion';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { ThemeProvider } from 'emotion-theming';
 
-import themes from './src/styles/themes';
-
-const theme = themes.standard();
+import { standard as theme } from './src/styles/theme';
 
 const renderWithTheme = (renderFn) => (component, ...rest) =>
   renderFn(<ThemeProvider theme={theme}>{component}</ThemeProvider>, rest);

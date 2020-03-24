@@ -1,116 +1,38 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { isBoolean } from 'lodash/fp';
-import { css, Global } from '@emotion/core';
+import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import isSaveData from '../../util/is-save-data';
-import { getAllCookies, setCookie } from '../../util/cookies';
-import useComponents from '../../hooks/use-components';
-import useMedia from '../../hooks/use-media';
+import { isSaveData } from '../../util/is-save-data';
+import { useMedia } from '../../hooks/use-media';
+import { useComponents } from '../../hooks/use-components';
 import {
   createFontFace,
   loadFonts,
   preloadFonts,
 } from '../../styles/load-fonts';
 
-const TRANSITION_DURATION = 200; // milliseconds
+import { createStaticTheme, createVariables } from './ThemeService';
 
-const transitionStyles = (theme) => css`
-  *,
-  *::before,
-  *::after {
-    transition: background-color ${theme.animations.micro},
-      color ${theme.animations.micro}, fill ${theme.animations.micro},
-      border-color ${theme.animations.micro},
-      text-shadow ${theme.animations.micro} !important;
-  }
-`;
-
-export default function Theme({
-  initialThemeId = 'standard',
-  themes = {},
-  children,
-}) {
-  const cookies = getAllCookies();
+export default function Theme({ theme, children }) {
   const { Head } = useComponents();
-  const [darkmode, setDarkmode] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [isTransitioning, setTransitioning] = useState(false);
-  const [themeId, setThemeId] = useState(initialThemeId);
-  const timerId = useRef(null);
+  const darkmode = useMedia('(prefers-color-scheme: dark)');
 
-  const animate = (callback) => {
-    if (timerId.current) {
-      clearTimeout(timerId.current);
-    } else {
-      setTransitioning(true);
-    }
+  const { fonts, breakpoints, mq, overrides, ...rest } = theme;
 
-    callback();
+  const staticTheme = createStaticTheme(rest);
 
-    timerId.current = setTimeout(() => {
-      setTransitioning(false);
-      timerId.current = null;
-    }, TRANSITION_DURATION);
-  };
-
-  const updateReducedMotion = useCallback((isReducedMotion) => {
-    setCookie('reducedMotion', isReducedMotion);
-    setReducedMotion(isReducedMotion);
-  }, []);
-
-  const updateDarkmode = useCallback((isDark) => {
-    animate(() => {
-      setCookie('darkmode', isDark);
-      setDarkmode(isDark);
-    });
-  }, []);
-
-  useMedia('(prefers-color-scheme: dark)', updateDarkmode);
-  useMedia('(prefers-reduced-motion)', updateReducedMotion);
-
-  useEffect(() => {
-    const hasDarkmodeCookie = cookies.darkmode === 'true';
-    if (hasDarkmodeCookie !== darkmode) {
-      updateDarkmode(hasDarkmodeCookie);
-    }
-  });
-  useEffect(() => {
-    const hasReducedMotionCookie = cookies.reducedMotion === 'true';
-    if (hasReducedMotionCookie !== reducedMotion) {
-      updateReducedMotion(hasReducedMotionCookie);
-    }
-  });
-
-  const toggleDarkmode = (value) =>
-    updateDarkmode(isBoolean(value) ? value : !darkmode);
-  const toggleReducedMotion = (value) =>
-    updateReducedMotion(isBoolean(value) ? value : !reducedMotion);
-  const setTheme = (newThemeId) =>
-    new Promise((resolve, reject) => {
-      if (newThemeId === themeId) {
-        resolve();
-        return;
+  const baseVariables = createVariables(rest);
+  const overrideVariables = overrides.map(
+    (override) => `
+      ${override.condition} {
+        ${createVariables(override.theme)}
       }
-      if (!themes[newThemeId]) {
-        reject();
-        return;
-      }
-      setThemeId(newThemeId);
-      resolve();
-    });
+    `,
+  );
 
-  const themeFn = themes[themeId] || themes.standard;
-  const theme = {
-    ...themeFn({ darkmode, reducedMotion }),
-    setTheme,
-    toggleDarkmode,
-    toggleReducedMotion,
-  };
-
-  const globalStyles = theme.fonts.map(createFontFace);
+  const fontfaceStyles = fonts.map(createFontFace);
 
   useEffect(() => {
     if (!isSaveData()) {
@@ -119,16 +41,20 @@ export default function Theme({
   }, [theme.fonts]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{ ...staticTheme, breakpoints, mq, darkmode }}>
       <>
         <Head>
-          <meta name="theme-color" content={theme.colors.bodyBg} />
-          <meta name="msapplication-TileColor" content={theme.colors.p500} />
+          <meta name="theme-color" content={darkmode ? '#000' : '#fff'} />
+          <meta
+            name="msapplication-TileColor"
+            content={theme.color.primary[500]}
+          />
           {preloadFonts(theme.fonts)}
         </Head>
 
-        <Global styles={globalStyles} />
-        {isTransitioning && <Global styles={transitionStyles} />}
+        <Global styles={baseVariables} />
+        <Global styles={overrideVariables} />
+        <Global styles={fontfaceStyles} />
 
         {children}
       </>
@@ -137,7 +63,6 @@ export default function Theme({
 }
 
 Theme.propTypes = {
-  initialThemeId: PropTypes.string,
-  themes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
   children: childrenPropType,
 };

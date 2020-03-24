@@ -14,7 +14,7 @@ export const hideVisually = () => css`
 `;
 
 export const focusOutline = ({ theme }) => css`
-  outline-radius: ${theme.borderRadius.kilo};
+  outline-radius: ${theme.borderRadius.s};
   outline-offset: 0.25em;
 
   &:focus-visible {
@@ -27,9 +27,9 @@ export const fullWidth = ({ theme }) => css`
   margin-right: auto;
   margin-left: auto;
 
-  ${theme.mq.kilo} {
-    padding-right: ${theme.spacings.tera};
-    padding-left: ${theme.spacings.tera};
+  ${theme.mq.hand} {
+    padding-right: ${theme.spacing.gutter};
+    padding-left: ${theme.spacing.gutter};
   }
 `;
 
@@ -37,21 +37,12 @@ export const pageWidth = ({ theme }) => css`
   max-width: ${theme.pageWidth};
   margin-right: auto;
   margin-left: auto;
-  padding-right: ${theme.spacings.mega};
-  padding-left: ${theme.spacings.mega};
-
-  ${theme.mq.kilo} {
-    padding-right: ${theme.spacings.tera};
-    padding-left: ${theme.spacings.tera};
-  }
+  padding-right: ${theme.spacing.gutter};
+  padding-left: ${theme.spacing.gutter};
 `;
 
 export const grid = ({ theme }) => css`
   display: grid;
   grid-template-columns: repeat(12, [col-start] minmax(0, 1fr));
-  grid-column-gap: ${theme.spacings.mega};
-
-  ${theme.mq.kilo} {
-    grid-column-gap: ${theme.spacings.tera};
-  }
+  grid-column-gap: ${theme.spacing.gutter};
 `;

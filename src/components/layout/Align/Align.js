@@ -6,31 +6,31 @@ import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 const baseStyles = ({ theme }) => css`
   width: 100%;
-  margin-top: ${theme.spacings.tera};
-  margin-bottom: ${theme.spacings.tera};
+  margin-top: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.xl};
 `;
 
 const rightStyles = ({ theme, align = CENTER }) =>
   align === RIGHT &&
   css`
-    ${theme.mq.kilo} {
+    ${theme.mq.hand} {
       float: right;
-      margin-top: ${theme.spacings.mega};
-      margin-bottom: ${theme.spacings.giga};
-      padding-left: ${theme.spacings.peta};
-      width: calc(50% + ${theme.spacings.peta} / 2);
+      margin-top: ${theme.spacing.m};
+      margin-bottom: ${theme.spacing.l};
+      padding-left: ${theme.spacing.xxl};
+      width: calc(50% + ${theme.spacing.xxl} / 2);
     }
   `;
 
 const leftStyles = ({ theme, align = CENTER }) =>
   align === LEFT &&
   css`
-    ${theme.mq.kilo} {
+    ${theme.mq.hand} {
       float: left;
-      margin-top: ${theme.spacings.mega};
-      margin-bottom: ${theme.spacings.giga};
-      padding-right: ${theme.spacings.peta};
-      width: calc(50% + ${theme.spacings.peta} / 2);
+      margin-top: ${theme.spacing.m};
+      margin-bottom: ${theme.spacing.l};
+      padding-right: ${theme.spacing.xxl};
+      width: calc(50% + ${theme.spacing.xxl} / 2);
     }
   `;
 
@@ -39,14 +39,14 @@ const fullStyles = ({ theme, align = CENTER }) =>
   css`
     text-align: center;
 
-    ${theme.mq.kilo} {
-      margin-top: ${theme.spacings.peta};
-      margin-bottom: ${theme.spacings.peta};
+    ${theme.mq.hand} {
+      margin-top: ${theme.spacing.xxl};
+      margin-bottom: ${theme.spacing.xxl};
     }
 
-    ${theme.mq.mega} {
-      margin-top: ${theme.spacings.exa};
-      margin-bottom: ${theme.spacings.exa};
+    ${theme.mq.lap} {
+      margin-top: ${theme.spacing.xxxl};
+      margin-bottom: ${theme.spacing.xxxl};
     }
   `;
 
