@@ -96,11 +96,19 @@ export const themePropType = PropTypes.shape({
     xxxl: PropTypes.string.isRequired,
     xxxxl: PropTypes.string.isRequired,
   }).isRequired,
+  breakpoints: PropTypes.shape({
+    hand: PropTypes.string.isRequired,
+    lap: PropTypes.string.isRequired,
+    desk: PropTypes.string.isRequired,
+    wall: PropTypes.string.isRequired,
+  }),
   mq: PropTypes.shape({
     hand: PropTypes.string.isRequired,
     lap: PropTypes.string.isRequired,
     desk: PropTypes.string.isRequired,
     wall: PropTypes.string.isRequired,
+    darkmode: PropTypes.string.isRequired,
+    reducedMotion: PropTypes.string.isRequired,
   }),
   iconSize: PropTypes.shape({
     s: PropTypes.string.isRequired,

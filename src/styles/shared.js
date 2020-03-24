@@ -1,4 +1,6 @@
+import { isString, isArray, isObject } from 'lodash/fp';
 import { css } from '@emotion/core';
+import { directionalProperty } from 'polished';
 
 export const hideVisually = () => css`
   border: 0;
@@ -12,6 +14,37 @@ export const hideVisually = () => css`
   white-space: nowrap;
   width: 1px;
 `;
+
+const sideMap = {
+  top: 'Top',
+  left: 'Left',
+  bottom: 'Bottom',
+  right: 'Right',
+};
+
+export const spacing = (opts, property = 'margin') => (props) => {
+  const { theme = props } = props;
+
+  const getSize = (value) =>
+    isString(value)
+      ? theme.spacing[value]
+      : `calc(${theme.spacing.gutter} * ${value})`;
+
+  if (isArray(opts)) {
+    const sizes = opts.map(getSize);
+    return directionalProperty(property, ...sizes);
+  }
+
+  if (isObject(opts)) {
+    return Object.keys(opts).reduce((allSides, side) => {
+      const size = getSize(opts[side]);
+      const name = `${property}${sideMap[side]}`;
+      return { ...allSides, [name]: size };
+    }, {});
+  }
+
+  return directionalProperty(property, getSize(opts));
+};
 
 export const focusOutline = ({ theme }) => css`
   outline-radius: ${theme.borderRadius.s};

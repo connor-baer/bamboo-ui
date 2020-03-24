@@ -92,7 +92,11 @@ const breakpoints = {
   wall: '100em', // 1600px
 };
 
-const mq = createMediaQueries(breakpoints);
+const mq = {
+  ...createMediaQueries(breakpoints),
+  darkmode: '@media screen and (prefers-color-scheme: dark)',
+  reducedMotion: '@media screen and (prefers-reduced-motion: reduce)',
+};
 
 const spacing = {
   xxs: '0.25rem', // 4px
@@ -136,8 +140,8 @@ const maxWidth = '80rem';
 const pageWidth = '75rem';
 
 const primary = {
-  100: '#bbd8e0',
-  300: '#84c6da',
+  100: '#eaf7fb',
+  300: '#b6e4f2',
   500: '#1aabd6',
   700: '#097493',
   900: '#1d3844',
@@ -219,7 +223,7 @@ const animation = {
 
 const overrides = [
   {
-    condition: `@media screen and (min-width: ${breakpoints.lap})`,
+    condition: mq.lap,
     theme: {
       spacing: {
         gutter: '1.5rem', // 24px
@@ -234,7 +238,7 @@ const overrides = [
     },
   },
   {
-    condition: `@media screen and (min-width: ${breakpoints.desk})`,
+    condition: mq.desk,
     theme: {
       spacing: {
         gutter: '2rem', // 32px
@@ -242,7 +246,7 @@ const overrides = [
     },
   },
   {
-    condition: '@media screen and (prefers-color-scheme: dark)',
+    condition: mq.darkmode,
     theme: {
       color: {
         neutral: {
@@ -260,7 +264,7 @@ const overrides = [
     },
   },
   {
-    condition: '@media screen and (prefers-reduced-motion: reduce)',
+    condition: mq.reducedMotion,
     theme: {
       animation: {
         motion: '0s',

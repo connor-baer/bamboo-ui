@@ -16,6 +16,10 @@ const baseStyles = ({ theme }) => css`
     line-height: ${theme.lineHeight.s};
     margin-top: 0;
   }
+
+  ${theme.mq.darkmode} {
+    color: ${theme.color.primary[100]};
+  }
 `;
 
 const StyledHeading = styled(Heading)(baseStyles);
