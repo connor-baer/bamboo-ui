@@ -10,6 +10,7 @@ __coverage__
 __reports__
 dist
 build
+public
 .out
 bamboo-ui-global.css
 
