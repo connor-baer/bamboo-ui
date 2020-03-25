@@ -18,6 +18,7 @@
   ],
   "env": {
     "cjs": {
+      "ignore": ["**/*.story.js", "**/*.spec.js"],
       "plugins": [
         "@babel/plugin-proposal-class-properties",
         "lodash",
@@ -41,6 +42,7 @@
       ]
     },
     "es": {
+      "ignore": ["**/*.story.js", "**/*.spec.js"],
       "plugins": [
         "@babel/plugin-proposal-class-properties",
         "lodash",

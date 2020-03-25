@@ -10,24 +10,22 @@
     "README.md"
   ],
   "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook -c .storybook -o public",
+    "create:component": "foundry run plop component",
     "lint": "foundry run eslint . --ext .js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/junit/eslint-results.xml",
     "test": "jest --watch",
     "test:unit": "jest --coverage --silent",
     "test:ci": "jest --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
-    "create:component": "foundry run plop component",
-    "start": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -c .storybook -o public",
-    "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
-    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir build --ignore *.spec.js,*.story.js",
-    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir build/es --ignore *.spec.js,*.story.js",
     "clean:js": "rimraf build",
-    "prerelease": "yarn build:js",
-    "release": "semantic-release",
+    "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
+    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir build",
+    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir build/es",
     "coverage:upload": "codecov",
-    "now-build": "yarn build:storybook",
-    "prepublishOnly": "yarn build:js"
+    "prerelease": "yarn build:js",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -39,6 +37,7 @@
     "url": "https://github.com/connor-baer/bamboo-ui/issues"
   },
   "homepage": "https://github.com/connor-baer/bamboo-ui#readme",
+  "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/is-prop-valid": "^0.8.2",
@@ -70,7 +69,7 @@
     "@storybook/addon-viewport": "^5.0.10",
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "^5.0.10",
-    "@sumup/foundry": "^2.0.0-beta",
+    "@sumup/foundry": "^2.0.0",
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.8",
     "@testing-library/react-hooks": "^1.1.0",
