@@ -17,6 +17,10 @@ const buttonBaseStyles = ({ theme }) => css`
   border: 0;
   position: relative;
   color: ${theme.color.neutral[900]};
+
+  &:focus {
+    outline: thin dotted currentColor;
+  }
 `;
 
 const HamburgerButton = styled('button')(buttonBaseStyles, focusOutline);

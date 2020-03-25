@@ -23,7 +23,7 @@ const navBaseStyles = ({ theme }) => css`
   border-top: 1px solid ${theme.color.neutral[300]};
   transition: transform ${theme.animation.standard};
 
-  ${theme.mq.desk} {
+  ${theme.mq.lap} {
     position: absolute;
     bottom: auto;
     padding: 0;
@@ -53,7 +53,7 @@ const navWideStyles = ({ theme, length }) =>
       background: linear-gradient(to right, transparent, ${theme.color.white});
     }
 
-    ${theme.mq.desk} {
+    ${theme.mq.hand} {
       display: flex;
       overflow-x: hidden;
       white-space: wrap;
@@ -69,7 +69,7 @@ const navInvisibleStyles = ({ theme, isInvisible }) =>
   css`
     transform: translateY(100%);
 
-    ${theme.mq.desk} {
+    ${theme.mq.lap} {
       transform: none;
     }
   `;
@@ -87,11 +87,11 @@ const navAnchorBaseStyles = ({ theme }) => css`
   padding: ${theme.spacing.s} ${theme.spacing.m};
 
   ${theme.mq.hand} {
-    font-size: ${theme.fontSize.s};
     margin-right: ${theme.spacing.m};
   }
 
   ${theme.mq.lap} {
+    font-size: ${theme.fontSize.s};
     margin-right: ${theme.spacing.l};
   }
 

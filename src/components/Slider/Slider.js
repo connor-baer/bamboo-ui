@@ -28,7 +28,7 @@ const containerStyles = ({ theme }) => css`
     flex-shrink: 0;
   }
 
-  ${theme.mq.desk} {
+  ${theme.mq.lap} {
     scroll-snap-type: none;
     overflow-x: hidden;
 
@@ -50,11 +50,11 @@ const slideStyles = (count) => (theme) => {
     max-width: 18rem;
     flex-shrink: 0;
 
-    ${theme.mq.lap} {
+    ${theme.mq.hand} {
       width: 40vw;
     }
 
-    ${theme.mq.desk} {
+    ${theme.mq.lap} {
       width: ${width}%;
       max-width: auto;
       flex-shrink: 1;

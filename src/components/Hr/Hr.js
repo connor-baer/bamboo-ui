@@ -3,8 +3,8 @@ import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   border: ${theme.borderWidth.s} solid ${theme.color.neutral[300]};
-  margin-top: ${theme.spacing.m};
-  margin-bottom: ${theme.spacing.m};
+  margin-top: ${theme.spacing.gutter};
+  margin-bottom: ${theme.spacing.gutter};
 `;
 
 /**

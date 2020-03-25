@@ -8,7 +8,6 @@ import { useComponents } from '../../../hooks/use-components';
 import { childrenPropType } from '../../../util/prop-types';
 import { focusOutline } from '../../../styles/shared';
 
-/* eslint-disable max-len */
 const baseStyles = ({ theme, backgroundColor }) => {
   const textShadowColor = backgroundColor || theme.color.bodyBg;
   return css`
@@ -43,7 +42,6 @@ const baseStyles = ({ theme, backgroundColor }) => {
     }
   `;
 };
-/* eslint-enable max-len */
 
 const simpleUnderlineStyles = ({ simpleUnderline }) =>
   simpleUnderline &&

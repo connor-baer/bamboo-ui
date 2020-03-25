@@ -87,7 +87,7 @@ const letterSpacing = {
 // https://zellwk.com/blog/media-query-units/
 const breakpoints = {
   hand: '37.5em', // 600px
-  lap: '37.5em', // 900px
+  lap: '56.25em', // 900px
   desk: '75em', // 1200px
   wall: '100em', // 1600px
 };

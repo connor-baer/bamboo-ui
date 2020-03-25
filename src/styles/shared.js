@@ -46,8 +46,7 @@ export const spacing = (opts, property = 'margin') => (props) => {
   return directionalProperty(property, getSize(opts));
 };
 
-export const focusOutline = ({ theme }) => css`
-  outline-radius: ${theme.borderRadius.s};
+export const focusOutline = () => css`
   outline-offset: 0.25em;
 
   &:focus-visible {

@@ -40,6 +40,11 @@ const baseStyles = ({ theme }) => css`
   svg {
     fill: #fff;
   }
+
+  &::-moz-focus-inner {
+    padding: ${theme.spacing.s} ${theme.spacing.m};
+    border-radius: ${theme.borderRadius.m};
+  }
 `;
 
 const primaryStyles = ({ theme, variant }) =>
@@ -53,7 +58,7 @@ const primaryStyles = ({ theme, variant }) =>
     }
 
     &:focus {
-      border-color: ${theme.color.primary[700]};
+      border-color: ${theme.color.primary[500]};
     }
 
     &:active {
@@ -100,7 +105,7 @@ const destructiveStyles = ({ theme, variant }) =>
     }
 
     &:focus {
-      border-color: ${theme.color.red[700]};
+      border-color: ${theme.color.red[500]};
     }
 
     &:active {

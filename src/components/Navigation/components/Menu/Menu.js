@@ -39,7 +39,8 @@ const dropdownBaseStyles = ({ theme }) => css`
   z-index: 999;
   top: 100%;
   right: 0;
-  width: 220px;
+  left: 0;
+  width: 100%;
   padding: ${theme.spacing.xxs} 0;
   visibility: hidden;
   opacity: 0;
@@ -50,7 +51,7 @@ const dropdownBaseStyles = ({ theme }) => css`
     opacity ${theme.animation.standard};
 
   ${theme.mq.hand} {
-    width: 220px;
+    width: 240px;
     top: calc(100% + ${theme.spacing.xs});
     left: auto;
     border-radius: ${theme.borderRadius.s};
@@ -113,7 +114,7 @@ const itemStyles = ({ theme }) => css`
   text-align: inherit;
 
   ${theme.mq.hand} {
-    padding: ${theme.spacing.xxs} ${theme.spacing.m};
+    padding: ${theme.spacing.xs} ${theme.spacing.m};
   }
 `;
 
