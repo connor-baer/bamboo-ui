@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
 
 import Figure from '.';
 
-storiesOf('Images/Figure', module).add('Figure', () => (
+export default {
+  title: 'Images/Figure',
+  component: Figure,
+};
+
+export const Base = () => (
   <div style={{ width: '50vw' }}>
     <Figure
       image={{
@@ -24,4 +28,4 @@ storiesOf('Images/Figure', module).add('Figure', () => (
       ])}
     />
   </div>
-));
+);

@@ -1,17 +1,25 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs/react';
 
 import Hamburger from './Hamburger';
 
-storiesOf('Icons/Hamburger', module).add('Hamburger', () => (
-  <Hamburger
-    isActive={boolean('Is active?', false)}
-    onClick={(e) => {
-      action('Hamburger clicked')(e);
-    }}
-    labelActive={text('Label active', 'Close menu')}
-    labelInActive={text('Label inactive', 'Open menu')}
-  />
-));
+export default {
+  title: 'Icons/Hamburger',
+  component: Hamburger,
+};
+
+export const Base = () => {
+  const [active, setActive] = useState(false);
+  return (
+    <Hamburger
+      isActive={active}
+      onClick={(e) => {
+        action('Hamburger clicked')(e);
+        setActive((prev) => !prev);
+      }}
+      labelActive={text('Label active', 'Close menu')}
+      labelInActive={text('Label inactive', 'Open menu')}
+    />
+  );
+};

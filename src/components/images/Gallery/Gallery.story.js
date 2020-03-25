@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text, select, number } from '@storybook/addon-knobs';
 
 import Gallery from '.';
@@ -20,7 +19,12 @@ function generateImages(amount) {
     });
 }
 
-storiesOf('Images/Gallery', module).add('Gallery', () => (
+export default {
+  title: 'Images/Gallery',
+  component: Gallery,
+};
+
+export const Base = () => (
   <div style={{ width: '50vw' }}>
     <Gallery
       images={generateImages(Math.round(number('Number of images', 4)))}
@@ -33,4 +37,4 @@ storiesOf('Images/Gallery', module).add('Gallery', () => (
       ])}
     />
   </div>
-));
+);

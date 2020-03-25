@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Wrapper from './Wrapper';
 
@@ -32,8 +31,13 @@ function VisualizeSpacing({ children }) {
   );
 }
 
-storiesOf('Components/Header', module).add('Header.Wrapper', () => (
+export default {
+  title: 'Components/Header/Header.Wrapper',
+  component: Wrapper,
+};
+
+export const Base = () => (
   <VisualizeSpacing>
     <Wrapper>Wrapper</Wrapper>
   </VisualizeSpacing>
-));
+);

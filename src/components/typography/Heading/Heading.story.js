@@ -1,11 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
 import Heading from './Heading';
 
-storiesOf('Typography/Heading', module).add('Heading', () => {
+export default {
+  title: 'Typography/Heading',
+  component: Heading,
+};
+
+export const Base = () => {
   const heading = text(
     'Text',
     'Bacon ipsum dolor amet beef ham hock pig  cow tail meatloaf',
@@ -26,4 +30,4 @@ storiesOf('Typography/Heading', module).add('Heading', () => {
       </Heading>
     </div>
   );
-});
+};

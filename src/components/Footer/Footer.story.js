@@ -1,12 +1,16 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
 import Anchor from '../typography/Anchor';
 import Footer from './Footer';
 
-storiesOf('Components/Footer', module).add('Footer', () => (
+export default {
+  title: 'Components/Footer',
+  component: Footer,
+};
+
+export const Base = () => (
   <div
     css={css`
       width: 100vw;
@@ -21,4 +25,4 @@ storiesOf('Components/Footer', module).add('Footer', () => (
       </Anchor>
     </Footer>
   </div>
-));
+);

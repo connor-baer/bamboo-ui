@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
 import Align from './Align';
 
-storiesOf('Layout/Align', module).add('Align', () => (
+export default {
+  title: 'Layout/Align',
+  component: Align,
+};
+
+export const Base = () => (
   <div style={{ width: '50vw' }}>
     <Align
       align={select('Alignment', [
@@ -20,4 +24,4 @@ storiesOf('Layout/Align', module).add('Align', () => (
       brown roar ursus koala.
     </Align>
   </div>
-));
+);

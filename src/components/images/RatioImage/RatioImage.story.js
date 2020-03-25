@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
 import RatioImage from './RatioImage';
 
-storiesOf('Images/RatioImage', module).add('RatioImage', () => (
+export default {
+  title: 'Images/RatioImage',
+  component: RatioImage,
+};
+
+export const Base = () => (
   <div style={{ width: '50vw' }}>
     <RatioImage
       src={'https://source.unsplash.com/600x400/'}
@@ -16,4 +20,4 @@ storiesOf('Images/RatioImage', module).add('RatioImage', () => (
       aspectRatio={number('Aspect ratio', 3 / 2)}
     />
   </div>
-));
+);

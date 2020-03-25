@@ -1,11 +1,15 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
 import Prefooter from './Prefooter';
 
-storiesOf('Components/Prefooter', module).add('Prefooter', () => (
+export default {
+  title: 'Components/Prefooter',
+  component: Prefooter,
+};
+
+export const Base = () => (
   <div
     css={css`
       width: 100vw;
@@ -17,4 +21,4 @@ storiesOf('Components/Prefooter', module).add('Prefooter', () => (
       linkUrl={text('Link URL', 'https://github.com/connor-baer/bamboo-ui/')}
     />
   </div>
-));
+);

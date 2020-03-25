@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
 import ParallaxImage from './ParallaxImage';
 
-storiesOf('Images/ParallaxImage', module).add('ParallaxImage', () => (
+export default {
+  title: 'Images/ParallaxImage',
+  component: ParallaxImage,
+};
+
+export const Base = () => (
   <div style={{ width: '100vw' }}>
     <ParallaxImage
       src={'https://source.unsplash.com/600x400/'}
@@ -16,4 +20,4 @@ storiesOf('Images/ParallaxImage', module).add('ParallaxImage', () => (
       speed={number('Speed', 75)}
     />
   </div>
-));
+);

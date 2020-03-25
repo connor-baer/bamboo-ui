@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
@@ -28,7 +27,12 @@ function generateSlides(amount) {
     });
 }
 
-storiesOf('Components/Slider', module).add('Slider', () => (
+export default {
+  title: 'Components/Slider',
+  component: Slider,
+};
+
+export const Base = () => (
   <div
     css={css`
       width: 100vw;
@@ -37,4 +41,4 @@ storiesOf('Components/Slider', module).add('Slider', () => (
   >
     <Slider>{generateSlides(number('Number of slides', 4))}</Slider>
   </div>
-));
+);

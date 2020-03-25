@@ -1,12 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
 import Intro from './Intro';
 
-/* eslint-disable max-len */
-storiesOf('Typography/Intro', module).add('Intro', () => (
+export default {
+  title: 'Typography/Intro',
+  component: Intro,
+};
+
+export const Base = () => (
   <div
     css={css`
       width: 90vw;
@@ -20,4 +23,4 @@ storiesOf('Typography/Intro', module).add('Intro', () => (
       )}
     </Intro>
   </div>
-));
+);

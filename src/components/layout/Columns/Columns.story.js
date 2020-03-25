@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs';
 
 import Columns from './Columns';
 
-storiesOf('Layout/Columns', module).add('Columns', () => (
+export default {
+  title: 'Layout/Columns',
+  component: Columns,
+};
+
+export const Base = () => (
   <div style={{ width: '80vw' }}>
     <Columns columnCount={number('Column count', 2)}>
       <p>
@@ -31,4 +35,4 @@ storiesOf('Layout/Columns', module).add('Columns', () => (
       </p>
     </Columns>
   </div>
-));
+);

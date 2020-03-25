@@ -1,10 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 
 import Image from './Image';
 
-storiesOf('Images/Image', module).add('Image', () => (
+export default {
+  title: 'Images/Image',
+  component: Image,
+};
+
+export const Base = () => (
   <div style={{ width: '50vw' }}>
     <Image
       src={'https://source.unsplash.com/600x400/'}
@@ -15,4 +19,4 @@ storiesOf('Images/Image', module).add('Image', () => (
       alt={text('Alt text', 'A random image')}
     />
   </div>
-));
+);

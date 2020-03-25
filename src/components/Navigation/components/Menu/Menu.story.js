@@ -1,12 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
 import Menu from '.';
 
 const A = Menu.Item.withComponent('a');
 
-storiesOf('Components/Navigation/Menu', module).add('Menu', () => {
+export default {
+  title: 'Components/Navigation/Menu',
+  component: Menu,
+};
+
+export const Base = () => {
   const menuLink = text('Menu link', 'Account');
   return (
     <Menu
@@ -18,4 +22,4 @@ storiesOf('Components/Navigation/Menu', module).add('Menu', () => {
       {menuLink && <A href="/">{menuLink}</A>}
     </Menu>
   );
-});
+};

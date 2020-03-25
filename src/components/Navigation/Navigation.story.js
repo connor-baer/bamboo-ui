@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { object, text } from '@storybook/addon-knobs/react';
 
 import Navigation from '.';
@@ -24,8 +23,12 @@ const links = [
   },
 ];
 
-/* eslint-disable jsx-a11y/anchor-is-valid */
-storiesOf('Components/Navigation', module).add('Navigation', () => {
+export default {
+  title: 'Components/Navigation',
+  component: Navigation,
+};
+
+export const Base = () => {
   const menuLink = text('Menu link', 'Account');
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
@@ -46,4 +49,4 @@ storiesOf('Components/Navigation', module).add('Navigation', () => {
       </Navigation>
     </div>
   );
-});
+};

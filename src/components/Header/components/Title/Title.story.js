@@ -1,11 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, text } from '@storybook/addon-knobs/react';
 
 import Title from './Title';
 
-storiesOf('Components/Header', module).add('Header.Title', () => (
+export default {
+  title: 'Components/Header/Header.Title',
+  component: Title,
+};
+
+export const Base = () => (
   <Title hasSubtitle={boolean('Has subtitle?', false)}>
     {text('Title', 'Bamboo UI')}
   </Title>
-));
+);

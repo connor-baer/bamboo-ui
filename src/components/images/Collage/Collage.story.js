@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Collage from '.';
 
@@ -30,8 +29,13 @@ const images = [
   },
 ];
 
-storiesOf('Images/Collage', module).add('Collage', () => (
+export default {
+  title: 'Images/Collage',
+  component: Collage,
+};
+
+export const Base = () => (
   <div style={{ width: '80vw' }}>
     <Collage images={images} />
   </div>
-));
+);

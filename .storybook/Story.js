@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { css, Global } from '@emotion/core';
 
 import { BaseStyles } from '../src/styles/base-styles';
@@ -18,12 +19,26 @@ const globalStyles = (theme) => css`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .sbdocs & {
+    min-height: auto;
+    background-color: ${(p) => p.theme.color.bodyBg};
+  }
+`;
+
 export default function Story({ children }) {
   return (
-    <div>
+    <Wrapper>
       <BaseStyles />
       <Global styles={globalStyles} />
       {children}
-    </div>
+    </Wrapper>
   );
 }

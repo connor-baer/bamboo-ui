@@ -1,12 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs/react';
 
 import Brand from '.';
 
-storiesOf('Components/Navigation/Brand', module).add('Brand', () => (
+export default {
+  title: 'Components/Navigation/Brand',
+  component: Brand,
+};
+
+export const Base = () => (
   <Brand
     siteName={text('Site name', 'Bamboo UI')}
     siteLogo={text('Site logo', '🎋')}
   />
-));
+);
