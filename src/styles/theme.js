@@ -50,6 +50,8 @@ const fonts = [
 ];
 
 const fontStack = {
+  default:
+    '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   sans:
     '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   serif: 'Merriweather, Georgia, Times New Roman, serif',

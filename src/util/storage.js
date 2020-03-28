@@ -1,5 +1,7 @@
 import { keys } from 'lodash/fp';
 
+import { isServer } from './is-server';
+
 /* ISC License (ISC). Copyright 2017 Michal Zalecki */
 // Adapted from https://michalzalecki.com/why-using-localStorage-directly-is-a-bad-idea/
 export function storageFactory(storage) {
@@ -74,5 +76,7 @@ export function storageFactory(storage) {
   };
 }
 
-export const localStore = storageFactory(localStorage);
-export const sessionStore = storageFactory(sessionStorage);
+export const localStore = storageFactory(isServer ? null : window.localStorage);
+export const sessionStore = storageFactory(
+  isServer ? null : window.sessionStorage,
+);
