@@ -142,10 +142,14 @@ export const createBaseStyles = (theme) => css`
 
   html {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 100%;
 
     [type='button'] {
       appearance: none;
+    }
+
+    ${theme.mq.wall} {
+      font-size: 112.5%;
     }
   }
 

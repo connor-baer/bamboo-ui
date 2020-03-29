@@ -19,7 +19,7 @@ const headerBaseStyles = ({ theme }) => css`
   transition: opacity ${theme.animation.standard},
     padding ${theme.animation.standard};
   background-color: ${theme.color.bodyBg};
-  z-index: 999;
+  z-index: ${theme.zIndex.navigation};
 
   &:hover {
     opacity: 1;

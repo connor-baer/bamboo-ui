@@ -36,7 +36,7 @@ const userPhotoStyles = (theme) => css`
 
 const dropdownBaseStyles = ({ theme }) => css`
   position: absolute;
-  z-index: 999;
+  z-index: ${theme.zIndex.navigation};
   top: 100%;
   right: 0;
   left: 0;

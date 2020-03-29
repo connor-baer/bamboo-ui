@@ -135,11 +135,12 @@ const borderRadius = {
 };
 
 const zIndex = {
-  nprogress: 999,
+  navigation: 99,
+  loadingBar: 999,
 };
 
-const maxWidth = '80rem';
-const pageWidth = '75rem';
+const maxWidth = '90rem'; // 1440px
+const pageWidth = '80rem'; // 1280px
 
 const primary = {
   100: '#eaf7fb',

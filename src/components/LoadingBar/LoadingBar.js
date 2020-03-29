@@ -30,7 +30,7 @@ export default function LoadingBar({ isLoading, startDelay = 500 }) {
           background: #fff;
           height: 3px;
           pointer-events: none;
-          z-index: ${theme.zIndex.nprogress};
+          z-index: ${theme.zIndex.loadingBar};
         }
 
         #nprogress .bar {
