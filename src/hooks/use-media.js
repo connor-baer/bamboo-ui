@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import { isServer } from '../util/is-server';
+
 export function useMedia(expression, callback) {
-  const query = window.matchMedia(expression);
+  const query = isServer ? { matches: false } : window.matchMedia(expression);
   const [matches, setMatches] = useState(query.matches);
 
   useEffect(() => {
