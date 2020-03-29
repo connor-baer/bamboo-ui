@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 import { isEmpty } from 'lodash/fp';
 
 import { useComponents } from '../../../hooks/use-components';
@@ -53,7 +54,9 @@ const simpleUnderlineStyles = ({ simpleUnderline }) =>
     }
   `;
 
-const A = styled('a')(baseStyles, focusOutline, simpleUnderlineStyles);
+const A = styled('a', {
+  shouldForwardProp: isPropValid,
+})(baseStyles, focusOutline, simpleUnderlineStyles);
 
 const Anchor = ({ children, href, as, replace, shallow, scroll, ...rest }) => {
   const { Link } = useComponents();

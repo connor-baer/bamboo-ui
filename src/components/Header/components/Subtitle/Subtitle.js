@@ -7,13 +7,12 @@ import Heading from '../../../typography/Heading';
 const baseStyles = ({ theme }) => css`
   color: ${theme.color.primary[900]};
   font-size: ${theme.fontSize.xl};
-  line-height: ${theme.lineHeight.m};
+  line-height: ${theme.lineHeight.s};
   margin-top: ${theme.spacing.s};
 
   ${theme.mq.hand} {
     display: inline;
     font-size: ${theme.fontSize.xxl};
-    line-height: ${theme.lineHeight.s};
     margin-top: 0;
   }
 

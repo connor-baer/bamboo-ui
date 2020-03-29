@@ -67,14 +67,14 @@ function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
   /* eslint-disable jsx-a11y/anchor-is-valid */
   if (children) {
     return (
-      <Link href={href} prefetch={!isHomepage}>
+      <Link href={href}>
         <A>{children}</A>
       </Link>
     );
   }
 
   return (
-    <Link href={href} prefetch={!isHomepage}>
+    <Link href={href}>
       <A>
         <SiteLogo>{siteLogo}</SiteLogo>
         <SiteName>{siteName}</SiteName>
