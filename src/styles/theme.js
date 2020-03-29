@@ -59,9 +59,9 @@ const fontStack = {
 };
 
 const fontSize = {
-  s: '0.875rem', // 14px
-  m: '1.25rem', // 18px
-  l: '1.375rem', // 22px
+  s: '0.8125rem', // 13px
+  m: '1rem', // 16px
+  l: '1.3125rem', // 21px
   xl: '1.75rem', // 28px
   xxl: '2.25rem', // 36px
 };
@@ -73,9 +73,9 @@ const fontWeight = {
 };
 
 const lineHeight = {
-  s: '1.33',
-  m: '1.66',
-  l: '2.22',
+  s: '1.2',
+  m: '1.6',
+  l: '2.2',
 };
 
 const letterSpacing = {
@@ -110,7 +110,7 @@ const spacing = {
   xxl: '2.5rem', // 40px
   xxxl: '3rem', // 48px
   xxxxl: '4rem', // 54px
-  gutter: '1.5rem', // 24px
+  gutter: '1rem', // 16px
 };
 
 const iconSize = {
@@ -138,8 +138,8 @@ const zIndex = {
   nprogress: 999,
 };
 
-const maxWidth = '90rem'; // 1440px
-const pageWidth = '80rem'; // 1280px
+const maxWidth = '80rem';
+const pageWidth = '75rem';
 
 const primary = {
   100: '#eaf7fb',
@@ -232,10 +232,10 @@ const overrides = [
       },
       fontSize: {
         s: '0.875rem', // 14px
-        m: '1.25rem', // 20px
-        l: '1.75rem', // 28px
-        xl: '2.375rem', // 38px
-        xxl: '3.125rem', // 50px
+        m: '1.125rem', // 18px
+        l: '1.625rem', // 26px
+        xl: '2.25rem', // 36px
+        xxl: '3rem', // 48px
       },
     },
   },

@@ -7,6 +7,8 @@ import { textPropType } from '../../../util/prop-types';
 import Text from '../Text';
 
 const baseStyles = ({ theme }) => css`
+  margin-top: ${theme.spacing.xxl};
+  margin-bottom: ${theme.spacing.l};
   overflow-wrap: break-word;
   hyphens: auto;
 
