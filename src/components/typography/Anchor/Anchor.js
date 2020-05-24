@@ -23,6 +23,10 @@ const baseStyles = ({ theme, backgroundColor }) => {
       border-bottom-width: 2px;
     }
 
+    &:focus {
+      ${focusOutline(theme)};
+    }
+
     &:active {
       color: ${theme.color.primary[700]};
       border-bottom-width: 2px;
@@ -56,7 +60,7 @@ const simpleUnderlineStyles = ({ simpleUnderline }) =>
 
 const A = styled('a', {
   shouldForwardProp: isPropValid,
-})(baseStyles, focusOutline, simpleUnderlineStyles);
+})(baseStyles, simpleUnderlineStyles);
 
 const Anchor = ({ children, href, as, replace, shallow, scroll, ...rest }) => {
   const { Link } = useComponents();

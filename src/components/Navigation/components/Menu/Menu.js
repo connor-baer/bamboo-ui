@@ -177,16 +177,16 @@ const darkmodeButtonStyles = ({ theme }) => css`
   fill: ${theme.color.neutral[700]};
   cursor: pointer;
 
+  &:focus {
+    ${focusOutline(theme)};
+  }
+
   ${theme.mq.hand} {
     padding: calc(${theme.spacing.xs} + 2px);
   }
 `;
 
-const DarkmodeButton = styled('button')(
-  itemStyles,
-  focusOutline,
-  darkmodeButtonStyles,
-);
+const DarkmodeButton = styled('button')(itemStyles, darkmodeButtonStyles);
 
 function Menu({ children, userAvatarURL }) {
   const theme = useTheme();

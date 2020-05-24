@@ -5,6 +5,7 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
 import { useComponents } from '../../hooks/use-components';
+import { disableVisually, focusOutline } from '../../styles/shared';
 
 const PRIMARY = 'primary';
 const SECONDARY = 'secondary';
@@ -22,28 +23,22 @@ const baseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.m};
   outline: none;
   line-height: 1;
-  box-shadow: 0 1px 4px ${theme.color.shadow};
   cursor: pointer;
-  color: #fff;
 
-  &:hover,
-  &:focus {
+  &:hover {
     box-shadow: 0 2px 8px ${theme.color.shadow};
-    color: #fff;
   }
 
   &:active {
     box-shadow: 0 0 3px ${theme.color.shadow};
-    color: #fff;
+  }
+
+  &:focus {
+    ${focusOutline(theme)};
   }
 
   svg {
-    fill: #fff;
-  }
-
-  &::-moz-focus-inner {
-    padding: ${theme.spacing.s} ${theme.spacing.m};
-    border-radius: ${theme.borderRadius.m};
+    fill: currentColor;
   }
 `;
 
@@ -51,18 +46,14 @@ const primaryStyles = ({ theme, variant }) =>
   variant === PRIMARY &&
   css`
     background-color: ${theme.color.primary[500]};
+    color: #fff;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: ${theme.color.primary[700]};
     }
 
-    &:focus {
-      border-color: ${theme.color.primary[500]};
-    }
-
     &:active {
-      background-color: ${theme.color.primary[500]};
+      background-color: ${theme.color.primary[900]};
     }
   `;
 
@@ -72,23 +63,12 @@ const secondaryStyles = ({ theme, variant }) =>
     background-color: ${theme.color.neutral[100]};
     color: ${theme.color.primary[500]};
 
-    &:hover,
-    &:focus {
-      background-color: ${theme.color.white};
-      color: ${theme.color.primary[500]};
-    }
-
-    &:focus {
-      border-color: ${theme.color.neutral[300]};
+    &:hover {
+      background-color: ${theme.color.neutral[200]};
     }
 
     &:active {
-      background-color: ${theme.color.neutral[100]};
-      color: ${theme.color.primary[500]};
-    }
-
-    svg {
-      fill: ${theme.color.primary[500]};
+      background-color: ${theme.color.neutral[300]};
     }
   `;
 
@@ -96,32 +76,18 @@ const destructiveStyles = ({ theme, variant }) =>
   variant === DESTRUCTIVE &&
   css`
     background-color: ${theme.color.red[500]};
-    color: ${theme.color.white};
+    color: #fff;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: ${theme.color.red[700]};
-      color: ${theme.color.white};
-    }
-
-    &:focus {
-      border-color: ${theme.color.red[500]};
     }
 
     &:active {
-      background-color: ${theme.color.red[500]};
-      color: ${theme.color.white};
+      background-color: ${theme.color.red[900]};
     }
   `;
 
-const disabledStyles = ({ disabled }) =>
-  disabled &&
-  css`
-    cursor: not-allowed;
-    pointer-events: none;
-    opacity: 0.66;
-    filter: grayscale(33%);
-  `;
+const disabledStyles = ({ disabled }) => disabled && disableVisually();
 
 const StyledButton = styled('button')(
   baseStyles,

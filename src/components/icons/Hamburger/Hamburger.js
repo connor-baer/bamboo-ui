@@ -7,7 +7,7 @@ import { focusOutline, hideVisually } from '../../../styles/shared';
 
 const LAYER_HEIGHT = '2px';
 
-const buttonBaseStyles = ({ theme }) => css`
+const buttonStyles = ({ theme }) => css`
   box-sizing: content-box;
   cursor: pointer;
   display: inline-block;
@@ -19,11 +19,11 @@ const buttonBaseStyles = ({ theme }) => css`
   color: ${theme.color.neutral[900]};
 
   &:focus {
-    outline: thin dotted currentColor;
+    ${focusOutline(theme)};
   }
 `;
 
-const HamburgerButton = styled('button')(buttonBaseStyles, focusOutline);
+const HamburgerButton = styled.button(buttonStyles);
 
 const layersBaseStyles = ({ theme }) => css`
   margin-top: calc(${LAYER_HEIGHT} / -2);
@@ -82,9 +82,9 @@ const layersActiveStyles = ({ theme, isActive }) =>
     }
   `;
 
-const HamburgerLayers = styled('span')(layersBaseStyles, layersActiveStyles);
+const HamburgerLayers = styled.span(layersBaseStyles, layersActiveStyles);
 
-const HamburgerLabel = styled('span')(hideVisually);
+const HamburgerLabel = styled.span(hideVisually);
 
 /**
  * A hamburger button for menus. Morphs into a close icon when active.

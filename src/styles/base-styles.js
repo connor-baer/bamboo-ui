@@ -191,15 +191,17 @@ export const createBaseStyles = (theme) => css`
   }
 
   a {
-    ${focusOutline({ theme })};
     text-decoration: none;
     color: inherit;
     transition: all ${theme.animation.micro};
 
-    &:hover,
-    &:focus {
+    &:hover {
       color: ${theme.color.primary[500]};
       cursor: pointer;
+    }
+
+    &:focus {
+      ${focusOutline(theme)};
     }
   }
 
