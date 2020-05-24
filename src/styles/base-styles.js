@@ -1,8 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
-import { focusOutline } from './shared';
-
 export const createBaseStyles = (theme) => css`
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
@@ -195,13 +193,10 @@ export const createBaseStyles = (theme) => css`
     color: inherit;
     transition: all ${theme.animation.micro};
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: ${theme.color.primary[500]};
       cursor: pointer;
-    }
-
-    &:focus {
-      ${focusOutline(theme)};
     }
   }
 
