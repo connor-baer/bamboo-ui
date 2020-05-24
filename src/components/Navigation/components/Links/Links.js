@@ -55,8 +55,8 @@ const navWideStyles = ({ theme, length }) =>
 
     ${theme.mq.hand} {
       display: flex;
-      overflow-x: hidden;
-      white-space: wrap;
+      overflow-x: visible;
+      white-space: normal;
 
       &::after {
         display: none;

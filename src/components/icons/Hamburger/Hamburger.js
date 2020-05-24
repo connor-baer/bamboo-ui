@@ -19,6 +19,7 @@ const buttonStyles = ({ theme }) => css`
   color: ${theme.color.neutral[900]};
 
   &:focus {
+    border-radius: ${theme.borderRadius.s};
     ${focusOutline(theme)};
   }
 `;

@@ -24,6 +24,7 @@ const baseStyles = ({ theme, backgroundColor }) => {
     }
 
     &:focus {
+      border-radius: ${theme.borderRadius.s};
       ${focusOutline(theme)};
     }
 
