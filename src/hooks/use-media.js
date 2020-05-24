@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { isServer } from '../util/is-server';
-
-export function useMedia(expression, callback) {
-  const query = isServer ? { matches: false } : window.matchMedia(expression);
-  const [matches, setMatches] = useState(query.matches);
+export function useMedia(expression, callback, initial = false) {
+  const [matches, setMatches] = useState(initial);
 
   useEffect(() => {
+    const query = window.matchMedia(expression);
+
     if (callback) {
       callback(query.matches);
     }
@@ -23,7 +22,7 @@ export function useMedia(expression, callback) {
     return () => {
       query.removeListener(handleChange);
     };
-  }, [query, callback]);
+  }, [expression, callback]);
 
   return matches;
 }

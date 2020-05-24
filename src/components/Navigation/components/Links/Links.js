@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash/fp';
 
 import { childrenPropType } from '../../../../util/prop-types';
 import { useComponents } from '../../../../hooks/use-components';
+import { focusOutline } from '../../../../styles/shared';
 import NavigationContext from '../../NavigationContext';
 
 const navBaseStyles = ({ theme }) => css`
@@ -99,10 +100,13 @@ const navAnchorBaseStyles = ({ theme }) => css`
     margin-right: 0;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: ${theme.color.neutral[100]};
     color: ${theme.color.primary[500]};
+  }
+
+  &:focus {
+    ${focusOutline(theme)};
   }
 `;
 
