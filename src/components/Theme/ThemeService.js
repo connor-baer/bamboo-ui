@@ -22,7 +22,6 @@ export function createVariables(theme) {
 function buildStaticTheme(theme) {
   return (key, value, path) => {
     const variable = `var(--${path.join('-')})`;
-    // set(theme, path, variable);
     setWith(theme, path, variable, Object);
   };
 }
@@ -30,7 +29,6 @@ function buildStaticTheme(theme) {
 function buildVariables(variables) {
   return (key, value, path) => {
     const name = `--${path.join('-')}`;
-    // set(variables, name, value);
     setWith(variables, name, value, Object);
   };
 }
