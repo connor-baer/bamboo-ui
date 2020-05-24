@@ -91,7 +91,7 @@ const breakpoints = {
   hand: '37.5em', // 600px
   lap: '56.25em', // 900px
   desk: '75em', // 1200px
-  wall: '100em', // 1600px
+  wall: '112.5em', // 1800px
 };
 
 const mq = {
@@ -152,6 +152,7 @@ const primary = {
 
 const neutral = {
   100: openColor.gray[1],
+  200: openColor.gray[2],
   300: openColor.gray[3],
   500: openColor.gray[6],
   700: openColor.gray[7],
@@ -254,6 +255,7 @@ const overrides = [
       color: {
         neutral: {
           100: openColor.gray[8],
+          200: openColor.gray[7],
           300: openColor.gray[6],
           500: openColor.gray[4],
           700: openColor.gray[2],

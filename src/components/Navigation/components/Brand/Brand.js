@@ -18,6 +18,8 @@ const siteLogoBaseStyles = ({ theme }) => css`
   height: ${theme.spacing.xxl};
   width: auto;
   vertical-align: middle;
+  font-size: 2rem;
+  line-height: 1.33;
 
   img {
     height: ${theme.spacing.xxl};

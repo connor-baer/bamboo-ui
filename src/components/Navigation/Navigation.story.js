@@ -31,7 +31,7 @@ export default {
 export const Base = () => {
   const menuLink = text('Menu link', 'Account');
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ width: '100vw' }}>
       <Navigation>
         <Navigation.Brand
           siteName={text('Site name', 'Bamboo UI')}
@@ -47,6 +47,7 @@ export const Base = () => {
           {menuLink && <A href="/">{menuLink}</A>}
         </Navigation.Menu>
       </Navigation>
+      <div style={{ width: '100vw', height: '120vh' }} />
     </div>
   );
 };

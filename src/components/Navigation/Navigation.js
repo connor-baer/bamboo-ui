@@ -25,7 +25,7 @@ const headerBaseStyles = ({ theme }) => css`
     opacity: 1;
   }
 
-  ${theme.mq.desk} {
+  ${theme.mq.lap} {
     position: fixed;
     top: 0;
     right: 0;
