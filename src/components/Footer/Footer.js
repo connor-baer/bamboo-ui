@@ -37,12 +37,12 @@ const contentStyles = ({ theme }) => css`
 
 const Content = styled('div')(fullWidth, contentStyles);
 
-function Footer({ siteName, siteTwitter, children }) {
+function Footer({ siteName, siteTwitter, children, ...rest }) {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
   /* eslint-disable jsx-a11y/anchor-is-valid */
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Content>
         {siteName && (
           <Small>{`© ${currentYear} ${siteName}. All rights reserved.`}</Small>
