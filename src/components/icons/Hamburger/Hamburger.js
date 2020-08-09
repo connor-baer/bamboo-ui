@@ -12,6 +12,7 @@ const buttonStyles = ({ theme }) => css`
   cursor: pointer;
   display: inline-block;
   padding: ${theme.spacing.m} ${theme.spacing.xs};
+  margin: 0;
   width: ${theme.iconSize.m};
   background: none;
   border: 0;
@@ -97,10 +98,16 @@ function Hamburger({
   labelInActive = 'Open menu',
   ...rest
 }) {
+  const label = isActive ? labelActive : labelInActive;
   return (
-    <HamburgerButton onClick={onClick} {...rest}>
+    <HamburgerButton
+      onClick={onClick}
+      {...rest}
+      title={label}
+      aria-expanded={isActive}
+    >
       <HamburgerLayers isActive={isActive} />
-      <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
+      <HamburgerLabel>{label}</HamburgerLabel>
     </HamburgerButton>
   );
 }

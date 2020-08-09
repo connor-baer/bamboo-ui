@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
 import { childrenPropType } from '../../../../util/prop-types';
-import { focusOutline } from '../../../../styles/shared';
+import { focusOutline, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
 import MoonIcon from '../../../icons/MoonIcon';
 import Hamburger from '../../../icons/Hamburger';
@@ -33,6 +33,25 @@ const userPhotoStyles = (theme) => css`
     cursor: pointer;
   }
 `;
+
+const imageButtonStyles = ({ theme }) => css`
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-radius: ${theme.borderRadius.circle};
+
+  &:focus {
+    ${focusOutline(theme)};
+  }
+
+  &::after {
+    border-radius: ${theme.borderRadius.circle};
+  }
+`;
+
+const ImageButton = styled('button')(buttonOutline, imageButtonStyles);
 
 const dropdownBaseStyles = ({ theme }) => css`
   position: absolute;
@@ -135,6 +154,10 @@ const iconButtonStyles = ({ theme }) => css`
     color: ${theme.color.primary[500]};
   }
 
+  &:focus {
+    ${focusOutline(theme)};
+  }
+
   &:active {
     background: ${theme.color.neutral[300]};
     color: ${theme.color.primary[500]};
@@ -221,15 +244,24 @@ function Menu({ children, userAvatarURL }) {
     );
   }
 
+  const imageButtonLabel = isOpen ? 'Close menu' : 'Open menu';
+
   return (
     <Wrapper>
       {userAvatarURL ? (
-        <Image
-          css={userPhotoStyles}
-          src={userAvatarURL}
+        <ImageButton
           onClick={handleClick}
-          alt="Profile photo"
-        />
+          type="button"
+          aria-expanded={isOpen}
+          title={imageButtonLabel}
+          aria-label={imageButtonLabel}
+        >
+          <Image
+            css={userPhotoStyles}
+            src={userAvatarURL}
+            alt="Profile photo"
+          />
+        </ImageButton>
       ) : (
         <Hamburger onClick={handleClick} isActive={isOpen} />
       )}

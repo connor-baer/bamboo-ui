@@ -71,6 +71,52 @@ export const focusOutline = (args) => {
   `;
 };
 
+export const buttonOutline = ({ theme, variant = 'primary' }) => {
+  const colorMap = {
+    primary: {
+      hover: theme.color.primary[700],
+      active: theme.color.primary[900],
+    },
+    secondary: {
+      hover: theme.color.neutral[200],
+      active: theme.color.neutral[300],
+    },
+    destructive: {
+      hover: theme.color.red[700],
+      active: theme.color.red[900],
+    },
+  };
+  return css`
+    position: relative;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      border-radius: 14px;
+      transition: box-shadow ${theme.animation.micro};
+    }
+
+    &:hover {
+      &::after {
+        box-shadow: 0px 0px 0px 2px ${colorMap[variant].hover};
+      }
+    }
+
+    &:active {
+      &::after {
+        box-shadow: 0px 0px 0px 2px ${colorMap[variant].active};
+      }
+    }
+  `;
+};
+
 export const clearfix = () => css`
   &::before,
   &::after {

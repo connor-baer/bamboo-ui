@@ -5,7 +5,11 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
 import { useComponents } from '../../hooks/use-components';
-import { disableVisually, focusOutline } from '../../styles/shared';
+import {
+  disableVisually,
+  focusOutline,
+  buttonOutline,
+} from '../../styles/shared';
 
 const PRIMARY = 'primary';
 const SECONDARY = 'secondary';
@@ -18,21 +22,11 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacing.s} ${theme.spacing.m};
   margin: 0;
   transition: all ${theme.animation.micro};
-  border-width: 2px;
-  border-style: solid;
-  border-color: transparent;
+  border: 0;
   border-radius: ${theme.borderRadius.m};
   outline: none;
   line-height: 1;
   cursor: pointer;
-
-  &:hover {
-    box-shadow: 0 2px 4px ${theme.color.shadow};
-  }
-
-  &:active {
-    box-shadow: 0 1px 2px ${theme.color.shadow};
-  }
 
   &:focus {
     ${focusOutline(theme)};
@@ -92,6 +86,7 @@ const disabledStyles = ({ disabled }) => disabled && disableVisually();
 
 const StyledButton = styled('button')(
   baseStyles,
+  buttonOutline,
   primaryStyles,
   secondaryStyles,
   destructiveStyles,
@@ -99,6 +94,7 @@ const StyledButton = styled('button')(
 );
 const Anchor = styled('a')(
   baseStyles,
+  buttonOutline,
   primaryStyles,
   secondaryStyles,
   destructiveStyles,
