@@ -127,8 +127,8 @@ const borderWidth = {
 };
 
 const borderRadius = {
-  s: '0.25rem', // 4px
-  m: '0.5rem', // 8px
+  s: '0.375rem', // 6px
+  m: '0.75rem', // 12px
   l: '1rem', // 16px
   circle: '100%',
   pill: '999999px', // HACK: By providing a very large absolut size, the browser picks the maximum size in one dimension.
@@ -145,9 +145,9 @@ const pageWidth = '80rem'; // 1280px
 const primary = {
   100: '#eaf7fb',
   300: '#b6e4f2',
-  500: '#1aabd6',
-  700: '#097493',
-  900: '#1d3844',
+  500: '#10a7d3',
+  700: '#148BA6',
+  900: '#074A59',
 };
 
 const neutral = {
@@ -210,7 +210,7 @@ const red = {
 const danger = red[500];
 const success = green[700];
 const warning = yellow[700];
-const shadow = 'rgba(12, 15, 20, 0.2)';
+const shadow = 'rgba(12, 15, 20, 0.18)';
 const selectionBg = '#ffe066';
 const selectionColor = openColor.black;
 const offBlack = '#15191d';

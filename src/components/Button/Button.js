@@ -16,6 +16,7 @@ const baseStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
   font-size: inherit;
   padding: ${theme.spacing.s} ${theme.spacing.m};
+  margin: 0;
   transition: all ${theme.animation.micro};
   border-width: 2px;
   border-style: solid;
@@ -26,11 +27,11 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 2px 8px ${theme.color.shadow};
+    box-shadow: 0 2px 4px ${theme.color.shadow};
   }
 
   &:active {
-    box-shadow: 0 0 3px ${theme.color.shadow};
+    box-shadow: 0 1px 2px ${theme.color.shadow};
   }
 
   &:focus {
@@ -106,7 +107,6 @@ const Anchor = styled('a')(
 
 export default function Button({
   variant = PRIMARY,
-  disabled = false,
   children,
   onClick,
   href,
@@ -114,19 +114,18 @@ export default function Button({
   replace,
   shallow,
   scroll,
-  ...rest
+  ...props
 }) {
   const { Link } = useComponents();
 
+  if (props.disabled) {
+    // eslint-disable-next-line no-param-reassign
+    props['aria-disabled'] = props.disabled;
+  }
+
   if (onClick) {
     return (
-      <StyledButton
-        onClick={onClick}
-        variant={variant}
-        disabled={disabled}
-        aria-disabled={disabled}
-        {...rest}
-      >
+      <StyledButton onClick={onClick} variant={variant} {...props}>
         {children}
       </StyledButton>
     );
@@ -142,12 +141,7 @@ export default function Button({
         scroll={scroll}
         passHref={true}
       >
-        <Anchor
-          variant={variant}
-          disabled={disabled}
-          aria-disabled={disabled}
-          {...rest}
-        >
+        <Anchor variant={variant} {...props}>
           {children}
         </Anchor>
       </Link>
