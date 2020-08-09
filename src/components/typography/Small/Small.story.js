@@ -9,9 +9,9 @@ export default {
 };
 
 export const Base = () => (
-  <>
+  <div>
     <Small>{text('First', '🐼 Panda')}</Small>
     <Small>{text('Second', '🐻 Grizzly')}</Small>
     <Small>{text('Third', '🐨 Koala')}</Small>
-  </>
+  </div>
 );

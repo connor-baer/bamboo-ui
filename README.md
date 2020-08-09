@@ -2,7 +2,7 @@
 
 # [🎋 Bamboo UI](https://bamboo.madebyconnor.co) <!-- omit in toc -->
 
-[Bamboo UI](https://bamboo.madebyconnor.co) is a collection of React components and utils that I use across my various web projects to save development time and provide a consitency experience to the users.
+[Bamboo UI](https://bamboo.madebyconnor.co) is a collection of React components and utils that I use across my various web projects to save development time and provide a consistent experience to all users.
 
 </div>
 
