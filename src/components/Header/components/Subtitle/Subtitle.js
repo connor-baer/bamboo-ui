@@ -21,10 +21,21 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const StyledHeading = styled(Heading)(baseStyles);
+const sizeStyles = ({ theme, size }) =>
+  size === 'xl' &&
+  css`
+    font-size: ${theme.fontSize.l};
+    margin-top: 0;
+
+    ${theme.mq.hand} {
+      font-size: ${theme.fontSize.xl};
+    }
+  `;
+
+const StyledHeading = styled(Heading)(baseStyles, sizeStyles);
 
 function Subtitle(props) {
-  return <StyledHeading as="h2" weight="light" {...props} />;
+  return <StyledHeading as="h2" weight="regular" {...props} />;
 }
 
 /**

@@ -6,11 +6,15 @@ import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import Subtitle from './components/Subtitle';
 
-function Header({ title, subtitle, children, ...rest }) {
+function Header({ title, subtitle, children, size = 'xxl', ...rest }) {
   return (
     <Wrapper {...rest}>
-      {title && <Title hasSubtitle={!!subtitle}>{title}</Title>}
-      {subtitle && <Subtitle>{subtitle}</Subtitle>}
+      {title && (
+        <Title size={size} hasSubtitle={Boolean(subtitle)}>
+          {title}
+        </Title>
+      )}
+      {subtitle && <Subtitle size={size}>{subtitle}</Subtitle>}
       {children}
     </Wrapper>
   );
@@ -20,6 +24,7 @@ Header.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: childrenPropType,
+  size: PropTypes.oneOf(['xl', 'xxl']),
 };
 
 Header.Wrapper = Wrapper;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import { spacing } from '../../styles/shared';
@@ -21,6 +21,7 @@ export const Base = () => (
     <Header
       title={text('Title', 'Bamboo UI')}
       subtitle={text('Subtitle', 'A React component library')}
+      size={select('Size', ['xl', 'xxl'], 'xxl')}
     >
       <div css={spacing({ top: 's' })}>
         <Small>{text('Children', 'Made by Connor')}</Small>
