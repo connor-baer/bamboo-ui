@@ -65,6 +65,10 @@ export const focusOutline = (args) => {
     outline: 0;
     box-shadow: 0 0 0 4px ${theme.color.primary[300]};
 
+    ${theme.mq.darkmode} {
+      box-shadow: 0 0 0 4px ${theme.color.primary[900]};
+    }
+
     &::-moz-focus-inner {
       border: 0;
     }
