@@ -20,6 +20,7 @@ const siteLogoBaseStyles = ({ theme }) => css`
   vertical-align: middle;
   font-size: 2rem;
   line-height: 1.33;
+  margin-right: ${theme.spacing.s};
 
   img {
     height: ${theme.spacing.xxl};
@@ -48,7 +49,7 @@ const siteNameStyles = ({ theme }) => css`
   line-height: 1;
   color: ${theme.color.neutral[900]};
   margin-top: 3px;
-  margin-left: ${theme.spacing.s};
+  margin-right: ${theme.spacing.s};
   vertical-align: middle;
 
   a:hover > &,
@@ -76,8 +77,8 @@ function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
   return (
     <Link href={href}>
       <A>
-        <SiteLogo>{siteLogo}</SiteLogo>
-        <SiteName>{siteName}</SiteName>
+        {siteLogo && <SiteLogo>{siteLogo}</SiteLogo>}
+        {siteName && <SiteName>{siteName}</SiteName>}
       </A>
     </Link>
   );
