@@ -3,8 +3,6 @@ import { object, text } from '@storybook/addon-knobs/react';
 
 import Navigation from '.';
 
-const A = Navigation.Menu.Item.withComponent('a');
-
 const links = [
   {
     icon: '🐼',
@@ -44,7 +42,9 @@ export const Base = () => {
             'https://source.unsplash.com/64x64/',
           )}
         >
-          {menuLink && <A href="/">{menuLink}</A>}
+          {menuLink && (
+            <Navigation.Menu.Item href="/">{menuLink}</Navigation.Menu.Item>
+          )}
         </Navigation.Menu>
       </Navigation>
       <div style={{ width: '100vw', height: '120vh' }} />

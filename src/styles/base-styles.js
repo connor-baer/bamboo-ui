@@ -195,7 +195,6 @@ export const createBaseStyles = (theme) => css`
 
     &:hover,
     &:focus {
-      color: ${theme.color.primary[500]};
       cursor: pointer;
     }
   }

@@ -137,7 +137,32 @@ const itemStyles = ({ theme }) => css`
   }
 `;
 
-const Item = styled('div')(itemStyles);
+const itemClickableStyles = ({ theme, onClick, href }) =>
+  (onClick || href) &&
+  css`
+    &:hover,
+    &:focus {
+      background: ${theme.color.neutral[100]};
+      color: ${theme.color.primary[500]};
+    }
+
+    &:focus {
+      ${focusOutline(theme)};
+    }
+
+    &:active {
+      background: ${theme.color.neutral[300]};
+      color: ${theme.color.primary[500]};
+    }
+  `;
+
+const Item = styled('div')(itemStyles, itemClickableStyles);
+
+const MenuItem = (props) => {
+  // eslint-disable-next-line no-nested-ternary, react/prop-types
+  const as = props.href ? 'a' : props.onClick ? 'button' : 'div';
+  return <Item as={as} {...props} />;
+};
 
 const hrStyles = ({ theme }) => css`
   margin: ${theme.spacing.xxs} 0 ${theme.spacing.xs};
@@ -145,26 +170,7 @@ const hrStyles = ({ theme }) => css`
 
 const MenuHr = styled(Hr)(hrStyles);
 
-const iconButtonStyles = ({ theme }) => css`
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[500]};
-  }
-
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:active {
-    background: ${theme.color.neutral[300]};
-    color: ${theme.color.primary[500]};
-  }
-`;
-
-const IconButton = styled('button')(itemStyles, iconButtonStyles);
+const IconButton = styled('button')(itemStyles, itemClickableStyles);
 
 const iconBaseStyles = ({ theme }) => css`
   display: inline-block;
@@ -293,7 +299,7 @@ function Menu({ children, userAvatarURL }) {
   );
 }
 
-Menu.Item = Item;
+Menu.Item = MenuItem;
 Menu.Hr = MenuHr;
 
 Menu.propTypes = {
