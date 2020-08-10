@@ -135,6 +135,7 @@ const borderRadius = {
 };
 
 const zIndex = {
+  select: 9,
   navigation: 99,
   loadingBar: 999,
 };

@@ -49,6 +49,12 @@ export { default as Align } from './components/layout/Align';
 export { default as Columns } from './components/layout/Columns';
 export { default as Main } from './components/layout/Main';
 
+// Forms
+export { Input } from './components/forms/Input';
+export { Textarea } from './components/forms/Textarea';
+export { Select } from './components/forms/Select';
+export { Label } from './components/forms/Label';
+
 export { default as Button } from './components/Button';
 
 /**
