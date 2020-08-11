@@ -14,6 +14,7 @@ export { default as Heading } from './components/typography/Heading';
 export { default as Anchor } from './components/typography/Anchor';
 export { default as Intro } from './components/typography/Intro';
 export { default as Small } from './components/typography/Small';
+export { default as Emoji } from './components/typography/Emoji';
 
 // Sections
 export { default as Navigation } from './components/Navigation';
