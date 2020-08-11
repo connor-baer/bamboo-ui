@@ -30,11 +30,11 @@ const fonts = [
   {
     name: 'Merriweather Sans',
     localName: 'Merriweather Sans Bold',
-    weight: '700',
+    weight: '800',
     style: 'normal',
     sources: [
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff2`,
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-700.woff`,
+      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff2`,
+      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff`,
     ],
   },
   {
@@ -69,7 +69,7 @@ const fontSize = {
 const fontWeight = {
   light: '300',
   regular: '400',
-  bold: '700',
+  bold: '800',
 };
 
 const lineHeight = {
