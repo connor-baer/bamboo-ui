@@ -9,6 +9,7 @@ const inputStyles = ({ theme }) => css`
   display: block;
   padding: 0 ${theme.spacing.m} ${theme.spacing.s};
   margin: 0;
+  width: 100%;
   border: none;
   outline: 0;
   line-height: 1;
@@ -27,6 +28,7 @@ export function Input({
   invalid,
   hasWarning,
   showValid,
+  className,
   ...props
 }) {
   const id = customId;
@@ -38,6 +40,7 @@ export function Input({
       disabled={disabled}
       showValid={showValid}
       hasWarning={hasWarning}
+      className={className}
     >
       <InputElement
         id={id}
@@ -59,4 +62,5 @@ Input.propTypes = {
   invalid: PropTypes.bool,
   hasWarning: PropTypes.bool,
   showValid: PropTypes.bool,
+  className: PropTypes.string,
 };

@@ -23,7 +23,7 @@ const Wrapper = styled('label')(wrapperStyles, disabledStyles, inputOutline);
 
 const textStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.s} ${theme.spacing.m} 2px;
+  padding: ${theme.spacing.s} ${theme.spacing.m} 0.125rem;
   color: ${theme.color.neutral[700]};
   font-size: ${theme.fontSize.s};
 `;
