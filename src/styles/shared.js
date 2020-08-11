@@ -166,17 +166,33 @@ export const inputOutline = ({ theme, invalid, hasWarning, showValid }) => {
   return css`
     box-shadow: 0 0 0 1px ${colors.default};
 
+    svg {
+      color: ${colors.default};
+    }
+
     &:hover {
       box-shadow: 0 0 0 1px ${colors.hover};
+
+      svg {
+        color: ${colors.hover};
+      }
     }
 
     &:focus,
     &:focus-within {
       box-shadow: 0 0 0 2px ${colors.focus};
+
+      svg {
+        color: ${colors.focus};
+      }
     }
 
     &:active {
       box-shadow: 0 0 0 1px ${colors.active};
+
+      svg {
+        color: ${colors.active};
+      }
     }
   `;
 };

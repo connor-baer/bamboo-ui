@@ -5,10 +5,12 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../util/prop-types';
 import { Label } from '../Label';
+import { ReactComponent as Chevron } from './svgs/chevron-down.svg';
 
 const selectStyles = ({ theme }) => css`
   appearance: none;
   display: block;
+  height: 32.5px;
   position: relative;
   width: 100%;
   padding: 0 ${theme.spacing.m} ${theme.spacing.s};
@@ -37,6 +39,18 @@ const selectStyles = ({ theme }) => css`
 `;
 
 const SelectElement = styled('select')(selectStyles);
+
+const chevronStyles = ({ theme }) => css`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: ${theme.spacing.m};
+  margin-bottom: ${theme.spacing.s};
+`;
+
+const StyledChevron = styled(Chevron)(chevronStyles);
 
 export function Select({
   label,
@@ -75,6 +89,7 @@ export function Select({
               </option>
             )))}
       </SelectElement>
+      <StyledChevron />
     </Label>
   );
 }

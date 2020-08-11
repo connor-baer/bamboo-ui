@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 
 import { Label } from '../Label';
 
-const inputStyles = ({ theme }) => css`
+const baseStyles = ({ theme }) => css`
   display: block;
   padding: 0 ${theme.spacing.m} ${theme.spacing.s};
   margin: 0;
@@ -18,7 +18,7 @@ const inputStyles = ({ theme }) => css`
   font-size: ${theme.fontSize.m};
 `;
 
-const InputElement = styled('input')(inputStyles);
+const InputElement = styled('input')(baseStyles);
 
 export function Input({
   label,
@@ -29,6 +29,8 @@ export function Input({
   hasWarning,
   showValid,
   className,
+  inputStyles,
+  suffix,
   ...props
 }) {
   const id = customId;
@@ -41,12 +43,14 @@ export function Input({
       showValid={showValid}
       hasWarning={hasWarning}
       className={className}
+      suffix={suffix}
     >
       <InputElement
         id={id}
         type={type}
         invalid={invalid}
         disabled={disabled}
+        css={inputStyles}
         {...props}
       />
     </Label>
@@ -63,4 +67,6 @@ Input.propTypes = {
   hasWarning: PropTypes.bool,
   showValid: PropTypes.bool,
   className: PropTypes.string,
+  suffix: PropTypes.element,
+  inputStyles: PropTypes.object,
 };
