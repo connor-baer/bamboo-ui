@@ -22,9 +22,9 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacing.s} ${theme.spacing.m};
   margin: 0;
   transition: all ${theme.animation.micro};
-  border: 0;
   border-radius: ${theme.borderRadius.m};
-  outline: none;
+  border: none;
+  outline: 0;
   line-height: 1;
   cursor: pointer;
 
