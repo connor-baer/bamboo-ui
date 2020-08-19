@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 import { Global, css } from '@emotion/core';
 
-export default function LoadingBar({ isLoading, startDelay = 500 }) {
+export function LoadingBar({ isLoading, startDelay = 500 }) {
   useEffect(() => {
     if (isLoading) {
       const timer = setTimeout(() => {

@@ -101,7 +101,7 @@ const Anchor = styled('a')(
   disabledStyles,
 );
 
-export default function Button({
+export function Button({
   variant = PRIMARY,
   children,
   onClick,

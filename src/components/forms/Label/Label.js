@@ -3,31 +3,68 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { disableVisually, inputOutline } from '../../../styles/shared';
+import { disableVisually, getStateColors } from '../../../styles/shared';
 import { childrenPropType } from '../../../util/prop-types';
 
-import { ReactComponent as Checkmark } from './svgs/circle-checkmark.svg';
-import { ReactComponent as Help } from './svgs/circle-help.svg';
-import { ReactComponent as Cross } from './svgs/circle-cross.svg';
+import { ReactComponent as Checkmark } from '../../../icons/circle-checkmark.svg';
+import { ReactComponent as Help } from '../../../icons/circle-help.svg';
+import { ReactComponent as Cross } from '../../../icons/circle-cross.svg';
 
 const wrapperStyles = ({ theme }) => css`
   display: block;
   position: relative;
   padding: 0;
   margin: 0;
-  transition: all ${theme.animation.micro};
+  transition: box-shadow ${theme.animation.micro},
+    background-color ${theme.animation.micro};
   border-radius: ${theme.borderRadius.m};
   background-color: ${theme.color.white};
-  overflow: hidden;
 `;
+
+const outlineStyles = ({ theme, invalid, hasWarning, showValid }) => {
+  const colors = getStateColors({ theme, invalid, hasWarning, showValid });
+
+  return css`
+    box-shadow: 0 0 0 1px ${colors.default};
+
+    svg {
+      color: ${colors.default};
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 1px ${colors.hover};
+
+      svg {
+        color: ${colors.hover};
+      }
+    }
+
+    &:focus,
+    &:focus-within {
+      box-shadow: 0 0 0 2px ${colors.focus};
+
+      svg {
+        color: ${colors.focus};
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0 0 1px ${colors.active};
+
+      svg {
+        color: ${colors.active};
+      }
+    }
+  `;
+};
 
 const disabledStyles = ({ disabled }) => disabled && disableVisually();
 
-const Wrapper = styled('label')(wrapperStyles, disabledStyles, inputOutline);
+const Wrapper = styled('label')(wrapperStyles, outlineStyles, disabledStyles);
 
 const textStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.s} ${theme.spacing.m} 0.125rem;
+  padding: ${theme.spacing.s} ${theme.spacing.xxxl} 0.125rem ${theme.spacing.m};
   color: ${theme.color.neutral[700]};
   font-size: ${theme.fontSize.s};
 `;

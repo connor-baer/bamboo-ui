@@ -4,16 +4,18 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../util/prop-types';
+import { uniqueId } from '../../../util/unique-id';
+import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
+
 import { Label } from '../Label';
-import { ReactComponent as Chevron } from './svgs/chevron-down.svg';
 
 const selectStyles = ({ theme }) => css`
   appearance: none;
   display: block;
-  height: 32.5px;
+  height: 36.5px;
   position: relative;
   width: 100%;
-  padding: 0 ${theme.spacing.m} ${theme.spacing.s};
+  padding: ${theme.spacing.xxs} ${theme.spacing.m} ${theme.spacing.s};
   margin: 0;
   border: none;
   outline: 0;
@@ -65,7 +67,7 @@ export function Select({
   showValid,
   ...props
 }) {
-  const id = customId;
+  const id = customId || uniqueId();
   return (
     <Label
       label={label}

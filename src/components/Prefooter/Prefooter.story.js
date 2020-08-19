@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { text } from '@storybook/addon-knobs/react';
 
-import Prefooter from './Prefooter';
+import { Prefooter } from './Prefooter';
 
 export default {
   title: 'Components/Prefooter',

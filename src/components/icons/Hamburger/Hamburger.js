@@ -91,7 +91,7 @@ const HamburgerLabel = styled.span(hideVisually);
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
-function Hamburger({
+export function Hamburger({
   onClick = () => {},
   isActive = false,
   labelActive = 'Close menu',
@@ -130,8 +130,3 @@ Hamburger.propTypes = {
    */
   labelInActive: PropTypes.string,
 };
-
-/**
- * @component
- */
-export default Hamburger;

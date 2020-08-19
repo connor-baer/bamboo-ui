@@ -1,3 +1,1 @@
-import Collage from './Collage';
-
-export default Collage;
+export { Collage } from './Collage';

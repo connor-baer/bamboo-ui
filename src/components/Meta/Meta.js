@@ -15,7 +15,7 @@ function constructTitle(title, siteName) {
   return titleParts.join(' · ');
 }
 
-function Meta({
+export function Meta({
   title,
   description,
   url,
@@ -66,8 +66,3 @@ Meta.propTypes = {
   siteName: PropTypes.string,
   siteTwitter: PropTypes.string,
 };
-
-/**
- * @component
- */
-export default Meta;

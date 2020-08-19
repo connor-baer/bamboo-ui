@@ -8,8 +8,8 @@ import {
   alignPropType,
 } from '../../../util/prop-types';
 import { useComponents } from '../../../hooks/use-components';
-import RatioImage from '../RatioImage';
-import Caption from '../Caption';
+import { RatioImage } from '../RatioImage';
+import { Caption } from '../Caption';
 import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 function getSizes(theme, align) {
@@ -34,7 +34,7 @@ function getSizes(theme, align) {
   return [lapSize, handSize, mobileSize].join(', ');
 }
 
-function Figure({ image = {}, align = LEFT, caption, ...rest }) {
+export function Figure({ image = {}, align = LEFT, caption, ...rest }) {
   const theme = useTheme();
   const { Align } = useComponents();
 
@@ -62,8 +62,3 @@ Figure.propTypes = {
   caption: captionPropType,
   align: alignPropType,
 };
-
-/**
- * @component
- */
-export default Figure;

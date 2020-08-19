@@ -121,80 +121,37 @@ export const buttonOutline = ({ theme, variant = 'primary' }) => {
   `;
 };
 
-export const inputOutline = ({ theme, invalid, hasWarning, showValid }) => {
-  let colors;
-
-  switch (true) {
-    case invalid: {
-      colors = {
-        default: theme.color.red[700],
-        hover: theme.color.red[900],
-        focus: theme.color.red[700],
-        active: theme.color.red[700],
-      };
-      break;
-    }
-    case hasWarning: {
-      colors = {
-        default: theme.color.yellow[700],
-        hover: theme.color.yellow[900],
-        focus: theme.color.yellow[700],
-        active: theme.color.yellow[700],
-      };
-      break;
-    }
-    case showValid: {
-      colors = {
-        default: theme.color.green[700],
-        hover: theme.color.green[900],
-        focus: theme.color.green[700],
-        active: theme.color.green[700],
-      };
-      break;
-    }
-    default: {
-      colors = {
-        default: theme.color.neutral[700],
-        hover: theme.color.neutral[900],
-        focus: theme.color.primary[500],
-        active: theme.color.primary[500],
-      };
-      break;
-    }
+export const getStateColors = ({ theme, invalid, hasWarning, showValid }) => {
+  if (invalid) {
+    return {
+      default: theme.color.red[700],
+      hover: theme.color.red[900],
+      focus: theme.color.red[700],
+      active: theme.color.red[700],
+    };
   }
-
-  return css`
-    box-shadow: 0 0 0 1px ${colors.default};
-
-    svg {
-      color: ${colors.default};
-    }
-
-    &:hover {
-      box-shadow: 0 0 0 1px ${colors.hover};
-
-      svg {
-        color: ${colors.hover};
-      }
-    }
-
-    &:focus,
-    &:focus-within {
-      box-shadow: 0 0 0 2px ${colors.focus};
-
-      svg {
-        color: ${colors.focus};
-      }
-    }
-
-    &:active {
-      box-shadow: 0 0 0 1px ${colors.active};
-
-      svg {
-        color: ${colors.active};
-      }
-    }
-  `;
+  if (hasWarning) {
+    return {
+      default: theme.color.yellow[700],
+      hover: theme.color.yellow[900],
+      focus: theme.color.yellow[700],
+      active: theme.color.yellow[700],
+    };
+  }
+  if (showValid) {
+    return {
+      default: theme.color.green[700],
+      hover: theme.color.green[900],
+      focus: theme.color.green[700],
+      active: theme.color.green[700],
+    };
+  }
+  return {
+    default: theme.color.neutral[700],
+    hover: theme.color.neutral[900],
+    focus: theme.color.primary[500],
+    active: theme.color.primary[500],
+  };
 };
 
 export const clearfix = () => css`

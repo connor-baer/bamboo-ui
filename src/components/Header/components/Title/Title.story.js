@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs/react';
 
-import Title from './Title';
+import { Title } from './Title';
 
 export default {
   title: 'Components/Header/Header.Title',

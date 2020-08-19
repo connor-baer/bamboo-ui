@@ -2,7 +2,7 @@ import React from 'react';
 import { text, select } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import Heading from './Heading';
+import { Heading } from './Heading';
 
 export default {
   title: 'Typography/Heading',

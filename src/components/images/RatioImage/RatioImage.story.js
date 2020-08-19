@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
-import RatioImage from './RatioImage';
+import { RatioImage } from './RatioImage';
 
 export default {
   title: 'Images/RatioImage',

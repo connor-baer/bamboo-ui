@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Wrapper from './Wrapper';
+import { Wrapper } from './Wrapper';
 
 // eslint-disable-next-line react/prop-types
 function VisualizeSpacing({ children }) {

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { childrenPropType } from '../../util/prop-types';
-import Wrapper from './components/Wrapper';
-import Title from './components/Title';
-import Subtitle from './components/Subtitle';
+import { Wrapper } from './components/Wrapper';
+import { Title } from './components/Title';
+import { Subtitle } from './components/Subtitle';
 
-function Header({ title, subtitle, children, size = 'xxl', ...rest }) {
+export function Header({ title, subtitle, children, size = 'xxl', ...rest }) {
   return (
     <Wrapper {...rest}>
       {title && (
@@ -30,8 +30,3 @@ Header.propTypes = {
 Header.Wrapper = Wrapper;
 Header.Title = Title;
 Header.Subtitle = Subtitle;
-
-/**
- * @component
- */
-export default Header;

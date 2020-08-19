@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { isEmpty } from 'lodash/fp';
 
 import { imagePropType } from '../../../util/prop-types';
-import RatioImage from '../RatioImage';
+import { RatioImage } from '../RatioImage';
 
 const containerStyles = ({ theme }) => css`
   display: flex;
@@ -72,7 +72,7 @@ const innerWrapperStyles = ({ theme }) => css`
 const OuterWrapper = styled('div')(baseWrapperStyles, outerWrapperStyles);
 const InnerWrapper = styled('div')(baseWrapperStyles, innerWrapperStyles);
 
-function Collage({ images = [] }) {
+export function Collage({ images = [] }) {
   if (isEmpty(images) || images.length < 3) {
     return null;
   }
@@ -98,8 +98,3 @@ function Collage({ images = [] }) {
 Collage.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape(imagePropType)),
 };
-
-/**
- * @component
- */
-export default Collage;

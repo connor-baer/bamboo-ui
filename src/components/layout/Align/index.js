@@ -1,3 +1,1 @@
-import Align from './Align';
-
-export default Align;
+export { Align } from './Align';

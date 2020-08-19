@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { childrenPropType } from '../../../util/prop-types';
 
-export default function Link({ children, ...props }) {
+export function Link({ children, ...props }) {
   const child = Children.only(children);
   return cloneElement(child, props);
 }

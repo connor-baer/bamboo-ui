@@ -1,3 +1,1 @@
-import Subtitle from './Subtitle';
-
-export default Subtitle;
+export { Subtitle } from './Subtitle';

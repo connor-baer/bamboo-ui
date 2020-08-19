@@ -1,3 +1,1 @@
-import CoverImage from './CoverImage';
-
-export default CoverImage;
+export { CoverImage } from './CoverImage';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
-import CoverImage from './CoverImage';
+import { CoverImage } from './CoverImage';
 
 export default {
   title: 'Images/CoverImage',

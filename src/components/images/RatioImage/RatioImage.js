@@ -42,7 +42,7 @@ const imageAspectRatioStyles = css`
   object-fit: cover;
 `;
 
-function RatioImage({ aspectRatio, className, ...props }) {
+export function RatioImage({ aspectRatio, className, ...props }) {
   const { Image } = useComponents();
 
   return (
@@ -61,8 +61,3 @@ RatioImage.propTypes = {
   aspectRatio: PropTypes.number,
   className: PropTypes.string,
 };
-
-/**
- * @component
- */
-export default RatioImage;

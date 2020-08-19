@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs/react';
 
-import Hamburger from './Hamburger';
+import { Hamburger } from './Hamburger';
 
 export default {
   title: 'Icons/Hamburger',

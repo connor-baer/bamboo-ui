@@ -1,7 +1,7 @@
 import React from 'react';
 import { number } from '@storybook/addon-knobs';
 
-import Columns from './Columns';
+import { Columns } from './Columns';
 
 export default {
   title: 'Layout/Columns',

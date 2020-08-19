@@ -21,9 +21,4 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const Small = styled('small')(baseStyles);
-
-/**
- * @component
- */
-export default Small;
+export const Small = styled('small')(baseStyles);

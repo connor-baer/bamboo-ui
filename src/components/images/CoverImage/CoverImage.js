@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { imagePropType } from '../../../util/prop-types';
-import RatioImage from '../RatioImage';
+import { RatioImage } from '../RatioImage';
 
 const wrapperStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.m};
@@ -44,14 +44,9 @@ const imageStyles = ({ theme }) =>
     }
   `;
 
-const CoverImage = styled(RatioImage)(wrapperStyles, imageStyles);
+export const CoverImage = styled(RatioImage)(wrapperStyles, imageStyles);
 
 CoverImage.propTypes = {
   ...imagePropType,
   aspectRatio: PropTypes.number,
 };
-
-/**
- * @component
- */
-export default CoverImage;

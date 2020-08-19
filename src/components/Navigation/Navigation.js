@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
 import { useAnimationFrame } from '../../hooks/use-animation-frame';
-import NavigationContext from './NavigationContext';
+import { NavigationContext } from './NavigationContext';
 import Brand from './components/Brand';
 import Links from './components/Links';
 import Menu from './components/Menu';
@@ -58,7 +58,7 @@ const Header = styled('header')(
   headerFloatingStyles,
 );
 
-function Navigation({ children, ...rest }) {
+export function Navigation({ children, ...rest }) {
   const [isFloating, setFloating] = useState(false);
   const [isInvisible, setInvisible] = useState(false);
   const currentScrollY = useRef();
@@ -102,8 +102,3 @@ Navigation.Menu = Menu;
 Navigation.propTypes = {
   children: childrenPropType,
 };
-
-/**
- * @component
- */
-export default Navigation;

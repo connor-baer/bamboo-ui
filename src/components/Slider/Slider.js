@@ -68,7 +68,7 @@ const slideStyles = (count) => (theme) => {
   `;
 };
 
-function Slider({ children, ...rest }) {
+export function Slider({ children, ...rest }) {
   const count = Children.count(children);
   return (
     <Container {...rest}>
@@ -82,8 +82,3 @@ function Slider({ children, ...rest }) {
 Slider.propTypes = {
   children: childrenPropType,
 };
-
-/**
- * @component
- */
-export default Slider;

@@ -2,8 +2,8 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { text } from '@storybook/addon-knobs/react';
 
-import Anchor from '../typography/Anchor';
-import Footer from './Footer';
+import { Anchor } from '../typography/Anchor';
+import { Footer } from './Footer';
 
 export default {
   title: 'Components/Footer',

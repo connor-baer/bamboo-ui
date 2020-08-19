@@ -26,14 +26,9 @@ const lineHeightStyles = ({ theme, lineHeight = 'm' }) => css`
   line-height: ${theme.lineHeight[lineHeight]};
 `;
 
-const Text = styled('span', {
+export const Text = styled('span', {
   shouldForwardProp: (prop) =>
     isPropValid(prop) && prop !== 'type' && prop !== 'slope',
 })(typeStyles, sizeStyles, weightStyles, slopeStyles, lineHeightStyles);
 
 Text.propTypes = textPropType;
-
-/**
- * @component
- */
-export default Text;

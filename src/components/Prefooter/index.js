@@ -1,3 +1,1 @@
-import Prefooter from './Prefooter';
-
-export default Prefooter;
+export { Prefooter } from './Prefooter';

@@ -1,3 +1,1 @@
-import RatioImage from './RatioImage';
-
-export default RatioImage;
+export { RatioImage } from './RatioImage';

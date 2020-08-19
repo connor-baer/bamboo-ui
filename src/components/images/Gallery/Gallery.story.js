@@ -1,7 +1,7 @@
 import React from 'react';
 import { text, select, number } from '@storybook/addon-knobs';
 
-import Gallery from '.';
+import { Gallery } from './Gallery';
 
 function generateImages(amount) {
   return Array(amount)

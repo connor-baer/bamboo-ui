@@ -3,8 +3,8 @@ import { text, select } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import { spacing } from '../../styles/shared';
-import Header from './Header';
-import Small from '../typography/Small';
+import { Header } from './Header';
+import { Small } from '../typography/Small';
 
 export default {
   title: 'Components/Header',

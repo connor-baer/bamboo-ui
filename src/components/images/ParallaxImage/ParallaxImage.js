@@ -27,7 +27,7 @@ const imageStyles = () => css`
   object-fit: cover;
 `;
 
-export default class ParallaxImage extends Component {
+export class ParallaxImage extends Component {
   static propTypes = {
     ...imagePropType,
     speed: PropTypes.number,

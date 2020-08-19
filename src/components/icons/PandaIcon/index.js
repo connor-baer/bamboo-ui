@@ -1,3 +1,1 @@
-import PandaIcon from './PandaIcon';
-
-export default PandaIcon;
+export { PandaIcon } from './PandaIcon';

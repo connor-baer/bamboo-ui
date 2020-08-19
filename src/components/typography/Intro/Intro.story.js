@@ -2,7 +2,7 @@ import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
-import Intro from './Intro';
+import { Intro } from './Intro';
 
 export default {
   title: 'Typography/Intro',

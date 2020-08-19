@@ -40,7 +40,7 @@ const splitStyles = ({ theme, variant }) =>
     }
   `;
 
-const Main = styled('main')(baseStyles, sidebarStyles, splitStyles);
+export const Main = styled('main')(baseStyles, sidebarStyles, splitStyles);
 
 Main.propTypes = {
   variant: PropTypes.oneOf([SIDEBAR, SPLIT]),
@@ -48,5 +48,3 @@ Main.propTypes = {
 
 Main.SIDEBAR = SIDEBAR;
 Main.SPLIT = SPLIT;
-
-export default Main;

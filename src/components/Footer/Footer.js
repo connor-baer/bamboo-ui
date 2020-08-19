@@ -6,8 +6,8 @@ import { useTheme } from 'emotion-theming';
 
 import { childrenPropType } from '../../util/prop-types';
 import { fullWidth } from '../../styles/shared';
-import Anchor from '../typography/Anchor';
-import Small from '../typography/Small';
+import { Anchor } from '../typography/Anchor';
+import { Small } from '../typography/Small';
 
 const HEIGHT_NAVIGATION = '4rem';
 
@@ -37,7 +37,7 @@ const contentStyles = ({ theme }) => css`
 
 const Content = styled('div')(fullWidth, contentStyles);
 
-function Footer({ siteName, siteTwitter, children, ...rest }) {
+export function Footer({ siteName, siteTwitter, children, ...rest }) {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
   /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -70,5 +70,3 @@ Footer.propTypes = {
   siteTwitter: PropTypes.string,
   children: childrenPropType,
 };
-
-export default Footer;

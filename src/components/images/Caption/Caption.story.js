@@ -1,7 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 
-import Caption from './Caption';
+import { Caption } from './Caption';
 
 export default {
   title: 'Images/Caption',

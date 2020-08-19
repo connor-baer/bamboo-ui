@@ -63,7 +63,15 @@ const A = styled('a', {
   shouldForwardProp: isPropValid,
 })(baseStyles, simpleUnderlineStyles);
 
-const Anchor = ({ children, href, as, replace, shallow, scroll, ...rest }) => {
+export function Anchor({
+  children,
+  href,
+  as,
+  replace,
+  shallow,
+  scroll,
+  ...rest
+}) {
   const { Link } = useComponents();
 
   if (isEmpty(href)) {
@@ -82,7 +90,7 @@ const Anchor = ({ children, href, as, replace, shallow, scroll, ...rest }) => {
       <A {...rest}>{children}</A>
     </Link>
   );
-};
+}
 
 Anchor.propTypes = {
   children: childrenPropType.isRequired,
@@ -92,8 +100,3 @@ Anchor.propTypes = {
   shallow: PropTypes.bool,
   scroll: PropTypes.bool,
 };
-
-/**
- * @component
- */
-export default Anchor;

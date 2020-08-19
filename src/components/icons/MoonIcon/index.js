@@ -1,3 +1,1 @@
-import MoonIcon from './MoonIcon';
-
-export default MoonIcon;
+export { MoonIcon } from './MoonIcon';

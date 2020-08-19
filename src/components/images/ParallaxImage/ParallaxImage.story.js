@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, text } from '@storybook/addon-knobs';
 
-import ParallaxImage from './ParallaxImage';
+import { ParallaxImage } from '.';
 
 export default {
   title: 'Images/ParallaxImage',

@@ -5,8 +5,8 @@ import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
 import { useComponents } from '../../hooks/use-components';
-import Heading from '../typography/Heading';
-import Anchor from '../typography/Anchor';
+import { Heading } from '../typography/Heading';
+import { Anchor } from '../typography/Anchor';
 
 const wrapperStyles = ({ theme }) => css`
   background-color: ${theme.color.neutral[100]};
@@ -36,7 +36,7 @@ const anchorStyles = ({ theme }) => css`
 
 const StyledAnchor = styled(Anchor)(anchorStyles);
 
-function Prefooter({ text, linkLabel, linkUrl }) {
+export function Prefooter({ text, linkLabel, linkUrl }) {
   const theme = useTheme();
   const { Link } = useComponents();
 
@@ -63,8 +63,3 @@ Prefooter.propTypes = {
   linkLabel: PropTypes.string,
   linkUrl: PropTypes.string,
 };
-
-/**
- * @component
- */
-export default Prefooter;

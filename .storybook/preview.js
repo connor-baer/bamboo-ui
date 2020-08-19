@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Story from './Story';
 
 import { standard } from '../src/styles/theme';
-import Theme from '../src/components/Theme';
+import { Theme } from '../src/components/Theme';
 
 const withTheme = (storyFn) => <Theme theme={standard}>{storyFn()}</Theme>;
 

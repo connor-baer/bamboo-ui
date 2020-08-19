@@ -31,13 +31,8 @@ const bugfixStyles = () => css`
 /**
  * Display content in multiple columns on wide viewports.
  */
-const Columns = styled('div')(baseStyles, bugfixStyles);
+export const Columns = styled('div')(baseStyles, bugfixStyles);
 
 Columns.propTypes = {
   columnCount: PropTypes.number,
 };
-
-/**
- * @component
- */
-export default Columns;

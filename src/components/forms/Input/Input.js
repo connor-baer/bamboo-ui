@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import { uniqueId } from '../../../util/unique-id';
 import { Label } from '../Label';
 
 const baseStyles = ({ theme }) => css`
   display: block;
-  padding: 0 ${theme.spacing.m} ${theme.spacing.s};
+  padding: ${theme.spacing.xxs} ${theme.spacing.m} ${theme.spacing.s};
   margin: 0;
   width: 100%;
   border: none;
@@ -33,7 +34,7 @@ export function Input({
   suffix,
   ...props
 }) {
-  const id = customId;
+  const id = customId || uniqueId();
   return (
     <Label
       label={label}
@@ -58,7 +59,8 @@ export function Input({
 }
 
 Input.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   id: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,

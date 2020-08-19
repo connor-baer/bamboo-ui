@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { textPropType } from '../../../util/prop-types';
 
-import Text from '../Text';
+import { Text } from '../Text';
 
 const baseStyles = ({ theme }) => css`
   margin-top: ${theme.spacing.xxl};
@@ -20,7 +20,7 @@ const baseStyles = ({ theme }) => css`
 
 const StyledText = styled(Text)(baseStyles);
 
-function Heading(props) {
+export function Heading(props) {
   return (
     <StyledText
       as="h2"
@@ -34,8 +34,3 @@ function Heading(props) {
 }
 
 Heading.propTypes = textPropType;
-
-/**
- * @component
- */
-export default Heading;

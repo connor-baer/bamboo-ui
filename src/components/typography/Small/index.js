@@ -1,3 +1,1 @@
-import Small from './Small';
-
-export default Small;
+export { Small } from './Small';

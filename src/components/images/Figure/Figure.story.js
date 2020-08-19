@@ -1,7 +1,7 @@
 import React from 'react';
 import { text, select } from '@storybook/addon-knobs';
 
-import Figure from '.';
+import { Figure } from './Figure';
 
 export default {
   title: 'Images/Figure',

@@ -5,6 +5,4 @@ const INITIAL_STATE = {
   isInvisible: false,
 };
 
-const NavigationContext = createContext(INITIAL_STATE);
-
-export default NavigationContext;
+export const NavigationContext = createContext(INITIAL_STATE);

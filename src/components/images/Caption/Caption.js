@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { textPropType, captionPropType } from '../../../util/prop-types';
-import Paragraph from '../../typography/Paragraph';
+import { Paragraph } from '../../typography/Paragraph';
 
 const baseStyles = ({ theme }) => css`
   display: block;
@@ -12,7 +12,7 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.color.neutral[700]};
 `;
 
-const Caption = styled(Paragraph)(baseStyles);
+export const Caption = styled(Paragraph)(baseStyles);
 
 Caption.propTypes = {
   ...textPropType,
@@ -24,8 +24,3 @@ Caption.defaultProps = {
   size: 's',
   lineHeight: 'm',
 };
-
-/**
- * @component
- */
-export default Caption;

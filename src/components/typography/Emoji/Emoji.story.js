@@ -1,7 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 
-import Emoji from './Emoji';
+import { Emoji } from './Emoji';
 
 export default {
   title: 'Typography/Emoji',

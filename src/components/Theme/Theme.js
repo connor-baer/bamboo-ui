@@ -15,7 +15,7 @@ import {
 
 import { createStaticTheme, createVariables } from './ThemeService';
 
-export default function Theme({ theme, children }) {
+export function Theme({ theme, children }) {
   const { Head } = useComponents();
   const darkmode = useMedia('(prefers-color-scheme: dark)');
 

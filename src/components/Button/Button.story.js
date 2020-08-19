@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs/react';
 
-import Button from './Button';
+import { Button } from './Button';
 
 const variants = [Button.PRIMARY, Button.SECONDARY, Button.DESTRUCTIVE];
 

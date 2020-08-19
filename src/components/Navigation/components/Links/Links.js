@@ -7,7 +7,7 @@ import { isEmpty } from 'lodash/fp';
 import { childrenPropType } from '../../../../util/prop-types';
 import { useComponents } from '../../../../hooks/use-components';
 import { focusOutline } from '../../../../styles/shared';
-import NavigationContext from '../../NavigationContext';
+import { NavigationContext } from '../../NavigationContext';
 
 const navBaseStyles = ({ theme }) => css`
   position: fixed;

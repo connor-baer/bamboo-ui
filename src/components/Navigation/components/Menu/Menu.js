@@ -7,9 +7,9 @@ import { useTheme } from 'emotion-theming';
 import { childrenPropType } from '../../../../util/prop-types';
 import { focusOutline, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
-import MoonIcon from '../../../icons/MoonIcon';
-import Hamburger from '../../../icons/Hamburger';
-import Hr from '../../../Hr';
+import { MoonIcon } from '../../../icons/MoonIcon';
+import { Hamburger } from '../../../icons/Hamburger';
+import { Hr } from '../../../Hr';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;

@@ -50,7 +50,12 @@ const fullStyles = ({ theme, align = CENTER }) =>
     }
   `;
 
-const Align = styled('div')(baseStyles, rightStyles, leftStyles, fullStyles);
+export const Align = styled('div')(
+  baseStyles,
+  rightStyles,
+  leftStyles,
+  fullStyles,
+);
 
 Align.RIGHT = RIGHT;
 Align.LEFT = LEFT;
@@ -60,8 +65,3 @@ Align.FULL = FULL;
 Align.propTypes = {
   align: alignPropType,
 };
-
-/**
- * @component
- */
-export default Align;

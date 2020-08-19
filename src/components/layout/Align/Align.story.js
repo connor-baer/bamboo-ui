@@ -1,7 +1,7 @@
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
 
-import Align from './Align';
+import { Align } from './Align';
 
 export default {
   title: 'Layout/Align',

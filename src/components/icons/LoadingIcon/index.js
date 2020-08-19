@@ -1,3 +1,1 @@
-import LoadingIcon from './LoadingIcon';
-
-export default LoadingIcon;
+export { LoadingIcon } from './LoadingIcon';

@@ -8,47 +8,47 @@ import * as themes from './styles/theme';
  */
 
 // Typography
-export { default as Text } from './components/typography/Text';
-export { default as Paragraph } from './components/typography/Paragraph';
-export { default as Heading } from './components/typography/Heading';
-export { default as Anchor } from './components/typography/Anchor';
-export { default as Intro } from './components/typography/Intro';
-export { default as Small } from './components/typography/Small';
-export { default as Emoji } from './components/typography/Emoji';
+export { Text } from './components/typography/Text';
+export { Paragraph } from './components/typography/Paragraph';
+export { Heading } from './components/typography/Heading';
+export { Anchor } from './components/typography/Anchor';
+export { Intro } from './components/typography/Intro';
+export { Small } from './components/typography/Small';
+export { Emoji } from './components/typography/Emoji';
 
 // Sections
-export { default as Navigation } from './components/Navigation';
-export { default as Header } from './components/Header';
-export { default as Prefooter } from './components/Prefooter';
-export { default as Footer } from './components/Footer';
-export { default as Slider } from './components/Slider';
+export { Navigation } from './components/Navigation';
+export { Header } from './components/Header';
+export { Prefooter } from './components/Prefooter';
+export { Footer } from './components/Footer';
+export { Slider } from './components/Slider';
 
 // Utility
-export { default as LoadingBar } from './components/LoadingBar';
-export { default as Meta } from './components/Meta';
-export { default as Theme } from './components/Theme';
-export { default as Hr } from './components/Hr';
+export { LoadingBar } from './components/LoadingBar';
+export { Meta } from './components/Meta';
+export { Theme } from './components/Theme';
+export { Hr } from './components/Hr';
 
 // Icons
-export { default as PandaIcon } from './components/icons/PandaIcon';
-export { default as MoonIcon } from './components/icons/MoonIcon';
-export { default as LoadingIcon } from './components/icons/LoadingIcon';
-export { default as Hamburger } from './components/icons/Hamburger';
+export { PandaIcon } from './components/icons/PandaIcon';
+export { MoonIcon } from './components/icons/MoonIcon';
+export { LoadingIcon } from './components/icons/LoadingIcon';
+export { Hamburger } from './components/icons/Hamburger';
 
 // Images
-export { default as Caption } from './components/images/Caption';
-export { default as Collage } from './components/images/Collage';
-export { default as CoverImage } from './components/images/CoverImage';
-export { default as Figure } from './components/images/Figure';
-export { default as Gallery } from './components/images/Gallery';
-export { default as Image } from './components/images/Image';
-export { default as ParallaxImage } from './components/images/ParallaxImage';
-export { default as RatioImage } from './components/images/RatioImage';
+export { Caption } from './components/images/Caption';
+export { Collage } from './components/images/Collage';
+export { CoverImage } from './components/images/CoverImage';
+export { Figure } from './components/images/Figure';
+export { Gallery } from './components/images/Gallery';
+export { Image } from './components/images/Image';
+export { ParallaxImage } from './components/images/ParallaxImage';
+export { RatioImage } from './components/images/RatioImage';
 
 // Layout
-export { default as Align } from './components/layout/Align';
-export { default as Columns } from './components/layout/Columns';
-export { default as Main } from './components/layout/Main';
+export { Align } from './components/layout/Align';
+export { Columns } from './components/layout/Columns';
+export { Main } from './components/layout/Main';
 
 // Forms
 export { Input } from './components/forms/Input';
@@ -56,7 +56,7 @@ export { Textarea } from './components/forms/Textarea';
 export { Select } from './components/forms/Select';
 export { Label } from './components/forms/Label';
 
-export { default as Button } from './components/Button';
+export { Button } from './components/Button';
 
 /**
  * Hooks

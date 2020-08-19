@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, number } from '@storybook/addon-knobs';
 
-import LoadingBar from '.';
+import { LoadingBar } from './LoadingBar';
 
 export default {
   title: 'Components/LoadingBar',

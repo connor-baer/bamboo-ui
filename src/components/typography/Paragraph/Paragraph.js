@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { textPropType } from '../../../util/prop-types';
 
-import Text from '../Text';
+import { Text } from '../Text';
 
 const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacing.m};
@@ -12,7 +12,7 @@ const baseStyles = ({ theme }) => css`
 
 const StyledText = styled(Text)(baseStyles);
 
-function Paragraph(props) {
+export function Paragraph(props) {
   return (
     <StyledText
       as="p"
@@ -26,8 +26,3 @@ function Paragraph(props) {
 }
 
 Paragraph.propTypes = textPropType;
-
-/**
- * @component
- */
-export default Paragraph;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { text, select } from '@storybook/addon-knobs/react';
 
-import Anchor from './Anchor';
+import { Anchor } from './Anchor';
 
 export default {
   title: 'Typography/Anchor',

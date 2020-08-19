@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Heading from '../../../typography/Heading';
+import { Heading } from '../../../typography/Heading';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.color.primary[900]};
@@ -34,11 +34,6 @@ const sizeStyles = ({ theme, size }) =>
 
 const StyledHeading = styled(Heading)(baseStyles, sizeStyles);
 
-function Subtitle(props) {
+export function Subtitle(props) {
   return <StyledHeading as="h2" weight="regular" {...props} />;
 }
-
-/**
- * @component
- */
-export default Subtitle;

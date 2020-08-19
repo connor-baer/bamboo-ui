@@ -16,9 +16,4 @@ const wrapperStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled('header')(wrapperStyles);
-
-/**
- * @component
- */
-export default Wrapper;
+export const Wrapper = styled('header')(wrapperStyles);

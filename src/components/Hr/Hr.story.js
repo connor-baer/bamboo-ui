@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import Hr from './Hr';
+import { Hr } from './Hr';
 
 const Container = styled('div')`
   width: 500px;

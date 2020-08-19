@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Collage from '.';
+import { Collage } from './Collage';
 
 const images = [
   {

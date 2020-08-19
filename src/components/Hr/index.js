@@ -1,3 +1,1 @@
-import Hr from './Hr';
-
-export default Hr;
+export { Hr } from './Hr';

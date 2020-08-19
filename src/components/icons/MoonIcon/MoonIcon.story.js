@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, number, color } from '@storybook/addon-knobs';
 
-import MoonIcon from './MoonIcon';
+import { MoonIcon } from './MoonIcon';
 
 export default {
   title: 'Icons/MoonIcon',

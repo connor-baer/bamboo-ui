@@ -1,7 +1,7 @@
 import React from 'react';
 import { object, text } from '@storybook/addon-knobs/react';
 
-import Navigation from '.';
+import { Navigation } from './Navigation';
 
 const links = [
   {

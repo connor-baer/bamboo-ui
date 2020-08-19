@@ -10,9 +10,4 @@ const baseStyles = ({ theme }) => css`
 /**
  * A horizontal rule to visually and semantically separate text.
  */
-const Hr = styled.hr(baseStyles);
-
-/**
- * @component
- */
-export default Hr;
+export const Hr = styled.hr(baseStyles);

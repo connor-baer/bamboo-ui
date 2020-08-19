@@ -42,6 +42,7 @@
     "@emotion/core": "^10.0.10",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.10",
+    "downshift": "^6.0.5",
     "emotion-theming": "^10.0.10",
     "es-cookie": "^1.2.0",
     "fontfaceobserver": "^2.1.0",

@@ -1,5 +1,5 @@
 import { withTheme } from 'emotion-theming';
 
-import ParallaxImage from './ParallaxImage';
+import { ParallaxImage as PureParallaxImage } from './ParallaxImage';
 
-export default withTheme(ParallaxImage);
+export const ParallaxImage = withTheme(PureParallaxImage);

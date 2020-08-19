@@ -20,11 +20,6 @@ const placeholderStyles = ({ theme, src, color }) =>
     background: ${color || theme.color.neutral[300]};
   `;
 
-const Image = styled('img')(baseStyles, placeholderStyles);
+export const Image = styled('img')(baseStyles, placeholderStyles);
 
 Image.propTypes = imagePropType;
-
-/**
- * @component
- */
-export default Image;

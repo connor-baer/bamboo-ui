@@ -1,7 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 
-import Small from './Small';
+import { Small } from './Small';
 
 export default {
   title: 'Typography/Small',

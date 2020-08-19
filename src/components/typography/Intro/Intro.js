@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { textPropType } from '../../../util/prop-types';
-import Paragraph from '../Paragraph';
+import { Paragraph } from '../Paragraph';
 
 const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacing.l};
@@ -11,13 +11,8 @@ const baseStyles = ({ theme }) => css`
 
 const StyledParagraph = styled(Paragraph)(baseStyles);
 
-function Intro(props) {
+export function Intro(props) {
   return <StyledParagraph size="l" weight="light" lineHeight="m" {...props} />;
 }
 
 Intro.propTypes = textPropType;
-
-/**
- * @component
- */
-export default Intro;

@@ -11,8 +11,8 @@ import {
   alignPropType,
 } from '../../../util/prop-types';
 import { useComponents } from '../../../hooks/use-components';
-import RatioImage from '../RatioImage';
-import Caption from '../Caption';
+import { RatioImage } from '../RatioImage';
+import { Caption } from '../Caption';
 
 import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
@@ -70,7 +70,7 @@ const wrapperStyles = ({ theme, numberOfImages, align }) => {
 
 const ImageWrapper = styled('div')(wrapperStyles);
 
-function Gallery({ images, align = LEFT, caption }) {
+export function Gallery({ images, align = LEFT, caption }) {
   const theme = useTheme();
   const { Align } = useComponents();
 
@@ -104,8 +104,3 @@ Gallery.propTypes = {
   align: alignPropType,
   caption: captionPropType,
 };
-
-/**
- * @component
- */
-export default Gallery;

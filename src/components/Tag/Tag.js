@@ -5,8 +5,7 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
 import { disableVisually, focusOutline } from '../../styles/shared';
-
-import { ReactComponent as Cross } from './svgs/cross.svg';
+import { ReactComponent as Cross } from '../../icons/cross.svg';
 
 const baseStyles = ({ theme }) => css`
   display: inline-block;
@@ -17,6 +16,10 @@ const baseStyles = ({ theme }) => css`
 
   svg {
     fill: currentColor;
+  }
+
+  &:focus {
+    ${focusOutline(theme)};
   }
 `;
 
@@ -63,17 +66,28 @@ const closeButtonStyles = ({ theme }) => css`
   &:focus {
     ${focusOutline(theme)};
   }
+
+  svg {
+    color: ${theme.color.neutral[900]} !important;
+  }
 `;
 
 const CloseButton = styled('button')(closeButtonStyles);
 
-export default function Tag({ children, onClose, ...props }) {
+export function Tag({ children, onRemove, ...props }) {
   return (
     <Wrapper {...props}>
       <Content>{children}</Content>
-      <CloseButton onClick={onClose}>
-        <Cross />
-      </CloseButton>
+      {onRemove && (
+        <CloseButton
+          onClick={onRemove}
+          aria-label="Remove"
+          title="Remove"
+          type="button"
+        >
+          <Cross />
+        </CloseButton>
+      )}
     </Wrapper>
   );
 }
@@ -81,5 +95,5 @@ export default function Tag({ children, onClose, ...props }) {
 Tag.propTypes = {
   children: childrenPropType,
   disabled: PropTypes.bool,
-  onClose: PropTypes.func,
+  onRemove: PropTypes.func,
 };
