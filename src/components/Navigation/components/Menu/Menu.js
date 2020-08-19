@@ -64,7 +64,7 @@ const dropdownBaseStyles = ({ theme }) => css`
   visibility: hidden;
   opacity: 0;
   background: ${theme.color.white};
-  box-shadow: 0 0 4px ${theme.color.shadow};
+  box-shadow: 0 0 6px ${theme.color.shadow};
   border-radius: ${theme.borderRadius.s};
   transition: visibility ${theme.animation.standard},
     opacity ${theme.animation.standard};

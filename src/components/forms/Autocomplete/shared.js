@@ -75,7 +75,7 @@ const outlineStyles = ({ theme, invalid, hasWarning, showValid }) => {
   const colors = getStateColors({ theme, invalid, hasWarning, showValid });
 
   return css`
-    box-shadow: 0 0 0 2px ${colors.active};
+    box-shadow: 0 0 0 2px ${colors.active}, 0 0 6px ${theme.color.shadow};
   `;
 };
 
@@ -91,6 +91,7 @@ const highlightedStyles = ({ theme, isHighlighted }) =>
   isHighlighted &&
   css`
     background-color: ${theme.color.neutral[100]};
+    color: ${theme.color.primary[500]};
   `;
 
 const SuggestionItem = styled('li')(suggestionStyles, highlightedStyles);

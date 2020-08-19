@@ -15,7 +15,7 @@ import {
   SuggestionList,
   Suggestion,
   AutocompleteWrapper,
-} from './styled-components';
+} from './shared';
 
 function getFilteredItems({ items, selectedItems = [], inputValue = '' }) {
   return items.filter(

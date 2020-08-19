@@ -54,6 +54,10 @@ export { Main } from './components/layout/Main';
 export { Input } from './components/forms/Input';
 export { Textarea } from './components/forms/Textarea';
 export { Select } from './components/forms/Select';
+export {
+  AutocompleteInput,
+  AutocompleteMultiSelect,
+} from './components/forms/Autocomplete';
 export { Label } from './components/forms/Label';
 
 export { Button } from './components/Button';

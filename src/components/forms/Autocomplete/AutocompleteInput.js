@@ -14,7 +14,7 @@ import {
   ExpandButton,
   SuggestionList,
   Suggestion,
-} from './styled-components';
+} from './shared';
 
 function getFilteredItems({ items, inputValue = '' }) {
   return items.filter((item) => includes(toLower(inputValue), toLower(item)));
