@@ -22,5 +22,6 @@ export const Base = () => (
       { label: 'Jane', value: 'jane' },
       { label: 'John', value: 'john' },
     ]}
+    validationHint={text('Validation hint', '')}
   />
 );

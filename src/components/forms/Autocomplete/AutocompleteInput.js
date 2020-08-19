@@ -22,7 +22,7 @@ function getFilteredItems({ items, inputValue = '' }) {
 
 const inputWrapperStyles = ({ theme }) => css`
   display: flex;
-  padding: 0 ${theme.spacing.m} ${theme.spacing.xs};
+  padding: 0 ${theme.spacing.m};
 `;
 
 export const InputWrapper = styled('div')(inputWrapperStyles);
@@ -32,11 +32,13 @@ export function AutocompleteInput({
   onChange,
   items = [],
   initialSelectedItem,
+  itemToString = (value) => value,
   filterItems = getFilteredItems,
   invalid,
   disabled,
   hasWarning,
   showValid,
+  validationHint,
   className,
   ...props
 }) {
@@ -54,6 +56,7 @@ export function AutocompleteInput({
   } = useCombobox({
     items: filteredItems,
     initialSelectedItem,
+    itemToString,
     onInputValueChange: (state) => {
       setFilteredItems(filterItems({ items, ...state }));
       if (onChange) {
@@ -70,11 +73,12 @@ export function AutocompleteInput({
         disabled={disabled}
         showValid={showValid}
         hasWarning={hasWarning}
+        validationHint={validationHint}
         css={labelOpenStyles(isOpen)}
         {...getLabelProps()}
       >
         <InputWrapper {...getComboboxProps()}>
-          <InputElement {...getInputProps()} {...props} />
+          <InputElement {...getInputProps(props)} />
           <ExpandButton
             {...getToggleButtonProps()}
             aria-label="Toggle menu"
@@ -106,11 +110,13 @@ export function AutocompleteInput({
 AutocompleteInput.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  validationHint: PropTypes.string.isRequired,
   id: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
   initialSelectedItem: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  itemToString: PropTypes.func,
   filterItems: PropTypes.func,
   disabled: PropTypes.bool,
   invalid: PropTypes.bool,

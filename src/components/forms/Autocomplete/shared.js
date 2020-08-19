@@ -23,9 +23,10 @@ const inputStyles = ({ theme }) => css`
   padding: ${theme.spacing.xxs} 0;
   margin: 0;
   width: 100%;
-  border: none;
   border-radius: ${theme.borderRadius.s};
+  border: none;
   outline: 0;
+  box-shadow: none;
   line-height: 1;
   background-color: transparent;
   color: ${theme.color.bodyColor};

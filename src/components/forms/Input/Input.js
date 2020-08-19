@@ -8,10 +8,11 @@ import { Label } from '../Label';
 
 const baseStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.xxs} ${theme.spacing.m} ${theme.spacing.s};
+  padding: ${theme.spacing.xxs} ${theme.spacing.m};
   margin: 0;
   width: 100%;
   border: none;
+  box-shadow: none;
   outline: 0;
   line-height: 1;
   background: transparent;
@@ -31,6 +32,7 @@ export function Input({
   showValid,
   className,
   inputStyles,
+  validationHint,
   suffix,
   ...props
 }) {
@@ -44,6 +46,7 @@ export function Input({
       showValid={showValid}
       hasWarning={hasWarning}
       className={className}
+      validationHint={validationHint}
       suffix={suffix}
     >
       <InputElement
@@ -69,6 +72,7 @@ Input.propTypes = {
   hasWarning: PropTypes.bool,
   showValid: PropTypes.bool,
   className: PropTypes.string,
+  validationHint: PropTypes.string,
   suffix: PropTypes.element,
   inputStyles: PropTypes.object,
 };

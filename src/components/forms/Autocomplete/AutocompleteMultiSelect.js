@@ -30,15 +30,16 @@ const wrapperStyles = ({ theme }) => css`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: ${theme.spacing.xs};
-  padding: 0 ${theme.spacing.m} 0.375rem;
+  padding: 0 ${theme.spacing.m};
 `;
 
 const Wrapper = styled('div')(wrapperStyles);
 
 const inputWrapperStyles = () => css`
   display: flex;
-  padding: 1px;
   flex-grow: 1;
+  width: 8rem;
+  padding: 1px;
 `;
 
 const InputWrapper = styled('div')(inputWrapperStyles);
@@ -48,6 +49,7 @@ export function AutocompleteMultiSelect({
   items = [],
   initialSelectedItems = [],
   initialInputValue = '',
+  itemToString = (value) => value,
   filterItems = getFilteredItems,
   onChange,
   onInputValueChange,
@@ -55,6 +57,7 @@ export function AutocompleteMultiSelect({
   disabled,
   hasWarning,
   showValid,
+  validationHint,
   className,
   ...props
 }) {
@@ -96,6 +99,7 @@ export function AutocompleteMultiSelect({
   } = useCombobox({
     inputValue,
     items: filteredItems,
+    itemToString,
     onStateChange: ({ inputValue: nextInputValue, type, selectedItem }) => {
       switch (type) {
         case useCombobox.stateChangeTypes.InputChange:
@@ -117,6 +121,8 @@ export function AutocompleteMultiSelect({
     },
   });
 
+  const showSuggestions = isOpen && !isEmpty(filteredItems);
+
   return (
     <AutocompleteWrapper className={className}>
       <Label
@@ -125,7 +131,8 @@ export function AutocompleteMultiSelect({
         disabled={disabled}
         showValid={showValid}
         hasWarning={hasWarning}
-        css={labelOpenStyles(isOpen)}
+        validationHint={validationHint}
+        css={labelOpenStyles(showSuggestions)}
         {...getLabelProps()}
       >
         <Wrapper>
@@ -140,8 +147,9 @@ export function AutocompleteMultiSelect({
           ))}
           <InputWrapper {...getComboboxProps()}>
             <InputElement
-              {...props}
-              {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))}
+              {...getInputProps(
+                getDropdownProps({ preventKeyAction: isOpen, ...props }),
+              )}
             />
             <ExpandButton
               {...getToggleButtonProps()}
@@ -155,7 +163,7 @@ export function AutocompleteMultiSelect({
         </Wrapper>
       </Label>
 
-      {isOpen && !isEmpty(filteredItems) && (
+      {showSuggestions && (
         <SuggestionList
           {...getMenuProps()}
           invalid={invalid}
@@ -182,12 +190,14 @@ export function AutocompleteMultiSelect({
 AutocompleteMultiSelect.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  validationHint: PropTypes.string.isRequired,
   id: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
   initialInputValue: PropTypes.string,
   initialSelectedItems: PropTypes.arrayOf(PropTypes.string),
   onChange: PropTypes.func,
   onInputValueChange: PropTypes.func,
+  itemToString: PropTypes.func,
   filterItems: PropTypes.func,
   disabled: PropTypes.bool,
   invalid: PropTypes.bool,

@@ -37,7 +37,7 @@ const headerBaseStyles = ({ theme }) => css`
 const headerInvisibleStyles = ({ theme, isInvisible }) =>
   isInvisible &&
   css`
-    ${theme.mq.desk} {
+    ${theme.mq.lap} {
       opacity: 0;
     }
   `;
@@ -45,7 +45,7 @@ const headerInvisibleStyles = ({ theme, isInvisible }) =>
 const headerFloatingStyles = ({ theme, isFloating }) =>
   isFloating &&
   css`
-    ${theme.mq.desk} {
+    ${theme.mq.lap} {
       padding-top: ${theme.spacing.s};
       padding-bottom: ${theme.spacing.s};
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);

@@ -12,10 +12,10 @@ import { Label } from '../Label';
 const selectStyles = ({ theme }) => css`
   appearance: none;
   display: block;
-  height: 36.5px;
+  height: 28.5px;
   position: relative;
   width: 100%;
-  padding: ${theme.spacing.xxs} ${theme.spacing.m} ${theme.spacing.s};
+  padding: ${theme.spacing.xxs} ${theme.spacing.m};
   margin: 0;
   border: none;
   outline: 0;
@@ -45,11 +45,11 @@ const SelectElement = styled('select')(selectStyles);
 const chevronStyles = ({ theme }) => css`
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
   width: 20px;
   height: 20px;
+  margin-top: 2.25rem;
   margin-right: ${theme.spacing.m};
-  margin-bottom: ${theme.spacing.s};
 `;
 
 const StyledChevron = styled(Chevron)(chevronStyles);
@@ -65,6 +65,8 @@ export function Select({
   invalid,
   hasWarning,
   showValid,
+  validationHint,
+  className,
   ...props
 }) {
   const id = customId || uniqueId();
@@ -76,6 +78,8 @@ export function Select({
       disabled={disabled}
       showValid={showValid}
       hasWarning={hasWarning}
+      validationHint={validationHint}
+      className={className}
     >
       <SelectElement id={id} invalid={invalid} disabled={disabled} {...props}>
         {!value && (
@@ -109,6 +113,8 @@ Select.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
+  validationHint: PropTypes.string,
+  className: PropTypes.string,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   invalid: PropTypes.bool,

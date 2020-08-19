@@ -13,7 +13,7 @@ import { ReactComponent as Cross } from '../../../icons/circle-cross.svg';
 const wrapperStyles = ({ theme }) => css`
   display: block;
   position: relative;
-  padding: 0;
+  padding: ${theme.spacing.xs} 0;
   margin: 0;
   transition: box-shadow ${theme.animation.micro},
     background-color ${theme.animation.micro};
@@ -64,12 +64,21 @@ const Wrapper = styled('label')(wrapperStyles, outlineStyles, disabledStyles);
 
 const textStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.s} ${theme.spacing.xxxl} 0 ${theme.spacing.m};
+  padding: ${theme.spacing.xxs} ${theme.spacing.xxxl} 0 ${theme.spacing.m};
   color: ${theme.color.neutral[700]};
   font-size: ${theme.fontSize.s};
 `;
 
 const Text = styled('span')(textStyles);
+
+const validationHintStyles = ({ theme, invalid }) => css`
+  display: block;
+  padding: 0 ${theme.spacing.m} ${theme.spacing.xxs};
+  color: ${invalid ? theme.color.red[700] : theme.color.neutral[500]};
+  font-size: ${theme.fontSize.s};
+`;
+
+const ValidationHint = styled('span')(validationHintStyles);
 
 const suffixStyles = (theme) => css`
   position: absolute;
@@ -97,13 +106,18 @@ const getSuffix = ({ suffix, invalid, hasWarning, showValid }) => {
   return null;
 };
 
-export const Label = ({ label, children, ...props }) => {
+export const Label = ({ label, validationHint, children, ...props }) => {
   const Suffix = getSuffix(props);
   return (
     <Wrapper {...props}>
       <Text>{label}</Text>
       {children}
       {Suffix && <Suffix css={suffixStyles} role="presentation" />}
+      {validationHint && (
+        <ValidationHint invalid={props.invalid}>
+          {validationHint}
+        </ValidationHint>
+      )}
     </Wrapper>
   );
 };
@@ -111,6 +125,7 @@ export const Label = ({ label, children, ...props }) => {
 Label.propTypes = {
   children: childrenPropType,
   label: PropTypes.string,
+  validationHint: PropTypes.string,
   id: PropTypes.string,
   disabled: PropTypes.bool,
   invalid: PropTypes.bool,

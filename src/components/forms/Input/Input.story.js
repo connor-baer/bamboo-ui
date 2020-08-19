@@ -18,5 +18,6 @@ export const Base = () => (
     invalid={boolean('Invalid', false)}
     hasWarning={boolean('Has warning', false)}
     showValid={boolean('Show valid', false)}
+    validationHint={text('Validation hint', '')}
   />
 );

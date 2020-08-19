@@ -33,6 +33,7 @@ export const Input = () => (
     items={items}
     initialSelectedItems={['Apple']}
     onChange={action('Changed selected item')}
+    validationHint={text('Validation hint', '')}
   />
 );
 
@@ -48,5 +49,6 @@ export const MultiSelect = () => (
     initialSelectedItems={['Apple']}
     onChange={action('Changed selected items')}
     onInputValueChange={action('Changed input value')}
+    validationHint={text('Validation hint', '')}
   />
 );
