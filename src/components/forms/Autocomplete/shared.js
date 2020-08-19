@@ -20,7 +20,7 @@ export const labelOpenStyles = (isOpen) =>
 
 const inputStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.xxs};
+  padding: ${theme.spacing.xxs} 0;
   margin: 0;
   width: 100%;
   border: none;
@@ -69,6 +69,7 @@ const suggestionListStyles = ({ theme }) => css`
   border-bottom-left-radius: ${theme.borderRadius.s};
   overflow: hidden;
   width: 100%;
+  z-index: ${theme.zIndex.autocomplete};
 `;
 
 const outlineStyles = ({ theme, invalid, hasWarning, showValid }) => {
@@ -99,7 +100,8 @@ const SuggestionItem = styled('li')(suggestionStyles, highlightedStyles);
 const highlightStyles = ({ theme }) => css`
   font-weight: ${theme.fontWeight.bold};
   text-decoration: underline;
-  background: transparent;
+  background: inherit;
+  color: inherit;
 `;
 
 const Highlight = styled('mark')(highlightStyles);

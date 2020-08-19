@@ -22,7 +22,7 @@ function getFilteredItems({ items, inputValue = '' }) {
 
 const inputWrapperStyles = ({ theme }) => css`
   display: flex;
-  padding: 0 ${theme.spacing.s} ${theme.spacing.xs};
+  padding: 0 ${theme.spacing.m} ${theme.spacing.xs};
 `;
 
 export const InputWrapper = styled('div')(inputWrapperStyles);

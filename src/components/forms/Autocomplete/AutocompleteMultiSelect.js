@@ -38,6 +38,7 @@ const Wrapper = styled('div')(wrapperStyles);
 const inputWrapperStyles = () => css`
   display: flex;
   padding: 1px;
+  flex-grow: 1;
 `;
 
 const InputWrapper = styled('div')(inputWrapperStyles);
@@ -45,7 +46,7 @@ const InputWrapper = styled('div')(inputWrapperStyles);
 export function AutocompleteMultiSelect({
   label,
   items = [],
-  initialSelectedItems,
+  initialSelectedItems = [],
   initialInputValue = '',
   filterItems = getFilteredItems,
   onChange,
@@ -63,7 +64,7 @@ export function AutocompleteMultiSelect({
     getDropdownProps,
     addSelectedItem,
     removeSelectedItem,
-    selectedItems,
+    selectedItems = [],
   } = useMultipleSelection({
     initialSelectedItems,
     onSelectedItemsChange: (state) => {

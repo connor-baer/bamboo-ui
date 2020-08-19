@@ -136,6 +136,7 @@ const borderRadius = {
 
 const zIndex = {
   select: 9,
+  autocomplete: 11,
   navigation: 99,
   loadingBar: 999,
 };

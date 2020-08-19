@@ -119,14 +119,6 @@ export function Button({
     props['aria-disabled'] = props.disabled;
   }
 
-  if (onClick) {
-    return (
-      <StyledButton onClick={onClick} variant={variant} {...props}>
-        {children}
-      </StyledButton>
-    );
-  }
-
   if (href) {
     return (
       <Link
@@ -144,7 +136,11 @@ export function Button({
     );
   }
 
-  return null;
+  return (
+    <StyledButton onClick={onClick} variant={variant} {...props}>
+      {children}
+    </StyledButton>
+  );
 }
 
 Button.propTypes = {
