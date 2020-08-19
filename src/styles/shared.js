@@ -147,7 +147,7 @@ export const getStateColors = ({ theme, invalid, hasWarning, showValid }) => {
     };
   }
   return {
-    default: theme.color.neutral[700],
+    default: theme.color.neutral[500],
     hover: theme.color.neutral[900],
     focus: theme.color.primary[500],
     active: theme.color.primary[500],

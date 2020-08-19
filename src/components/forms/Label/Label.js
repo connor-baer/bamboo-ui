@@ -64,7 +64,7 @@ const Wrapper = styled('label')(wrapperStyles, outlineStyles, disabledStyles);
 
 const textStyles = ({ theme }) => css`
   display: block;
-  padding: ${theme.spacing.s} ${theme.spacing.xxxl} 0.125rem ${theme.spacing.m};
+  padding: ${theme.spacing.s} ${theme.spacing.xxxl} 0 ${theme.spacing.m};
   color: ${theme.color.neutral[700]};
   font-size: ${theme.fontSize.s};
 `;
