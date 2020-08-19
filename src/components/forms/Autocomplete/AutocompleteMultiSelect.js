@@ -45,11 +45,12 @@ const inputWrapperStyles = () => css`
 const InputWrapper = styled('div')(inputWrapperStyles);
 
 export function AutocompleteMultiSelect({
+  value,
   label,
   items = [],
   initialSelectedItems = [],
   initialInputValue = '',
-  itemToString = (value) => value,
+  itemToString = (v) => v,
   filterItems = getFilteredItems,
   onChange,
   onInputValueChange,
@@ -188,6 +189,7 @@ export function AutocompleteMultiSelect({
 }
 
 AutocompleteMultiSelect.propTypes = {
+  value: PropTypes.string,
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   validationHint: PropTypes.string.isRequired,
