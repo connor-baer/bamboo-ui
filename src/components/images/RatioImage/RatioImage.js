@@ -7,13 +7,12 @@ import { includes } from 'lodash/fp';
 import { imagePropType } from '../../../util/prop-types';
 import { useComponents } from '../../../hooks/use-components';
 
-const wrapperBaseStyles = ({ theme, color }) => css`
+const wrapperBaseStyles = () => css`
   display: block;
   position: relative;
   overflow: hidden;
   height: auto;
   width: 100%;
-  background: ${color || theme.color.neutral[300]};
 `;
 
 const wrapperPlaceholderStyles = ({ theme, isTransparent, color }) =>
@@ -36,15 +35,6 @@ const Wrapper = styled('div')(
   wrapperAspectRatioStyles,
 );
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
 const imageBaseStyles = css`
   display: block;
   height: auto;
@@ -64,6 +54,15 @@ const imageAspectRatioStyles = ({ aspectRatio }) =>
     height: 100%;
     object-fit: cover;
   `;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const imageLoadingStyles = ({ theme, isLoading }) => css`
   animation: ${theme.animation.standard} ${fadeIn};

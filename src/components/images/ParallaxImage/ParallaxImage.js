@@ -1,22 +1,32 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
+import { includes } from 'lodash/fp';
 
 import { themePropType, imagePropType } from '../../../util/prop-types';
 import { isServer } from '../../../util/is-server';
-import { RatioImage } from '../RatioImage';
+import { ComponentsContext } from '../../../hooks/use-components';
 
-const containerStyles = () => css`
+const containerBaseStyles = () => css`
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 25vh;
 `;
 
-const Container = styled('div')(containerStyles);
+const containerPlaceholderStyles = ({ theme, isTransparent, color }) =>
+  !isTransparent &&
+  css`
+    background: ${color || theme.color.neutral[300]};
+  `;
 
-const imageStyles = () => css`
+const Container = styled('div')(
+  containerBaseStyles,
+  containerPlaceholderStyles,
+);
+
+const imageBaseStyles = css`
   position: absolute;
   top: -100%;
   left: 0;
@@ -25,6 +35,20 @@ const imageStyles = () => css`
   width: 100%;
   height: 300%;
   object-fit: cover;
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const imageLoadingStyles = ({ theme, isLoading }) => css`
+  animation: ${theme.animation.standard} ${fadeIn};
+  animation-play-state: ${isLoading ? 'paused' : 'running'};
 `;
 
 export class ParallaxImage extends Component {
@@ -40,12 +64,15 @@ export class ParallaxImage extends Component {
     theme: {},
   };
 
+  static contextType = ComponentsContext;
+
   constructor(props) {
     super(props);
     this.containerRef = createRef();
 
     this.state = {
       translateY: 0,
+      isLoading: true,
     };
   }
 
@@ -141,20 +168,32 @@ export class ParallaxImage extends Component {
     this.setState({ translateY });
   };
 
+  handleLoad = () => {
+    this.setState({ isLoading: false });
+  };
+
   render() {
+    const { Image } = this.context;
     const { className, speed, theme, ...image } = this.props;
-    const { translateY } = this.state;
+    const { translateY, isLoading } = this.state;
 
     if (!image.src) {
       return null;
     }
 
+    const isTransparent = image.src && includes('.png', image.src);
+
     return (
-      <Container ref={this.containerRef} className={className}>
-        <RatioImage
-          {...image}
-          css={imageStyles}
+      <Container
+        ref={this.containerRef}
+        isTransparent={isTransparent}
+        className={className}
+      >
+        <Image
+          onLoad={this.handleLoad}
           sizes="100vw"
+          {...image}
+          css={[imageBaseStyles, imageLoadingStyles({ theme, isLoading })]}
           style={{ transform: `translate3d(0, ${translateY}%, 0)` }}
         />
       </Container>
