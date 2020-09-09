@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { themePropType, imagePropType } from '../../../util/prop-types';
-import { ComponentsContext } from '../../../hooks/use-components';
 import { isServer } from '../../../util/is-server';
+import { RatioImage } from '../RatioImage';
 
 const containerStyles = () => css`
   position: relative;
@@ -39,8 +39,6 @@ export class ParallaxImage extends Component {
     speed: 75,
     theme: {},
   };
-
-  static contextType = ComponentsContext;
 
   constructor(props) {
     super(props);
@@ -145,7 +143,6 @@ export class ParallaxImage extends Component {
 
   render() {
     const { className, speed, theme, ...image } = this.props;
-    const { Image } = this.context;
     const { translateY } = this.state;
 
     if (!image.src) {
@@ -154,7 +151,7 @@ export class ParallaxImage extends Component {
 
     return (
       <Container ref={this.containerRef} className={className}>
-        <Image
+        <RatioImage
           {...image}
           css={imageStyles}
           sizes="100vw"
