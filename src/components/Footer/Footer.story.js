@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { text } from '@storybook/addon-knobs/react';
 
 import { Anchor } from '../typography/Anchor';
+
 import { Footer } from './Footer';
 
 export default {

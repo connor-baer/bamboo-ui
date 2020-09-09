@@ -8,6 +8,7 @@ import { isEmpty, includes, toLower } from 'lodash/fp';
 import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
 import { Tag } from '../../Tag';
 import { Label } from '../Label';
+
 import {
   labelOpenStyles,
   InputElement,

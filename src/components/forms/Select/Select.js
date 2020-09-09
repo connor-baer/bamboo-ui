@@ -6,7 +6,6 @@ import { css } from '@emotion/core';
 import { childrenPropType } from '../../../util/prop-types';
 import { uniqueId } from '../../../util/unique-id';
 import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
-
 import { Label } from '../Label';
 
 const selectStyles = ({ theme }) => css`

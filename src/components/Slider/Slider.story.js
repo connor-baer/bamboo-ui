@@ -3,6 +3,7 @@ import { number } from '@storybook/addon-knobs/react';
 import { css } from '@emotion/core';
 
 import { CoverImage } from '../images/CoverImage';
+
 import { Slider } from './Slider';
 
 function generateSlides(amount) {

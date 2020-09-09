@@ -13,7 +13,6 @@ import {
 import { useComponents } from '../../../hooks/use-components';
 import { RatioImage } from '../RatioImage';
 import { Caption } from '../Caption';
-
 import { RIGHT, LEFT, CENTER, FULL } from '../../../constants/align';
 
 function getSizes(theme, align) {

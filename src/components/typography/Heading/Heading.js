@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { textPropType } from '../../../util/prop-types';
-
 import { Text } from '../Text';
 
 const baseStyles = ({ theme }) => css`

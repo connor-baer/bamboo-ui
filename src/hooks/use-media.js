@@ -6,18 +6,14 @@ export function useMedia(expression, callback, initial = false) {
   useEffect(() => {
     const query = window.matchMedia(expression);
 
-    setMatches(query.matches);
-
-    if (callback) {
-      callback(query.matches);
-    }
-
     const handleChange = () => {
       setMatches(query.matches);
       if (callback) {
         callback(query.matches);
       }
     };
+
+    handleChange();
 
     query.addListener(handleChange);
 

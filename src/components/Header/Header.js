@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { childrenPropType } from '../../util/prop-types';
+
 import { Wrapper } from './components/Wrapper';
 import { Title } from './components/Title';
 import { Subtitle } from './components/Subtitle';

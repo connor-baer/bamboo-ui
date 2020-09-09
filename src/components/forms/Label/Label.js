@@ -5,7 +5,6 @@ import { css } from '@emotion/core';
 
 import { disableVisually, getStateColors } from '../../../styles/shared';
 import { childrenPropType } from '../../../util/prop-types';
-
 import { ReactComponent as Checkmark } from '../../../icons/circle-checkmark.svg';
 import { ReactComponent as Help } from '../../../icons/circle-help.svg';
 import { ReactComponent as Cross } from '../../../icons/circle-cross.svg';

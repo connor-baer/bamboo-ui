@@ -7,6 +7,7 @@ import { isEmpty, toLower, includes } from 'lodash/fp';
 
 import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
 import { Label } from '../Label';
+
 import {
   labelOpenStyles,
   AutocompleteWrapper,
