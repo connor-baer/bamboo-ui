@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, text } from '@storybook/addon-knobs/react';
+import { object, text, boolean } from '@storybook/addon-knobs';
 
 import { Navigation } from './Navigation';
 
@@ -29,8 +29,8 @@ export default {
 export const Base = () => {
   const menuLink = text('Menu link', 'Account');
   return (
-    <div style={{ width: '100vw' }}>
-      <Navigation>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Navigation isTransparent={boolean('isTransparent', false)}>
         <Navigation.Brand
           siteName={text('Site name', 'Bamboo UI')}
           siteLogo={text('Logo', '🎋')}
@@ -47,7 +47,7 @@ export const Base = () => {
           )}
         </Navigation.Menu>
       </Navigation>
-      <div style={{ width: '100vw', height: '120vh' }} />
+      <div style={{ width: '100vw', height: '150vh' }} />
     </div>
   );
 };

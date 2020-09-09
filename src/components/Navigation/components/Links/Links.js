@@ -84,7 +84,8 @@ const navAnchorBaseStyles = ({ theme }) => css`
   letter-spacing: 1px;
   display: inline-block;
   color: ${theme.color.neutral[700]};
-  border-radius: 20px;
+  background-color: ${theme.color.bodyBg};
+  border-radius: ${theme.borderRadius.pill};
   padding: ${theme.spacing.s} ${theme.spacing.m};
 
   ${theme.mq.hand} {

@@ -15,10 +15,10 @@ const cloneElement = (element, props) =>
 const containerStyles = ({ theme }) => css`
   display: flex;
   flex-wrap: nowrap;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-padding: 0 ${theme.spacing.gutter};
-  overflow-x: scroll;
-  padding: 0;
+  padding: 0 ${theme.spacing.gutter};
 
   &::after {
     content: '';
@@ -50,6 +50,10 @@ const slideStyles = (count) => (theme) => {
     max-width: 18rem;
     flex-shrink: 0;
 
+    &:first-of-type {
+      margin-left: 0;
+    }
+
     ${theme.mq.hand} {
       width: 40vw;
     }
@@ -70,11 +74,10 @@ const slideStyles = (count) => (theme) => {
 
 export function Slider({ children, ...rest }) {
   const count = Children.count(children);
+  const styles = slideStyles(count);
   return (
     <Container {...rest}>
-      {Children.map(children, (child) =>
-        cloneElement(child, { css: slideStyles(count) }),
-      )}
+      {Children.map(children, (child) => cloneElement(child, { css: styles }))}
     </Container>
   );
 }

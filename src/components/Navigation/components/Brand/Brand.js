@@ -6,9 +6,12 @@ import { css } from '@emotion/core';
 import { useComponents } from '../../../../hooks/use-components';
 import { childrenPropType } from '../../../../util/prop-types';
 
-const anchorStyles = () => css`
+const anchorStyles = ({ theme }) => css`
   position: relative;
   z-index: 2;
+  border-radius: ${theme.borderRadius.pill};
+  background-color: ${theme.color.bodyBg};
+  padding: ${theme.spacing.xxs} ${theme.spacing.m};
 `;
 
 const A = styled('a')(anchorStyles);

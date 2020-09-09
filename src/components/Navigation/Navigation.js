@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
 import { useAnimationFrame } from '../../hooks/use-animation-frame';
+
 import { NavigationContext } from './NavigationContext';
 import Brand from './components/Brand';
 import Links from './components/Links';
@@ -15,8 +17,9 @@ const headerBaseStyles = ({ theme }) => css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${theme.spacing.s};
+  padding: ${theme.spacing.xs} ${theme.spacing.s};
   transition: opacity ${theme.animation.standard},
+    background-color ${theme.animation.standard},
     padding ${theme.animation.standard};
   background-color: ${theme.color.bodyBg};
   z-index: ${theme.zIndex.navigation};
@@ -30,9 +33,15 @@ const headerBaseStyles = ({ theme }) => css`
     top: 0;
     right: 0;
     left: 0;
-    padding: ${theme.spacing.l};
+    padding: ${theme.spacing.m} ${theme.spacing.l};
   }
 `;
+
+const headerTransparentStyles = ({ isTransparent }) =>
+  isTransparent &&
+  css`
+    background-color: transparent;
+  `;
 
 const headerInvisibleStyles = ({ theme, isInvisible }) =>
   isInvisible &&
@@ -49,16 +58,18 @@ const headerFloatingStyles = ({ theme, isFloating }) =>
       padding-top: ${theme.spacing.s};
       padding-bottom: ${theme.spacing.s};
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      background-color: ${theme.color.bodyBg};
     }
   `;
 
 const Header = styled('header')(
   headerBaseStyles,
+  headerTransparentStyles,
   headerInvisibleStyles,
   headerFloatingStyles,
 );
 
-export function Navigation({ children, ...rest }) {
+export function Navigation({ children, isTransparent, ...rest }) {
   const [isFloating, setFloating] = useState(false);
   const [isInvisible, setInvisible] = useState(false);
   const currentScrollY = useRef();
@@ -87,7 +98,12 @@ export function Navigation({ children, ...rest }) {
   });
 
   return (
-    <Header isInvisible={isInvisible} isFloating={isFloating} {...rest}>
+    <Header
+      isTransparent={isTransparent}
+      isInvisible={isInvisible}
+      isFloating={isFloating}
+      {...rest}
+    >
       <NavigationContext.Provider value={{ isFloating, isInvisible }}>
         {children}
       </NavigationContext.Provider>
@@ -101,4 +117,5 @@ Navigation.Menu = Menu;
 
 Navigation.propTypes = {
   children: childrenPropType,
+  isTransparent: PropTypes.bool,
 };

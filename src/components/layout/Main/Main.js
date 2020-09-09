@@ -5,7 +5,10 @@ import { css } from '@emotion/core';
 const SIDEBAR = 'sidebar';
 const SPLIT = 'split';
 
-const HEIGHT_NAVIGATION = '5.5rem';
+const HEIGHT_NAVIGATION = {
+  HAND: '4rem',
+  LAP: '5rem',
+};
 const HEIGHT_FOOTER = '10.5rem + 3rem';
 
 const baseStyles = ({ theme }) => css`
@@ -13,10 +16,11 @@ const baseStyles = ({ theme }) => css`
   padding-bottom: ${theme.spacing.xxxxl};
   color: ${theme.color.bodyColor};
   background-color: ${theme.color.bodyBg};
+  padding-top: ${HEIGHT_NAVIGATION.HAND};
 
   ${theme.mq.lap} {
     min-height: calc(100vh - (${HEIGHT_FOOTER}));
-    padding-top: ${HEIGHT_NAVIGATION};
+    padding-top: ${HEIGHT_NAVIGATION.LAP};
   }
 `;
 
