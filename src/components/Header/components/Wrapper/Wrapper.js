@@ -1,18 +1,13 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const wrapperStyles = ({ theme }) => css`
-  margin-top: ${theme.spacing.xxxl};
-  margin-bottom: ${theme.spacing.xxxl};
+const wrapperStyles = () => css`
+  margin-top: 9vh;
+  margin-bottom: 9vh;
 
-  ${theme.mq.hand} {
-    margin-top: ${theme.spacing.xxxxl};
-    margin-bottom: ${theme.spacing.xxxxl};
-  }
-
-  ${theme.mq.lap} {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+  @supports (margin: min(calc(12vh - 1rem), 6rem)) {
+    margin-top: min(calc(12vh - 1rem), 6rem);
+    margin-bottom: min(calc(12vh - 1rem), 6rem);
   }
 `;
 

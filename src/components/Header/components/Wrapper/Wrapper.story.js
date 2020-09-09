@@ -5,7 +5,7 @@ import { Wrapper } from './Wrapper';
 // eslint-disable-next-line react/prop-types
 function VisualizeSpacing({ children }) {
   return (
-    <>
+    <div>
       <div
         style={{
           borderBottom: '1px solid lightgrey',
@@ -27,7 +27,7 @@ function VisualizeSpacing({ children }) {
       >
         bottom margin
       </div>
-    </>
+    </div>
   );
 }
 
