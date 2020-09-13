@@ -25,7 +25,7 @@ const navBaseStyles = ({ theme }) => css`
   transition: transform ${theme.animation.standard};
 
   ${theme.mq.hand} {
-    padding: ${theme.spacing.s};
+    padding: ${theme.spacing.xs} ${theme.spacing.s};
     justify-content: center;
   }
 
@@ -89,7 +89,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
   flex-direction: column;
   line-height: 1;
   letter-spacing: 1px;
-  padding: ${theme.spacing.xs};
+  padding: ${theme.spacing.xs} ${theme.spacing.s};
   margin-right: ${theme.spacing.xs};
   color: ${theme.color.neutral[700]};
   background-color: ${theme.color.bodyBg};
@@ -99,7 +99,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
     background-color ${theme.animation.micro};
 
   &:hover {
-    color: ${theme.color.primary[500]};
+    color: ${theme.color.primary[700]};
   }
 
   &:focus {
@@ -116,7 +116,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
     padding: ${theme.spacing.s} ${theme.spacing.m};
 
     &:hover {
-      background-color: ${theme.color.neutral[100]};
+      background-color: ${theme.color.primary[100]};
     }
   }
 
@@ -151,12 +151,18 @@ const A = styled('a')(
 );
 
 const iconStyles = ({ theme }) => css`
-  font-size: ${theme.fontSize.xl};
   display: inline-block;
+  margin-bottom: ${theme.spacing.xxs};
+  font-size: ${theme.fontSize.xl};
 
   ${theme.mq.hand} {
     font-size: ${theme.fontSize.l};
     margin-right: ${theme.spacing.xxs};
+    margin-bottom: 0;
+  }
+
+  ${theme.mq.lap} {
+    font-size: ${theme.fontSize.m};
   }
 `;
 
@@ -167,6 +173,10 @@ const labelStyles = ({ theme }) => css`
 
   ${theme.mq.hand} {
     font-size: ${theme.fontSize.m};
+  }
+
+  ${theme.mq.lap} {
+    font-size: ${theme.fontSize.s};
   }
 `;
 
