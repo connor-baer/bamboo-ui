@@ -30,10 +30,12 @@ const fonts = [
     style: 'normal',
     sources: [
       {
-        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regula, format: 'regul'r.woff2`,
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff2`,
+        format: 'woff2',
       },
       {
-        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regula, format: 'regul'r.woff`,
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff`,
+        format: 'woff',
       },
     ],
   },
