@@ -13,8 +13,14 @@ const fonts = [
     weight: '300',
     style: 'normal',
     sources: [
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff2`,
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff`,
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff2`,
+        format: 'woff2',
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-300.woff`,
+        format: 'woff',
+      },
     ],
   },
   {
@@ -23,8 +29,12 @@ const fonts = [
     weight: '400',
     style: 'normal',
     sources: [
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff2`,
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regular.woff`,
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regula, format: 'regul'r.woff2`,
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-regula, format: 'regul'r.woff`,
+      },
     ],
   },
   {
@@ -33,8 +43,14 @@ const fonts = [
     weight: '800',
     style: 'normal',
     sources: [
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff2`,
-      `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff`,
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff2`,
+        format: 'woff2',
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-sans-v11-latin-800.woff`,
+        format: 'woff',
+      },
     ],
   },
   {
@@ -43,8 +59,14 @@ const fonts = [
     weight: '400',
     style: 'normal',
     sources: [
-      `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff2`,
-      `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff`,
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff2`,
+        format: 'woff2',
+      },
+      {
+        url: `${ASSET_BASEURL}/fonts/merriweather-v21-latin-regular.woff`,
+        format: 'woff',
+      },
     ],
   },
 ];
