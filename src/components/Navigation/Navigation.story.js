@@ -39,7 +39,7 @@ export const Base = () => {
         <Navigation.Menu
           userAvatarURL={text(
             'User avatar URL',
-            'https://source.unsplash.com/64x64/',
+            'https://source.unsplash.com/B4TjXnI0Y2c/64x64/',
           )}
         >
           {menuLink && (

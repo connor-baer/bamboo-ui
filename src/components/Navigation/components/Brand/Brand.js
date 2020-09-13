@@ -11,7 +11,8 @@ const anchorStyles = ({ theme }) => css`
   z-index: 2;
   border-radius: ${theme.borderRadius.pill};
   background-color: ${theme.color.bodyBg};
-  padding: ${theme.spacing.xxs} ${theme.spacing.m};
+  padding: ${theme.spacing.xxs} ${theme.spacing.s};
+  margin-left: calc(-1 * ${theme.spacing.s});
 `;
 
 const A = styled('a')(anchorStyles);
