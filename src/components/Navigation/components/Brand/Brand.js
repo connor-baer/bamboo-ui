@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import { NavigationContext } from '../../NavigationContext';
 import { useComponents } from '../../../../hooks/use-components';
 import { childrenPropType } from '../../../../util/prop-types';
 
-const anchorStyles = ({ theme }) => css`
+const anchorBaseStyles = ({ theme }) => css`
   position: relative;
   z-index: 2;
-  border-radius: ${theme.borderRadius.pill};
-  background-color: ${theme.color.bodyBg};
   padding: ${theme.spacing.xxs} ${theme.spacing.s};
   margin-left: calc(-1 * ${theme.spacing.s});
 `;
 
-const A = styled('a')(anchorStyles);
+const anchorTransparentStyles = ({ theme, isTransparent }) =>
+  isTransparent &&
+  css`
+    border-radius: ${theme.borderRadius.pill};
+    background-color: ${theme.color.bodyBg};
+    margin-left: 0;
+  `;
+
+const A = styled('a')(anchorBaseStyles, anchorTransparentStyles);
 
 const siteLogoBaseStyles = ({ theme }) => css`
   display: inline-block;
@@ -66,27 +73,26 @@ const SiteName = styled('div')(siteNameStyles);
 
 function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
   const { Link } = useComponents();
+  const { isTransparent } = useContext(NavigationContext);
 
   const href = isHomepage ? '#' : siteUrl;
 
-  /* eslint-disable jsx-a11y/anchor-is-valid */
   if (children) {
     return (
       <Link href={href}>
-        <A>{children}</A>
+        <A isTransparent={isTransparent}>{children}</A>
       </Link>
     );
   }
 
   return (
     <Link href={href}>
-      <A>
+      <A isTransparent={isTransparent}>
         {siteLogo && <SiteLogo>{siteLogo}</SiteLogo>}
         {siteName && <SiteName>{siteName}</SiteName>}
       </A>
     </Link>
   );
-  /* eslint-enable jsx-a11y/anchor-is-valid */
 }
 
 Brand.propTypes = {

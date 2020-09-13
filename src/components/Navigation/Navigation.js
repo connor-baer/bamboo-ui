@@ -104,7 +104,9 @@ export function Navigation({ children, isTransparent, ...rest }) {
       isFloating={isFloating}
       {...rest}
     >
-      <NavigationContext.Provider value={{ isFloating, isInvisible }}>
+      <NavigationContext.Provider
+        value={{ isFloating, isInvisible, isTransparent }}
+      >
         {children}
       </NavigationContext.Provider>
     </Header>
