@@ -166,9 +166,8 @@ export const createBaseStyles = (theme) => css`
   optgroup,
   select,
   textarea {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol';
+    font-family: ${theme.fontStack.fallback};
+    letter-spacing: ${theme.letterSpacing.fallback};
     font-weight: ${theme.fontWeight.regular};
     line-height: ${theme.lineHeight.m};
     text-decoration-skip: ink;
@@ -180,6 +179,7 @@ export const createBaseStyles = (theme) => css`
 
     .fonts-loaded & {
       font-family: ${theme.fontStack.default};
+      letter-spacing: 0px;
     }
   }
 

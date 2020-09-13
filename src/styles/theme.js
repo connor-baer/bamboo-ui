@@ -74,10 +74,14 @@ const fonts = [
 ];
 
 const fontStack = {
+  system:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  fallback:
+    'Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   default:
-    '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    '"Merriweather Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   sans:
-    '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    '"Merriweather Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   serif: 'Merriweather, Georgia, Times New Roman, serif',
   mono: 'Courier New, mono-space',
 };
@@ -103,6 +107,7 @@ const lineHeight = {
 };
 
 const letterSpacing = {
+  fallback: '0.5px',
   s: '1px',
   m: '2px',
   l: '3px',
