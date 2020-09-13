@@ -16,13 +16,18 @@ const navBaseStyles = ({ theme }) => css`
   right: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: ${theme.spacing.s};
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  padding: ${theme.spacing.xxs} ${theme.spacing.s};
   background: ${theme.color.white};
   box-shadow: 0 0px 4px ${theme.color.shadow};
   border-top: 1px solid ${theme.color.neutral[300]};
   transition: transform ${theme.animation.standard};
+
+  ${theme.mq.hand} {
+    padding: ${theme.spacing.s};
+    justify-content: center;
+  }
 
   ${theme.mq.lap} {
     position: absolute;
@@ -36,11 +41,12 @@ const navBaseStyles = ({ theme }) => css`
 `;
 
 const navWideStyles = ({ theme, length }) =>
-  length > 3 &&
+  length >= 5 &&
   css`
     display: block;
     overflow-x: scroll;
     white-space: nowrap;
+    text-align: center;
 
     &::after {
       display: block;
@@ -78,36 +84,44 @@ const navInvisibleStyles = ({ theme, isInvisible }) =>
 const Nav = styled('nav')(navBaseStyles, navWideStyles, navInvisibleStyles);
 
 const navAnchorBaseStyles = ({ theme }) => css`
-  font-size: ${theme.fontSize.m};
-  font-weight: ${theme.fontWeight.regular};
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
   line-height: 1;
   letter-spacing: 1px;
-  display: inline-block;
+  padding: ${theme.spacing.xs};
+  margin-right: ${theme.spacing.xs};
   color: ${theme.color.neutral[700]};
   background-color: ${theme.color.bodyBg};
-  border-radius: ${theme.borderRadius.pill};
-  padding: ${theme.spacing.s} ${theme.spacing.m};
+  text-align: center;
+  border-radius: ${theme.borderRadius.l};
+  transition: color ${theme.animation.micro},
+    background-color ${theme.animation.micro};
 
-  ${theme.mq.hand} {
-    margin-right: ${theme.spacing.m};
+  &:hover {
+    color: ${theme.color.primary[500]};
   }
 
-  ${theme.mq.lap} {
-    font-size: ${theme.fontSize.s};
-    margin-right: ${theme.spacing.l};
+  &:focus {
+    ${focusOutline(theme)};
   }
 
   &:last-of-type {
     margin-right: 0;
   }
 
-  &:hover {
-    background-color: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[500]};
+  ${theme.mq.hand} {
+    flex-direction: row;
+    border-radius: ${theme.borderRadius.pill};
+    padding: ${theme.spacing.s} ${theme.spacing.m};
+
+    &:hover {
+      background-color: ${theme.color.neutral[100]};
+    }
   }
 
-  &:focus {
-    ${focusOutline(theme)};
+  ${theme.mq.lap} {
+    margin-right: ${theme.spacing.l};
   }
 `;
 
@@ -115,10 +129,33 @@ const navAnchorActiveStyles = ({ theme, isActive }) =>
   isActive &&
   css`
     background-color: ${theme.color.neutral[100]};
+    color: ${theme.color.neutral[900]};
     font-weight: ${theme.fontWeight.bold};
   `;
 
 const A = styled('a')(navAnchorBaseStyles, navAnchorActiveStyles);
+
+const iconStyles = ({ theme }) => css`
+  font-size: ${theme.fontSize.xl};
+  display: inline-block;
+
+  ${theme.mq.hand} {
+    font-size: ${theme.fontSize.l};
+    margin-right: ${theme.spacing.xxs};
+  }
+`;
+
+const Icon = styled('span')(iconStyles);
+
+const labelStyles = ({ theme }) => css`
+  font-size: ${theme.fontWeight.s};
+
+  ${theme.mq.hand} {
+    font-size: ${theme.fontSize.m};
+  }
+`;
+
+const Label = styled('span')(labelStyles);
 
 function Links({ links }) {
   const { Link } = useComponents();
@@ -134,7 +171,8 @@ function Links({ links }) {
           {links.map(({ url, label, icon, isActive }, i) => (
             <Link key={i} href={url}>
               <A isActive={isActive}>
-                {icon} {label}
+                <Icon>{icon}</Icon>
+                <Label>{label}</Label>
               </A>
             </Link>
           ))}
