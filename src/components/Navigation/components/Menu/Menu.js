@@ -23,6 +23,7 @@ const Wrapper = styled('div')(wrapperStyles);
 
 // Passed to the css prop.
 const userPhotoStyles = (theme) => css`
+  display: block;
   width: ${theme.iconSize.xl};
   height: ${theme.iconSize.xl};
   object-fit: cover;
