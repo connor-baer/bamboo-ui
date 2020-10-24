@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -10,6 +10,7 @@ import { useComponents } from '../../../../hooks/use-components';
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { Hamburger } from '../../../icons/Hamburger';
 import { Hr } from '../../../Hr';
+import { useOutsideClick } from '../../../../hooks/use-outside-click';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
@@ -222,9 +223,13 @@ function Menu({ children, userAvatarURL }) {
   const theme = useTheme();
   const { Image } = useComponents();
   const [isOpen, setOpen] = useState(false);
+  const node = useRef();
+
+  const handleClick = useCallback(() => setOpen((prev) => !prev), []);
+
+  useOutsideClick(node, handleClick, isOpen);
 
   const { toggleDarkmode, darkmode } = theme;
-  const handleClick = () => setOpen(!isOpen);
   const hasContent = !!children;
   const hasDivider = hasContent && toggleDarkmode;
 
@@ -254,7 +259,7 @@ function Menu({ children, userAvatarURL }) {
   const imageButtonLabel = isOpen ? 'Close menu' : 'Open menu';
 
   return (
-    <Wrapper>
+    <Wrapper ref={node}>
       {userAvatarURL ? (
         <ImageButton
           onClick={handleClick}

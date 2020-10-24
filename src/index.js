@@ -68,6 +68,7 @@ export { Button } from './components/Button';
 
 export { useMedia } from './hooks/use-media';
 export { useAnimationFrame } from './hooks/use-animation-frame';
+export { useOutsideClick } from './hooks/use-outside-click';
 export { useComponents, ComponentsProvider } from './hooks/use-components';
 
 /**
