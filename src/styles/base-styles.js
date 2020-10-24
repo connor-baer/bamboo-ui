@@ -174,7 +174,6 @@ export const createBaseStyles = (theme) => css`
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
 
     .fonts-loaded & {
