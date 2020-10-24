@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { childrenPropType } from '../../../util/prop-types';
 
-export function Emoji({ children, label, ...rest }) {
+export function Emoji({ children, label, emoji, ...rest }) {
   return (
     <span
       role="img"
@@ -11,12 +11,13 @@ export function Emoji({ children, label, ...rest }) {
       title={`:${label.toLowerCase().replace(' ', '-')}:`}
       {...rest}
     >
-      {children}
+      {emoji || children}
     </span>
   );
 }
 
 Emoji.propTypes = {
-  children: childrenPropType.isRequired,
+  children: childrenPropType,
+  emoji: PropTypes.string,
   label: PropTypes.string.isRequired,
 };
