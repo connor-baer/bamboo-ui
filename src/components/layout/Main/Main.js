@@ -9,10 +9,9 @@ const HEIGHT_NAVIGATION = '5rem';
 const HEIGHT_FOOTER = '10.5rem + 3rem';
 
 const baseStyles = ({ theme }) => css`
-  overflow: hidden;
-  padding-bottom: ${theme.spacing.xxxxl};
   color: ${theme.color.bodyColor};
   background-color: ${theme.color.bodyBg};
+  padding-bottom: ${theme.spacing.xxxxl};
 
   ${theme.mq.lap} {
     min-height: calc(100vh - (${HEIGHT_FOOTER}));
