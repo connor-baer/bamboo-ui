@@ -96,7 +96,7 @@ function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
 }
 
 Brand.propTypes = {
-  siteLogo: PropTypes.element,
+  siteLogo: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
   isHomepage: PropTypes.bool,
