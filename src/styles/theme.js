@@ -238,22 +238,30 @@ const red = {
   900: openColor.red[9],
 };
 
-const danger = red[500];
-const success = green[700];
-const warning = yellow[700];
-const shadow = 'rgba(12, 15, 20, 0.18)';
-const selectionBg = '#ffe066';
-const selectionColor = openColor.black;
-const offBlack = '#15191d';
-const { white } = openColor;
-const { black } = openColor;
-const bodyBg = openColor.white;
-const bodyColor = '#15191d';
+const misc = {
+  danger: red[500],
+  success: green[700],
+  warning: yellow[700],
+  shadow: 'rgba(12, 15, 20, 0.16)',
+  selectionBg: '#ffe066',
+  selectionColor: openColor.black,
+  offBlack: '#15191d',
+  white: openColor.white,
+  black: openColor.black,
+  bodyBg: openColor.white,
+  bodyColor: '#15191d',
+};
 
 const animation = {
   micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
   standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
   motion: '320ms cubic-bezier(0, 0, 0.2, 1)',
+};
+
+const shadow = {
+  s: `0 0 2px ${misc.shadow}`,
+  m: `0 0 4px ${misc.shadow}`,
+  l: `0 0 8px ${misc.shadow}`,
 };
 
 const overrides = [
@@ -294,7 +302,7 @@ const overrides = [
         },
         white: openColor.black,
         black: openColor.white,
-        bodyBg: offBlack,
+        bodyBg: misc.offBlack,
         bodyColor: openColor.white,
       },
     },
@@ -324,6 +332,7 @@ export const standard = {
   pageWidth,
   borderWidth,
   borderRadius,
+  shadow,
   zIndex,
   color: {
     primary,
@@ -334,17 +343,7 @@ export const standard = {
     yellow,
     orange,
     red,
-    danger,
-    success,
-    warning,
-    shadow,
-    selectionBg,
-    selectionColor,
-    offBlack,
-    white,
-    black,
-    bodyBg,
-    bodyColor,
+    ...misc,
   },
   animation,
   overrides,

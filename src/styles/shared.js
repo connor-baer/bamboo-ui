@@ -109,13 +109,13 @@ export const buttonOutline = ({ theme, variant = 'primary' }) => {
 
     &:hover {
       &::after {
-        box-shadow: 0px 0px 0px 2px ${colorMap[variant].hover};
+        box-shadow: 0 0 0 2px ${colorMap[variant].hover};
       }
     }
 
     &:active {
       &::after {
-        box-shadow: 0px 0px 0px 2px ${colorMap[variant].active};
+        box-shadow: 0 0 0 2px ${colorMap[variant].active};
       }
     }
   `;

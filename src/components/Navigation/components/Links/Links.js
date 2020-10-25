@@ -20,7 +20,7 @@ const navBaseStyles = ({ theme }) => css`
   flex-wrap: nowrap;
   padding: ${theme.spacing.xxs} ${theme.spacing.s};
   background: ${theme.color.white};
-  box-shadow: 0 0px 4px ${theme.color.shadow};
+  box-shadow: ${theme.shadow.m};
   border-top: 1px solid ${theme.color.neutral[300]};
   transition: transform ${theme.animation.standard};
 

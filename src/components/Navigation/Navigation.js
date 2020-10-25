@@ -57,7 +57,7 @@ const headerFloatingStyles = ({ theme, isFloating }) =>
     ${theme.mq.lap} {
       padding-top: ${theme.spacing.s};
       padding-bottom: ${theme.spacing.s};
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      box-shadow: ${theme.shadow.m};
       background-color: ${theme.color.bodyBg};
     }
   `;
