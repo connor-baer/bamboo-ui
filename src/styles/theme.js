@@ -242,7 +242,7 @@ const misc = {
   danger: red[500],
   success: green[700],
   warning: yellow[700],
-  shadow: 'rgba(12, 15, 20, 0.16)',
+  shadow: 'rgba(12, 15, 20, 0.18)',
   selectionBg: '#ffe066',
   selectionColor: openColor.black,
   offBlack: '#15191d',
@@ -259,9 +259,9 @@ const animation = {
 };
 
 const shadow = {
-  s: `0 0 2px ${misc.shadow}`,
-  m: `0 0 4px ${misc.shadow}`,
-  l: `0 0 8px ${misc.shadow}`,
+  s: `0 0 2px 1px ${misc.shadow}`,
+  m: `0 0 4px 1px ${misc.shadow}`,
+  l: `0 0 8px 2px ${misc.shadow}`,
 };
 
 const overrides = [
