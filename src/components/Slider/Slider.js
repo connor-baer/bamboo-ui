@@ -19,6 +19,7 @@ const containerStyles = ({ theme }) => css`
   scroll-snap-type: x mandatory;
   scroll-padding: 0 ${theme.spacing.gutter};
   padding: 0 ${theme.spacing.gutter};
+  -webkit-overflow-scrolling: touch;
 
   &::after {
     content: '';

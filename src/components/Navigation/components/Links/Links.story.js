@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Links from '.';
+import { Links } from '.';
 
 export default {
   title: 'Components/Navigation/Links',

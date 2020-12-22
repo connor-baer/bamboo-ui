@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { NavigationContext } from '../../NavigationContext';
 import { useComponents } from '../../../../hooks/use-components';
-import { childrenPropType } from '../../../../util/prop-types';
 
 const anchorBaseStyles = ({ theme }) => css`
   position: relative;
@@ -71,19 +69,16 @@ const siteNameStyles = ({ theme }) => css`
 
 const SiteName = styled('div')(siteNameStyles);
 
-function Brand({ siteLogo, siteName, siteUrl = '/', isHomepage, children }) {
+export function Brand({
+  siteLogo,
+  siteName,
+  siteUrl = '/',
+  isHomepage,
+  isTransparent,
+}) {
   const { Link } = useComponents();
-  const { isTransparent } = useContext(NavigationContext);
 
   const href = isHomepage ? '#' : siteUrl;
-
-  if (children) {
-    return (
-      <Link href={href}>
-        <A isTransparent={isTransparent}>{children}</A>
-      </Link>
-    );
-  }
 
   return (
     <Link href={href}>
@@ -100,10 +95,5 @@ Brand.propTypes = {
   siteUrl: PropTypes.string,
   siteName: PropTypes.string,
   isHomepage: PropTypes.bool,
-  children: childrenPropType,
+  isTransparent: PropTypes.bool,
 };
-
-/**
- * @component
- */
-export default Brand;

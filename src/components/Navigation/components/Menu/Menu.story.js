@@ -1,7 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 
-import Menu from '.';
+import { Menu } from '.';
 
 export default {
   title: 'Components/Navigation/Menu',

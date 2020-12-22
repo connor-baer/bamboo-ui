@@ -1,10 +1,9 @@
 import React, { useState, useCallback, useRef } from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
-import { childrenPropType } from '../../../../util/prop-types';
+import { childrenPropType, userPropType } from '../../../../util/prop-types';
 import { focusOutline, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
 import { MoonIcon } from '../../../icons/MoonIcon';
@@ -14,6 +13,7 @@ import { useOutsideClick } from '../../../../hooks/use-outside-click';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
+  margin-left: ${theme.spacing.xl};
 
   ${theme.mq.hand} {
     position: relative;
@@ -23,7 +23,7 @@ const wrapperStyles = ({ theme }) => css`
 const Wrapper = styled('div')(wrapperStyles);
 
 // Passed to the css prop.
-const userPhotoStyles = (theme) => css`
+const imageStyles = (theme) => css`
   display: inline-block;
   width: ${theme.iconSize.xl};
   height: ${theme.iconSize.xl};
@@ -219,7 +219,7 @@ const darkmodeButtonStyles = ({ theme }) => css`
 
 const DarkmodeButton = styled('button')(itemStyles, darkmodeButtonStyles);
 
-function Menu({ children, userAvatarURL }) {
+export function Menu({ children, user }) {
   const theme = useTheme();
   const { Image } = useComponents();
   const [isOpen, setOpen] = useState(false);
@@ -260,7 +260,7 @@ function Menu({ children, userAvatarURL }) {
 
   return (
     <Wrapper ref={node}>
-      {userAvatarURL ? (
+      {user && user.image ? (
         <ImageButton
           onClick={handleClick}
           type="button"
@@ -268,11 +268,7 @@ function Menu({ children, userAvatarURL }) {
           title={imageButtonLabel}
           aria-label={imageButtonLabel}
         >
-          <Image
-            css={userPhotoStyles}
-            src={userAvatarURL}
-            alt="Profile photo"
-          />
+          <Image css={imageStyles} src={user.image} alt="Profile photo" />
         </ImageButton>
       ) : (
         <Hamburger onClick={handleClick} isActive={isOpen} />
@@ -309,11 +305,6 @@ Menu.Item = MenuItem;
 Menu.Hr = MenuHr;
 
 Menu.propTypes = {
-  userAvatarURL: PropTypes.string,
+  user: userPropType,
   children: childrenPropType,
 };
-
-/**
- * @component
- */
-export default Menu;

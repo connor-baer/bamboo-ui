@@ -1,7 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs/react';
 
-import Brand from '.';
+import { Brand } from '.';
 
 export default {
   title: 'Components/Navigation/Brand',

@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/prop-types';
+import { childrenPropType, userPropType } from '../../util/prop-types';
 import { useAnimationFrame } from '../../hooks/use-animation-frame';
 
-import { NavigationContext } from './NavigationContext';
-import Brand from './components/Brand';
-import Links from './components/Links';
-import Menu from './components/Menu';
+import { Links } from './components/Links';
+import { Brand } from './components/Brand';
+import { Menu } from './components/Menu';
 
 const headerBaseStyles = ({ theme }) => css`
   position: relative;
@@ -69,7 +68,18 @@ const Header = styled('header')(
   headerFloatingStyles,
 );
 
-export function Navigation({ children, isTransparent, ...rest }) {
+const Wrapper = styled('div')`
+  display: flex;
+`;
+
+export function Navigation({
+  isTransparent,
+  brand,
+  links,
+  user,
+  menu,
+  ...rest
+}) {
   const [isFloating, setFloating] = useState(false);
   const [isInvisible, setInvisible] = useState(false);
   const currentScrollY = useRef();
@@ -104,20 +114,31 @@ export function Navigation({ children, isTransparent, ...rest }) {
       isFloating={isFloating}
       {...rest}
     >
-      <NavigationContext.Provider
-        value={{ isFloating, isInvisible, isTransparent }}
-      >
-        {children}
-      </NavigationContext.Provider>
+      <Brand {...brand} isTransparent={isTransparent} />
+
+      <Wrapper>
+        <Links links={links} isInvisible={isInvisible} />
+        <Menu user={user}>{menu}</Menu>
+      </Wrapper>
     </Header>
   );
 }
 
-Navigation.Brand = Brand;
-Navigation.Links = Links;
-Navigation.Menu = Menu;
-
 Navigation.propTypes = {
-  children: childrenPropType,
   isTransparent: PropTypes.bool,
+  brand: PropTypes.shape({
+    siteLogo: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+    siteUrl: PropTypes.string,
+    siteName: PropTypes.string,
+    isHomepage: PropTypes.bool,
+  }),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: childrenPropType,
+      url: PropTypes.string,
+      icon: childrenPropType,
+    }),
+  ),
+  user: userPropType,
+  menu: childrenPropType,
 };

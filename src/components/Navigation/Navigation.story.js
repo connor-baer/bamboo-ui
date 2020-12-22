@@ -1,7 +1,9 @@
 import React from 'react';
 import { object, text, boolean } from '@storybook/addon-knobs';
 
-import { Navigation } from './Navigation';
+import { Menu } from './components/Menu';
+
+import { Navigation } from '.';
 
 const links = [
   {
@@ -30,23 +32,21 @@ export const Base = () => {
   const menuLink = text('Menu link', 'Account');
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <Navigation isTransparent={boolean('isTransparent', false)}>
-        <Navigation.Brand
-          siteName={text('Site name', 'Bamboo UI')}
-          siteLogo={text('Logo', '🎋')}
-        />
-        <Navigation.Links links={object('Links', links)} />
-        <Navigation.Menu
-          userAvatarURL={text(
+      <Navigation
+        brand={{
+          siteName: text('Site name', 'Bamboo UI'),
+          siteLogo: text('Logo', '🎋'),
+        }}
+        links={object('Links', links)}
+        user={{
+          image: text(
             'User avatar URL',
             'https://source.unsplash.com/B4TjXnI0Y2c/64x64/',
-          )}
-        >
-          {menuLink && (
-            <Navigation.Menu.Item href="/">{menuLink}</Navigation.Menu.Item>
-          )}
-        </Navigation.Menu>
-      </Navigation>
+          ),
+        }}
+        menu={menuLink && <Menu.Item href="/">{menuLink}</Menu.Item>}
+        isTransparent={boolean('isTransparent', false)}
+      ></Navigation>
       <div style={{ width: '100vw', height: '150vh' }} />
     </div>
   );

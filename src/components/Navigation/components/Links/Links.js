@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { NavigationContext } from '../../NavigationContext';
 import { childrenPropType } from '../../../../util/prop-types';
 import { isEmpty } from '../../../../util/fp';
 import { useComponents } from '../../../../hooks/use-components';
@@ -30,9 +29,9 @@ const navBaseStyles = ({ theme }) => css`
   }
 
   ${theme.mq.lap} {
-    position: absolute;
-    bottom: auto;
+    position: static;
     padding: 0;
+    width: auto;
     background: none;
     box-shadow: none;
     border: none;
@@ -162,7 +161,7 @@ const iconStyles = ({ theme }) => css`
   }
 
   ${theme.mq.lap} {
-    font-size: ${theme.fontSize.m};
+    display: none;
   }
 `;
 
@@ -174,17 +173,12 @@ const labelStyles = ({ theme }) => css`
   ${theme.mq.hand} {
     font-size: ${theme.fontSize.m};
   }
-
-  ${theme.mq.lap} {
-    font-size: ${theme.fontSize.s};
-  }
 `;
 
 const Label = styled('span')(labelStyles);
 
-function Links({ links }) {
+export function Links({ links, isInvisible }) {
   const { Link } = useComponents();
-  const { isInvisible } = useContext(NavigationContext);
 
   if (isEmpty(links)) {
     return null;
@@ -195,7 +189,7 @@ function Links({ links }) {
       {links.map(({ url, label, icon, isActive }, i) => (
         <Link key={i} href={url}>
           <A isActive={isActive} length={links.length}>
-            <Icon>{icon}</Icon>
+            <Icon role="presentation">{icon}</Icon>
             <Label>{label}</Label>
           </A>
         </Link>
@@ -212,9 +206,5 @@ Links.propTypes = {
       icon: childrenPropType,
     }),
   ),
+  isInvisible: PropTypes.bool,
 };
-
-/**
- * @component
- */
-export default Links;
