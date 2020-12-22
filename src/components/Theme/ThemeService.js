@@ -1,5 +1,6 @@
-import { entries, isObject, isNil } from 'lodash/fp';
-import { setWith } from 'lodash';
+import setWith from 'lodash.setwith';
+
+import { isObject, isNil } from '../../util/fp';
 
 export function createStaticTheme(theme) {
   const staticTheme = {};
@@ -14,7 +15,9 @@ export function createVariables(theme) {
 
   traverse(theme, buildVariables(variables));
 
-  const rules = entries(variables).map(([name, value]) => `${name}: ${value};`);
+  const rules = Object.entries(variables).map(
+    ([name, value]) => `${name}: ${value};`,
+  );
 
   return `:root { ${rules.join(' ')} }`;
 }
@@ -34,7 +37,7 @@ function buildVariables(variables) {
 }
 
 export function traverse(obj, fn, path = []) {
-  entries(obj).forEach(([key, value]) => {
+  Object.entries(obj).forEach(([key, value]) => {
     const fullPath = [...path, key];
 
     if (isNil(value)) {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useCombobox, useMultipleSelection } from 'downshift';
-import { isEmpty, includes, toLower } from 'lodash/fp';
 
 import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
+import { isEmpty, toLower, includes } from '../../../util/fp';
 import { Tag } from '../../Tag';
 import { Label } from '../Label';
 

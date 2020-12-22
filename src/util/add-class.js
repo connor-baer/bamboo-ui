@@ -1,4 +1,4 @@
-import { includes } from 'lodash/fp';
+import { includes } from './fp';
 
 export default function addClass(element, className) {
   if (includes(className, element.className)) {

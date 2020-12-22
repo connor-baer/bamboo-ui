@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import { toLower } from '../../../util/fp';
 import { focusOutline, getStateColors } from '../../../styles/shared';
 
 const autocompleteWrapperStyles = () => css`
@@ -127,8 +128,8 @@ function highlightSearch(text = '', search) {
   if (!search) {
     return [{ value: text }];
   }
-  const textValue = text.toLowerCase();
-  const searchValue = search.toLowerCase();
+  const textValue = toLower(text);
+  const searchValue = toLower(search);
 
   // Entire text matches
   if (textValue === searchValue) {

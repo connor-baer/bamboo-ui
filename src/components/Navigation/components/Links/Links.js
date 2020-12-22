@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isEmpty } from 'lodash/fp';
 
 import { NavigationContext } from '../../NavigationContext';
 import { childrenPropType } from '../../../../util/prop-types';
+import { isEmpty } from '../../../../util/fp';
 import { useComponents } from '../../../../hooks/use-components';
 import { focusOutline } from '../../../../styles/shared';
 

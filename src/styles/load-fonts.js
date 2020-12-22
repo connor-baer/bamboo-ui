@@ -1,10 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { differenceWith, isEqual, isEmpty, pick } from 'lodash/fp';
 import FontFaceObserver from 'fontfaceobserver';
 
+import { isEmpty, isNil, not } from '../util/fp';
 import { isServer } from '../util/is-server';
 import addClass from '../util/add-class';
+
+const LOADED_FONTS = '@cb/fonts-loaded';
 
 export const createFontFace = (font) => {
   const { name, weight, style, localName, sources } = font;
@@ -35,11 +37,14 @@ export function loadFonts(fonts, timeout = 3000) {
   }
 
   const prevLoadedFonts =
-    sessionStorage.getItem('prevLoadedFonts') &&
-    JSON.parse(sessionStorage.getItem('prevLoadedFonts'));
+    sessionStorage.getItem(LOADED_FONTS) &&
+    JSON.parse(sessionStorage.getItem(LOADED_FONTS));
 
   const fontsToLoad = prevLoadedFonts
-    ? differenceWith(isEqual, fonts, prevLoadedFonts)
+    ? fonts.filter((font) => {
+        const key = createFontKey(font);
+        return !prevLoadedFonts[key];
+      })
     : fonts;
 
   // Optimization for repeat views
@@ -48,8 +53,8 @@ export function loadFonts(fonts, timeout = 3000) {
     return;
   }
 
-  const fontPromises = fonts.map(({ name, ...rest }) => {
-    const config = pick(['weight', 'style', 'strech'], rest);
+  const fontPromises = fonts.map(({ name, weight, style, stretch }) => {
+    const config = { weight, style, stretch };
     const font = new FontFaceObserver(name, config);
     return font.load(null, timeout);
   });
@@ -57,11 +62,13 @@ export function loadFonts(fonts, timeout = 3000) {
   Promise.all(fontPromises)
     .then((loaded) => {
       // eslint-disable-next-line no-console
-      console.info(
-        `Loaded fonts "${loaded
-          .map(({ family, style, weight }) => `${family} ${weight} ${style}`)
-          .join(', ')}"`,
-      );
+      if (process.env.NODE_ENV !== 'production') {
+        console.info(
+          `Loaded fonts "${loaded
+            .map(({ family, style, weight }) => `${family} ${weight} ${style}`)
+            .join(', ')}"`,
+        );
+      }
     })
     .catch((e) => {
       // eslint-disable-next-line no-console
@@ -70,6 +77,19 @@ export function loadFonts(fonts, timeout = 3000) {
     .finally(() => {
       addClass(document.documentElement, 'fonts-loaded');
       // Optimization for repeat views
-      sessionStorage.setItem('prevLoadedFonts', JSON.stringify(fonts));
+      sessionStorage.setItem(
+        LOADED_FONTS,
+        JSON.stringify(
+          fonts.reduce((acc, font) => {
+            const key = createFontKey(font);
+            acc[key] = true;
+            return acc;
+          }, {}),
+        ),
+      );
     });
+}
+
+function createFontKey({ name, weight, style, stretch }) {
+  return [name, weight, style, stretch].filter(not(isNil)).join(' ');
 }

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
-import { isEmpty } from 'lodash/fp';
 
 import {
   imagePropType,
   captionPropType,
   alignPropType,
 } from '../../../util/prop-types';
+import { isEmpty } from '../../../util/fp';
 import { useComponents } from '../../../hooks/use-components';
 import { RatioImage } from '../RatioImage';
 import { Caption } from '../Caption';

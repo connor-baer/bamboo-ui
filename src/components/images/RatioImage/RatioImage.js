@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-import { includes } from 'lodash/fp';
 
 import { imagePropType } from '../../../util/prop-types';
+import { includes } from '../../../util/fp';
 import { useComponents } from '../../../hooks/use-components';
 
 const wrapperBaseStyles = () => css`

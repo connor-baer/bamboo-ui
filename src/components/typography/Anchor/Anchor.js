@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
-import { isEmpty } from 'lodash/fp';
 
-import { useComponents } from '../../../hooks/use-components';
 import { childrenPropType } from '../../../util/prop-types';
+import { isEmpty } from '../../../util/fp';
+import { useComponents } from '../../../hooks/use-components';
 import { focusOutline } from '../../../styles/shared';
 
 const baseStyles = ({ theme, backgroundColor }) => {

@@ -1,5 +1,5 @@
 {
-  "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+  "plugins": ["@babel/plugin-proposal-class-properties"],
   "presets": [
     [
       "@babel/preset-env",
@@ -21,7 +21,6 @@
       "ignore": ["**/*.story.js", "**/*.spec.js"],
       "plugins": [
         "@babel/plugin-proposal-class-properties",
-        "lodash",
         "inline-react-svg"
       ],
       "presets": [
@@ -45,7 +44,6 @@
       "ignore": ["**/*.story.js", "**/*.spec.js"],
       "plugins": [
         "@babel/plugin-proposal-class-properties",
-        "lodash",
         "inline-react-svg"
       ],
       "presets": [
@@ -67,7 +65,7 @@
       ]
     },
     "test": {
-      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+      "plugins": ["@babel/plugin-proposal-class-properties"],
       "presets": [
         [
           "@babel/preset-env",

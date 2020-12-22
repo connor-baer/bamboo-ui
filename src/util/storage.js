@@ -1,5 +1,3 @@
-import { keys } from 'lodash/fp';
-
 import { isServer } from './is-server';
 
 /* ISC License (ISC). Copyright 2017 Michal Zalecki */
@@ -56,7 +54,7 @@ export function storageFactory(storage) {
     if (isSupported) {
       return storage.key(index);
     }
-    return keys(inMemoryStorage)[index] || null;
+    return Object.keys(inMemoryStorage)[index] || null;
   }
 
   function getLength() {

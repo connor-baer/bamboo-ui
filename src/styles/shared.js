@@ -1,6 +1,7 @@
-import { isString, isArray, isObject } from 'lodash/fp';
 import { css } from '@emotion/core';
 import { directionalProperty } from 'polished';
+
+import { isString, isArray, isObject } from '../util/fp';
 
 function isTheme(args) {
   return args.theme === undefined;

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isObject, get } from 'lodash/fp';
 
 import { themePropType } from '../../../util/prop-types';
+import { isObject } from '../../../util/fp';
 
 const groupStyles = ({ theme }) => css`
   margin: ${theme.spacing.l} 0;
@@ -24,7 +24,7 @@ const colorStyles = ({ theme, colorPath }) => css`
   display: inline-block;
   width: ${theme.spacing.l};
   height: ${theme.spacing.l};
-  background: ${get(colorPath, theme.color)};
+  background: ${theme.color[colorPath]};
 `;
 
 const ColorBox = styled('span')(colorStyles);

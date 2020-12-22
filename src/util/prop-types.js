@@ -7,6 +7,12 @@ export const childrenPropType = PropTypes.oneOfType([
   PropTypes.node,
 ]);
 
+export const userPropType = PropTypes.shape({
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  image: PropTypes.string,
+});
+
 export const themePropType = PropTypes.shape({
   color: PropTypes.shape({
     white: PropTypes.string.isRequired,

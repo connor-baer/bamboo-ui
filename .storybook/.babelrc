@@ -1,9 +1,5 @@
 {
-  "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    "lodash",
-    "inline-react-svg"
-  ],
+  "plugins": ["@babel/plugin-proposal-class-properties", "inline-react-svg"],
   "presets": [
     ["@babel/preset-env", { "loose": true }],
     "@babel/preset-react",

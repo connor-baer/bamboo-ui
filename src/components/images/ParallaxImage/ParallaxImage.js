@@ -2,10 +2,10 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-import { includes } from 'lodash/fp';
 
 import { themePropType, imagePropType } from '../../../util/prop-types';
 import { isServer } from '../../../util/is-server';
+import { includes } from '../../../util/fp';
 import { ComponentsContext } from '../../../hooks/use-components';
 
 const containerBaseStyles = () => css`
