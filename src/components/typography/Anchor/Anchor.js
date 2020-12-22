@@ -21,6 +21,7 @@ const baseStyles = ({ theme }) => css`
     text-decoration-thickness ${theme.animation.micro};
 
   &:hover {
+    color: ${theme.color.primary[500]};
     text-decoration-thickness: 0.1em;
     background-color: ${theme.color.primary[100]};
   }

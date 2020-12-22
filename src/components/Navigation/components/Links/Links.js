@@ -152,10 +152,9 @@ const A = styled('a')(
 const iconStyles = ({ theme }) => css`
   display: inline-block;
   margin-bottom: ${theme.spacing.xxs};
-  font-size: ${theme.fontSize.xl};
+  font-size: ${theme.fontSize.l};
 
   ${theme.mq.hand} {
-    font-size: ${theme.fontSize.l};
     margin-right: ${theme.spacing.xxs};
     margin-bottom: 0;
   }
