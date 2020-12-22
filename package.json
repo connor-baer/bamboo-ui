@@ -40,7 +40,7 @@
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "@emotion/is-prop-valid": "^0.8.2",
+    "@emotion/is-prop-valid": "^1.0.0",
     "@emotion/styled": "^10.0.10",
     "downshift": "^6.0.7",
     "emotion-theming": "^10.0.10",
