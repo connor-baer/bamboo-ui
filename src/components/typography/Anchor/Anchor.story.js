@@ -15,7 +15,7 @@ export const Base = () => (
     target={select('Target', ['_blank', '_self'])}
     title={text('Title', 'Bamboo UI')}
   >
-    {text('Label', '🎋 Bamboo UI')}
+    {text('Label', 'Bamboo UI')}
   </Anchor>
 );
 
@@ -25,6 +25,6 @@ export const WithoutLink = () => (
     target={select('Target', ['_blank', '_self'])}
     title={text('Title', 'Panda')}
   >
-    {text('Label', '🐼 Panda')}
+    {text('Label', 'Panda')}
   </Anchor>
 );

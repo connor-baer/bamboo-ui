@@ -171,6 +171,7 @@ export const createBaseStyles = (theme) => css`
     font-weight: ${theme.fontWeight.regular};
     line-height: ${theme.lineHeight.m};
     text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

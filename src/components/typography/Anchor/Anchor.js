@@ -9,59 +9,35 @@ import { isEmpty } from '../../../util/fp';
 import { useComponents } from '../../../hooks/use-components';
 import { focusOutline } from '../../../styles/shared';
 
-const baseStyles = ({ theme, backgroundColor }) => {
-  const textShadowColor = backgroundColor || theme.color.bodyBg;
-  return css`
-    color: ${theme.color.primary[500]};
-    font-weight: ${theme.fontWeight.bold};
-    border-bottom: 1px solid currentColor;
-    text-shadow: 1px 1px ${textShadowColor}, 1px -1px ${textShadowColor},
-      -1px 1px ${textShadowColor}, -1px -1px ${textShadowColor};
+const baseStyles = ({ theme }) => css`
+  padding: 0.125em 0.25em;
+  margin: -0.125em -0.25em;
+  color: ${theme.color.primary[500]};
+  font-weight: ${theme.fontWeight.bold};
+  text-decoration: underline;
+  border-radius: ${theme.borderRadius.s};
+  transition: color ${theme.animation.micro},
+    background-color ${theme.animation.micro},
+    text-decoration-thickness ${theme.animation.micro};
 
-    &:hover {
-      color: ${theme.color.primary[500]};
-      border-bottom-width: 2px;
-    }
+  &:hover {
+    text-decoration-thickness: 0.1em;
+    background-color: ${theme.color.primary[100]};
+  }
 
-    &:focus {
-      border-radius: ${theme.borderRadius.s};
-      ${focusOutline(theme)};
-    }
+  &:focus {
+    border-radius: ${theme.borderRadius.s};
+    ${focusOutline(theme)};
+  }
 
-    &:active {
-      color: ${theme.color.primary[700]};
-      border-bottom-width: 2px;
-    }
-
-    &::selection {
-      text-shadow: 1px 1px ${theme.color.selectionBg},
-        1px -1px ${theme.color.selectionBg}, -1px 1px ${theme.color.selectionBg},
-        -1px -1px ${theme.color.selectionBg};
-    }
-
-    &::before,
-    &::after,
-    *,
-    *::before,
-    *::after {
-      text-shadow: none;
-    }
-  `;
-};
-
-const simpleUnderlineStyles = ({ simpleUnderline }) =>
-  simpleUnderline &&
-  css`
-    text-shadow: none;
-
-    &::selection {
-      text-shadow: none;
-    }
-  `;
+  &:active {
+    color: ${theme.color.primary[700]};
+  }
+`;
 
 const A = styled('a', {
   shouldForwardProp: isPropValid,
-})(baseStyles, simpleUnderlineStyles);
+})(baseStyles);
 
 export function Anchor({
   children,
