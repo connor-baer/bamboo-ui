@@ -83,8 +83,8 @@ export const buttonOutline = ({ theme, variant = 'primary' }) => {
       active: theme.color.primary[900],
     },
     secondary: {
-      hover: theme.color.neutral[200],
-      active: theme.color.neutral[300],
+      hover: theme.color.neutral[300],
+      active: theme.color.neutral[400],
     },
     destructive: {
       hover: theme.color.red[700],
@@ -104,7 +104,7 @@ export const buttonOutline = ({ theme, variant = 'primary' }) => {
       right: -2px;
       bottom: -2px;
       left: -2px;
-      border-radius: 14px;
+      border-radius: ${theme.borderRadius.pill};
       transition: box-shadow ${theme.animation.micro};
     }
 

@@ -22,7 +22,7 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacing.s} ${theme.spacing.m};
   margin: 0;
   transition: all ${theme.animation.micro};
-  border-radius: ${theme.borderRadius.m};
+  border-radius: ${theme.borderRadius.pill};
   border: none;
   outline: 0;
   line-height: 1;
@@ -55,15 +55,15 @@ const primaryStyles = ({ theme, variant }) =>
 const secondaryStyles = ({ theme, variant }) =>
   variant === SECONDARY &&
   css`
-    background-color: ${theme.color.neutral[100]};
-    color: ${theme.color.primary[500]};
+    background-color: ${theme.color.neutral[200]};
+    color: ${theme.color.neutral[900]};
 
     &:hover {
-      background-color: ${theme.color.neutral[200]};
+      background-color: ${theme.color.neutral[300]};
     }
 
     &:active {
-      background-color: ${theme.color.neutral[300]};
+      background-color: ${theme.color.neutral[400]};
     }
   `;
 

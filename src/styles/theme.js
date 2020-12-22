@@ -185,6 +185,7 @@ const neutral = {
   100: openColor.gray[1],
   200: openColor.gray[2],
   300: openColor.gray[3],
+  400: openColor.gray[4],
   500: openColor.gray[6],
   700: openColor.gray[7],
   900: openColor.gray[9],
