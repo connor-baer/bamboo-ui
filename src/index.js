@@ -58,6 +58,7 @@ export {
   AutocompleteInput,
   AutocompleteMultiSelect,
 } from './components/forms/Autocomplete';
+export { Checkbox } from './components/forms/Checkbox';
 export { Label } from './components/forms/Label';
 
 export { Button } from './components/Button';

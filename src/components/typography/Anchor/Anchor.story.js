@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import { Anchor } from './Anchor';
 
@@ -19,7 +20,9 @@ export const AsLink = () => (
 );
 
 export const AsButton = () => (
-  <Anchor onClick={() => {}}>{text('Label', 'Bamboo UI')}</Anchor>
+  <Anchor onClick={action('Anchor clicked')}>
+    {text('Label', 'Bamboo UI')}
+  </Anchor>
 );
 
 export const NoAction = () => (

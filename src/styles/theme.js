@@ -156,6 +156,7 @@ const borderWidth = {
 };
 
 const borderRadius = {
+  xs: '0.25rem', // 4px
   s: '0.375rem', // 6px
   m: '0.75rem', // 12px
   l: '1rem', // 16px
