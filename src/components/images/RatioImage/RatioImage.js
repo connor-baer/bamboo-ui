@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
@@ -71,7 +71,14 @@ const imageLoadingStyles = ({ theme, isLoading }) => css`
 
 export function RatioImage({ aspectRatio, className, ...props }) {
   const { Image } = useComponents();
+  const imageRef = useRef();
   const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (imageRef.current && imageRef.current.complete) {
+      setLoading(false);
+    }
+  }, []);
 
   const handleLoad = () => {
     setLoading(false);
@@ -87,6 +94,7 @@ export function RatioImage({ aspectRatio, className, ...props }) {
       className={className}
     >
       <Image
+        ref={imageRef}
         onLoad={handleLoad}
         aspectRatio={aspectRatio}
         css={(theme) => [
