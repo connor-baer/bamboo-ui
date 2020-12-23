@@ -15,19 +15,30 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.color.primary[500]};
   font-weight: ${theme.fontWeight.bold};
   text-decoration: underline;
+  background: none;
+  border: 0;
+  outline: none;
   border-radius: ${theme.borderRadius.s};
   transition: color ${theme.animation.micro},
     background-color ${theme.animation.micro},
     text-decoration-thickness ${theme.animation.micro};
 
   &:hover {
+    cursor: pointer;
     color: ${theme.color.primary[500]};
     text-decoration-thickness: 0.1em;
     background-color: ${theme.color.primary[100]};
   }
 
   &:focus {
-    border-radius: ${theme.borderRadius.s};
+    ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
     ${focusOutline(theme)};
   }
 
@@ -40,8 +51,13 @@ const A = styled('a', {
   shouldForwardProp: isPropValid,
 })(baseStyles);
 
+const Button = styled('button', {
+  shouldForwardProp: isPropValid,
+})(baseStyles);
+
 export function Anchor({
   children,
+  onClick,
   href,
   as,
   replace,
@@ -51,12 +67,21 @@ export function Anchor({
 }) {
   const { Link } = useComponents();
 
-  if (isEmpty(href)) {
+  if (isEmpty(href) && !onClick) {
     return <span {...rest}>{children}</span>;
+  }
+
+  if (isEmpty(href)) {
+    return (
+      <Button onClick={onClick} {...rest}>
+        {children}
+      </Button>
+    );
   }
 
   return (
     <Link
+      onClick={onClick}
       href={href}
       as={as}
       replace={replace}
@@ -71,6 +96,7 @@ export function Anchor({
 
 Anchor.propTypes = {
   children: childrenPropType.isRequired,
+  onClick: PropTypes.func,
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   replace: PropTypes.bool,

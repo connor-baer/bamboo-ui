@@ -14,14 +14,30 @@ const buttonStyles = ({ theme }) => css`
   padding: ${theme.spacing.m} ${theme.spacing.xs};
   margin: 0;
   width: ${theme.iconSize.m};
-  background: none;
+  background-color: ${theme.color.neutral[100]};
   border: 0;
   position: relative;
   color: ${theme.color.neutral[900]};
+  border-radius: ${theme.borderRadius.s};
+
+  &:hover {
+    background-color: ${theme.color.neutral[200]};
+  }
 
   &:focus {
-    border-radius: ${theme.borderRadius.s};
     ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    ${focusOutline(theme)};
+  }
+
+  &:active {
+    background-color: ${theme.color.neutral[300]};
   }
 `;
 

@@ -32,6 +32,14 @@ const baseStyles = ({ theme }) => css`
     ${focusOutline(theme)};
   }
 
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    ${focusOutline(theme)};
+  }
+
   svg {
     fill: currentColor;
   }
@@ -55,15 +63,15 @@ const primaryStyles = ({ theme, variant }) =>
 const secondaryStyles = ({ theme, variant }) =>
   variant === SECONDARY &&
   css`
-    background-color: ${theme.color.neutral[200]};
+    background-color: ${theme.color.neutral[100]};
     color: ${theme.color.neutral[900]};
 
     &:hover {
-      background-color: ${theme.color.neutral[300]};
+      background-color: ${theme.color.neutral[200]};
     }
 
     &:active {
-      background-color: ${theme.color.neutral[400]};
+      background-color: ${theme.color.neutral[300]};
     }
   `;
 

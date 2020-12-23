@@ -105,6 +105,14 @@ const navAnchorBaseStyles = ({ theme }) => css`
     ${focusOutline(theme)};
   }
 
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    ${focusOutline(theme)};
+  }
+
   &:last-of-type {
     margin-right: 0;
   }
@@ -121,6 +129,10 @@ const navAnchorBaseStyles = ({ theme }) => css`
 
   ${theme.mq.lap} {
     margin-right: ${theme.spacing.l};
+  }
+
+  ${theme.mq.desk} {
+    margin-right: ${theme.spacing.xl};
   }
 `;
 

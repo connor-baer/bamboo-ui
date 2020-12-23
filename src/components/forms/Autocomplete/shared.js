@@ -57,6 +57,14 @@ const expandButtonStyles = ({ theme }) => css`
   &:focus {
     ${focusOutline(theme)};
   }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    ${focusOutline(theme)};
+  }
 `;
 
 export const ExpandButton = styled('button')(expandButtonStyles);

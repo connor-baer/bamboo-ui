@@ -5,7 +5,7 @@ import { text } from '@storybook/addon-knobs/react';
 import { Hamburger } from './Hamburger';
 
 export default {
-  title: 'Icons/Hamburger',
+  title: 'Components/Hamburger',
   component: Hamburger,
 };
 

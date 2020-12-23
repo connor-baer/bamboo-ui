@@ -83,8 +83,8 @@ export const buttonOutline = ({ theme, variant = 'primary' }) => {
       active: theme.color.primary[900],
     },
     secondary: {
-      hover: theme.color.neutral[300],
-      active: theme.color.neutral[400],
+      hover: theme.color.neutral[200],
+      active: theme.color.neutral[300],
     },
     destructive: {
       hover: theme.color.red[700],

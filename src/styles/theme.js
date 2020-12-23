@@ -107,7 +107,7 @@ const lineHeight = {
 };
 
 const letterSpacing = {
-  fallback: '0.5px',
+  fallback: '0.75px',
   s: '1px',
   m: '2px',
   l: '3px',
@@ -185,7 +185,6 @@ const neutral = {
   100: openColor.gray[1],
   200: openColor.gray[2],
   300: openColor.gray[3],
-  400: openColor.gray[4],
   500: openColor.gray[6],
   700: openColor.gray[7],
   900: openColor.gray[9],

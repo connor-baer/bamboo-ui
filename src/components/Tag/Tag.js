@@ -21,6 +21,14 @@ const baseStyles = ({ theme }) => css`
   &:focus {
     ${focusOutline(theme)};
   }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    ${focusOutline(theme)};
+  }
 `;
 
 const disabledStyles = ({ disabled }) => disabled && disableVisually();
@@ -38,6 +46,14 @@ const contentStyles = ({ theme }) => css`
   line-height: 1;
 
   &:focus {
+    ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
     ${focusOutline(theme)};
   }
 `;
@@ -64,6 +80,14 @@ const closeButtonStyles = ({ theme }) => css`
   }
 
   &:focus {
+    ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
     ${focusOutline(theme)};
   }
 

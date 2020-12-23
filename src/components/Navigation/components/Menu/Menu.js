@@ -18,6 +18,10 @@ const wrapperStyles = ({ theme }) => css`
   ${theme.mq.hand} {
     position: relative;
   }
+
+  ${theme.mq.desk} {
+    margin-left: ${theme.spacing.xxl};
+  }
 `;
 
 const Wrapper = styled('div')(wrapperStyles);
@@ -45,6 +49,14 @@ const imageButtonStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.circle};
 
   &:focus {
+    ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
     ${focusOutline(theme)};
   }
 
@@ -152,6 +164,14 @@ const itemClickableStyles = ({ theme, onClick, href }) =>
       ${focusOutline(theme)};
     }
 
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      ${focusOutline(theme)};
+    }
+
     &:active {
       background: ${theme.color.neutral[300]};
       color: ${theme.color.primary[500]};
@@ -209,6 +229,14 @@ const darkmodeButtonStyles = ({ theme }) => css`
   cursor: pointer;
 
   &:focus {
+    ${focusOutline(theme)};
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
     ${focusOutline(theme)};
   }
 

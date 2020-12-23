@@ -8,10 +8,9 @@ export default {
   component: Anchor,
 };
 
-export const Base = () => (
+export const AsLink = () => (
   <Anchor
     href={text('Link', 'https://github.com/connor-baer/bamboo-ui')}
-    id={text('Id', 'bamboo-ui')}
     target={select('Target', ['_blank', '_self'])}
     title={text('Title', 'Bamboo UI')}
   >
@@ -19,7 +18,11 @@ export const Base = () => (
   </Anchor>
 );
 
-export const WithoutLink = () => (
+export const AsButton = () => (
+  <Anchor onClick={() => {}}>{text('Label', 'Bamboo UI')}</Anchor>
+);
+
+export const NoAction = () => (
   <Anchor
     id={text('Id', 'panda')}
     target={select('Target', ['_blank', '_self'])}

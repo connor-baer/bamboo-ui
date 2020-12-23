@@ -168,6 +168,7 @@ export const createBaseStyles = (theme) => css`
   textarea {
     font-family: ${theme.fontStack.fallback};
     letter-spacing: ${theme.letterSpacing.fallback};
+    font-size: 100%;
     font-weight: ${theme.fontWeight.regular};
     line-height: ${theme.lineHeight.m};
     text-decoration-skip: ink;
