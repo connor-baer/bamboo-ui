@@ -16,12 +16,6 @@ global.renderToHtml = renderWithTheme(renderToStaticMarkup);
 global.fireEvent = fireEvent;
 global.axe = axe;
 
-// This is defined by webpack in storybook builds using the DefinePlugin plugin.
-global.STORYBOOK = false;
-global.__DEV__ = false;
-global.__PRODUCTION__ = false;
-global.__TEST__ = true;
-
 // Add custom matchers
 expect.extend(toHaveNoViolations);
 
