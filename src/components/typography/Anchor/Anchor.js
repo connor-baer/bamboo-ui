@@ -10,6 +10,7 @@ import { useComponents } from '../../../hooks/use-components';
 import { focusOutline } from '../../../styles/shared';
 
 const baseStyles = ({ theme }) => css`
+  position: relative;
   padding: 0.125em 0.25em;
   margin: -0.125em -0.25em;
   color: ${theme.color.primary[500]};
@@ -23,11 +24,29 @@ const baseStyles = ({ theme }) => css`
     background-color ${theme.animation.micro},
     text-decoration-thickness ${theme.animation.micro};
 
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: ${theme.borderRadius.s};
+    transition: background-color ${theme.animation.micro};
+    opacity: 0.1;
+  }
+
   &:hover {
     cursor: pointer;
     color: ${theme.color.primary[500]};
     text-decoration-thickness: 0.1em;
-    background-color: ${theme.color.primary[100]};
+
+    &::before {
+      background-color: currentColor;
+    }
   }
 
   &:focus {
