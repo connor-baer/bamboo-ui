@@ -39,7 +39,7 @@ const imageStyles = ({ theme }) =>
 
       a:hover &,
       a:focus & {
-        transform: scale(1.04);
+        transform: scale(1.1);
       }
     }
   `;

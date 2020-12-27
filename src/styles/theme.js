@@ -254,9 +254,9 @@ const misc = {
 };
 
 const animation = {
-  micro: '160ms cubic-bezier(0, 0, 0.2, 1)',
-  standard: '320ms cubic-bezier(0, 0, 0.2, 1)',
-  motion: '320ms cubic-bezier(0, 0, 0.2, 1)',
+  micro: '200ms cubic-bezier(0, 0, 0.2, 1)',
+  standard: '500ms cubic-bezier(0, 0, 0.2, 1)',
+  motion: '1000ms cubic-bezier(0, 0, 0.2, 1)',
 };
 
 const shadow = {
