@@ -7,7 +7,9 @@ export function isArray(value) {
 }
 
 export function isObject(value) {
-  return typeof value === 'object';
+  return (
+    value === Object(value) && !isArray(value) && typeof value !== 'function'
+  );
 }
 
 export function isEmpty(value) {
