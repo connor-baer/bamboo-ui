@@ -22,8 +22,8 @@ export function Header({ title, subtitle, children, size = 'xxl', ...rest }) {
 }
 
 Header.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
+  title: childrenPropType,
+  subtitle: childrenPropType,
   children: childrenPropType,
   size: PropTypes.oneOf(['xl', 'xxl']),
 };
