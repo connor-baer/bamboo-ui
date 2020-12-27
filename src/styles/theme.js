@@ -82,16 +82,18 @@ const fontStack = {
     '"Merriweather Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   sans:
     '"Merriweather Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  serif: 'Merriweather, Georgia, Times New Roman, serif',
-  mono: 'Courier New, mono-space',
+  serif:
+    'Merriweather, Georgia, Times New Roman, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  mono:
+    'Courier New, mono-space, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 };
 
 const fontSize = {
-  s: '0.8125rem', // 13px
-  m: '1rem', // 16px
-  l: '1.3125rem', // 21px
-  xl: '1.75rem', // 28px
-  xxl: '2.25rem', // 36px
+  s: '0.875rem', // 14px
+  m: '1.125rem', // 18px
+  l: '1.5rem', // 24px
+  xl: '2rem', // 32px
+  xxl: '2.625rem', // 42px
 };
 
 const fontWeight = {
@@ -287,6 +289,13 @@ const overrides = [
       spacing: {
         gutter: '2.5rem', // 40px
       },
+      fontSize: {
+        s: '0.9375rem', // 15px
+        m: '1.25rem', // 20px
+        l: '1.75rem', // 28px
+        xl: '2.5rem', // 40px
+        xxl: '3.375rem', // 54px
+      },
     },
   },
   {
@@ -312,7 +321,9 @@ const overrides = [
     condition: mq.reducedMotion,
     theme: {
       animation: {
-        motion: '0s',
+        micro: '150ms cubic-bezier(0, 0, 0.2, 1)',
+        standard: '300ms cubic-bezier(0, 0, 0.2, 1)',
+        motion: '300ms cubic-bezier(0, 0, 0.2, 1)',
       },
     },
   },

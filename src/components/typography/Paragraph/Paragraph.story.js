@@ -22,7 +22,7 @@ export const Base = () => {
     <div
       css={css`
         width: 90vw;
-        max-width: 40rem;
+        max-width: 50rem;
       `}
     >
       <Paragraph type={type} size={size} weight={weight} slope={slope}>
