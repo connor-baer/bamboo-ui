@@ -61,7 +61,7 @@ const slideStyles = (count) => (theme) => {
 
     ${theme.mq.lap} {
       width: ${width}%;
-      max-width: auto;
+      max-width: none;
       flex-shrink: 1;
       margin-left: 0;
       margin-right: ${theme.spacing.gutter};

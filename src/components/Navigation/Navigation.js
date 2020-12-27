@@ -16,7 +16,7 @@ const headerBaseStyles = ({ theme }) => css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${theme.spacing.xs} ${theme.spacing.s};
+  padding: ${theme.spacing.xs} ${theme.spacing.gutter};
   transition: opacity ${theme.animation.standard},
     background-color ${theme.animation.standard},
     padding ${theme.animation.standard};
@@ -32,7 +32,7 @@ const headerBaseStyles = ({ theme }) => css`
     top: 0;
     right: 0;
     left: 0;
-    padding: ${theme.spacing.m} ${theme.spacing.l};
+    padding: ${theme.spacing.m} ${theme.spacing.gutter};
   }
 `;
 

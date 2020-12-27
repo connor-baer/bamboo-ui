@@ -139,7 +139,7 @@ const spacing = {
   xxl: '2.5rem', // 40px
   xxxl: '3rem', // 48px
   xxxxl: '4rem', // 54px
-  gutter: '1rem', // 16px
+  gutter: '1.25rem', // 20px
 };
 
 const iconSize = {
@@ -270,7 +270,7 @@ const overrides = [
     condition: mq.lap,
     theme: {
       spacing: {
-        gutter: '1.5rem', // 24px
+        gutter: '2rem', // 32px
       },
       fontSize: {
         s: '0.875rem', // 14px
@@ -285,7 +285,7 @@ const overrides = [
     condition: mq.desk,
     theme: {
       spacing: {
-        gutter: '2rem', // 32px
+        gutter: '2.5rem', // 40px
       },
     },
   },
