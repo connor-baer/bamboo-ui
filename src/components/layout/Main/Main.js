@@ -25,7 +25,8 @@ const sidebarStyles = ({ theme, variant }) =>
     width: 100vw;
 
     ${theme.mq.lap} {
-      width: calc(100vw - 20rem);
+      width: calc(100vw - 25rem);
+      min-width: calc(100vw - 30vw);
     }
   `;
 
