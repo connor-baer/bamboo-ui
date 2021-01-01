@@ -2,11 +2,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import { HEIGHT_NAVIGATION, HEIGHT_FOOTER } from '../../../constants/height';
+
 const SIDEBAR = 'sidebar';
 const SPLIT = 'split';
-
-const HEIGHT_NAVIGATION = '5rem';
-const HEIGHT_FOOTER = '10.5rem + 3rem';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.color.bodyColor};

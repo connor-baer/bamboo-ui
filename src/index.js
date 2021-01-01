@@ -87,3 +87,9 @@ export { sessionStore, localStore } from './util/storage';
 
 export { styles, themes };
 export { BaseStyles } from './styles/base-styles';
+
+/**
+ * Constants
+ */
+
+export { HEIGHT_NAVIGATION, HEIGHT_FOOTER } from './constants/height';
