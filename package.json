@@ -87,7 +87,7 @@
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "jest-cli": "^26.6.3",
-    "jest-emotion": "^10.0.10",
+    "jest-emotion": "^11.0.0",
     "react": "^17.0.1",
     "react-docgen": "^5.3.1",
     "react-docgen-annotation-resolver": "^2.0.0",
