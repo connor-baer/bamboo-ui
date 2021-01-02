@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/prop-types';
-import { disableVisually, focusOutline } from '../../styles/shared';
+import { disableVisually, focusVisible } from '../../styles/shared';
 import { ReactComponent as Cross } from '../../icons/cross.svg';
 
 const baseStyles = ({ theme }) => css`
@@ -18,17 +18,7 @@ const baseStyles = ({ theme }) => css`
     fill: currentColor;
   }
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 `;
 
 const disabledStyles = ({ disabled }) => disabled && disableVisually();
@@ -45,17 +35,7 @@ const contentStyles = ({ theme }) => css`
   border-bottom-left-radius: ${theme.borderRadius.s};
   line-height: 1;
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 `;
 
 const Content = styled('span')(contentStyles);
@@ -79,17 +59,7 @@ const closeButtonStyles = ({ theme }) => css`
     background-color: ${theme.color.white};
   }
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   svg {
     color: ${theme.color.neutral[900]} !important;

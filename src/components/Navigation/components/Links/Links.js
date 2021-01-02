@@ -6,7 +6,7 @@ import { css } from '@emotion/core';
 import { childrenPropType } from '../../../../util/prop-types';
 import { isEmpty } from '../../../../util/fp';
 import { useComponents } from '../../../../hooks/use-components';
-import { focusOutline } from '../../../../styles/shared';
+import { focusVisible } from '../../../../styles/shared';
 
 const navBaseStyles = ({ theme }) => css`
   position: fixed;
@@ -101,17 +101,7 @@ const navAnchorBaseStyles = ({ theme }) => css`
     color: ${theme.color.primary[700]};
   }
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   &:last-of-type {
     margin-right: 0;

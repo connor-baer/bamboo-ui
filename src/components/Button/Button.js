@@ -7,7 +7,7 @@ import { childrenPropType } from '../../util/prop-types';
 import { useComponents } from '../../hooks/use-components';
 import {
   disableVisually,
-  focusOutline,
+  focusVisible,
   buttonOutline,
 } from '../../styles/shared';
 
@@ -28,17 +28,7 @@ const baseStyles = ({ theme }) => css`
   line-height: 1;
   cursor: pointer;
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   svg {
     fill: currentColor;

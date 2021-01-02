@@ -53,7 +53,7 @@ export function toLower(value) {
 }
 
 export function includes(target, collection) {
-  return collection.includes(target);
+  return isEmpty(collection) ? false : collection.includes(target);
 }
 
 export function not(fn) {

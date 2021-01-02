@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { focusOutline, hideVisually } from '../../../styles/shared';
+import { focusVisible, hideVisually } from '../../../styles/shared';
 
 const LAYER_HEIGHT = '2px';
 
@@ -24,17 +24,7 @@ const buttonStyles = ({ theme }) => css`
     background-color: ${theme.color.neutral[200]};
   }
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   &:active {
     background-color: ${theme.color.neutral[300]};

@@ -76,6 +76,23 @@ export const focusOutline = (args) => {
   `;
 };
 
+export const focusVisible = (args) => {
+  const theme = getTheme(args);
+  return css`
+    &:focus {
+      ${focusOutline(theme)};
+    }
+
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      ${focusOutline(theme)};
+    }
+  `;
+};
+
 export const buttonOutline = ({ theme, variant = 'primary' }) => {
   const colorMap = {
     primary: {

@@ -7,7 +7,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { childrenPropType } from '../../../util/prop-types';
 import { isEmpty } from '../../../util/fp';
 import { useComponents } from '../../../hooks/use-components';
-import { focusOutline } from '../../../styles/shared';
+import { focusVisible } from '../../../styles/shared';
 
 const baseStyles = ({ theme }) => css`
   position: relative;
@@ -49,17 +49,7 @@ const baseStyles = ({ theme }) => css`
     }
   }
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   &:active {
     color: ${theme.color.primary[700]};

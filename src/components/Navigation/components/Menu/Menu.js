@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 
 import { childrenPropType, userPropType } from '../../../../util/prop-types';
-import { focusOutline, buttonOutline } from '../../../../styles/shared';
+import { focusVisible, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { Hamburger } from '../../../icons/Hamburger';
@@ -48,17 +48,7 @@ const imageButtonStyles = ({ theme }) => css`
   border: 0;
   border-radius: ${theme.borderRadius.circle};
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   &::after {
     border-radius: ${theme.borderRadius.circle};
@@ -160,17 +150,7 @@ const itemClickableStyles = ({ theme, onClick, href }) =>
       color: ${theme.color.primary[500]};
     }
 
-    &:focus {
-      ${focusOutline(theme)};
-    }
-
-    &:focus:not(:focus-visible) {
-      box-shadow: none;
-    }
-
-    &:focus-visible {
-      ${focusOutline(theme)};
-    }
+    ${focusVisible(theme)};
 
     &:active {
       background: ${theme.color.neutral[300]};
@@ -228,17 +208,7 @@ const darkmodeButtonStyles = ({ theme }) => css`
   fill: ${theme.color.neutral[700]};
   cursor: pointer;
 
-  &:focus {
-    ${focusOutline(theme)};
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    ${focusOutline(theme)};
-  }
+  ${focusVisible(theme)};
 
   ${theme.mq.hand} {
     padding: calc(${theme.spacing.xs} + 2px);

@@ -84,7 +84,7 @@ export function RatioImage({ aspectRatio, className, ...props }) {
     setLoading(false);
   };
 
-  const isTransparent = props.src && includes('.png', props.src);
+  const isTransparent = includes('.png', props.src);
 
   return (
     <Wrapper
