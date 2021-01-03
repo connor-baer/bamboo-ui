@@ -17,7 +17,7 @@ export { Small } from './components/typography/Small';
 export { Emoji } from './components/typography/Emoji';
 
 // Sections
-export { Navigation } from './components/Navigation';
+export { Navigation, Menu } from './components/Navigation';
 export { Header } from './components/Header';
 export { Prefooter } from './components/Prefooter';
 export { Footer } from './components/Footer';
