@@ -11806,7 +11806,7 @@ npm-user-validate@~1.0.0:
   resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.1.tgz#31428fc5475fe8416023f178c0ab47935ad8c561"
   integrity sha512-uQwcd/tY+h1jnEaze6cdX/LrhWhoBxfSknxentoqmIuStxUExxjWd3ULMLFPiFUrZKbOVMowH6Jq2FRWfmhcEw==
 
-npm@^6.13.0, npm@^6.9.0:
+npm@^6.13.0:
   version "6.14.8"
   resolved "https://registry.yarnpkg.com/npm/-/npm-6.14.8.tgz#64ef754345639bc035982ec3f609353c8539033c"
   integrity sha512-HBZVBMYs5blsj94GTeQZel7s9odVuuSUHy1+AlZh7rPVux1os2ashvEGLy/STNK7vUjbrCg5Kq9/GXisJgdf6A==
@@ -12119,12 +12119,9 @@ onetime@^5.1.0:
     mimic-fn "^2.1.0"
 
 open-color@^1.6.3:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/open-color/-/open-color-1.7.0.tgz#f238344313ab7d8b7576f7704d69ba92ee53b51b"
-  integrity sha512-Kyl74V5gohYxajOVgIaXhvhjKtXfhwl7ddJ28HVXDkPuM8PVdaWbFPucf6qPGW6aXOMxnukw0/R1lLLyXKEffA==
-  dependencies:
-    lodash "^4.17.11"
-    npm "^6.9.0"
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/open-color/-/open-color-1.8.0.tgz#fb6d76105b08de39bff7a06535eca8e63b65b725"
+  integrity sha512-gSHRpWLx83rKlHZIm9ZoUBsSMijhPRMxOOacUETjY8guu9dAwIAbtZgmVqkfglmhs3/pYppGohzp8fUdJ4YBqQ==
 
 open@^6.3.0:
   version "6.4.0"
