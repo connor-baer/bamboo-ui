@@ -1,5 +1,5 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import { CoverImage } from '../images/CoverImage';
@@ -17,8 +17,9 @@ function generateSlides(amount) {
             src={`https://source.unsplash.com/${500 + n}x${400 + n}/`}
             srcSet={[
               `https://source.unsplash.com/${500 + n}x${400 + n}/ ${500 + n}w`,
-              `https://source.unsplash.com/${1000 + n}x${800 + n}/ ${1000 +
-                n}w`,
+              `https://source.unsplash.com/${1000 + n}x${800 + n}/ ${
+                1000 + n
+              }w`,
             ].join(', ')}
             aspectRatio={3 / 5}
             alt="A random image"

@@ -1,24 +1,35 @@
 import React from 'react';
-import { addParameters, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { css, Global } from '@emotion/core';
 
-import Story from './Story';
-
-import { standard } from '../src/styles/theme';
 import { Theme } from '../src/components/Theme';
+import { standard } from '../src/styles/theme';
+import { BaseStyles } from '../src/styles/base-styles';
 
-const withTheme = (storyFn) => <Theme theme={standard}>{storyFn()}</Theme>;
-
-const withStoryStyles = (storyFn) => {
-  return <Story>{storyFn()}</Story>;
+export const parameters = {
+  layout: 'centered',
 };
 
-addParameters({
-  options: {
-    showRoots: true,
-  },
-});
+const globalStyles = (theme) => css`
+  html {
+    background-color: transparent;
+  }
 
-addDecorator(withKnobs);
-addDecorator(withStoryStyles);
-addDecorator(withTheme);
+  body,
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: ${theme.fontStack.sans} !important;
+  }
+`;
+
+const withTheme = (Story) => (
+  <Theme theme={standard}>
+    <BaseStyles />
+    <Global styles={globalStyles} />
+    <Story />
+  </Theme>
+);
+
+export const decorators = [withTheme];

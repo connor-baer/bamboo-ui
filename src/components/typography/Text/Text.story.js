@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import { Text } from './Text';

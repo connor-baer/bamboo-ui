@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { text } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs';
 
 import { Prefooter } from './Prefooter';
 
