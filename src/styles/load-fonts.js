@@ -14,13 +14,13 @@ export const createFontFace = (font) => {
     .map(({ url, format }) => `url('${url}') format('${format}')`)
     .join(', ');
   return css`
-      @font-face {
-        font-family: '${name}';
-        font-style: ${style};
-        font-weight: ${weight};
-        font-display: swap;
-        src: local('${localName || name}'), ${urls};
-      };
+    @font-face {
+      font-family: '${name}';
+      font-style: ${style};
+      font-weight: ${weight};
+      font-display: swap;
+      src: local('${localName || name}'), ${urls};
+    } ;
   `;
 };
 
@@ -61,8 +61,8 @@ export function loadFonts(fonts, timeout = 3000) {
 
   Promise.all(fontPromises)
     .then((loaded) => {
-      // eslint-disable-next-line no-console
       if (process.env.NODE_ENV !== 'production') {
+        // eslint-disable-next-line no-console
         console.info(
           `Loaded fonts "${loaded
             .map(({ family, style, weight }) => `${family} ${weight} ${style}`)
