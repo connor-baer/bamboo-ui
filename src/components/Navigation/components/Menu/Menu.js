@@ -8,7 +8,7 @@ import { focusVisible, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/use-components';
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { Hamburger } from '../../../icons/Hamburger';
-import { Hr } from '../../../Hr';
+import { Divider } from '../../../Divider';
 import { useOutsideClick } from '../../../../hooks/use-outside-click';
 
 const wrapperStyles = ({ theme }) => css`
@@ -170,7 +170,7 @@ const hrStyles = ({ theme }) => css`
   margin: ${theme.spacing.xxs} 0 ${theme.spacing.xs};
 `;
 
-const MenuHr = styled(Hr)(hrStyles);
+const MenuDivider = styled(Divider)(hrStyles);
 
 const IconButton = styled('button')(itemStyles, itemClickableStyles);
 
@@ -275,7 +275,7 @@ export function Menu({ children, user }) {
       <Dropdown isOpen={isOpen}>
         {children}
 
-        {hasDivider && <MenuHr />}
+        {hasDivider && <MenuDivider />}
 
         {toggleDarkmode && (
           <IconButton
@@ -300,7 +300,7 @@ export function Menu({ children, user }) {
 }
 
 Menu.Item = MenuItem;
-Menu.Hr = MenuHr;
+Menu.Divider = MenuDivider;
 
 Menu.propTypes = {
   user: userPropType,

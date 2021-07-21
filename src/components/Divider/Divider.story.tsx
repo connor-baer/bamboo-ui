@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { Hr } from './Hr';
+import { Divider } from './Divider';
 
 const Container = styled('div')`
   width: 500px;
@@ -9,13 +9,13 @@ const Container = styled('div')`
 `;
 
 export default {
-  title: 'Components/Hr',
-  component: Hr,
+  title: 'Components/Divider',
+  component: Divider,
 };
 
 export const Base = () => (
   <Container>
-    <Hr />
+    <Divider />
   </Container>
 );
 
@@ -27,7 +27,7 @@ export const WithText = () => (
       kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape tbh
       adaptogen green juice lo-fi kombucha.
     </p>
-    <Hr />
+    <Divider />
     <p>
       Roof party cronut seitan pitchfork keytar small batch migas ugh XOXO
       kickstarter pork belly tumblr. Taiyaki brunch vegan XOXO meggings. Kinfolk

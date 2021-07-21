@@ -1,13 +1,13 @@
 import React, { HTMLProps } from 'react';
 import cx from 'classnames';
 
-import styles from './Hr.module.css';
+import styles from './Divider.module.css';
 
-export type HrProps = HTMLProps<HTMLHRElement>;
+export type DividerProps = HTMLProps<HTMLHRElement>;
 
 /**
  * A horizontal rule to visually and semantically separate text.
  */
-export function Hr({ className, ...props }: HrProps): JSX.Element {
+export function Divider({ className, ...props }: DividerProps): JSX.Element {
   return <hr {...props} className={cx(className, styles.base)} />;
 }

@@ -27,7 +27,7 @@ export { Slider } from './components/Slider';
 export { LoadingBar } from './components/LoadingBar';
 export { Meta } from './components/Meta';
 export { Theme } from './components/Theme';
-export { Hr } from './components/Hr';
+export { Divider } from './components/Divider';
 
 // Icons
 export { PandaIcon } from './components/icons/PandaIcon';
