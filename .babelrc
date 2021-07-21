@@ -1,12 +1,7 @@
 {
-  "plugins": ["@babel/plugin-proposal-class-properties"],
+  "plugins": [["@babel/plugin-proposal-class-properties", { "loose": true }]],
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "loose": true
-      }
-    ],
+    ["@babel/preset-env", { "loose": true }],
     "@babel/preset-react",
     [
       "@emotion/babel-preset-css-prop",
@@ -15,74 +10,5 @@
         "labelFormat": "[filename]--[local]"
       }
     ]
-  ],
-  "env": {
-    "cjs": {
-      "ignore": ["**/*.story.js", "**/*.spec.js"],
-      "plugins": [
-        "@babel/plugin-proposal-class-properties",
-        "inline-react-svg"
-      ],
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "loose": true
-          }
-        ],
-        "@babel/preset-react",
-        [
-          "@emotion/babel-preset-css-prop",
-          {
-            "autoLabel": false,
-            "labelFormat": "[filename]--[local]"
-          }
-        ]
-      ]
-    },
-    "es": {
-      "ignore": ["**/*.story.js", "**/*.spec.js"],
-      "plugins": [
-        "@babel/plugin-proposal-class-properties",
-        "inline-react-svg"
-      ],
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "loose": true,
-            "modules": false
-          }
-        ],
-        "@babel/preset-react",
-        [
-          "@emotion/babel-preset-css-prop",
-          {
-            "autoLabel": false,
-            "labelFormat": "[filename]--[local]"
-          }
-        ]
-      ]
-    },
-    "test": {
-      "plugins": ["@babel/plugin-proposal-class-properties"],
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "targets": {
-              "node": "current"
-            }
-          }
-        ],
-        "@babel/preset-react",
-        [
-          "@emotion/babel-preset-css-prop",
-          {
-            "autoLabel": false
-          }
-        ]
-      ]
-    }
-  }
+  ]
 }

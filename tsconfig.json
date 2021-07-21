@@ -20,6 +20,12 @@
     "target": "es2020",
     "plugins": [
       {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase"
+        }
+      },
+      {
         "name": "typescript-styled-plugin",
         "lint": {
           "validProperties": ["label"]

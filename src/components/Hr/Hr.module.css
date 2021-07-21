@@ -1,0 +1,5 @@
+.base {
+  border: var(--border-width-small) solid var(--color-neutral-300);
+  margin-top: var(--spacing-gutter);
+  margin-bottom: var(--spacing-gutter);
+}
