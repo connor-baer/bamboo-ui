@@ -5,8 +5,10 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
+    '@storybook/addon-controls',
     '@storybook/addon-storysource',
     '@storybook/addon-viewport',
+    './addons/auto-theme-switcher/preset.js.',
   ],
   core: {
     builder: 'webpack5',
