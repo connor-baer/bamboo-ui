@@ -1,6 +1,6 @@
 import { includes } from './fp';
 
-export default function addClass(element, className) {
+export default function addClass(element: Element, className: string): void {
   if (includes(className, element.className)) {
     return;
   }
