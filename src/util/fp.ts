@@ -33,7 +33,7 @@ export function isNil(value: unknown): value is null {
 }
 
 export function toLower(
-  value: string | string[] | { toString: () => string },
+  value?: null | string | string[] | { toString: () => string },
 ): string {
   if (!value) {
     return '';

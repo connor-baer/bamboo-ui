@@ -33,14 +33,7 @@
       }
     ]
   },
-  "include": ["**/*"],
-  "exclude": [
-    "node_modules",
-    "public/**/*",
-    "**/dist/**/*",
-    "**/build/**/*",
-    "**/*.spec.*",
-    "**/*.stories.*"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "public", "dist"],
   "typeRoots": ["./node_modules/@types"]
 }
