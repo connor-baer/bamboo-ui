@@ -22,7 +22,7 @@
     "test": "jest --watch",
     "test:unit": "jest --coverage --silent",
     "test:ci": "jest --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
-    "prerelease": "yarn build && copy:styles",
+    "prerelease": "yarn build && yarn copy:styles",
     "release": "semantic-release"
   },
   "repository": {
