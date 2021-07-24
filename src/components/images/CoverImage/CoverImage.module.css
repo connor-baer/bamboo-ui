@@ -1,0 +1,34 @@
+.base {
+  border-radius: var(--border-radius-m);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.base::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity var(--transition-standard);
+  background: radial-gradient(transparent, #000);
+  content: '';
+  opacity: 0;
+}
+
+a:hover .base::after,
+a:focus .base::after {
+  opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .base img {
+    transition: transform var(--transition-motion);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  a:hover .base img,
+  a:focus .base img {
+    transform: scale(1.1);
+  }
+}
