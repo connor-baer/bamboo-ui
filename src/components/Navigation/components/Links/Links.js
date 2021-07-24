@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../../../util/prop-types';
 import { isEmpty } from '../../../../util/fp';
-import { useComponents } from '../../../../hooks/use-components';
+import { useComponents } from '../../../../hooks/useComponents';
 import { focusVisible } from '../../../../styles/shared';
 
 const navBaseStyles = ({ theme }) => css`

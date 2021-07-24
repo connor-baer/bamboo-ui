@@ -1,5 +1,4 @@
 import * as cookies from './util/cookies';
-import * as propTypes from './util/prop-types';
 import * as styles from './styles/shared';
 import * as themes from './styles/theme';
 
@@ -8,32 +7,31 @@ import * as themes from './styles/theme';
  */
 
 // Typography
-export { Text } from './components/typography/Text';
-export { Paragraph } from './components/typography/Paragraph';
-export { Heading } from './components/typography/Heading';
 export { Anchor } from './components/typography/Anchor';
-export { Intro } from './components/typography/Intro';
-export { Small } from './components/typography/Small';
 export { Emoji } from './components/typography/Emoji';
+export { Headline } from './components/typography/Headline';
+export { Intro } from './components/typography/Intro';
+export { Paragraph } from './components/typography/Paragraph';
+export { Small } from './components/typography/Small';
 
 // Sections
-export { Navigation, Menu } from './components/Navigation';
-export { Header } from './components/Header';
-export { Prefooter } from './components/Prefooter';
 export { Footer } from './components/Footer';
+export { Header } from './components/Header';
+export { Navigation, Menu } from './components/Navigation';
+export { Prefooter } from './components/Prefooter';
 export { Slider } from './components/Slider';
 
 // Utility
+export { Divider } from './components/Divider';
 export { LoadingBar } from './components/LoadingBar';
 export { Meta } from './components/Meta';
 export { Theme } from './components/Theme';
-export { Divider } from './components/Divider';
 
 // Icons
-export { PandaIcon } from './components/icons/PandaIcon';
-export { MoonIcon } from './components/icons/MoonIcon';
-export { LoadingIcon } from './components/icons/LoadingIcon';
 export { Hamburger } from './components/icons/Hamburger';
+export { LoadingIcon } from './components/icons/LoadingIcon';
+export { MoonIcon } from './components/icons/MoonIcon';
+export { PandaIcon } from './components/icons/PandaIcon';
 
 // Images
 export { Caption } from './components/images/Caption';
@@ -67,16 +65,16 @@ export { Button } from './components/Button';
  * Hooks
  */
 
-export { useMedia } from './hooks/use-media';
+export { useMedia } from './hooks/useMedia';
 export { useAnimationFrame } from './hooks/use-animation-frame';
-export { useOutsideClick } from './hooks/use-outside-click';
-export { useComponents, ComponentsProvider } from './hooks/use-components';
+export { useOutsideClick } from './hooks/useOutsideClick';
+export { useComponents, ComponentsProvider } from './hooks/useComponents';
 
 /**
  * Utils
  */
 
-export { propTypes, cookies };
+export { cookies };
 export { isServer } from './util/is-server';
 export { isSaveData } from './util/is-save-data';
 export { sessionStore, localStore } from './util/storage';

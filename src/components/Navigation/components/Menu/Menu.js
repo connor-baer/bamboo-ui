@@ -5,11 +5,11 @@ import { useTheme } from 'emotion-theming';
 
 import { childrenPropType, userPropType } from '../../../../util/prop-types';
 import { focusVisible, buttonOutline } from '../../../../styles/shared';
-import { useComponents } from '../../../../hooks/use-components';
+import { useComponents } from '../../../../hooks/useComponents';
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { Hamburger } from '../../../icons/Hamburger';
 import { Divider } from '../../../Divider';
-import { useOutsideClick } from '../../../../hooks/use-outside-click';
+import { useOutsideClick } from '../../../../hooks/useOutsideClick';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;

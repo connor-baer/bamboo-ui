@@ -8,6 +8,6 @@ export type DividerProps = HTMLProps<HTMLHRElement>;
 /**
  * A horizontal rule to visually and semantically separate text.
  */
-export function Divider({ className, ...props }: DividerProps): JSX.Element {
-  return <hr {...props} className={cx(className, styles.base)} />;
+export function Divider(props: DividerProps): JSX.Element {
+  return <hr {...props} className={cx(props.className, styles.base)} />;
 }

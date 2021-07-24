@@ -1,14 +1,12 @@
 import { createPortal } from 'react-dom';
+import { HTMLProps, ReactPortal } from 'react';
 
-import { childrenPropType } from '../../util/prop-types';
 import { isServer } from '../../util/is-server';
 
 const headRoot = isServer ? null : document.head;
 
-export function Head({ children }) {
+export type HeadProps = HTMLProps<HTMLHeadElement>;
+
+export function Head({ children }: HeadProps): ReactPortal | null {
   return headRoot ? createPortal(children, headRoot) : null;
 }
-
-Head.propTypes = {
-  children: childrenPropType,
-};

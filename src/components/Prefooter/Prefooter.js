@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { useComponents } from '../../hooks/use-components';
-import { Heading } from '../typography/Heading';
+import { useComponents } from '../../hooks/useComponents';
+import { Heading } from '../typography/Headline';
 import { Anchor } from '../typography/Anchor';
 
 const wrapperStyles = ({ theme }) => css`

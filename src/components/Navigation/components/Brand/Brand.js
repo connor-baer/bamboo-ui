@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { useComponents } from '../../../../hooks/use-components';
+import { useComponents } from '../../../../hooks/useComponents';
 
 const anchorBaseStyles = ({ theme }) => css`
   position: relative;

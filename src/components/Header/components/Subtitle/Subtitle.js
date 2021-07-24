@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { Heading } from '../../../typography/Heading';
+import { Heading } from '../../../typography/Headline';
 
 const baseStyles = ({ theme }) => css`
   color: ${theme.color.primary[900]};

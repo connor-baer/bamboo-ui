@@ -5,32 +5,19 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { childrenPropType } from '../../util/prop-types';
 import { isSaveData } from '../../util/is-save-data';
-import { useMedia } from '../../hooks/use-media';
-import { useComponents } from '../../hooks/use-components';
+import { useMedia } from '../../hooks/useMedia';
+import { useComponents } from '../../hooks/useComponents';
 import {
   createFontFace,
   loadFonts,
   preloadFonts,
 } from '../../styles/load-fonts';
 
-import { createStaticTheme, createVariables } from './ThemeService';
-
 export function Theme({ theme, children }) {
   const { Head } = useComponents();
   const darkmode = useMedia('(prefers-color-scheme: dark)');
 
-  const { fonts, breakpoints, mq, overrides, ...rest } = theme;
-
-  const staticTheme = createStaticTheme(rest);
-
-  const baseVariables = createVariables(rest);
-  const overrideVariables = overrides.map(
-    (override) => `
-      ${override.condition} {
-        ${createVariables(override.theme)}
-      }
-    `,
-  );
+  const { fonts, overrides, ...rest } = theme;
 
   const fontfaceStyles = fonts.map(createFontFace);
 
@@ -41,7 +28,7 @@ export function Theme({ theme, children }) {
   }, [theme.fonts]);
 
   return (
-    <ThemeProvider theme={{ ...staticTheme, breakpoints, mq, darkmode }}>
+    <ThemeProvider theme={{ ...rest, darkmode }}>
       <>
         <Head>
           <meta name="theme-color" content={darkmode ? '#000' : '#fff'} />
@@ -52,8 +39,6 @@ export function Theme({ theme, children }) {
           {preloadFonts(theme.fonts)}
         </Head>
 
-        <Global styles={baseVariables} />
-        <Global styles={overrideVariables} />
         <Global styles={fontfaceStyles} />
 
         {children}

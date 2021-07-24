@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { Divider } from './Divider';
+import { Divider, DividerProps } from './Divider';
 
 const Container = styled('div')`
   width: 500px;
@@ -13,13 +13,13 @@ export default {
   component: Divider,
 };
 
-export const Base = () => (
+export const Base = (args: DividerProps) => (
   <Container>
-    <Divider />
+    <Divider {...args} />
   </Container>
 );
 
-export const WithText = () => (
+export const WithText = (args: DividerProps) => (
   <Container>
     <p>
       Lorem ipsum dolor amet echo park XOXO activated charcoal banjo deep v
@@ -27,7 +27,7 @@ export const WithText = () => (
       kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape tbh
       adaptogen green juice lo-fi kombucha.
     </p>
-    <Divider />
+    <Divider {...args} />
     <p>
       Roof party cronut seitan pitchfork keytar small batch migas ugh XOXO
       kickstarter pork belly tumblr. Taiyaki brunch vegan XOXO meggings. Kinfolk
