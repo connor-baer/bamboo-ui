@@ -11,7 +11,7 @@
   padding-right: var(--spacing-s);
   padding-left: var(--spacing-s);
 }
-.base:last-of-type::after {
+.base:last-child::after {
   display: none;
   content: '';
 }

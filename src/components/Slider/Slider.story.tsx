@@ -1,14 +1,31 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
-import { css } from '@emotion/core';
 
 import { CoverImage } from '../images/CoverImage';
 
-import { Slider } from './Slider';
+import { Slider, SliderProps } from './Slider';
 
-function generateSlides(amount) {
+export default {
+  title: 'Components/Slider',
+  component: Slider,
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
+
+export const Base = ({
+  numberOfSlides,
+  ...args
+}: SliderProps & { numberOfSlides: number }) => (
+  <Slider {...args}>{generateSlides(numberOfSlides)}</Slider>
+);
+
+Base.args = {
+  numberOfSlides: 4,
+};
+
+function generateSlides(amount: number) {
   return Array(amount)
-    .fill()
+    .fill('')
     .map((_, index) => {
       const n = index * 10;
       return (
@@ -28,19 +45,3 @@ function generateSlides(amount) {
       );
     });
 }
-
-export default {
-  title: 'Components/Slider',
-  component: Slider,
-};
-
-export const Base = () => (
-  <div
-    css={css`
-      width: 100vw;
-      max-width: 72rem;
-    `}
-  >
-    <Slider>{generateSlides(number('Number of slides', 4))}</Slider>
-  </div>
-);
