@@ -1,0 +1,28 @@
+@value height-footer: 13.5rem; /* 10.5rem + 3rem */
+@value height-navigation: 5rem;
+
+.base {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding-bottom: var(--spacing-xxxl);
+  width: 100vw;
+}
+@media (min-width: 56.25em) {
+  .base {
+    min-height: calc(100vh - height-footer);
+    padding-top: height-navigation;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .sidebar {
+    width: calc(100vw - 25rem);
+    min-width: calc(100vw - 30vw);
+  }
+}
+
+@media (min-width: 56.25em) {
+  .split {
+    width: 50vw;
+  }
+}

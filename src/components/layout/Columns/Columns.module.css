@@ -1,0 +1,28 @@
+.base {
+  column-gap: var(--spacing-gutter);
+  column-count: 1;
+  column-fill: balance;
+  column-break-inside: avoid;
+  break-inside: avoid;
+  /* HACK: Fix webkit (i.e. Safari and Chrome) bugs related to multi column layout. */
+  perspective: 1;
+}
+
+.base > * {
+  display: inline-block;
+  width: 100%;
+  /* HACK: Fix webkit (i.e. Safari and Chrome) bugs related to multi column layout. */
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 37.5em) {
+  .columns-2 {
+    column-count: 2;
+  }
+  .columns-3 {
+    column-count: 3;
+  }
+  .columns-4 {
+    column-count: 4;
+  }
+}

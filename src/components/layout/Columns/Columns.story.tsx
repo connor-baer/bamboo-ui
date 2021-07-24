@@ -1,16 +1,15 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
 
-import { Columns } from './Columns';
+import { Columns, ColumnsProps } from './Columns';
 
 export default {
   title: 'Layout/Columns',
   component: Columns,
 };
 
-export const Base = () => (
+export const Base = (args: ColumnsProps) => (
   <div style={{ width: '80vw' }}>
-    <Columns columnCount={number('Column count', 2)}>
+    <Columns {...args}>
       <p>
         Growl black roar black koala grizzly, brown bees growl ursa minor cub
         ursus. Roar bees roar grizzly bear panda ursus black, bear brown coat
