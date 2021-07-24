@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export function useMedia(expression, callback, initial = false) {
+export function useMedia(
+  expression: string,
+  callback?: (matches: boolean) => void,
+  initial = false,
+): boolean {
   const [matches, setMatches] = useState(initial);
 
   useEffect(() => {
@@ -15,10 +19,10 @@ export function useMedia(expression, callback, initial = false) {
 
     handleChange();
 
-    query.addListener(handleChange);
+    query.addEventListener('change', handleChange);
 
     return () => {
-      query.removeListener(handleChange);
+      query.removeEventListener('change', handleChange);
     };
   }, [expression, callback]);
 
