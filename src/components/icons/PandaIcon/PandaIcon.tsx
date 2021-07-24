@@ -1,8 +1,15 @@
 /* eslint-disable max-len */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLProps } from 'react';
 
-export function PandaIcon({ alt = 'Emoji of a panda', ...props }) {
+export type PandaIconProps = Omit<
+  HTMLProps<HTMLImageElement>,
+  'ref' | 'crossOrigin'
+>;
+
+export function PandaIcon({
+  alt = 'Emoji of a panda',
+  ...props
+}: PandaIconProps): JSX.Element {
   return (
     <img
       {...props}
@@ -11,7 +18,3 @@ export function PandaIcon({ alt = 'Emoji of a panda', ...props }) {
     />
   );
 }
-
-PandaIcon.propTypes = {
-  alt: PropTypes.string.isRequired,
-};
