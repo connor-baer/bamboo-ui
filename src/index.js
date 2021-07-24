@@ -1,4 +1,5 @@
 import * as cookies from './util/cookies';
+import * as keys from './util/keys';
 import * as styles from './styles/shared';
 import * as themes from './styles/theme';
 
@@ -74,7 +75,7 @@ export { useComponents, ComponentsProvider } from './hooks/useComponents';
  * Utils
  */
 
-export { cookies };
+export { cookies, keys };
 export { isServer } from './util/is-server';
 export { isSaveData } from './util/is-save-data';
 export { sessionStore, localStore } from './util/storage';
@@ -85,9 +86,3 @@ export { sessionStore, localStore } from './util/storage';
 
 export { styles, themes };
 export { BaseStyles } from './styles/base-styles';
-
-/**
- * Constants
- */
-
-export { HEIGHT_NAVIGATION, HEIGHT_FOOTER } from './constants/height';

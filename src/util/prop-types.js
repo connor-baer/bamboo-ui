@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 
-import { RIGHT, LEFT, CENTER, FULL } from '../constants/align';
-
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
   PropTypes.node,
@@ -162,28 +160,3 @@ export const themePropType = PropTypes.shape({
     l: PropTypes.string.isRequired,
   }).isRequired,
 });
-
-export const textPropType = {
-  as: PropTypes.string,
-  children: childrenPropType.isRequired,
-  type: PropTypes.oneOf(['sans', 'serif', 'mono']),
-  size: PropTypes.oneOf(['s', 'm', 'l', 'xl', 'xxl']),
-  weight: PropTypes.oneOf(['light', 'regular', 'bold']),
-  slope: PropTypes.oneOf(['normal', 'italic']),
-  lineHeight: PropTypes.oneOf(['s', 'm', 'l']),
-};
-
-export const imagePropType = {
-  src: PropTypes.string.isRequired,
-  srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  alt: PropTypes.string.isRequired,
-  color: PropTypes.string,
-};
-
-export const captionPropType = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.element,
-]);
-
-export const alignPropType = PropTypes.oneOf([RIGHT, LEFT, CENTER, FULL]);

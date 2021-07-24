@@ -1,10 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { useComponents } from '../../hooks/useComponents';
-import { imagePropType } from '../../util/prop-types';
+import { ImageProps } from '../../types/props';
 
-function constructTitle(title, siteName) {
+export interface MetaProps {
+  title: string;
+  description: string;
+  url: string;
+  image: ImageProps;
+  index?: boolean;
+  follow?: boolean;
+  siteName?: string;
+  siteTwitter?: string;
+}
+
+function constructTitle(title?: string, siteName?: string): string {
   const titleParts = [];
   if (title) {
     titleParts.push(title);
@@ -19,12 +29,12 @@ export function Meta({
   title,
   description,
   url,
-  image = {},
+  image,
   index = true,
   follow = true,
   siteName,
   siteTwitter,
-}) {
+}: MetaProps): JSX.Element {
   const { Head } = useComponents();
 
   const titleString = constructTitle(title, siteName);
@@ -55,14 +65,3 @@ export function Meta({
     </Head>
   );
 }
-
-Meta.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  image: PropTypes.shape(imagePropType).isRequired,
-  index: PropTypes.bool,
-  follow: PropTypes.bool,
-  siteName: PropTypes.string,
-  siteTwitter: PropTypes.string,
-};
