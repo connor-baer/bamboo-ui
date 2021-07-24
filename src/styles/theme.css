@@ -1,3 +1,195 @@
+@import '../../node_modules/open-color/open-color.css';
+
 :root {
-  --font-stack
+  /* Font families */
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-sans: 'Merriweather Sans', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-serif: Merriweather, Georgia, Times New Roman, serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono: Courier New, mono-space, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-default: var(--font-sans);
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 800;
+
+  /* Font sizes */
+  --font-size-s: 0.875rem; /* 14px */
+  --font-size-m: 1.125rem; /* 18px */
+  --font-size-l: 1.5rem; /* 24px */
+  --font-size-xl: 2rem; /* 32px */
+  --font-size-xxl: 2.625rem; /* 42px */
+
+  /* Line heights */
+  --line-height-s: 1.2;
+  --line-height-m: 1.6;
+  --line-height-l: 2;
+
+  /* Letter spacings */
+  --letter-spacing-: 1px;
+  --letter-spacing-m: 2px;
+  --letter-spacing-l: 4px;
+
+  /* Spacings */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-s: 0.75rem; /* 12px */
+  --spacing-m: 1rem; /* 16px */
+  --spacing-l: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-xxl: 2.5rem; /* 48px */
+  --spacing-xxxl: 4rem; /* 54px */
+  --spacing-gutter: var(--spacing-xl);
+
+  --width-max: 90rem; /* 1440px */
+  --width-page: 80rem; /* 1280px */
+
+  /* Icon sizes */
+  --icon-size-m: 1rem; /* 16px */
+  --icon-size-l: 1.5rem; /* 24px */
+  --icon-size-xl: 3rem; /* 36px */
+
+  /* Border radii */
+  --border-radius-xs: 0.25rem; /* 4px */
+  --border-radius-s: 0.5rem; /* 8px */
+  --border-radius-m: 0.75rem; /* 12px */
+  --border-radius-l: 1rem; /* 16px */
+  --border-radius-circle: 100%;
+  --border-radius-pill: 999999px; /* HACK: By providing a very large absolut size, the browser picks the maximum size in one dimension. */
+
+  /* Z-indices */
+  --z-index-select: 9;
+  --z-index-autocomplete: 11;
+  --z-index-navigation: 99;
+  --z-index-loadingbar: 999;
+
+  /* Colors */
+  --base-hue: 195;
+  --base-saturation: 80%;
+  --base-alpha: 1;
+
+  --oc-primary-0: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    95%,
+    var(--base-alpha)
+  );
+  --oc-primary-1: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    91%,
+    var(--base-alpha)
+  );
+  --oc-primary-2: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    82%,
+    var(--base-alpha)
+  );
+  --oc-primary-3: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    72%,
+    var(--base-alpha)
+  );
+  --oc-primary-4: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    64%,
+    var(--base-alpha)
+  );
+  --oc-primary-5: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    57%,
+    var(--base-alpha)
+  );
+  --oc-primary-6: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    52%,
+    var(--base-alpha)
+  );
+  --oc-primary-7: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    47%,
+    var(--base-alpha)
+  );
+  --oc-primary-8: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    43%,
+    var(--base-alpha)
+  );
+  --oc-primary-9: hsla(
+    var(--base-hue),
+    var(--base-saturation),
+    38%,
+    var(--base-alpha)
+  );
+
+  --color-primary: var(--oc-primary-7);
+  --color-primary-hover: var(--oc-primary-9);
+  --color-primary-text: var(--oc-white);
+
+  --color-secondary: var(--oc-gray-1);
+  --color-secondary-hover: var(--oc-gray-3);
+  --color-secondary-text: var(--oc-gray-9);
+
+  --color-danger: var(--oc-red-1);
+  --color-danger-hover: var(--oc-red-2);
+  --color-danger-text: var(--oc-red-9);
+
+  --color-focus-outline: var(--oc-primary-3);
+  --color-shadow: rgba(12, 15, 20, 0.18);
+  --color-border: var(--oc-gray-5);
+  --color-selection-background: var(--oc-yellow-3);
+  --color-selection-text: var(--oc-black);
+  --color-background: var(--oc-white);
+  --color-text: #15191d;
+  --color-text-subtle: var(--oc-gray-7);
+  --color-image-placeholder: var(--oc-gray-3);
+
+  /* Shadows */
+  --shadow-s: 0 0 2px 1px var(--color-shadow);
+  --shadow-m: 0 0 4px 1px var(--color-shadow);
+  --shadow-l: 0 0 8px 2px var(--color-shadow);
+
+  /* Transitions */
+  --transition-micro: 200ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-standard: 500ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-motion: 1000ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Colors */
+    --color-primary: var(--oc-primary-7);
+    --color-primary-hover: var(--oc-primary-5);
+    --color-primary-text: var(--oc-black);
+
+    --color-secondary: var(--oc-gray-8);
+    --color-secondary-hover: var(--oc-gray-7);
+    --color-secondary-text: var(--oc-gray-1);
+
+    --color-danger: #521e23;
+    --color-danger-hover: #642b30;
+    --color-danger-text: var(--oc-red-2);
+
+    --color-focus-outline: var(--oc-primary-7);
+    --color-shadow: rgba(12, 15, 20, 0.18);
+    --color-border: var(--oc-gray-6);
+    --color-selection-background: var(--oc-yellow-3);
+    --color-selection-text: var(--oc-black);
+    --color-background: #15191d;
+    --color-text: var(--oc-white);
+    --color-text-subtle: var(--oc-gray-3);
+    --color-image-placeholder: var(--oc-gray-7);
+  }
 }

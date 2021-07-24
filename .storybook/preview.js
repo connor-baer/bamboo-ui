@@ -3,31 +3,15 @@ import { css, Global } from '@emotion/core';
 
 import { Theme } from '../src/components/Theme';
 import { standard } from '../src/styles/theme';
-import { BaseStyles } from '../src/styles/base-styles';
+import '../src/styles/theme.css';
+import '../src/styles/base-styles.css';
 
 export const parameters = {
   layout: 'centered',
 };
 
-const globalStyles = (theme) => css`
-  html {
-    background-color: transparent;
-  }
-
-  body,
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: ${theme.fontStack.sans} !important;
-  }
-`;
-
 const withTheme = (Story) => (
   <Theme theme={standard}>
-    <BaseStyles />
-    <Global styles={globalStyles} />
     <Story />
   </Theme>
 );

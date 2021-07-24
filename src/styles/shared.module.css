@@ -1,0 +1,47 @@
+.hide-visually {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.disable-visually {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.7;
+  filter: grayscale(33%);
+}
+
+.focus-outline {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--color-focus-outline);
+}
+.focus-outline::-moz-focus-inner {
+  border: 0;
+}
+
+.focus-visible:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--color-focus-outline);
+}
+.focus-visible:focus::-moz-focus-inner {
+  border: 0;
+}
+.focus-visible:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: ' ';
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
