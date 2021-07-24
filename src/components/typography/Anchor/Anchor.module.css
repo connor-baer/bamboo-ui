@@ -1,0 +1,42 @@
+.base {
+  composes: focus-visible from '../../../styles/shared.module.css';
+  display: inline-block;
+  position: relative;
+  padding: 0.125em 0.25em;
+  margin: -0.125em -0.25em;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  outline: none;
+  border-radius: var(--border-radius-s);
+  transition: color var(--transition-micro),
+    background-color var(--transition-micro),
+    text-decoration-thickness var(--transition-micro);
+}
+.base::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: var(--border-radius-s);
+  transition: background-color var(--transition-micro);
+  opacity: 0.15;
+  filter: brightness(1.5);
+  z-index: -1;
+}
+.base:hover {
+  cursor: pointer;
+  color: var(--color-primary-hover);
+  text-decoration-thickness: 0.1em;
+}
+.base:hover::before {
+  background-color: currentColor;
+}

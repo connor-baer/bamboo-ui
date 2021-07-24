@@ -1,0 +1,17 @@
+.base {
+  color: var(--color-text-subtle);
+  letter-spacing: 0.2px;
+  display: inline-block;
+  font-size: var(--font-size-s);
+}
+.base::after {
+  content: '·';
+  display: inline-block;
+  font-weight: var(--font-weight-bold);
+  padding-right: var(--spacing-s);
+  padding-left: var(--spacing-s);
+}
+.base:last-of-type::after {
+  display: none;
+  content: '';
+}
