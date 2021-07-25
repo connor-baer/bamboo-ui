@@ -1,11 +1,9 @@
-import { isServer } from './is-server';
-
 /* ISC License (ISC). Copyright 2017 Michal Zalecki */
 // Adapted from https://michalzalecki.com/why-using-localStorage-directly-is-a-bad-idea/
-export function storageFactory(storage) {
-  let inMemoryStorage = {};
+export function storageFactory(storage: Storage): Storage {
+  let inMemoryStorage: { [key: string]: string } = {};
 
-  const isSupported = (() => {
+  const isSupported = ((): boolean => {
     try {
       const testKey = '__some_random_key_you_are_not_going_to_use__';
       storage.setItem(testKey, testKey);
@@ -16,7 +14,7 @@ export function storageFactory(storage) {
     }
   })();
 
-  function setItem(name, value) {
+  function setItem(name: string, value: string): void {
     if (isSupported) {
       storage.setItem(name, value);
     } else {
@@ -24,7 +22,7 @@ export function storageFactory(storage) {
     }
   }
 
-  function getItem(name) {
+  function getItem(name: string): string | null {
     if (isSupported) {
       return storage.getItem(name);
     }
@@ -34,7 +32,7 @@ export function storageFactory(storage) {
     return null;
   }
 
-  function removeItem(name) {
+  function removeItem(name: string): void {
     if (isSupported) {
       storage.removeItem(name);
     } else {
@@ -42,7 +40,7 @@ export function storageFactory(storage) {
     }
   }
 
-  function clear() {
+  function clear(): void {
     if (isSupported) {
       storage.clear();
     } else {
@@ -50,14 +48,14 @@ export function storageFactory(storage) {
     }
   }
 
-  function key(index) {
+  function key(index: number): string | null {
     if (isSupported) {
       return storage.key(index);
     }
     return Object.keys(inMemoryStorage)[index] || null;
   }
 
-  function getLength() {
+  function getLength(): number {
     return isSupported ? storage.length : Object.keys(inMemoryStorage).length;
   }
 
@@ -68,13 +66,26 @@ export function storageFactory(storage) {
     clear,
     key,
     isSupported,
-    get length() {
+    get length(): number {
       return getLength();
     },
   };
 }
 
-export const localStore = storageFactory(isServer ? null : window.localStorage);
-export const sessionStore = storageFactory(
-  isServer ? null : window.sessionStorage,
-);
+export const localStore = storageFactory(localStorage);
+export const sessionStore = storageFactory(sessionStorage);
+
+export function serialize(value: any): string {
+  return JSON.stringify(value);
+}
+
+export function parse(value?: string | null): any {
+  if (!value) {
+    return null;
+  }
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    return null;
+  }
+}

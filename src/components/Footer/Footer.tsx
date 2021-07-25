@@ -17,7 +17,6 @@ export const Footer = forwardRef(
     ref: Ref<HTMLElement>,
   ) => {
     const currentYear = new Date().getFullYear();
-    /* eslint-disable jsx-a11y/anchor-is-valid */
     return (
       <footer {...props} ref={ref} className={cx(styles.footer, className)}>
         <div className={styles.content}>
@@ -33,7 +32,6 @@ export const Footer = forwardRef(
         </div>
       </footer>
     );
-    /* eslint-enable jsx-a11y/anchor-is-valid */
   },
 );
 

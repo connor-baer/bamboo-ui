@@ -4,7 +4,6 @@ import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
 import { childrenPropType } from '../../util/prop-types';
-import { isSaveData } from '../../util/is-save-data';
 import { useMedia } from '../../hooks/useMedia';
 import { useComponents } from '../../hooks/useComponents';
 import {
@@ -22,9 +21,7 @@ export function Theme({ theme, children }) {
   const fontfaceStyles = fonts.map(createFontFace);
 
   useEffect(() => {
-    if (!isSaveData()) {
-      loadFonts(theme.fonts);
-    }
+    loadFonts(theme.fonts);
   }, [theme.fonts]);
 
   return (

@@ -1,15 +1,13 @@
 import React, { useState, useCallback, useRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
 
 import { childrenPropType, userPropType } from '../../../../util/prop-types';
 import { focusVisible, buttonOutline } from '../../../../styles/shared';
 import { useComponents } from '../../../../hooks/useComponents';
-import { MoonIcon } from '../../../icons/MoonIcon';
 import { Hamburger } from '../../../icons/Hamburger';
 import { Divider } from '../../../Divider';
-import { useOutsideClick } from '../../../../hooks/useOutsideClick';
+import { useOutsideClick } from '../../../../hooks/useClickOutside';
 
 const wrapperStyles = ({ theme }) => css`
   z-index: 2;
@@ -172,53 +170,7 @@ const hrStyles = ({ theme }) => css`
 
 const MenuDivider = styled(Divider)(hrStyles);
 
-const IconButton = styled('button')(itemStyles, itemClickableStyles);
-
-const iconBaseStyles = ({ theme }) => css`
-  display: inline-block;
-  position: relative;
-  left: -${theme.spacing.xs};
-  padding: ${theme.spacing.xs};
-  margin-top: -2px;
-  transition: fill ${theme.animation.micro},
-    background-color ${theme.animation.micro};
-  line-height: 0;
-  fill: ${theme.color.bodyColor};
-  border-radius: 50%;
-
-  &:hover,
-  &:focus {
-    background-color: ${theme.color.neutral[100]};
-    fill: ${theme.color.primary[500]};
-  }
-`;
-
-const iconActiveStyles = ({ theme, isActive }) =>
-  isActive &&
-  css`
-    background-color: ${theme.color.neutral[100]};
-    fill: ${theme.color.neutral[700]};
-  `;
-
-const Icon = styled('span')(iconBaseStyles, iconActiveStyles);
-
-const darkmodeButtonStyles = ({ theme }) => css`
-  line-height: 0;
-  padding: calc(${theme.spacing.xs} + 2px);
-  fill: ${theme.color.neutral[700]};
-  cursor: pointer;
-
-  ${focusVisible(theme)};
-
-  ${theme.mq.hand} {
-    padding: calc(${theme.spacing.xs} + 2px);
-  }
-`;
-
-const DarkmodeButton = styled('button')(itemStyles, darkmodeButtonStyles);
-
 export function Menu({ children, user }) {
-  const theme = useTheme();
   const { Image } = useComponents();
   const [isOpen, setOpen] = useState(false);
   const node = useRef();
@@ -227,31 +179,10 @@ export function Menu({ children, user }) {
 
   useOutsideClick(node, handleClick, isOpen);
 
-  const { toggleDarkmode, darkmode } = theme;
   const hasContent = !!children;
-  const hasDivider = hasContent && toggleDarkmode;
-
-  if (!hasContent && !toggleDarkmode) {
-    return null;
-  }
 
   if (!hasContent) {
-    return (
-      <Wrapper>
-        <DarkmodeButton
-          isActive={darkmode}
-          aria-pressed={darkmode}
-          onClick={toggleDarkmode}
-        >
-          <MoonIcon
-            width={theme.iconSize.m}
-            height={theme.iconSize.m}
-            full={darkmode}
-            alt="Toggle darkmode"
-          />
-        </DarkmodeButton>
-      </Wrapper>
-    );
+    return null;
   }
 
   const imageButtonLabel = isOpen ? 'Close menu' : 'Open menu';
@@ -272,29 +203,7 @@ export function Menu({ children, user }) {
         <Hamburger onClick={handleClick} isActive={isOpen} />
       )}
 
-      <Dropdown isOpen={isOpen}>
-        {children}
-
-        {hasDivider && <MenuDivider />}
-
-        {toggleDarkmode && (
-          <IconButton
-            isActive={darkmode}
-            aria-pressed={darkmode}
-            onClick={toggleDarkmode}
-          >
-            <Icon isActive={darkmode}>
-              <MoonIcon
-                width={theme.iconSize.m}
-                height={theme.iconSize.m}
-                full={darkmode}
-                alt=""
-              />
-            </Icon>
-            Toggle darkmode
-          </IconButton>
-        )}
-      </Dropdown>
+      <Dropdown isOpen={isOpen}>{children}</Dropdown>
     </Wrapper>
   );
 }

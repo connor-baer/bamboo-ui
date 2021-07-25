@@ -1,1 +1,0 @@
-export { Prefooter } from './Prefooter';

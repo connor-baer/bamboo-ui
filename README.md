@@ -19,49 +19,27 @@
 
 ## Installation
 
-```
+```sh
 yarn add @madebyconnor/bamboo-ui
 ```
 
 ## Development
 
-```
-yarn start
-```
-
-## Deployment
-
-```
-yarn deploy
+```sh
+yarn docs
 ```
 
 ## Linting and formatting
 
-```
+```sh
 yarn lint
-yarn fix
+yarn lint:fix
 ```
 
 ## Testing
 
-```
-yarn test:unit:watch
-```
-
-```js
-import React from 'react';
-import Button from '.';
-
-describe('Button', () => {
-  it('should not render if there is no click handler, label, or children', () => {
-    const button = create(<Button />);
-    expect(button).toMatchSnapshot();
-  });
-  it('should take the body text as a child', () => {
-    const output = mount(<Button onClick={() => {}}>Hello World</Button>);
-    expect(output.text()).toContain('Hello World');
-  });
-});
+```sh
+yarn test
 ```
 
 ## Utils
@@ -69,10 +47,7 @@ describe('Button', () => {
 Besides the component library, we also export some utilities which you
 might need in order to use the components. The main ones:
 
-- `sharedPropTypes` - a module with common prop types used in the components.
-- `themeHelpers` - a module containing helpers for generating a theme.
 - `isServer` - a module that checks whether the code is running on a server.
-- `isSaveData` - a module that checks the user's network speed and preferences.
 
 ## Creating components
 
