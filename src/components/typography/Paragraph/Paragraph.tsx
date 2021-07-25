@@ -22,7 +22,7 @@ export const Paragraph = forwardRef(
       className={cx(
         styles.base,
         styles[`size-${size}`],
-        { [styles.bold]: bold },
+        bold && styles.bold,
         className,
       )}
     />

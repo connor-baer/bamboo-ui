@@ -1,0 +1,66 @@
+.tag {
+  composes: focus-visible from '../../styles/shared.module.css';
+  display: inline-block;
+  padding: 0;
+  color: var(--color-secondary-text);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-s);
+  line-height: 0;
+  transition: background-color var(--transition-micro);
+}
+.tag svg {
+  fill: currentColor;
+}
+button.tag:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary-hover);
+}
+
+.content {
+  composes: focus-visible from '../../styles/shared.module.css';
+  display: inline-block;
+  font-size: var(--font-size-s);
+  padding: var(--spacing-xs);
+  margin: 0;
+  border-top-left-radius: var(--border-radius-s);
+  border-bottom-left-radius: var(--border-radius-s);
+  line-height: 1;
+}
+.content:only-child {
+  border-top-right-radius: var(--border-radius-s);
+  border-bottom-right-radius: var(--border-radius-s);
+}
+
+.close-button {
+  composes: focus-visible from '../../styles/shared.module.css';
+  display: inline-block;
+  font-size: var(--font-size-s);
+  padding: var(--spacing-xs);
+  margin: 0;
+  transition: background-color var(--transition-micro);
+  background-color: var(--color-secondary);
+  border-top-right-radius: var(--border-radius-s);
+  border-bottom-right-radius: var(--border-radius-s);
+  border: none;
+  outline: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:active {
+  background-color: var(--color-secondary-hover);
+}
+
+.disabled {
+  composes: disable-visually from '../../styles/shared.module.css';
+}
+
+.active {
+  color: var(--color-primary-text);
+  background-color: var(--color-primary);
+}
+button.active:hover {
+  background-color: var(--color-primary-hover);
+}

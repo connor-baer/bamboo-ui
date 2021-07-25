@@ -48,9 +48,7 @@ export const Button = forwardRef(
       styles.base,
       styles[variant],
       styles[size],
-      {
-        [styles.disabled]: props.disabled,
-      },
+      props.disabled && styles.disabled,
     );
 
     if (isAnchor(props)) {

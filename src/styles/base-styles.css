@@ -179,7 +179,7 @@ textarea {
 
 *::selection {
   background-color: var(--color-selection-background);
-  color: var(--color-selection-color);
+  color: var(--color-selection);
 }
 
 a {

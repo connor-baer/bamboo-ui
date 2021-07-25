@@ -58,7 +58,7 @@ export const RatioImage = forwardRef(
       <div
         className={cx(
           styles.wrapper,
-          { [styles.wrapperAspectRatio]: aspectRatio },
+          aspectRatio && styles.wrapperAspectRatio,
           className,
         )}
         style={wrapperStyle}
@@ -67,9 +67,7 @@ export const RatioImage = forwardRef(
           {...props}
           ref={imageRef}
           onLoad={handleLoad}
-          className={cx(styles.image, {
-            [styles.imageAspectRatio]: aspectRatio,
-          })}
+          className={cx(styles.image, aspectRatio && styles.imageAspectRatio)}
           style={{ animationPlayState: isLoading ? 'paused' : 'running' }}
         />
       </div>
