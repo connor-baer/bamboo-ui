@@ -1,0 +1,23 @@
+@value navigation-height: 4rem;
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-background-subtle);
+  padding: var(--spacing-m) var(--spacing-s)
+    calc(var(--spacing-m) + navigation-height);
+}
+@media (min-width: 56.25em) {
+  .footer {
+    padding-top: var(--spacing-m);
+    padding-bottom: var(--spacing-m);
+  }
+}
+
+.content {
+  text-align: center;
+}
+.content small,
+.content a {
+  color: var(--color-text-subtle);
+  font-weight: var(--font-weight-regular);
+}

@@ -148,10 +148,11 @@
 
   --color-focus-outline: var(--oc-primary-3);
   --color-shadow: rgba(12, 15, 20, 0.18);
-  --color-border: var(--oc-gray-5);
+  --color-border: var(--oc-gray-4);
   --color-selection-background: var(--oc-yellow-3);
   --color-selection-text: var(--oc-black);
   --color-background: var(--oc-white);
+  --color-background-subtle: var(--oc-gray-2);
   --color-text: #15191d;
   --color-text-subtle: var(--oc-gray-7);
   --color-image-placeholder: var(--oc-gray-3);
@@ -184,10 +185,11 @@
 
     --color-focus-outline: var(--oc-primary-7);
     --color-shadow: rgba(12, 15, 20, 0.18);
-    --color-border: var(--oc-gray-6);
+    --color-border: var(--oc-gray-7);
     --color-selection-background: var(--oc-yellow-3);
     --color-selection-text: var(--oc-black);
     --color-background: #15191d;
+    --color-background-subtle: var(--oc-gray-9);
     --color-text: var(--oc-white);
     --color-text-subtle: var(--oc-gray-3);
     --color-image-placeholder: var(--oc-gray-7);

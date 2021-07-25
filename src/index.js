@@ -85,4 +85,3 @@ export { sessionStore, localStore } from './util/storage';
  */
 
 export { styles, themes };
-export { BaseStyles } from './styles/base-styles';
