@@ -1,20 +1,19 @@
-import React, { forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import React, { forwardRef, HTMLProps, Ref } from 'react';
 import cx from 'classnames';
 
+import { LinkProp } from '../../types/props';
 import { Anchor } from '../typography/Anchor';
-import { Small } from '../typography/Small';
 
 import styles from './Footer.module.css';
 
 export interface FooterProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {
   siteName: string;
-  siteTwitter?: string;
-  children?: ReactNode;
+  links?: LinkProp[];
 }
 
 export const Footer = forwardRef(
   (
-    { siteName, siteTwitter, children, className, ...props }: FooterProps,
+    { siteName, links, className, ...props }: FooterProps,
     ref: Ref<HTMLElement>,
   ) => {
     const currentYear = new Date().getFullYear();
@@ -23,19 +22,14 @@ export const Footer = forwardRef(
       <footer {...props} ref={ref} className={cx(styles.footer, className)}>
         <div className={styles.content}>
           {siteName && (
-            <Small>{`© ${currentYear} ${siteName}. All rights reserved.`}</Small>
+            <span>{`© ${currentYear} ${siteName}. All rights reserved.`}</span>
           )}
-          {siteTwitter && (
-            <Small>
-              <Anchor
-                href={`https://twitter.com/${siteTwitter}`}
-                title={`Visit @${siteTwitter} profile on Twitter`}
-              >
-                @{siteTwitter}
+          {links &&
+            links.map((link) => (
+              <Anchor key={link.href} href={link.href}>
+                {link.label}
               </Anchor>
-            </Small>
-          )}
-          {children && <Small>{children}</Small>}
+            ))}
         </div>
       </footer>
     );

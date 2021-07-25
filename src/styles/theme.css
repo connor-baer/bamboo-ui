@@ -30,11 +30,6 @@
   --line-height-m: 1.6;
   --line-height-l: 2;
 
-  /* Letter spacings */
-  --letter-spacing-: 1px;
-  --letter-spacing-m: 2px;
-  --letter-spacing-l: 4px;
-
   /* Spacings */
   --spacing-xxs: 0.25rem; /* 4px */
   --spacing-xs: 0.5rem; /* 8px */

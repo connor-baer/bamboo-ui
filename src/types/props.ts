@@ -15,3 +15,9 @@ export interface ImageProps
 export type CaptionProp = ReactNode;
 
 export type AlignProp = 'center' | 'full' | 'right' | 'left';
+
+export type LinkProp = {
+  label: ReactNode;
+  href: string;
+  icon?: ReactNode;
+};

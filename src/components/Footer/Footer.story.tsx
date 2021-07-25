@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Anchor } from '../typography/Anchor';
-
 import { Footer, FooterProps } from './Footer';
 
 export default {
@@ -16,8 +14,8 @@ export const Base = (args: FooterProps) => <Footer {...args} />;
 
 Base.args = {
   siteName: 'Bamboo UI',
-  siteTwitter: 'connor-baer',
-  children: (
-    <Anchor href="https://bamboo.madebyconnor.co/disclaimer">Disclaimer</Anchor>
-  ),
+  links: [
+    { label: '@connor-baer', href: 'https://twitter.com/connor-baer' },
+    { label: 'Disclaimer', href: 'https://bamboo.madebyconnor.co/disclaimer' },
+  ],
 };

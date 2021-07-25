@@ -1,8 +1,9 @@
 .base {
-  color: var(--color-text-subtle);
-  letter-spacing: 0.2px;
   display: inline-block;
   font-size: var(--font-size-s);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
 }
 .base::after {
   content: '·';
