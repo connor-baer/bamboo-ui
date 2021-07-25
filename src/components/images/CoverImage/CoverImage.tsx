@@ -9,7 +9,7 @@ export type CoverImageProps = RatioImageProps;
 
 export const CoverImage = forwardRef(
   ({ className, ...props }: CoverImageProps, ref: Ref<HTMLImageElement>) => (
-    <RatioImage {...props} ref={ref} className={cx(className, styles.base)} />
+    <RatioImage {...props} ref={ref} className={cx(styles.base, className)} />
   ),
 );
 

@@ -18,7 +18,7 @@ export const Columns = forwardRef(
     <div
       {...props}
       ref={ref}
-      className={cx(className, styles.base, styles[`columns-${columns}`])}
+      className={cx(styles.base, styles[`columns-${columns}`], className)}
     />
   ),
 );

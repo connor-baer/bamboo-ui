@@ -16,7 +16,7 @@ export const Caption = forwardRef(
       as={as}
       {...props}
       ref={ref}
-      className={cx(className, styles.base)}
+      className={cx(styles.base, className)}
     />
   ),
 );

@@ -20,7 +20,7 @@ export function Collage({
   }
 
   return (
-    <div className={cx(className, styles.container)} {...props}>
+    <div className={cx(styles.container, className)} {...props}>
       <div className={cx(styles.wrapper, styles.wrapperOuter)}>
         <RatioImage {...images[0]} sizes={''} aspectRatio={1 / 1} />
       </div>

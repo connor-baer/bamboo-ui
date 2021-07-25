@@ -27,7 +27,7 @@ export const Image = forwardRef(
       ref={ref}
       srcSet={isArray(srcSet) ? srcSet.join(', ') : srcSet}
       sizes={isArray(sizes) ? sizes.join(', ') : sizes}
-      className={cx(className, styles.base)}
+      className={cx(styles.base, className)}
       style={isTransparent(props.src) ? style : { ...style, background: color }}
     />
   ),

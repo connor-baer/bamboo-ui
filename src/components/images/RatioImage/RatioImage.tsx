@@ -56,9 +56,11 @@ export const RatioImage = forwardRef(
 
     return (
       <div
-        className={cx(className, styles.wrapper, {
-          [styles.wrapperAspectRatio]: aspectRatio,
-        })}
+        className={cx(
+          styles.wrapper,
+          { [styles.wrapperAspectRatio]: aspectRatio },
+          className,
+        )}
         style={wrapperStyle}
       >
         <Image

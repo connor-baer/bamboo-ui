@@ -16,7 +16,7 @@ export const Headline = forwardRef(
   ) => (
     <Tag
       ref={ref}
-      className={cx(className, styles.base, styles[`size-${size}`])}
+      className={cx(styles.base, styles[`size-${size}`], className)}
       {...props}
     />
   ),

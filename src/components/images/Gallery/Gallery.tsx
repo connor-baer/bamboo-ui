@@ -63,7 +63,7 @@ export function Gallery({
 
   return (
     <Align align={align}>
-      <div {...props} className={cx(className, styles.container)}>
+      <div {...props} className={cx(styles.container, className)}>
         {images.map((image, i) => (
           <div
             key={i}

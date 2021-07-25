@@ -38,7 +38,7 @@ export const Hamburger = forwardRef(
       <button
         {...props}
         ref={ref}
-        className={cx(className, styles.button)}
+        className={cx(styles.button, className)}
         title={label}
         aria-expanded={isActive}
       >

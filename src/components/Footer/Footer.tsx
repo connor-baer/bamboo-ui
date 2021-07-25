@@ -20,7 +20,7 @@ export const Footer = forwardRef(
     const currentYear = new Date().getFullYear();
     /* eslint-disable jsx-a11y/anchor-is-valid */
     return (
-      <footer {...props} ref={ref} className={cx(className, styles.footer)}>
+      <footer {...props} ref={ref} className={cx(styles.footer, className)}>
         <div className={styles.content}>
           {siteName && (
             <Small>{`© ${currentYear} ${siteName}. All rights reserved.`}</Small>

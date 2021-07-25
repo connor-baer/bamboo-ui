@@ -22,7 +22,7 @@ export const Slider = forwardRef(
     const count = Children.count(children);
     const width = `${(100 / count).toFixed(2)}%`;
     return (
-      <div {...props} ref={ref} className={cx(className, styles.container)}>
+      <div {...props} ref={ref} className={cx(styles.container, className)}>
         {Children.map(children, (child) =>
           cloneElement(child, { className: styles.slide, style: { width } }),
         )}

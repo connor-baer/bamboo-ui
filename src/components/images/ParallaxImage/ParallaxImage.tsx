@@ -110,7 +110,7 @@ export const ParallaxImage = forwardRef(
     return (
       <div
         ref={containerRef}
-        className={cx(className, styles.container)}
+        className={cx(styles.container, className)}
         style={
           isTransparent(props.src) ? style : { ...style, background: color }
         }

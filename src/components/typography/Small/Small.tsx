@@ -15,7 +15,7 @@ export const Small = forwardRef(
     <Element
       as={as}
       ref={ref}
-      className={cx(className, styles.base)}
+      className={cx(styles.base, className)}
       {...props}
     />
   ),

@@ -19,9 +19,12 @@ export const Paragraph = forwardRef(
       {...props}
       as={bold ? 'strong' : 'p'}
       ref={ref}
-      className={cx(className, styles.base, styles[`size-${size}`], {
-        [styles.bold]: bold,
-      })}
+      className={cx(
+        styles.base,
+        styles[`size-${size}`],
+        { [styles.bold]: bold },
+        className,
+      )}
     />
   ),
 );

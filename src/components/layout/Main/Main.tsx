@@ -12,7 +12,7 @@ export const Main = forwardRef(
     <main
       {...props}
       ref={ref}
-      className={cx(className, styles.base, styles[variant])}
+      className={cx(styles.base, styles[variant], className)}
     />
   ),
 );
