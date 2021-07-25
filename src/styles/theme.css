@@ -143,7 +143,7 @@
 
   --color-focus-outline: var(--oc-primary-3);
   --color-shadow: rgba(12, 15, 20, 0.18);
-  --color-border: var(--oc-gray-4);
+  --color-border: var(--oc-gray-5);
   --color-selection-background: var(--oc-yellow-3);
   --color-selection-text: var(--oc-black);
   --color-background: var(--oc-white);
@@ -178,9 +178,9 @@
     --color-danger-hover: #642b30;
     --color-danger-text: var(--oc-red-2);
 
-    --color-focus-outline: var(--oc-primary-7);
+    --color-focus-outline: var(--oc-primary-9);
     --color-shadow: rgba(12, 15, 20, 0.18);
-    --color-border: var(--oc-gray-7);
+    --color-border: var(--oc-gray-6);
     --color-selection-background: var(--oc-yellow-3);
     --color-selection-text: var(--oc-black);
     --color-background: #15191d;
