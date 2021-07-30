@@ -1,0 +1,38 @@
+.select {
+  appearance: none;
+  display: block;
+  height: 28.5px;
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-xxs) var(--spacing-m);
+  margin: 0;
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  line-height: 1;
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--font-size-m);
+  cursor: pointer;
+  z-index: var(--z-index-select);
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.select::-ms-expand {
+  display: none;
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2.25rem;
+  margin-right: var(--spacing-m);
+}
