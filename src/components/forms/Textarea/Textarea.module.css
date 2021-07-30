@@ -1,0 +1,13 @@
+.label {
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.textarea {
+  composes: input from '../Input/Input.module.css';
+  overflow: auto;
+  resize: vertical;
+  min-height: var(--spacing-xxxl);
+  padding-bottom: var(--spacing-xs);
+  line-height: var(--line-height-s);
+}
