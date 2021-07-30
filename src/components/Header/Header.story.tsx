@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { spacing } from '../../styles/shared';
 import { Small } from '../typography/Small';
 
 import { Header, HeaderProps } from './Header';
@@ -21,7 +20,7 @@ Base.args = {
   subtitle: 'A React component library',
   size: 'xxl',
   children: (
-    <div css={spacing({ top: 's' })}>
+    <div style={{ marginTop: '1rem' }}>
       <Small>Made by Connor</Small>
     </div>
   ),

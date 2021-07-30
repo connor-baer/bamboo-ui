@@ -12,11 +12,11 @@ export interface HamburgerProps
   /**
    * Label for the 'active' state. Important for accessibility.
    */
-  labelActive: string;
+  labelActive?: string;
   /**
    * Label for the 'inactive' state. Important for accessibility.
    */
-  labelInActive: string;
+  labelInActive?: string;
 }
 
 /**

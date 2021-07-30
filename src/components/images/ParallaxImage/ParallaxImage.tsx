@@ -26,11 +26,15 @@ export const ParallaxImage = forwardRef(
     ref: Ref<HTMLImageElement | null>,
   ) => {
     const { Image } = useComponents();
+
     const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
+    const timeout = useRef<number>();
+
     const [isLoading, setLoading] = useState(true);
     const [isIntersecting, setIntersecting] = useState(false);
     const [translateY, setTranslateY] = useState('0');
+
     const prefersReducedMotion = useMedia('(prefers-reduced-motion: reduce)');
 
     useImperativeHandle(ref, () => imageRef.current);
@@ -73,14 +77,6 @@ export const ParallaxImage = forwardRef(
         return undefined;
       }
 
-      let timeoutScroll: number;
-
-      const cancelScroll = () => {
-        if (timeoutScroll) {
-          window.cancelAnimationFrame(timeoutScroll);
-        }
-      };
-
       const handleScroll = () => {
         // Using both the element and viewport height normalises the speed across
         // different viewport sizes.
@@ -91,9 +87,15 @@ export const ParallaxImage = forwardRef(
         setTranslateY(newTranslateY);
       };
 
+      const cancelScroll = () => {
+        if (timeout.current) {
+          window.cancelAnimationFrame(timeout.current);
+        }
+      };
+
       const debouncedHandleScroll = () => {
         cancelScroll();
-        timeoutScroll = window.requestAnimationFrame(handleScroll);
+        timeout.current = window.requestAnimationFrame(handleScroll);
       };
 
       window.addEventListener('scroll', debouncedHandleScroll);

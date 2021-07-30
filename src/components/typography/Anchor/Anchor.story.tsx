@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { Anchor, AnchorProps, ButtonProps } from './Anchor';
+import { Anchor, AnchorProps } from './Anchor';
 
 export default {
   title: 'Typography/Anchor',
@@ -16,7 +16,7 @@ Base.args = {
   children: 'Bamboo UI',
 };
 
-export const AsButton = (args: ButtonProps) => <Anchor {...args} />;
+export const AsButton = (args: AnchorProps) => <Anchor {...args} />;
 
 AsButton.args = {
   onClick: action('Clicked'),

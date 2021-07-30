@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from '../typography/Link';
 
-import { Button, ButtonProps, AnchorProps } from './Button';
+import { Button, ButtonProps } from './Button';
 
 export default {
   title: 'Components/Button',
@@ -32,7 +32,7 @@ export const Sizes = (args: ButtonProps) =>
     </Button>
   ));
 
-export const AsLink = (args: AnchorProps) => (
+export const AsLink = (args: ButtonProps) => (
   <Link>
     <Button {...args} />
   </Link>
