@@ -6,5 +6,3 @@ import '../src/styles/base-styles.css';
 export const parameters = {
   layout: 'centered',
 };
-
-export const decorators = [withTheme];
