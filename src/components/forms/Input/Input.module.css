@@ -1,0 +1,13 @@
+.input {
+  display: block;
+  padding: var(--spacing-xxs) var(--spacing-m);
+  margin: 0;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  outline: 0;
+  line-height: 1;
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--font-size-m);
+}
