@@ -1,0 +1,126 @@
+.nav {
+  position: fixed;
+  left: 0;
+  bottom: max(env(safe-area-inset-right), var(--spacing-s));
+  right: 0;
+  display: flex;
+  justify-content: center;
+  transition: transform var(--transition-standard);
+}
+@media (min-width: 37.5em) {
+  .nav {
+    padding: var(--spacing-xs) var(--spacing-s);
+  }
+}
+@media (min-width: 56.25em) {
+  .nav {
+    position: static;
+    transition: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  border-radius: var(--border-radius-pill);
+  padding: var(--spacing-xxs) var(--spacing-m);
+  background: var(--color-background);
+  box-shadow: var(--shadow-m);
+}
+@media (min-width: 56.25em) {
+  .wrapper {
+    padding: 0;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+.nav--invisible {
+  transform: translateY(125%);
+}
+@media (min-width: 56.25em) {
+  .nav--invisible {
+    transform: none;
+  }
+}
+
+.anchor {
+  composes: focus-visible from '../../../../styles/shared.module.css';
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1;
+  letter-spacing: 1px;
+  padding: var(--spacing-xs) var(--spacing-s);
+  margin-right: var(--spacing-xs);
+  color: var(--color-secondary-text);
+  background-color: var(--color-background);
+  text-align: center;
+  transition: color var(--transition-micro),
+    background-color var(--transition-micro);
+}
+.anchor:hover {
+  color: var(--color-primary);
+}
+.anchor:last-of-type {
+  margin-right: 0;
+}
+@media (min-width: 37.5em) {
+  .anchor {
+    flex-direction: row;
+    border-radius: var(--border-radius-pill);
+    padding: var(--spacing-s) var(--spacing-m);
+  }
+  .anchor:hover {
+    background-color: var(--color-secondary);
+  }
+}
+@media (min-width: 56.25em) {
+  .anchor {
+    margin-right: var(--spacing-l);
+  }
+}
+@media (min-width: 75em) {
+  .anchor {
+    margin-right: var(--spacing-xl);
+  }
+}
+
+.anchor--active {
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+}
+@media (min-width: 56.25em) {
+  .anchor--active {
+    background-color: var(--color-secondary);
+  }
+}
+
+.icon {
+  display: inline-block;
+  margin-bottom: var(--spacing-xxs);
+  font-size: var(--font-size-l);
+}
+@media (min-width: 37.5em) {
+  .icon {
+    margin-right: var(--spacing-xxs);
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 56.25em) {
+  .icon {
+    display: none;
+  }
+}
+
+.label {
+  font-size: var(--font-size-s);
+}
+@media (min-width: 37.5em) {
+  .label {
+    font-size: var(--font-size-m);
+  }
+}
