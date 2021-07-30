@@ -1,3 +1,48 @@
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Merriweather Sans Light'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-300.woff2')
+      format('woff2'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-300.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Sans'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-regular.woff2')
+      format('woff2'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-regular.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Merriweather Sans Bold'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-800.woff2')
+      format('woff2'),
+    url('https://assets.connor.li/fonts/merriweather-sans-v11-latin-800.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather'),
+    url('https://assets.connor.li/fonts/merriweather-v21-latin-regular.woff2')
+      format('woff2'),
+    url('https://assets.connor.li/fonts/merriweather-v21-latin-regular.woff')
+      format('woff');
+}
+
 /**
  * http://meyerweb.com/eric/tools/css/reset/
  * v2.0 | 20110126

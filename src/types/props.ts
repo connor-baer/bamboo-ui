@@ -21,3 +21,9 @@ export type LinkProp = {
   href: string;
   icon?: ReactNode;
 };
+
+export type UserProp = {
+  firstName?: string;
+  lastName?: string;
+  image?: string;
+};

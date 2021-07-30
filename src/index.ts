@@ -1,7 +1,5 @@
 import * as cookies from './util/cookies';
 import * as keys from './util/keys';
-import * as styles from './styles/shared';
-import * as themes from './styles/theme';
 
 /**
  * Components
@@ -18,14 +16,13 @@ export { Small } from './components/typography/Small';
 // Sections
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
-export { Navigation, Menu } from './components/Navigation';
+export { Navigation } from './components/Navigation';
 export { Slider } from './components/Slider';
 
 // Utility
 export { Divider } from './components/Divider';
 export { LoadingBar } from './components/LoadingBar';
 export { Meta } from './components/Meta';
-export { Theme } from './components/Theme';
 
 // Icons
 export { Hamburger } from './components/icons/Hamburger';
@@ -65,7 +62,6 @@ export { Button } from './components/Button';
  */
 
 export { useMedia } from './hooks/useMedia';
-export { useAnimationFrame } from './hooks/use-animation-frame';
 export { useClickOutside } from './hooks/useClickOutside';
 export { useComponents, ComponentsProvider } from './hooks/useComponents';
 
@@ -76,9 +72,3 @@ export { useComponents, ComponentsProvider } from './hooks/useComponents';
 export { cookies, keys };
 export { isServer } from './util/is-server';
 export { sessionStore, localStore } from './util/storage';
-
-/**
- * Styles
- */
-
-export { styles, themes };

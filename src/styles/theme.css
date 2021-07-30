@@ -39,7 +39,7 @@
   --spacing-xl: 2rem; /* 32px */
   --spacing-xxl: 2.5rem; /* 48px */
   --spacing-xxxl: 4rem; /* 54px */
-  --spacing-gutter: var(--spacing-xl);
+  --spacing-gutter: 1rem; /* 16px */
 
   --width-max: 90rem; /* 1440px */
   --width-page: 80rem; /* 1280px */
@@ -165,6 +165,12 @@
   --transition-micro: 200ms cubic-bezier(0, 0, 0.2, 1);
   --transition-standard: 500ms cubic-bezier(0, 0, 0.2, 1);
   --transition-motion: 1000ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (min-width: 56.25em) {
+  :root {
+    --spacing-gutter: 2rem; /* 32px */
+  }
 }
 
 @media (prefers-color-scheme: dark) {
