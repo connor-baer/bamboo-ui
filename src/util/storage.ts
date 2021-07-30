@@ -1,9 +1,15 @@
 /* ISC License (ISC). Copyright 2017 Michal Zalecki */
+
+import { isServer } from './is-server';
+
 // Adapted from https://michalzalecki.com/why-using-localStorage-directly-is-a-bad-idea/
-export function storageFactory(storage: Storage): Storage {
+export function storageFactory(storage: Storage | null): Storage {
   let inMemoryStorage: { [key: string]: string } = {};
 
   const isSupported = ((): boolean => {
+    if (!storage) {
+      return false;
+    }
     try {
       const testKey = '__some_random_key_you_are_not_going_to_use__';
       storage.setItem(testKey, testKey);
@@ -15,7 +21,7 @@ export function storageFactory(storage: Storage): Storage {
   })();
 
   function setItem(name: string, value: string): void {
-    if (isSupported) {
+    if (storage && isSupported) {
       storage.setItem(name, value);
     } else {
       inMemoryStorage[name] = value;
@@ -23,7 +29,7 @@ export function storageFactory(storage: Storage): Storage {
   }
 
   function getItem(name: string): string | null {
-    if (isSupported) {
+    if (storage && isSupported) {
       return storage.getItem(name);
     }
     if (Object.prototype.hasOwnProperty.call(inMemoryStorage, name)) {
@@ -33,7 +39,7 @@ export function storageFactory(storage: Storage): Storage {
   }
 
   function removeItem(name: string): void {
-    if (isSupported) {
+    if (storage && isSupported) {
       storage.removeItem(name);
     } else {
       delete inMemoryStorage[name];
@@ -41,7 +47,7 @@ export function storageFactory(storage: Storage): Storage {
   }
 
   function clear(): void {
-    if (isSupported) {
+    if (storage && isSupported) {
       storage.clear();
     } else {
       inMemoryStorage = {};
@@ -49,14 +55,16 @@ export function storageFactory(storage: Storage): Storage {
   }
 
   function key(index: number): string | null {
-    if (isSupported) {
+    if (storage && isSupported) {
       return storage.key(index);
     }
     return Object.keys(inMemoryStorage)[index] || null;
   }
 
   function getLength(): number {
-    return isSupported ? storage.length : Object.keys(inMemoryStorage).length;
+    return storage && isSupported
+      ? storage.length
+      : Object.keys(inMemoryStorage).length;
   }
 
   return {
@@ -72,8 +80,10 @@ export function storageFactory(storage: Storage): Storage {
   };
 }
 
-export const localStore = storageFactory(localStorage);
-export const sessionStore = storageFactory(sessionStorage);
+export const localStore = storageFactory(isServer ? null : window.localStorage);
+export const sessionStore = storageFactory(
+  isServer ? null : window.sessionStorage,
+);
 
 export function serialize(value: any): string {
   return JSON.stringify(value);
