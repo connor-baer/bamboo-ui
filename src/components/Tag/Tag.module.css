@@ -10,6 +10,7 @@
   transition: background-color var(--transition-micro);
 }
 .tag svg {
+  color: var(--color-secondary-text) !important;
   fill: currentColor;
 }
 button.tag:hover {
