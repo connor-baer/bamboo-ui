@@ -3,7 +3,7 @@
   "sideEffects": false,
   "version": "0.0.0-semantically-released",
   "description": "A React UI component library made by Connor",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
     "dist",
@@ -37,33 +37,23 @@
   "homepage": "https://github.com/connor-baer/bamboo-ui#readme",
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/is-prop-valid": "^1.0.0",
-    "@emotion/styled": "^10.0.10",
     "@types/nprogress": "^0.2.0",
     "classnames": "^2.3.1",
     "downshift": "^6.0.7",
-    "emotion-theming": "^10.0.10",
     "es-cookie": "^1.2.0",
-    "fontfaceobserver": "^2.1.0",
-    "keycode": "^2.2.0",
     "lodash.setwith": "^4.3.2",
     "nprogress": "^0.2.0",
-    "open-color": "^1.6.3",
-    "polished": "^4.0.5",
-    "prop-types": "^15.6.0"
+    "open-color": "^1.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.12.11",
-    "@emotion/babel-preset-css-prop": "^10.0.9",
     "@storybook/addon-a11y": "^6.3.2",
     "@storybook/addon-actions": "^6.3.2",
     "@storybook/addon-controls": "^6.3.5",
     "@storybook/addon-docs": "^6.3.4",
-    "@storybook/addon-knobs": "^6.3.0",
     "@storybook/addon-storysource": "^6.3.4",
     "@storybook/addon-viewport": "^6.3.2",
     "@storybook/addons": "^6.3.4",
@@ -82,7 +72,6 @@
     "jest": "^27.0.6",
     "jest-axe": "^5.0.1",
     "jest-cli": "^27.0.6",
-    "jest-emotion": "^10.0.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "ts-jest": "^27.0.4",
@@ -92,9 +81,6 @@
     "webpack-merge": "^5.7.3"
   },
   "peerDependencies": {
-    "@emotion/core": "10.x",
-    "@emotion/styled": "10.x",
-    "emotion-theming": "10.x",
     "react": ">= 16.8.0 < 18.0.0",
     "react-dom": ">= 16.8.0 < 18.0.0"
   }

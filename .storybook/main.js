@@ -4,7 +4,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
     '@storybook/addon-docs',
-    '@storybook/addon-knobs',
     '@storybook/addon-controls',
     '@storybook/addon-storysource',
     '@storybook/addon-viewport',
@@ -19,16 +18,6 @@ module.exports = {
       plugins: [
         ...options.plugins,
         require.resolve('babel-plugin-inline-react-svg'),
-      ],
-      presets: [
-        ...options.presets,
-        [
-          require.resolve('@emotion/babel-preset-css-prop'),
-          {
-            autoLabel: false,
-            labelFormat: '[filename]--[local]',
-          },
-        ],
       ],
     };
   },
