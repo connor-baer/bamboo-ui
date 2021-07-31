@@ -1,0 +1,18 @@
+.base {
+  line-height: var(--line-height-l);
+  margin-bottom: var(--spacing-m);
+}
+
+.size-s {
+  font-size: var(--font-size-s);
+}
+.size-m {
+  font-size: var(--font-size-m);
+}
+.size-l {
+  font-size: var(--font-size-l);
+}
+
+.bold {
+  font-weight: var(--font-weight-bold);
+}

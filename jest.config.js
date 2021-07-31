@@ -1,9 +1,10 @@
 module.exports = {
+  preset: 'ts-jest',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src'],
-  moduleFileExtensions: ['js'],
   collectCoverageFrom: [
     'src/@(components|util|styles)/**/*.{js,jsx}',
     '!src/@(components|util|styles)/**/index.{js,jsx}',
@@ -12,8 +13,16 @@ module.exports = {
   ],
   moduleDirectories: ['node_modules', 'src'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        jsx: 'react',
+      },
+    },
+  },
 };

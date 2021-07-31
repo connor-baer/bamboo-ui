@@ -1,0 +1,81 @@
+@value layer-height: 2px;
+@value layer-width: var(--icon-size-m);
+
+.button {
+  composes: focus-visible from '../../../styles/shared.module.css';
+  box-sizing: content-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: var(--spacing-m) var(--spacing-xs);
+  margin: 0;
+  width: layer-width;
+  background-color: var(--color-secondary);
+  border: 0;
+  position: relative;
+  color: var(--color-text);
+  border-radius: var(--border-radius-s);
+  transition: background-color var(--transition-micro);
+}
+
+.button:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.layers {
+  margin-top: calc(layer-height / -2);
+  top: 50%;
+  width: calc(layer-width * 0.77);
+}
+
+.layers,
+.layers::after,
+.layers::before {
+  background-color: var(--color-text);
+  border-radius: var(--border-radius-s);
+  display: block;
+  height: layer-height;
+  position: absolute;
+  transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-in,
+    transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.layers::before,
+.layers::after {
+  top: 0;
+  content: '';
+}
+
+.layers::before {
+  transform: translateY(calc((var(--spacing-xxs) + layer-height) * -1));
+  width: layer-width;
+}
+
+.layers::after {
+  transform: translateY(calc((var(--spacing-xxs) + layer-height)));
+  width: calc(layer-width * 0.88);
+}
+
+button[aria-expanded='true'] > .layers {
+  transform: rotate(225deg);
+}
+
+button[aria-expanded='true'] > .layers,
+button[aria-expanded='true'] > .layers::before,
+button[aria-expanded='true'] > .layers::after {
+  transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
+    transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
+  width: layer-width;
+}
+
+button[aria-expanded='true'] > .layers::before {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+button[aria-expanded='true'] > .layers::after {
+  transform: translateY(0) rotate(-90deg);
+}
+
+.label {
+  composes: hide-visually from '../../../styles/shared.module.css';
+}

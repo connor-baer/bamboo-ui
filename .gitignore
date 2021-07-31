@@ -1,7 +1,6 @@
 # Project #
 
 package-lock.json
-.stylelintcache
 .eslintcache
 *.swp
 node_modules
@@ -12,7 +11,6 @@ dist
 build
 public
 .out
-bamboo-ui-global.css
 
 # Packages #
 

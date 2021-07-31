@@ -1,24 +1,8 @@
 import React from 'react';
-import { addParameters, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
-import Story from './Story';
+import '../src/styles/theme.css';
+import '../src/styles/base.css';
 
-import { standard } from '../src/styles/theme';
-import { Theme } from '../src/components/Theme';
-
-const withTheme = (storyFn) => <Theme theme={standard}>{storyFn()}</Theme>;
-
-const withStoryStyles = (storyFn) => {
-  return <Story>{storyFn()}</Story>;
+export const parameters = {
+  layout: 'centered',
 };
-
-addParameters({
-  options: {
-    showRoots: true,
-  },
-});
-
-addDecorator(withKnobs);
-addDecorator(withStoryStyles);
-addDecorator(withTheme);

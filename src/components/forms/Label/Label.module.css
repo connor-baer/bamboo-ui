@@ -1,0 +1,82 @@
+.label {
+  display: block;
+  position: relative;
+  padding: var(--spacing-xs) 0;
+  margin: 0;
+  transition: box-shadow var(--transition-micro),
+    background-color var(--transition-micro);
+  border-radius: var(--border-radius-m);
+  background-color: var(--color-background);
+  box-shadow: 0 0 0 1px var(--color-input);
+}
+
+.label::after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: var(--spacing-m);
+  bottom: 0;
+  left: var(--spacing-m);
+  height: var(--spacing-xs);
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+  transition: background-color var(--transition-micro);
+}
+
+.label:hover {
+  box-shadow: 0 0 0 1px var(--color-input-hover);
+}
+.label:focus,
+.label:focus-within {
+  box-shadow: 0 0 0 2px var(--color-input-focus);
+}
+
+.label-invalid {
+  background-color: var(--color-danger);
+  box-shadow: 0 0 0 1px var(--color-danger-text);
+}
+.label-invalid::after {
+  background: linear-gradient(rgba(255, 255, 255, 0), var(--color-danger));
+}
+.label-invalid svg {
+  color: var(--color-danger-text);
+}
+.label-invalid:hover {
+  box-shadow: 0 0 0 1px var(--color-danger-text);
+}
+.label-invalid:focus,
+.label-invalid:focus-within {
+  box-shadow: 0 0 0 2px var(--color-danger-text);
+}
+
+.label-disabled {
+  composes: disable-visually from '../../../styles/shared.module.css';
+}
+
+.text {
+  display: block;
+  padding: var(--spacing-xxs) var(--spacing-xxxl) 0 var(--spacing-m);
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-s);
+}
+
+.validation-hint {
+  display: block;
+  padding: 0 var(--spacing-m) var(--spacing-xxs);
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-s);
+}
+
+.validation-hint-invalid {
+  color: var(--color-danger-text);
+}
+
+.suffix {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: var(--spacing-s);
+  margin-right: var(--spacing-m);
+}

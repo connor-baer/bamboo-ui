@@ -1,0 +1,18 @@
+.base {
+  display: inline-block;
+  font-size: var(--font-size-s);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+.base::after {
+  content: '·';
+  display: inline-block;
+  font-weight: var(--font-weight-bold);
+  padding-right: var(--spacing-s);
+  padding-left: var(--spacing-s);
+}
+.base:last-child::after {
+  display: none;
+  content: '';
+}

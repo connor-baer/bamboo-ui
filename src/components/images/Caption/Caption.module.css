@@ -1,0 +1,8 @@
+.base {
+  display: block;
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-m);
+  margin-top: var(--spacing-l);
+  letter-spacing: 0.2px;
+  color: var(--color-text-subtle);
+}

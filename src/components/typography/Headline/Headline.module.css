@@ -1,0 +1,25 @@
+.base {
+  margin-top: var(---spacing-xxl);
+  margin-bottom: var(---spacing-l);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-s);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (min-width: 37.5em) {
+  .base {
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+}
+
+.size-l {
+  font-size: var(--font-size-l);
+}
+.size-xl {
+  font-size: var(--font-size-xl);
+}
+.size-xxl {
+  font-size: var(--font-size-xxl);
+}

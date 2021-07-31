@@ -1,0 +1,99 @@
+.wrapper {
+  position: relative;
+}
+
+.label-open {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input {
+  display: block;
+  padding: var(--spacing-xxs) 0;
+  margin: 0;
+  width: 100%;
+  border-radius: var(--border-radius-s);
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  line-height: 1;
+  background-color: transparent;
+  color: var(--color-body-color);
+  font-size: var(--font-size-m);
+}
+
+.input-wrapper {
+  display: flex;
+  padding: 0 var(--spacing-m);
+}
+
+.multi-select-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-m);
+}
+
+.multi-select-wrapper {
+  display: flex;
+  flex-grow: 1;
+  width: 8rem;
+  padding: 1px;
+}
+
+.expand-button {
+  composes: focus-visible from '../../../styles/shared.module.css';
+  display: inline-block;
+  font-size: var(--font-size-s);
+  padding: var(--spacing-xxs);
+  margin: 0;
+  transition: background-color var(--transition-micro);
+  background-color: inherit;
+  border-radius: var(--border-radius-s);
+  border: none;
+  outline: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.expand-button:hover,
+.expand-button:active {
+  background-color: var(--color-secondary);
+}
+
+.suggestion-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  list-style-type: none;
+  border-bottom-right-radius: var(--border-radius-s);
+  border-bottom-left-radius: var(--border-radius-s);
+  overflow: hidden;
+  width: 100%;
+  z-index: var(--z-index-autocomplete);
+  box-shadow: 0 0 0 2px var(--color-input-focus), 0 0 6px var(--color-shadow);
+}
+
+.suggestion-list--invalid {
+  box-shadow: 0 0 0 2px var(--color-danger-text), 0 0 6px var(--color-shadow);
+}
+
+.suggestion {
+  background-color: var(--color-background);
+  padding: var(--spacing-xs) var(--spacing-m);
+  cursor: pointer;
+}
+
+.suggestion--highlighted {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.highlight {
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+  background: inherit;
+  color: inherit;
+}

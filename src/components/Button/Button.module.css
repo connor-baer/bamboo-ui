@@ -1,0 +1,52 @@
+.base {
+  composes: focus-visible from '../../styles/shared.module.css';
+  display: inline-flex;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-m);
+  line-height: 1.3333;
+  margin: 0;
+  transition: all var(--transition-micro);
+  border-radius: var(--border-radius-pill);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
+.base svg {
+  fill: currentColor;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+.primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-text);
+}
+.secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.destructive {
+  background-color: var(--color-danger);
+  color: var(--color-danger-text);
+}
+.destructive:hover {
+  background-color: var(--color-danger-hover);
+}
+
+.disabled {
+  composes: disable-visually from '../../styles/shared.module.css';
+}
+
+.s {
+  padding: var(--spacing-xxs) var(--spacing-s);
+}
+
+.m {
+  padding: var(--spacing-s) var(--spacing-l);
+}

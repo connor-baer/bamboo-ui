@@ -1,0 +1,129 @@
+.wrapper {
+  z-index: 2;
+  margin-left: var(--spacing-xl);
+}
+@media (min-width: 37.5em) {
+  .wrapper {
+    position: relative;
+  }
+}
+@media (min-width: 75em) {
+  .wrapper {
+    margin-left: var(--spacing-xxl);
+  }
+}
+
+.image {
+  display: inline-block;
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
+  object-fit: cover;
+  border-radius: 50%;
+}
+.image:hover,
+.image:focus {
+  cursor: pointer;
+}
+
+.image-button {
+  composes: focus-visible from '../../../../styles/shared.module.css';
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-radius: var(--border-radius-circle);
+}
+.image-button::after {
+  border-radius: var(--border-radius-circle);
+}
+
+.dropdown {
+  position: fixed;
+  z-index: var(--z-index-navigation);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-xxs) 0;
+  visibility: hidden;
+  opacity: 0;
+  background: var(--color-background);
+  box-shadow: var(--shadow-l);
+  border-radius: var(--border-radius-s);
+  transform: translateY(100%);
+  transition: transform var(--transition-micro),
+    visibility var(--transition-micro), opacity var(--transition-micro);
+}
+@media (min-width: 37.5em) {
+  .dropdown {
+    position: absolute;
+    top: calc(100% + var(--spacing-xs));
+    bottom: auto;
+    left: auto;
+    width: auto;
+    max-width: 240px;
+    transform: translateY(0%);
+    border-radius: var(--border-radius-s);
+  }
+}
+
+@media (min-width: 37.5em) {
+  .dropdown::before,
+  .dropdown::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+  }
+  .dropdown::before {
+    left: auto;
+    right: 16px;
+    top: -16px;
+    border: 8px solid transparent;
+    border-bottom-color: rgba(27, 31, 35, 0.12);
+  }
+  .dropdown::after {
+    left: auto;
+    right: 17px;
+    top: -14px;
+    border: 7px solid transparent;
+    border-bottom-color: var(--color-background);
+  }
+}
+
+.dropdown--open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.item {
+  composes: focus-visible from '../../../../styles/shared.module.css';
+  display: block;
+  width: 100%;
+  padding: var(--spacing-s) var(--spacing-m);
+  color: var(--color-text);
+  transition: all var(--transition-micro);
+  overflow: visible;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.item:hover,
+.item:focus {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+@media (min-width: 37.5em) {
+  .item {
+    padding: var(--spacing-xs) var(--spacing-xl) var(--spacing-xs)
+      var(--spacing-m);
+  }
+}
+
+.divider {
+  margin: var(--spacing-xxs) 0 var(--spacing-xs);
+}

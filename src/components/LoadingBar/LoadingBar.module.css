@@ -1,0 +1,27 @@
+:global(#nprogress) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: var(--color-background);
+  height: 3px;
+  pointer-events: none;
+  z-index: var(--z-index-loadingbar);
+}
+
+:global(#nprogress .bar) {
+  background: var(--color-primary);
+  height: 100%;
+  width: 100%;
+}
+
+:global(#nprogress .peg) {
+  box-shadow: 0 0 10px var(--color-primary), 0 0 5px var(--color-primary);
+  display: block;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  transform: rotate(3deg) translate(0, -4px);
+  width: 100px;
+}

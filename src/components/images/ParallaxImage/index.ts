@@ -1,0 +1,1 @@
+export { ParallaxImage } from './ParallaxImage';
