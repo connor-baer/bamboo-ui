@@ -15,7 +15,7 @@
     "docs": "start-storybook -p 6006",
     "docs:build": "build-storybook -c .storybook -o public",
     "build": "tsc && tsc --project tsconfig.cjs.json && yarn copy:css",
-    "copy:css": "yarn copy:css:es && yarn copy:css:cjs && yarn copy:css:global",
+    "copy:css": "yarn copy:css:es && yarn copy:css:cjs",
     "copy:css:es": "cd src && find .  -name '*.module.css' -exec rsync -R {} ../dist/es \\;",
     "copy:css:cjs": "cd src && find .  -name '*.module.css' -exec rsync -R {} ../dist/cjs \\;",
     "copy:css:global": "cp -a ./src/styles/*.css ./",
@@ -26,7 +26,7 @@
     "test": "jest --watch",
     "test:unit": "jest --coverage --silent",
     "test:ci": "jest --coverage --runInBand --json --outputFile=__reports__/jest-results.json",
-    "prerelease": "yarn build",
+    "prerelease": "yarn build && yarn copy:css:global",
     "release": "semantic-release"
   },
   "repository": {
