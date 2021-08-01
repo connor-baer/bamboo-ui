@@ -214,7 +214,6 @@ textarea {
   font-size: 100%;
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-m);
-  text-decoration-skip: ink;
   text-decoration-skip-ink: auto;
   font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;

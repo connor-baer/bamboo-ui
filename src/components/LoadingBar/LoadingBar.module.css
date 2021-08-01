@@ -1,21 +1,16 @@
-:global(#nprogress) {
+.bar {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  background: var(--color-background);
   height: 3px;
+  width: 100%;
   pointer-events: none;
   z-index: var(--z-index-loadingbar);
-}
-
-:global(#nprogress .bar) {
   background: var(--color-primary);
-  height: 100%;
-  width: 100%;
 }
 
-:global(#nprogress .peg) {
+.peg {
   box-shadow: 0 0 10px var(--color-primary), 0 0 5px var(--color-primary);
   display: block;
   height: 100%;

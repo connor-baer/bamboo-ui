@@ -1,12 +1,17 @@
 import { useEffect } from 'react';
 import NProgress from 'nprogress';
 
-import './LoadingBar.module.css';
+import styles from './LoadingBar.module.css';
 
 export interface LoadingBarProps {
   isLoading?: boolean;
   startDelay?: number;
 }
+
+NProgress.configure({
+  showSpinner: false,
+  template: `<div class="${styles.bar}" role="bar"><div class="${styles.peg}"></div></div>`,
+});
 
 export function LoadingBar({
   isLoading,
