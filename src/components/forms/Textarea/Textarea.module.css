@@ -3,6 +3,25 @@
   padding-bottom: 0;
 }
 
+.label::after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: var(--spacing-m);
+  bottom: 0;
+  left: var(--spacing-m);
+  height: var(--spacing-xs);
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+  transition: background-color var(--transition-micro);
+}
+
+@media (prefers-color-scheme: dark) {
+  .label::after {
+    background: linear-gradient(rgba(21, 25, 29, 0), rgba(21, 25, 29, 1));
+  }
+}
+
 .textarea {
   composes: input from '../Input/Input.module.css';
   overflow: auto;
