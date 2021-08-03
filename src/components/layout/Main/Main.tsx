@@ -4,7 +4,7 @@ import cx from 'classnames';
 import styles from './Main.module.css';
 
 export interface MainProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {
-  variant: 'sidebar' | 'split';
+  variant?: 'sidebar' | 'split';
 }
 
 export const Main = forwardRef(
@@ -12,7 +12,7 @@ export const Main = forwardRef(
     <main
       {...props}
       ref={ref}
-      className={cx(styles.base, styles[variant], className)}
+      className={cx(styles.base, variant && styles[variant], className)}
     />
   ),
 );
