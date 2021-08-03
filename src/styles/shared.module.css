@@ -45,3 +45,53 @@
 .clearfix::after {
   clear: both;
 }
+
+.spacing {
+  margin: var(--spacing-m);
+}
+
+.spacing-top {
+  margin-top: var(--spacing-m);
+}
+
+.spacing-right {
+  margin-right: var(--spacing-m);
+}
+
+.spacing-bottom {
+  margin-bottom: var(--spacing-m);
+}
+
+.spacing-left {
+  margin-left: var(--spacing-m);
+}
+
+.spacing-vertical {
+  margin-top: var(--spacing-m);
+  margin-bottom: var(--spacing-m);
+}
+
+.spacing-horizontal {
+  margin-right: var(--spacing-m);
+  margin-left: var(--spacing-m);
+}
+
+.page-width {
+  max-width: var(--width-page);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--spacing-gutter);
+  padding-left: var(--spacing-gutter);
+}
+
+.full-width {
+  max-width: var(--width-max);
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 75em) {
+  .full-width {
+    padding-right: var(--spacing-gutter);
+    padding-left: var(--spacing-gutter);
+  }
+}
