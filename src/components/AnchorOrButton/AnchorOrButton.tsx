@@ -2,10 +2,10 @@ import React, { forwardRef, HTMLProps, Ref } from 'react';
 
 import { useComponents } from '../../hooks/useComponents';
 
-type ButtonProps = Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'type' | 'size'>;
+type ButtonProps = Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'size'>;
 
 interface AnchorProps
-  extends Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'type' | 'size'> {
+  extends Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'size'> {
   replace?: boolean;
   shallow?: boolean;
   scroll?: boolean;
