@@ -46,6 +46,8 @@ export { PandaIcon } from './components/icons/PandaIcon';
 export type { PandaIconProps } from './components/icons/PandaIcon';
 
 // Images
+export { Avatar } from './components/images/Avatar';
+export type { AvatarProps } from './components/images/Avatar';
 export { Caption } from './components/images/Caption';
 export type { CaptionProps } from './components/images/Caption';
 export { Collage } from './components/images/Collage';
