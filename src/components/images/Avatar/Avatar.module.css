@@ -1,0 +1,4 @@
+.base {
+  border-radius: var(--border-radius-circle);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}

@@ -56,6 +56,7 @@ export { Checkbox } from './components/forms/Checkbox';
 export { Label } from './components/forms/Label';
 
 export { Button } from './components/Button';
+export { Tag } from './components/Tag';
 
 /**
  * Hooks
