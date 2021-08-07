@@ -22,12 +22,12 @@ export interface AutocompleteMultiSelectProps
   extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange'> {
   label: string;
   placeholder: string;
-  validationHint: string;
+  validationHint?: string;
   items?: Item[];
   initialInputValue?: string;
   initialSelectedItems?: Item[];
   onChange?: (value?: string[]) => void;
-  onInputValueChange: (value?: string) => void;
+  onInputValueChange?: (value?: string) => void;
   itemToString?: (item: Item | null) => string;
   filterItems?: ({ items, inputValue }: FilterItemsArgs) => Item[];
   invalid?: boolean;
