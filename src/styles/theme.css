@@ -188,6 +188,9 @@
     --color-danger-hover: #642b30;
     --color-danger-text: var(--oc-red-2);
 
+    --color-input: var(--oc-gray-5);
+    --color-input-hover: var(--oc-gray-3);
+
     --color-focus-outline: var(--oc-primary-9);
     --color-shadow: rgba(12, 15, 20, 0.18);
     --color-border: var(--oc-gray-6);

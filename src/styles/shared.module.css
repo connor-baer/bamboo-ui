@@ -20,7 +20,7 @@
 
 .focus-outline {
   outline: 0;
-  box-shadow: 0 0 3px 4px var(--color-focus-outline);
+  box-shadow: 0 0 4px 4px var(--color-focus-outline);
 }
 .focus-outline::-moz-focus-inner {
   border: 0;
@@ -28,7 +28,7 @@
 
 .focus-visible:focus {
   outline: 0;
-  box-shadow: 0 0 3px 4px var(--color-focus-outline);
+  box-shadow: 0 0 4px 4px var(--color-focus-outline);
 }
 .focus-visible:focus::-moz-focus-inner {
   border: 0;

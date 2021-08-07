@@ -23,11 +23,12 @@
   top: var(--spacing-s);
   left: 0;
   transform: translateY(-50%);
-  transition: border var(--transition-micro),
-    background-color var(--transition-micro);
+  transition: background-color var(--transition-micro),
+    box-shadow var(--transition-micro), border var(--transition-micro);
 }
 .label:hover::before {
   border-color: var(--color-input-hover);
+  box-shadow: 0 0 6px 0 var(--color-input);
 }
 .label svg {
   height: 1.25rem;
@@ -59,7 +60,7 @@
 }
 .input:focus-visible + label::before {
   outline: 0;
-  box-shadow: 0 0 3px 4px var(--color-focus-outline);
+  box-shadow: 0 0 4px 4px var(--color-focus-outline);
   border-color: var(--color-input-focus);
 }
 .input:focus-visible + label::before::-moz-focus-inner {

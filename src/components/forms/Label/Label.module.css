@@ -11,11 +11,12 @@
 }
 
 .label:hover {
-  box-shadow: 0 0 0 1px var(--color-input-hover);
+  box-shadow: 0 0 0 1px var(--color-input-hover), 0 0 6px 0 var(--color-input);
 }
 .label:focus,
 .label:focus-within {
-  box-shadow: 0 0 0 2px var(--color-input-focus);
+  box-shadow: 0 0 0 2px var(--color-input-focus),
+    0 0 12px 0px var(--color-input-focus);
 }
 
 .label-invalid {
@@ -29,11 +30,13 @@
   color: var(--color-danger-text);
 }
 .label-invalid:hover {
-  box-shadow: 0 0 0 1px var(--color-danger-text);
+  box-shadow: 0 0 0 1px var(--color-danger-text),
+    0 0 4px 0 var(--color-danger-text);
 }
 .label-invalid:focus,
 .label-invalid:focus-within {
-  box-shadow: 0 0 0 2px var(--color-danger-text);
+  box-shadow: 0 0 0 2px var(--color-danger-text),
+    0 0 12px 0 var(--color-danger-text);
 }
 
 .label-disabled {
