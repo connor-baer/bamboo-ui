@@ -1,4 +1,4 @@
-import React, { FormEvent, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import { FormEvent, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
 import cx from 'classnames';
 
 import { uniqueId } from '../../../util/unique-id';

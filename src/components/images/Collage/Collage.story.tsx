@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Collage, CollageProps } from './Collage';
 
 export default {

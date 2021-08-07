@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { CoverImage, CoverImageProps } from './CoverImage';
 
 export default {

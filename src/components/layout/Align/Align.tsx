@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import cx from 'classnames';
 
 import { AlignProp } from '../../../types/props';

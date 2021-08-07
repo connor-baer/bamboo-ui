@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 
 export type PandaIconProps = Omit<
   HTMLProps<HTMLImageElement>,

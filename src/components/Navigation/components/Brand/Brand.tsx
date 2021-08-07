@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import cx from 'classnames';
 
 import { useComponents } from '../../../../hooks/useComponents';

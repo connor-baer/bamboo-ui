@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Links, LinksProps } from './Links';
 
 export default {

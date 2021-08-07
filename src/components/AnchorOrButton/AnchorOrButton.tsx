@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
 import { useComponents } from '../../hooks/useComponents';
 

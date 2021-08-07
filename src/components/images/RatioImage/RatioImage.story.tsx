@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { RatioImage, RatioImageProps } from './RatioImage';
 
 export default {

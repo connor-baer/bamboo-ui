@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LoadingBar, LoadingBarProps } from './LoadingBar';
 
 export default {

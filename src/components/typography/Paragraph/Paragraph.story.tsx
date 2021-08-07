@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Paragraph, ParagraphProps } from './Paragraph';
 
 export default {

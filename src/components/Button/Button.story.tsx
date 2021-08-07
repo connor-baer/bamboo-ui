@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Link } from '../typography/Link';
 
 import { Button, ButtonProps } from './Button';

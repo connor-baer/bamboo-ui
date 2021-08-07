@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Align, AlignProps } from './Align';
 
 export default {

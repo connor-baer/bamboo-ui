@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { CoverImage } from '../images/CoverImage';
 
 import { Slider, SliderProps } from './Slider';

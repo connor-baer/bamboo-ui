@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PandaIcon, PandaIconProps } from './PandaIcon';
 
 export default {

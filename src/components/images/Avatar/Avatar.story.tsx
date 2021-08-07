@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Avatar, AvatarProps } from './Avatar';
 
 export default {

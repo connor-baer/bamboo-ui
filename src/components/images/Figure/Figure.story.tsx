@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Figure, FigureProps } from './Figure';
 
 export default {

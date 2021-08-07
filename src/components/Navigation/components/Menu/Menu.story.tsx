@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Menu, MenuProps } from './Menu';
 
 export default {

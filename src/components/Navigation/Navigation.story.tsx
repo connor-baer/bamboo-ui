@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Navigation, NavigationProps } from './Navigation';
 
 const links = [

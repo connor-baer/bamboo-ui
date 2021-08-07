@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 import cx from 'classnames';
 
 import { uniqueId } from '../../../util/unique-id';

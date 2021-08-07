@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Columns, ColumnsProps } from './Columns';
 
 export default {

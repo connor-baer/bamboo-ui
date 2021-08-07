@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
 export interface ElementProps extends HTMLProps<HTMLElement> {
   as: keyof JSX.IntrinsicElements;

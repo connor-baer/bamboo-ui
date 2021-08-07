@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Label, LabelProps } from './Label';
 
 export default {

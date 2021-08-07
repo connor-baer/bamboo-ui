@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import { SVGProps } from 'react';
 import cx from 'classnames';
 
 import { ReactComponent as Loading } from '../../../icons/loading.svg';

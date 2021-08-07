@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LoadingIcon, LoadingIconProps } from './LoadingIcon';
 
 export default {

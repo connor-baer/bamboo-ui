@@ -1,4 +1,4 @@
-import React, { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { Headline } from '../typography/Headline';

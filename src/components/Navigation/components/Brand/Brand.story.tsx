@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Brand, BrandProps } from './Brand';
 
 export default {

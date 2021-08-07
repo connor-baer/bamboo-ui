@@ -1,4 +1,4 @@
-import React, { useContext, createContext, ReactNode } from 'react';
+import { useContext, createContext, ReactNode } from 'react';
 
 import { Head } from '../components/Head';
 import { Link } from '../components/typography/Link';

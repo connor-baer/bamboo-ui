@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Main, MainProps } from './Main';
 
 export default {

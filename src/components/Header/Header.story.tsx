@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Small } from '../typography/Small';
 
 import { Header, HeaderProps } from './Header';

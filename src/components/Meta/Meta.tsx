@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useComponents } from '../../hooks/useComponents';
 import { ImageProps } from '../../types/props';
 

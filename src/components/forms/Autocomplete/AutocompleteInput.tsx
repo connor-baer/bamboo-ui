@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLProps, Ref, useState } from 'react';
+import { forwardRef, HTMLProps, Ref, useState } from 'react';
 import cx from 'classnames';
 import { useCombobox } from 'downshift';
 

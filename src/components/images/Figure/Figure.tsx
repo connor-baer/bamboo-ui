@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, Ref } from 'react';
+import { forwardRef, ReactNode, Ref } from 'react';
 
 import { useComponents } from '../../../hooks/useComponents';
 import { RatioImage, RatioImageProps } from '../RatioImage';

@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 import cx from 'classnames';
 
 import styles from './Divider.module.css';

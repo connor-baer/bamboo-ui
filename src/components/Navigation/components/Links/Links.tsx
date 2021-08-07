@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { isEmpty } from '../../../../util/fp';

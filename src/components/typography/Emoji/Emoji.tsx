@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
 import { toLower } from '../../../util/fp';
 

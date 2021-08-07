@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ParallaxImage, ParallaxImageProps } from './ParallaxImage';
 
 export default {

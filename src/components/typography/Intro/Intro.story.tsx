@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Intro, IntroProps } from './Intro';
 
 export default {
