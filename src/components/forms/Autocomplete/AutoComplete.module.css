@@ -27,7 +27,7 @@
   padding: 0 var(--spacing-m);
 }
 
-.multi-select-items {
+.multi-select-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;

@@ -10,11 +10,11 @@ import { Label } from '../Label';
 import { Suggestion } from './Suggestion';
 import styles from './AutoComplete.module.css';
 
-type Item = string;
+type Option = string;
 
-type FilterItemsArgs = {
-  items: Item[];
-  selectedItems?: Item[];
+type FilterOptionsArgs = {
+  options: Option[];
+  selectedOptions?: Option[];
   inputValue?: string;
 };
 
@@ -23,25 +23,25 @@ export interface AutocompleteMultiSelectProps
   label: string;
   placeholder: string;
   validationHint?: string;
-  items?: Item[];
+  options?: Option[];
   initialInputValue?: string;
-  initialSelectedItems?: Item[];
+  initialSelectedOptions?: Option[];
   onChange?: (value?: string[]) => void;
   onInputValueChange?: (value?: string) => void;
-  itemToString?: (item: Item | null) => string;
-  filterItems?: ({ items, inputValue }: FilterItemsArgs) => Item[];
+  optionToString?: (option: Option | null) => string;
+  filterOptions?: ({ options, inputValue }: FilterOptionsArgs) => Option[];
   invalid?: boolean;
 }
 
-function getFilteredItems({
-  items,
-  selectedItems = [],
+function getFilteredOptions({
+  options,
+  selectedOptions = [],
   inputValue = '',
-}: FilterItemsArgs) {
-  return items.filter(
-    (item) =>
-      !includes(item, selectedItems) &&
-      includes(toLower(inputValue), toLower(item)),
+}: FilterOptionsArgs) {
+  return options.filter(
+    (option) =>
+      !includes(option, selectedOptions) &&
+      includes(toLower(inputValue), toLower(option)),
   );
 }
 
@@ -50,11 +50,11 @@ export const AutocompleteMultiSelect = forwardRef(
     {
       value,
       label,
-      items = [],
-      initialSelectedItems = [],
+      options = [],
+      initialSelectedOptions = [],
       initialInputValue = '',
-      itemToString = (v) => v || '',
-      filterItems = getFilteredItems,
+      optionToString = (v) => v || '',
+      filterOptions = getFilteredOptions,
       onChange,
       onInputValueChange,
       invalid,
@@ -71,9 +71,9 @@ export const AutocompleteMultiSelect = forwardRef(
       getDropdownProps,
       addSelectedItem,
       removeSelectedItem,
-      selectedItems = [],
+      selectedItems: selectedOptions = [],
     } = useMultipleSelection({
-      initialSelectedItems,
+      initialSelectedItems: initialSelectedOptions,
       onSelectedItemsChange: (state) => {
         if (onChange) {
           onChange(state.selectedItems);
@@ -81,7 +81,11 @@ export const AutocompleteMultiSelect = forwardRef(
       },
     });
 
-    const filteredItems = filterItems({ items, selectedItems, inputValue });
+    const filteredOptions = filterOptions({
+      options,
+      selectedOptions,
+      inputValue,
+    });
 
     const handleInputValueChange = (nextInputValue = '') => {
       setInputValue(nextInputValue);
@@ -101,8 +105,8 @@ export const AutocompleteMultiSelect = forwardRef(
       getItemProps,
     } = useCombobox({
       inputValue,
-      items: filteredItems,
-      itemToString,
+      items: filteredOptions,
+      itemToString: optionToString,
       onStateChange: ({ inputValue: nextInputValue, type, selectedItem }) => {
         switch (type) {
           case useCombobox.stateChangeTypes.InputChange:
@@ -123,7 +127,7 @@ export const AutocompleteMultiSelect = forwardRef(
       },
     });
 
-    const showSuggestions = isOpen && !isEmpty(filteredItems);
+    const showSuggestions = isOpen && !isEmpty(filteredOptions);
 
     return (
       <div className={cx(styles.wrapper, className)}>
@@ -135,20 +139,20 @@ export const AutocompleteMultiSelect = forwardRef(
           className={showSuggestions && styles.labelOpen}
           {...getLabelProps()}
         >
-          <div className={styles.multiSelectItems}>
-            {selectedItems.map((selectedItem, index) => {
+          <div className={styles.multiSelectOptions}>
+            {selectedOptions.map((selectedOption, index) => {
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              const { onClick, ...selectedItemProps } = getSelectedItemProps({
-                selectedItem,
+              const { onClick, ...selectedOptionProps } = getSelectedItemProps({
+                selectedItem: selectedOption,
                 index,
               });
               return (
                 <Tag
-                  key={`selected-item-${index}`}
-                  {...selectedItemProps}
-                  onRemove={() => removeSelectedItem(selectedItem)}
+                  key={`selected-option-${index}`}
+                  {...selectedOptionProps}
+                  onRemove={() => removeSelectedItem(selectedOption)}
                 >
-                  {selectedItem}
+                  {selectedOption}
                 </Tag>
               );
             })}
@@ -179,14 +183,14 @@ export const AutocompleteMultiSelect = forwardRef(
               invalid && styles.suggestionListInvalid,
             )}
           >
-            {filteredItems.map((item, index) => (
+            {filteredOptions.map((option, index) => (
               <Suggestion
-                key={`${item}-${index}`}
+                key={`${option}-${index}`}
                 isHighlighted={highlightedIndex === index}
                 inputValue={inputValue}
-                {...getItemProps({ item, index })}
+                {...getItemProps({ item: option, index })}
               >
-                {item}
+                {option}
               </Suggestion>
             ))}
           </ul>

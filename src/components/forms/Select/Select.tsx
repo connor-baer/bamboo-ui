@@ -11,7 +11,7 @@ import styles from './Select.module.css';
 type Option = {
   value: string | number;
   label: string;
-  disabled: boolean;
+  disabled?: boolean;
 };
 
 export interface SelectProps
@@ -62,9 +62,9 @@ export const Select = forwardRef(
               {placeholder}
             </option>
           )}
-          {options.map(({ label: labelValue, ...rest }) => (
+          {options.map(({ label: optionLabel, ...rest }) => (
             <option key={rest.value} {...rest}>
-              {labelValue}
+              {optionLabel}
             </option>
           ))}
         </select>

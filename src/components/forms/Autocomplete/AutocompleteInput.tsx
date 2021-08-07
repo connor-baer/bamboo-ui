@@ -9,10 +9,10 @@ import { Label } from '../Label';
 import { Suggestion } from './Suggestion';
 import styles from './AutoComplete.module.css';
 
-type Item = string;
+type Option = string;
 
-type FilterItemsArgs = {
-  items: Item[];
+type FilterOptionsArgs = {
+  options: Option[];
   inputValue?: string;
 };
 
@@ -20,17 +20,19 @@ export interface AutocompleteInputProps
   extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange'> {
   label: string;
   placeholder: string;
-  validationHint: string;
-  items?: Item[];
-  initialSelectedItem?: Item;
+  validationHint?: string;
+  options?: Option[];
+  initialSelectedOption?: Option;
   onChange?: (value?: string) => void;
-  itemToString?: (item: Item | null) => string;
-  filterItems?: ({ items, inputValue }: FilterItemsArgs) => Item[];
+  optionToString?: (option: Option | null) => string;
+  filterOptions?: ({ options, inputValue }: FilterOptionsArgs) => Option[];
   invalid?: boolean;
 }
 
-function getFilteredItems({ items, inputValue = '' }: FilterItemsArgs) {
-  return items.filter((item) => includes(toLower(inputValue), toLower(item)));
+function getFilteredOptions({ options, inputValue = '' }: FilterOptionsArgs) {
+  return options.filter((option) =>
+    includes(toLower(inputValue), toLower(option)),
+  );
 }
 
 export const AutocompleteInput = forwardRef(
@@ -38,10 +40,10 @@ export const AutocompleteInput = forwardRef(
     {
       label,
       onChange,
-      items = [],
-      initialSelectedItem,
-      itemToString = (value) => value || '',
-      filterItems = getFilteredItems,
+      options = [],
+      initialSelectedOption,
+      optionToString = (value) => value || '',
+      filterOptions = getFilteredOptions,
       invalid,
       disabled,
       validationHint,
@@ -50,7 +52,7 @@ export const AutocompleteInput = forwardRef(
     }: AutocompleteInputProps,
     ref: Ref<HTMLInputElement>,
   ) => {
-    const [filteredItems, setFilteredItems] = useState(items);
+    const [filteredOptions, setFilteredOptions] = useState(options);
     const {
       inputValue,
       isOpen,
@@ -62,18 +64,18 @@ export const AutocompleteInput = forwardRef(
       highlightedIndex,
       getItemProps,
     } = useCombobox({
-      items: filteredItems,
-      initialSelectedItem,
-      itemToString,
+      items: filteredOptions,
+      initialSelectedItem: initialSelectedOption,
+      itemToString: optionToString,
       onInputValueChange: (state) => {
-        setFilteredItems(filterItems({ items, ...state }));
+        setFilteredOptions(filterOptions({ options, ...state }));
         if (onChange) {
           onChange(state.inputValue);
         }
       },
     });
 
-    const showSuggestions = isOpen && !isEmpty(filteredItems);
+    const showSuggestions = isOpen && !isEmpty(filteredOptions);
 
     return (
       <div className={cx(styles.wrapper, className)}>
@@ -110,14 +112,14 @@ export const AutocompleteInput = forwardRef(
               invalid && styles.suggestionListInvalid,
             )}
           >
-            {filteredItems.map((item, index) => (
+            {filteredOptions.map((option, index) => (
               <Suggestion
-                key={`${item}-${index}`}
+                key={`${option}-${index}`}
                 isHighlighted={highlightedIndex === index}
                 inputValue={inputValue}
-                {...getItemProps({ item, index })}
+                {...getItemProps({ item: option, index })}
               >
-                {item}
+                {option}
               </Suggestion>
             ))}
           </ul>
