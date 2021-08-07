@@ -32,7 +32,7 @@ export type { SliderProps } from './components/Slider';
 // Utility
 export { Divider } from './components/Divider';
 export type { DividerProps } from './components/Divider';
-export { LoadingBar } from './components/LoadingBar';
+export { LoadingBar, useLoadingBar } from './components/LoadingBar';
 export type { LoadingBarProps } from './components/LoadingBar';
 export { Meta } from './components/Meta';
 export type { MetaProps } from './components/Meta';

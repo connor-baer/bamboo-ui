@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 import styles from './LoadingBar.module.css';
 
 export interface LoadingBarProps {
-  isLoading?: boolean;
+  isLoading: boolean;
   startDelay?: number;
 }
 
@@ -13,10 +13,10 @@ NProgress.configure({
   template: `<div class="${styles.bar}" role="bar"><div class="${styles.peg}"></div></div>`,
 });
 
-export function LoadingBar({
+export function useLoadingBar({
   isLoading,
   startDelay = 500,
-}: LoadingBarProps): null {
+}: LoadingBarProps): void {
   useEffect(() => {
     if (isLoading) {
       const timer = setTimeout(() => {
@@ -31,6 +31,10 @@ export function LoadingBar({
     NProgress.done();
     return undefined;
   }, [isLoading, startDelay]);
+}
+
+export function LoadingBar(props: LoadingBarProps): null {
+  useLoadingBar(props);
 
   return null;
 }
