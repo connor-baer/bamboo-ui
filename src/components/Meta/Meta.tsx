@@ -4,8 +4,8 @@ import { ImageProps } from '../../types/props';
 export interface MetaProps {
   title: string;
   description: string;
-  url: string;
-  image: ImageProps;
+  image?: ImageProps;
+  url?: string;
   index?: boolean;
   follow?: boolean;
   siteName?: string;
@@ -50,8 +50,8 @@ export function Meta({
       {title && <meta property="og:title" content={title} />}
       {description && <meta property="og:description" content={description} />}
       {url && <meta property="og:url" content={url} />}
-      {image.src && <meta property="og:image" content={image.src} />}
-      {image.alt && <meta name="twitter:image:alt" content={image.alt} />}
+      {image?.src && <meta property="og:image" content={image.src} />}
+      {image?.alt && <meta name="twitter:image:alt" content={image.alt} />}
       {siteName && <meta property="og:site_name" content={siteName} />}
       {siteTwitter && (
         <meta name="twitter:creator" content={`@${siteTwitter}`} />
