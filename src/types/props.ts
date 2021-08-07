@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode, Ref } from 'react';
 
 export interface ImageProps
   extends Omit<
@@ -10,6 +10,7 @@ export interface ImageProps
   sizes?: string | string[];
   alt: string;
   color?: string;
+  ref?: Ref<HTMLImageElement>;
 }
 
 export type CaptionProp = ReactNode;

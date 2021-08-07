@@ -3,7 +3,7 @@ import { ImageProps } from '../../types/props';
 
 export interface MetaProps {
   title: string;
-  description: string;
+  description?: string;
   image?: ImageProps;
   url?: string;
   index?: boolean;
@@ -36,15 +36,17 @@ export function Meta({
   const { Head } = useComponents();
 
   const titleString = constructTitle(title, siteName);
-  const indexString = index ? 'index' : 'noindex';
-  const followString = follow ? 'follow' : 'nofollow';
+  const robots = [
+    index ? 'index' : 'noindex',
+    follow ? 'follow' : 'nofollow',
+  ].join(', ');
 
   return (
     <Head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{titleString}</title>
-      <meta name="robots" content={`${indexString}, ${followString}`} />
+      <meta name="robots" content={robots} />
       {url && <link rel="canonical" href={url} />}
       {description && <meta name="description" content={description} />}
       {title && <meta property="og:title" content={title} />}
