@@ -198,6 +198,7 @@ html [type='button'] {
 body {
   color: var(--color-text);
   background-color: var(--color-background);
+  transition: background-color var(--transition-micro);
 }
 
 /**
