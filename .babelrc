@@ -1,7 +1,4 @@
 {
-  "plugins": [
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    "babel-plugin-inline-react-svg"
-  ],
+  "plugins": [["@babel/plugin-proposal-class-properties", { "loose": true }]],
   "presets": [["@babel/preset-env", { "loose": true }], "@babel/preset-react"]
 }

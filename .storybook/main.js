@@ -12,15 +12,6 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  babel: async (options) => {
-    return {
-      ...options,
-      plugins: [
-        ...options.plugins,
-        require.resolve('babel-plugin-inline-react-svg'),
-      ],
-    };
-  },
   /**
    * Configure Webpack for CSS modules. Taken from:
    * https://github.com/Negan1911/storybook-css-modules-preset/issues/14

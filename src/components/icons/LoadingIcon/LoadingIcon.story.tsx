@@ -6,3 +6,8 @@ export default {
 };
 
 export const Base = (args: LoadingIconProps) => <LoadingIcon {...args} />;
+
+Base.args = {
+  color: 'currentColor',
+  size: '24',
+};

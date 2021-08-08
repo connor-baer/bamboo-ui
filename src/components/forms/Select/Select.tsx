@@ -1,8 +1,8 @@
 import { forwardRef, HTMLProps, Ref } from 'react';
 import cx from 'classnames';
+import { ChevronDown } from 'react-feather';
 
 import { uniqueId } from '../../../util/unique-id';
-import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
 import { Label } from '../Label';
 import { LabelBaseProps } from '../Label/Label';
 
@@ -68,7 +68,7 @@ export const Select = forwardRef(
             </option>
           ))}
         </select>
-        <Chevron className={styles.chevron} />
+        <ChevronDown className={styles.chevron} size={20} />
       </Label>
     );
   },

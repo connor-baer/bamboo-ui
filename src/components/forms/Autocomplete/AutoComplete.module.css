@@ -18,7 +18,7 @@
   box-shadow: none;
   line-height: 1;
   background-color: transparent;
-  color: var(--color-body-color);
+  color: var(--color-text);
   font-size: var(--font-size-m);
 }
 
@@ -37,6 +37,7 @@
 
 .multi-select-wrapper {
   display: flex;
+  align-items: center;
   flex-grow: 1;
   width: 8rem;
   padding: 1px;
@@ -49,6 +50,7 @@
   padding: var(--spacing-xxs);
   margin: 0;
   transition: background-color var(--transition-micro);
+  color: var(--color-text);
   background-color: inherit;
   border-radius: var(--border-radius-s);
   border: none;
@@ -73,7 +75,9 @@
   overflow: hidden;
   width: 100%;
   z-index: var(--z-index-autocomplete);
-  box-shadow: 0 0 0 2px var(--color-input-focus), 0 0 6px var(--color-shadow);
+  box-shadow: 0 0 0 2px var(--color-input-focus),
+    0 4px 12px 0 var(--color-input-focus);
+  margin-bottom: var(--spacing-l);
 }
 
 .suggestion-list--invalid {

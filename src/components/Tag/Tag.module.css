@@ -41,12 +41,12 @@ button.tag:hover {
   margin: 0;
   transition: background-color var(--transition-micro);
   background-color: var(--color-secondary);
-  border-top-right-radius: var(--border-radius-s);
-  border-bottom-right-radius: var(--border-radius-s);
+  border-radius: var(--border-radius-s);
   border: none;
   outline: 0;
-  line-height: 1;
+  line-height: 0;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .close-button:hover,

@@ -1,8 +1,8 @@
 import { forwardRef, HTMLProps, Ref, useState } from 'react';
 import cx from 'classnames';
 import { useCombobox, useMultipleSelection } from 'downshift';
+import { ChevronDown } from 'react-feather';
 
-import { ReactComponent as Chevron } from '../../../icons/chevron-down.svg';
 import { isEmpty, toLower, includes } from '../../../util/fp';
 import { Tag } from '../../Tag';
 import { Label } from '../Label';
@@ -169,7 +169,7 @@ export const AutocompleteMultiSelect = forwardRef(
                 aria-label="Toggle menu"
                 type="button"
               >
-                <Chevron />
+                <ChevronDown size={20} />
               </button>
             </div>
           </div>

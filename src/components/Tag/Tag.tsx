@@ -7,8 +7,8 @@ import {
   Ref,
 } from 'react';
 import cx from 'classnames';
+import { X } from 'react-feather';
 
-import { ReactComponent as Cross } from '../../icons/cross.svg';
 import { Element } from '../Element';
 
 import styles from './Tag.module.css';
@@ -66,7 +66,7 @@ export const Tag = forwardRef(
           type="button"
           className={cx(styles.closeButton, active && styles.active)}
         >
-          <Cross />
+          <X size={14} />
         </button>
       )}
     </Element>

@@ -1,9 +1,9 @@
 import { FormEvent, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
 import cx from 'classnames';
+import { Check } from 'react-feather';
 
 import { uniqueId } from '../../../util/unique-id';
 
-import { ReactComponent as Check } from './check.svg';
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps
@@ -69,7 +69,7 @@ export const Checkbox = forwardRef(
           )}
         >
           {children}
-          <Check aria-hidden="true" />
+          <Check aria-hidden="true" size={20} />
         </label>
       </div>
     );

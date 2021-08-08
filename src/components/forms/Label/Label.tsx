@@ -7,8 +7,7 @@ import {
   SVGProps,
 } from 'react';
 import cx from 'classnames';
-
-import { ReactComponent as Cross } from '../../../icons/circle-cross.svg';
+import { XCircle } from 'react-feather';
 
 import styles from './Label.module.css';
 
@@ -37,7 +36,7 @@ const getSuffix = ({
     return suffix;
   }
   if (invalid) {
-    return Cross;
+    return XCircle;
   }
   return null;
 };

@@ -31,8 +31,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 20px;
-  height: 20px;
   margin-top: 2.25rem;
   margin-right: var(--spacing-m);
 }

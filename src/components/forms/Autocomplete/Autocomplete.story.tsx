@@ -12,7 +12,7 @@ export default {
   subcomponents: { AutocompleteMultiSelect },
 };
 
-const items = [
+const options = [
   'Apple',
   'Banana',
   'Kiwi',
@@ -30,8 +30,8 @@ export const Input = (args: AutocompleteInputProps) => (
 Input.args = {
   label: 'What is your favourite fruit?',
   placeholder: 'Mango',
-  items,
-  onChange: action('Changed selected item'),
+  options,
+  onChange: action('Changed selected option'),
 };
 
 export const MultiSelect = (args: AutocompleteMultiSelectProps) => (
@@ -41,7 +41,7 @@ export const MultiSelect = (args: AutocompleteMultiSelectProps) => (
 MultiSelect.args = {
   label: 'Select your favourite fruits',
   placeholder: 'Type...',
-  items,
-  onChange: action('Changed selected items'),
+  options,
+  onChange: action('Changed selected options'),
   onInputValueChange: action('Changed input value'),
 };
