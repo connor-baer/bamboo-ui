@@ -28,6 +28,11 @@
   background: var(--color-background);
   box-shadow: var(--shadow-m);
 }
+@media (min-width: 37.5em) {
+  .wrapper {
+    padding: var(--spacing-xxs);
+  }
+}
 @media (min-width: 56.25em) {
   .wrapper {
     padding: 0;
@@ -59,6 +64,7 @@
   color: var(--color-secondary-text);
   background-color: var(--color-background);
   text-align: center;
+  border-radius: var(--border-radius-l);
   transition: color var(--transition-micro),
     background-color var(--transition-micro);
 }

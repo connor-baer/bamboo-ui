@@ -1,19 +1,32 @@
+/* eslint-disable jsx-a11y/accessible-emoji, react/display-name */
 import { Navigation, NavigationProps } from './Navigation';
 
-const links = [
+const links: NavigationProps['links'] = [
   {
-    icon: '🐼',
+    icon: ({ role, className }) => (
+      <span role={role} className={className}>
+        🐼
+      </span>
+    ),
     children: 'Panda',
     href: '/',
     active: true,
   },
   {
-    icon: '🐨',
+    icon: ({ role, className }) => (
+      <span role={role} className={className}>
+        🐨
+      </span>
+    ),
     children: 'Koala',
     href: '/koala',
   },
   {
-    icon: '🐻',
+    icon: ({ role, className }) => (
+      <span role={role} className={className}>
+        🐻
+      </span>
+    ),
     children: 'Grizzly',
     href: '/grizzly',
   },
@@ -28,6 +41,7 @@ const actions = [
     children: 'Settings',
     href: '/settings',
   },
+  { type: 'divider' },
   {
     children: 'Logout',
     onClick: () => alert('Logged out'),

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { HTMLProps, ReactNode } from 'react';
 import cx from 'classnames';
+import { Icon as IconType } from 'react-feather';
 
 import { isEmpty } from '../../../../util/fp';
 import { useComponents } from '../../../../hooks/useComponents';
@@ -11,7 +12,7 @@ export interface LinksProps extends HTMLProps<HTMLElement> {
   links: {
     children: ReactNode;
     href: string;
-    icon: ReactNode;
+    icon: IconType;
     active?: boolean;
     className?: string;
   }[];
@@ -34,7 +35,7 @@ export function Links({
       className={cx(styles.nav, isInvisible && styles.navInvisible, className)}
     >
       <div className={styles.wrapper}>
-        {links.map(({ href, children, icon, active }, i) => (
+        {links.map(({ href, children, icon: Icon, active }, i) => (
           <Link key={i} href={href}>
             <a
               className={cx(
@@ -43,9 +44,12 @@ export function Links({
                 className,
               )}
             >
-              <span role="presentation" className={styles.icon}>
-                {icon}
-              </span>
+              <Icon
+                role="presentation"
+                size={24}
+                strokeWidth={3}
+                className={styles.icon}
+              />
               <span className={styles.label}>{children}</span>
             </a>
           </Link>
