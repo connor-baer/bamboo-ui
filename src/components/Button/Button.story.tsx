@@ -1,3 +1,5 @@
+import { Search } from 'react-feather';
+
 import { Link } from '../typography/Link';
 
 import { Button, ButtonProps } from './Button';
@@ -40,4 +42,13 @@ AsLink.args = {
   children: 'Do not press',
   href: 'https://github.com/connor-baer/bamboo-ui',
   target: '_blank',
+};
+
+export const WithIcon = (args: ButtonProps) => <Button {...args} />;
+
+WithIcon.args = {
+  children: 'Search',
+  icon: Search,
+  variant: 'secondary',
+  iconOnly: true,
 };

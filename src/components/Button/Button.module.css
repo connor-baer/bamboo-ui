@@ -1,6 +1,7 @@
 .base {
   composes: focus-visible from '../../styles/shared.module.css';
   display: inline-flex;
+  align-items: center;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-m);
   line-height: 1.3333;
@@ -11,8 +12,9 @@
   outline: 0;
   cursor: pointer;
 }
-.base svg {
-  fill: currentColor;
+
+.base > svg + span {
+  margin-left: var(--spacing-xs);
 }
 
 .primary {
@@ -49,4 +51,19 @@
 
 .m {
   padding: var(--spacing-s) var(--spacing-l);
+}
+
+.icon-only {
+  border-radius: var(--border-radius-circle);
+  justify-content: center;
+}
+.icon-only.s {
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-xxs);
+}
+.icon-only.m {
+  width: 48px;
+  height: 48px;
+  padding: var(--spacing-s);
 }
