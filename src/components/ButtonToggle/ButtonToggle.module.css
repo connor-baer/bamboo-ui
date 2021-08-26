@@ -1,0 +1,44 @@
+.base {
+  composes: focus-visible from '../../styles/shared.module.css';
+  composes: base from '../Button/Button.module.css';
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-text);
+}
+.base:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.base[aria-pressed='true'] {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+.base[aria-pressed='true']:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.disabled {
+  composes: disable-visually from '../../styles/shared.module.css';
+}
+
+.s {
+  padding: var(--spacing-xxs) var(--spacing-s);
+}
+
+.m {
+  padding: var(--spacing-s) var(--spacing-l);
+}
+
+.icon-only {
+  border-radius: var(--border-radius-circle);
+  justify-content: center;
+}
+.icon-only.s {
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-xxs);
+}
+.icon-only.m {
+  width: 48px;
+  height: 48px;
+  padding: var(--spacing-s);
+}
