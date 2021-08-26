@@ -111,6 +111,7 @@
   font-size: inherit;
   line-height: inherit;
   text-align: inherit;
+  cursor: pointer;
 }
 .item:hover,
 .item:focus {
@@ -125,5 +126,5 @@
 }
 
 .divider {
-  margin: var(--spacing-xxs) 0 var(--spacing-xs);
+  margin: var(--spacing-xxs) 0;
 }

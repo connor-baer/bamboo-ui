@@ -65,7 +65,11 @@ export function Menu({ user, actions }: MenuProps): JSX.Element | null {
 
       <div className={cx(styles.dropdown, isOpen && styles.dropdownOpen)}>
         {actions.map((action) =>
-          isDivider(action) ? <Divider /> : <Action {...action} />,
+          isDivider(action) ? (
+            <Divider className={styles.divider} />
+          ) : (
+            <Action {...action} />
+          ),
         )}
       </div>
     </div>
