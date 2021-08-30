@@ -11,7 +11,7 @@
   box-shadow: none;
   line-height: 1;
   background: transparent;
-  color: var(--color-text);
+  color: var(--color-default);
   font-size: var(--font-size-m);
   cursor: pointer;
   z-index: var(--z-index-select);

@@ -25,7 +25,7 @@
 .subtitle {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-subtle);
+  color: var(--color-default);
   margin-top: var(--spacing-s);
 }
 @media (min-width: 37.5em) {

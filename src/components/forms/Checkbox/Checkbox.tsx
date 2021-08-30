@@ -69,7 +69,7 @@ export const Checkbox = forwardRef(
           )}
         >
           {children}
-          <Check aria-hidden="true" size={20} />
+          <Check aria-hidden="true" strokeWidth={3} size={20} />
         </label>
       </div>
     );

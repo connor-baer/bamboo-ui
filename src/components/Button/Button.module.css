@@ -18,27 +18,27 @@
 }
 
 .primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
+  background: var(--background-button-primary);
+  color: var(--color-button-primary);
 }
 .primary:hover {
-  background-color: var(--color-primary-hover);
+  background: var(--background-button-primary-hover);
 }
 
 .secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-secondary-text);
+  background: var(--background-button-secondary);
+  color: var(--color-button-secondary);
 }
 .secondary:hover {
-  background-color: var(--color-secondary-hover);
+  background: var(--background-button-secondary-hover);
 }
 
 .destructive {
-  background-color: var(--color-danger);
-  color: var(--color-danger-text);
+  background: var(--background-button-danger);
+  color: var(--color-button-danger);
 }
 .destructive:hover {
-  background-color: var(--color-danger-hover);
+  background: var(--background-button-danger-hover);
 }
 
 .disabled {
