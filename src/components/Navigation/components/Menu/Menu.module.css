@@ -115,8 +115,8 @@
 }
 .item:hover,
 .item:focus {
-  background: var(--color-button-secondary);
-  color: var(--color-button-primary);
+  background: var(--background-button-secondary);
+  color: var(--color-button-secondary);
 }
 @media (min-width: 37.5em) {
   .item {
@@ -126,5 +126,7 @@
 }
 
 .divider {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
   margin: var(--spacing-xxs) 0;
 }
