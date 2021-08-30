@@ -1,0 +1,4 @@
+.base {
+  /* composes: hide-visually from '../../styles/shared.module.css'; */
+  fill: black;
+}

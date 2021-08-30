@@ -113,3 +113,4 @@ export { useComponents, ComponentsProvider } from './hooks/useComponents';
 export { cookies, keys };
 export { isServer } from './util/is-server';
 export { sessionStore, localStore } from './util/storage';
+export { Blobs } from './components/Blobs';
