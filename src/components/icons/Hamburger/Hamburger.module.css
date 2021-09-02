@@ -9,16 +9,16 @@
   padding: var(--spacing-m) var(--spacing-xs);
   margin: 0;
   width: layer-width;
-  background-color: var(--color-secondary);
+  background: var(--background-button-secondary);
   border: 0;
   position: relative;
-  color: var(--color-text);
+  color: var(--color-button-secondary);
   border-radius: var(--border-radius-s);
-  transition: background-color var(--transition-micro);
+  transition: background var(--transition-micro);
 }
 
 .button:hover {
-  background-color: var(--color-secondary-hover);
+  background: var(--background-button-secondary-hover);
 }
 
 .layers {
@@ -30,7 +30,7 @@
 .layers,
 .layers::after,
 .layers::before {
-  background-color: var(--color-text);
+  background: var(--color-default);
   border-radius: var(--border-radius-s);
   display: block;
   height: layer-height;

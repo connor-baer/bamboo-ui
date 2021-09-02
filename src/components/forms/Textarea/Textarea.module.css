@@ -13,7 +13,7 @@
   height: var(--spacing-xs);
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   pointer-events: none;
-  transition: background-color var(--transition-micro);
+  transition: background var(--transition-micro);
 }
 
 @media (prefers-color-scheme: dark) {

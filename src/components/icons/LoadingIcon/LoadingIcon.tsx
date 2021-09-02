@@ -9,5 +9,7 @@ export function LoadingIcon({
   className,
   ...props
 }: LoadingIconProps): JSX.Element {
-  return <Loader className={cx(styles.base, className)} {...props} />;
+  return (
+    <Loader className={cx(styles.base, className)} strokeWidth={3} {...props} />
+  );
 }

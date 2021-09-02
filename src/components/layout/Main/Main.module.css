@@ -2,7 +2,7 @@
 @value height-navigation: 5rem;
 
 .base {
-  color: var(--color-text);
+  color: var(--color-default);
   padding-bottom: var(--spacing-xxxl);
   width: 100vw;
 }

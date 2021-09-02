@@ -1,34 +1,33 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef, Ref, HTMLProps } from 'react';
 import cx from 'classnames';
 import { Icon as IconType } from 'react-feather';
 
-import { AnchorOrButton, AnchorOrButtonProps } from '../AnchorOrButton';
 import shared from '../../styles/shared.module.css';
 
-import styles from './Button.module.css';
+import styles from './ButtonToggle.module.css';
 
-export type ButtonProps = AnchorOrButtonProps & {
-  variant?: 'primary' | 'secondary' | 'destructive';
+export interface ButtonToggleProps
+  extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'size' | 'type'> {
+  active: boolean;
   size?: 's' | 'm';
   icon?: IconType;
   iconOnly?: boolean;
-};
+}
 
-export const Button = forwardRef(
+export const ButtonToggle = forwardRef(
   (
     {
-      variant = 'primary',
       size = 'm',
+      active,
       icon: Icon,
       iconOnly,
       children,
       ...props
-    }: ButtonProps,
+    }: ButtonToggleProps,
     ref: Ref<any>,
   ): JSX.Element => {
     const className = cx(
       styles.base,
-      styles[variant],
       styles[size],
       props.disabled && styles.disabled,
       iconOnly && styles.iconOnly,
@@ -36,12 +35,18 @@ export const Button = forwardRef(
     );
 
     return (
-      <AnchorOrButton {...props} ref={ref} className={className}>
+      <button
+        {...props}
+        ref={ref}
+        className={className}
+        type="button"
+        aria-pressed={active ? 'true' : 'false'}
+      >
         {Icon && <Icon size={18} strokeWidth={3} />}
         <span className={cx(iconOnly && shared.hideVisually)}>{children}</span>
-      </AnchorOrButton>
+      </button>
     );
   },
 );
 
-Button.displayName = 'Button';
+ButtonToggle.displayName = 'ButtonToggle';

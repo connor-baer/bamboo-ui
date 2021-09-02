@@ -6,7 +6,6 @@ import { isEmpty } from '../../../../util/fp';
 import { useComponents } from '../../../../hooks/useComponents';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { Hamburger } from '../../../icons/Hamburger';
-import { Divider } from '../../../Divider';
 import { AnchorOrButton, AnchorOrButtonProps } from '../../../AnchorOrButton';
 
 import styles from './Menu.module.css';
@@ -65,7 +64,11 @@ export function Menu({ user, actions }: MenuProps): JSX.Element | null {
 
       <div className={cx(styles.dropdown, isOpen && styles.dropdownOpen)}>
         {actions.map((action) =>
-          isDivider(action) ? <Divider /> : <Action {...action} />,
+          isDivider(action) ? (
+            <div className={styles.divider} />
+          ) : (
+            <Action {...action} />
+          ),
         )}
       </div>
     </div>

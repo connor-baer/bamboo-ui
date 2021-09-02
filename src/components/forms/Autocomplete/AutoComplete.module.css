@@ -18,7 +18,7 @@
   box-shadow: none;
   line-height: 1;
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--color-default);
   font-size: var(--font-size-m);
 }
 
@@ -50,7 +50,7 @@
   padding: var(--spacing-xxs);
   margin: 0;
   transition: background-color var(--transition-micro);
-  color: var(--color-text);
+  color: var(--color-default);
   background-color: inherit;
   border-radius: var(--border-radius-s);
   border: none;
@@ -61,7 +61,7 @@
 
 .expand-button:hover,
 .expand-button:active {
-  background-color: var(--color-secondary);
+  background: var(--background-button-secondary);
 }
 
 .suggestion-list {
@@ -81,18 +81,18 @@
 }
 
 .suggestion-list--invalid {
-  box-shadow: 0 0 0 2px var(--color-danger-text), 0 0 6px var(--color-shadow);
+  box-shadow: 0 0 0 2px var(--color-button-danger), 0 0 6px var(--color-shadow);
 }
 
 .suggestion {
-  background-color: var(--color-background);
+  background: var(--background-default);
   padding: var(--spacing-xs) var(--spacing-m);
   cursor: pointer;
 }
 
 .suggestion--highlighted {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
+  background: var(--background-button-secondary);
+  color: var(--color-button-secondary);
 }
 
 .highlight {
