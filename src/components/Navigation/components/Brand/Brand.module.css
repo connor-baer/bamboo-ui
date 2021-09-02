@@ -7,7 +7,7 @@
 
 .anchor--transparent {
   border-radius: var(--border-radius-pill);
-  background-color: var(--color-background);
+  background: var(--background-default);
   margin-left: 0;
 }
 
@@ -40,7 +40,7 @@
   transition: color var(--transition-micro);
   font-weight: var(--font-weight-bold);
   line-height: 1;
-  color: var(--color-text);
+  color: var(--color-default);
   margin-top: 3px;
   margin-right: var(--spacing-s);
   vertical-align: middle;

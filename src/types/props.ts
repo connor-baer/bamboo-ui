@@ -17,12 +17,6 @@ export type CaptionProp = ReactNode;
 
 export type AlignProp = 'center' | 'full' | 'right' | 'left';
 
-export type LinkProp = {
-  label: ReactNode;
-  href: string;
-  icon?: ReactNode;
-};
-
 export type UserProp = {
   firstName?: string;
   lastName?: string;

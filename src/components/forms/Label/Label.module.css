@@ -4,9 +4,9 @@
   padding: var(--spacing-xs) 0;
   margin: 0;
   transition: box-shadow var(--transition-micro),
-    background-color var(--transition-micro);
+    background var(--transition-micro);
   border-radius: var(--border-radius-m);
-  background-color: var(--color-background);
+  background: var(--background-default);
   box-shadow: 0 0 0 1px var(--color-input);
 }
 
@@ -20,23 +20,26 @@
 }
 
 .label-invalid {
-  background-color: var(--color-danger);
-  box-shadow: 0 0 0 1px var(--color-danger-text);
+  background: var(--background-button-danger);
+  box-shadow: 0 0 0 1px var(--color-button-danger);
 }
 .label-invalid::after {
-  background: linear-gradient(rgba(255, 255, 255, 0), var(--color-danger));
+  background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    var(--color-button-danger)
+  );
 }
 .label-invalid svg {
-  color: var(--color-danger-text);
+  color: var(--color-button-danger);
 }
 .label-invalid:hover {
-  box-shadow: 0 0 0 1px var(--color-danger-text),
-    0 0 4px 0 var(--color-danger-text);
+  box-shadow: 0 0 0 1px var(--color-button-danger),
+    0 0 4px 0 var(--color-button-danger);
 }
 .label-invalid:focus,
 .label-invalid:focus-within {
-  box-shadow: 0 0 0 2px var(--color-danger-text),
-    0 0 12px 0 var(--color-danger-text);
+  box-shadow: 0 0 0 2px var(--color-button-danger),
+    0 0 12px 0 var(--color-button-danger);
 }
 
 .label-disabled {
@@ -46,19 +49,19 @@
 .text {
   display: block;
   padding: var(--spacing-xxs) var(--spacing-xxxl) 0 var(--spacing-m);
-  color: var(--color-text-subtle);
+  color: var(--color-subtle);
   font-size: var(--font-size-s);
 }
 
 .validation-hint {
   display: block;
   padding: 0 var(--spacing-m) var(--spacing-xxs);
-  color: var(--color-text-subtle);
+  color: var(--color-subtle);
   font-size: var(--font-size-s);
 }
 
 .validation-hint-invalid {
-  color: var(--color-danger-text);
+  color: var(--color-danger);
 }
 
 .suffix {

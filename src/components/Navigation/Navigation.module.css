@@ -6,9 +6,8 @@
   justify-content: space-between;
   padding: var(--spacing-xs) var(--spacing-gutter);
   transition: opacity var(--transition-standard),
-    background-color var(--transition-standard),
-    padding var(--transition-standard);
-  background-color: var(--color-background);
+    background var(--transition-standard), padding var(--transition-standard);
+  background: var(--background-default);
   z-index: var(--z-index-navigation);
 }
 .header:hover {
@@ -25,7 +24,7 @@
 }
 
 .header--transparent {
-  background-color: transparent;
+  background: transparent;
 }
 
 @media (min-width: 56.25em) {
@@ -39,7 +38,7 @@
     padding-top: var(--spacing-xs);
     padding-bottom: var(--spacing-xs);
     box-shadow: var(--shadow-m);
-    background-color: var(--color-background);
+    background: var(--background-default);
   }
 }
 

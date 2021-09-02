@@ -8,6 +8,7 @@
   outline: 0;
   line-height: 1;
   background: transparent;
-  color: var(--color-text);
+  color: var(--color-default);
   font-size: var(--font-size-m);
+  cursor: text;
 }

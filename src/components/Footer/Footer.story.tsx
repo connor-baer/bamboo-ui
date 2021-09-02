@@ -13,7 +13,13 @@ export const Base = (args: FooterProps) => <Footer {...args} />;
 Base.args = {
   siteName: 'Bamboo UI',
   links: [
-    { label: '@connor-baer', href: 'https://twitter.com/connor-baer' },
-    { label: 'Disclaimer', href: 'https://bamboo.madebyconnor.co/disclaimer' },
+    {
+      children: '@connor-baer',
+      href: 'https://twitter.com/connor-baer',
+    },
+    {
+      children: 'Disclaimer',
+      href: 'https://bamboo.madebyconnor.co/disclaimer',
+    },
   ],
 };

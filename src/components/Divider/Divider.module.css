@@ -1,6 +1,10 @@
 .base {
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-  margin-top: var(--spacing-gutter);
-  margin-bottom: var(--spacing-gutter);
+  color: var(--color-primary);
+  width: 100%;
+  max-width: 15rem;
+  height: 12px;
+  margin: var(--spacing-m) auto;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='12' viewBox='0 0 24 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 3C6 3 6 9 12 9C18 9 18 3 24 3' stroke='%23868e96' stroke-width='3'/%3E%3C/svg%3E%0A");
+  background-repeat: round no-repeat;
+  opacity: 0.4;
 }

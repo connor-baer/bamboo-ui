@@ -2,20 +2,20 @@
   composes: focus-visible from '../../styles/shared.module.css';
   display: inline-block;
   padding: 0;
-  color: var(--color-secondary-text);
-  background-color: var(--color-secondary);
+  color: var(--color-button-secondary);
+  background: var(--background-button-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-s);
   line-height: 0;
-  transition: background-color var(--transition-micro);
+  transition: background var(--transition-micro);
 }
 .tag svg {
-  color: var(--color-secondary-text) !important;
+  color: var(--color-button-secondary) !important;
   fill: currentColor;
 }
 button.tag:hover {
   cursor: pointer;
-  background-color: var(--color-secondary-hover);
+  background: var(--background-button-secondary-hover);
 }
 
 .content {
@@ -39,8 +39,8 @@ button.tag:hover {
   font-size: var(--font-size-s);
   padding: var(--spacing-xs);
   margin: 0;
-  transition: background-color var(--transition-micro);
-  background-color: var(--color-secondary);
+  transition: background var(--transition-micro);
+  background: var(--background-button-secondary);
   border-radius: var(--border-radius-s);
   border: none;
   outline: 0;
@@ -51,7 +51,7 @@ button.tag:hover {
 
 .close-button:hover,
 .close-button:active {
-  background-color: var(--color-secondary-hover);
+  background: var(--background-button-secondary-hover);
 }
 
 .disabled {
@@ -59,9 +59,9 @@ button.tag:hover {
 }
 
 .active {
-  color: var(--color-primary-text);
-  background-color: var(--color-primary);
+  color: var(--color-button-primary);
+  background: var(--background-button-primary);
 }
 button.active:hover {
-  background-color: var(--color-primary-hover);
+  background: var(--background-button-primary-hover);
 }

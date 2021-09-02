@@ -2,8 +2,8 @@
 
 .footer {
   border-top: 1px solid var(--color-border);
-  background-color: var(--color-background-subtle);
-  transition: background-color var(--transition-micro);
+  background: var(--background-subtle);
+  transition: background var(--transition-micro);
   padding: var(--spacing-m) var(--spacing-s)
     calc(var(--spacing-m) + navigation-height);
 }
@@ -21,7 +21,7 @@
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.2px;
-  color: var(--color-text-subtle);
+  color: var(--color-subtle);
 }
 .content > *::after {
   content: '·';

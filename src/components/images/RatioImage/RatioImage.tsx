@@ -21,7 +21,7 @@ export interface RatioImageProps extends ImageProps {
 export const RatioImage = forwardRef(
   (
     {
-      color = 'var(--color-image-placeholder)',
+      color = 'var(--background-image-placeholder)',
       aspectRatio,
       className,
       style = {},

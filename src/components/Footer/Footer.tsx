@@ -1,14 +1,18 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLProps, ReactNode, Ref } from 'react';
 import cx from 'classnames';
 
-import { LinkProp } from '../../types/props';
 import { Anchor } from '../typography/Anchor';
 
 import styles from './Footer.module.css';
 
+type LinkProps = {
+  children: ReactNode;
+  href: string;
+};
+
 export interface FooterProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {
   siteName: string;
-  links?: LinkProp[];
+  links?: LinkProps[];
 }
 
 export const Footer = forwardRef(
@@ -23,12 +27,7 @@ export const Footer = forwardRef(
           {siteName && (
             <span>{`© ${currentYear} ${siteName}. All rights reserved.`}</span>
           )}
-          {links &&
-            links.map((link) => (
-              <Anchor key={link.href} href={link.href}>
-                {link.label}
-              </Anchor>
-            ))}
+          {links && links.map((link) => <Anchor key={link.href} {...link} />)}
         </div>
       </footer>
     );

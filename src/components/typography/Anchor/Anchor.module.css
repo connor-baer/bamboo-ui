@@ -12,8 +12,7 @@
   border: 0;
   outline: none;
   border-radius: var(--border-radius-s);
-  transition: color var(--transition-micro),
-    background-color var(--transition-micro),
+  transition: color var(--transition-micro), background var(--transition-micro),
     text-decoration-thickness var(--transition-micro);
 }
 .base::before {
@@ -27,7 +26,7 @@
   left: 0;
   right: 0;
   border-radius: var(--border-radius-s);
-  transition: background-color var(--transition-micro);
+  transition: background var(--transition-micro);
   opacity: 0.15;
   filter: brightness(1.5);
   z-index: -1;
@@ -38,5 +37,5 @@
   text-decoration-thickness: 0.1em;
 }
 .base:hover::before {
-  background-color: currentColor;
+  background: currentColor;
 }

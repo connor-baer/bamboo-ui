@@ -14,7 +14,7 @@ export const Anchor = forwardRef(
       return <span {...props}>{children}</span>;
     }
 
-    const className = cx(props.className, styles.base);
+    const className = cx(styles.base, props.className);
 
     return (
       <AnchorOrButton {...props} ref={ref} className={className}>

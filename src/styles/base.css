@@ -196,9 +196,9 @@ html [type='button'] {
 }
 
 body {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  transition: background-color var(--transition-micro);
+  color: var(--color-default);
+  background: var(--background-default);
+  transition: background var(--transition-micro);
 }
 
 /**
@@ -223,7 +223,7 @@ textarea {
 }
 
 *::selection {
-  background-color: var(--color-selection-background);
+  background: var(--background-selection);
   color: var(--color-selection);
 }
 

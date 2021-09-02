@@ -3,7 +3,7 @@
   font-size: var(--font-size-s);
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-text-subtle);
+  color: var(--color-subtle);
 }
 .base::after {
   content: '·';

@@ -24,6 +24,7 @@ export function useLoadingBar({
       }, startDelay);
 
       return () => {
+        NProgress.done();
         clearTimeout(timer);
       };
     }
