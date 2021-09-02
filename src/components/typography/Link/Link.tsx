@@ -1,6 +1,9 @@
+import { UrlObject } from 'url';
+
 import { Children, cloneElement, ReactElement } from 'react';
 
 export type LinkProps<T> = T & {
+  href: string | UrlObject;
   children: ReactElement<T>;
 };
 
