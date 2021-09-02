@@ -43,8 +43,11 @@ export function Meta({
 
   return (
     <Head>
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      />
+      <meta name="color-scheme" content="light dark" />
       <title>{titleString}</title>
       <meta name="robots" content={robots} />
       {url && <link rel="canonical" href={url} />}
