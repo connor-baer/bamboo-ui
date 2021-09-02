@@ -129,17 +129,17 @@
     var(--base-alpha)
   );
 
-  --color-primary: var(--oc-primary-7);
-  --color-primary-hover: var(--oc-primary-9);
-  --color-primary-text: var(--oc-white);
+  --color-button-primary: var(--oc-white);
+  --background-button-primary: var(--oc-primary-7);
+  --background-button-primary-hover: var(--oc-primary-9);
 
-  --color-secondary: var(--oc-gray-1);
-  --color-secondary-hover: var(--oc-gray-3);
-  --color-secondary-text: var(--oc-gray-9);
+  --color-button-secondary: var(--oc-white);
+  --background-button-secondary: var(--oc-gray-7);
+  --background-button-secondary-hover: var(--oc-gray-9);
 
-  --color-danger: var(--oc-red-1);
-  --color-danger-hover: var(--oc-red-2);
-  --color-danger-text: var(--oc-red-9);
+  --color-button-danger: var(--oc-white);
+  --background-button-danger: var(--oc-red-7);
+  --background-button-danger-hover: var(--oc-red-9);
 
   --color-input: var(--oc-gray-6);
   --color-input-hover: var(--oc-gray-7);

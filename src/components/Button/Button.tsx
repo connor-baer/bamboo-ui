@@ -2,6 +2,7 @@ import { forwardRef, Ref } from 'react';
 import cx from 'classnames';
 
 import { AnchorOrButton, AnchorOrButtonProps } from '../AnchorOrButton';
+import { Topography } from '../Topography';
 
 import styles from './Button.module.css';
 
@@ -12,7 +13,7 @@ export type ButtonProps = AnchorOrButtonProps & {
 
 export const Button = forwardRef(
   (
-    { variant = 'primary', size = 'm', ...props }: ButtonProps,
+    { variant = 'primary', size = 'm', children, ...props }: ButtonProps,
     ref: Ref<any>,
   ): JSX.Element => {
     const className = cx(
@@ -23,7 +24,12 @@ export const Button = forwardRef(
       props.disabled && styles.disabled,
     );
 
-    return <AnchorOrButton {...props} ref={ref} className={className} />;
+    return (
+      <AnchorOrButton {...props} ref={ref} className={className}>
+        {children}
+        <Topography />
+      </AnchorOrButton>
+    );
   },
 );
 

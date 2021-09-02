@@ -1,5 +1,6 @@
 .base {
-  composes: focus-visible from '../../styles/shared.module.css';
+  --topography-clip-path: url(#blob-button-text);
+  position: relative;
   display: inline-flex;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-m);
@@ -7,37 +8,48 @@
   margin: 0;
   transition: all var(--transition-micro);
   border-radius: var(--border-radius-pill);
+  background: transparent;
   border: none;
   outline: 0;
   cursor: pointer;
   clip-path: url(#blob-4);
 }
-.base svg {
-  fill: currentColor;
+.base:focus {
+  outline: 0;
+}
+.base:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.base > svg + span {
+  margin-left: var(--spacing-xs);
 }
 
 .primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
+  --topography-background: var(--background-button-primary);
+  color: var(--color-button-primary);
 }
-.primary:hover {
-  background-color: var(--color-primary-hover);
+.primary:hover,
+.primary:focus {
+  --topography-background: var(--background-button-primary-hover);
 }
 
 .secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-secondary-text);
+  --topography-background: var(--background-button-secondary);
+  color: var(--color-button-secondary);
 }
-.secondary:hover {
-  background-color: var(--color-secondary-hover);
+.secondary:hover,
+.secondary:focus {
+  --topography-background: var(--background-button-secondary-hover);
 }
 
 .destructive {
-  background-color: var(--color-danger);
-  color: var(--color-danger-text);
+  --topography-background: var(--background-button-danger);
+  color: var(--color-button-danger);
 }
-.destructive:hover {
-  background-color: var(--color-danger-hover);
+.destructive:hover,
+.destructive:focus {
+  --topography-background: var(--background-button-danger-hover);
 }
 
 .disabled {
@@ -45,9 +57,19 @@
 }
 
 .s {
-  padding: var(--spacing-xxs) var(--spacing-s);
+  --topography-offset: 3px;
+  padding: var(--spacing-xs) var(--spacing-m);
+}
+.s:focus,
+.s:hover {
+  --topography-offset: 2px;
 }
 
 .m {
-  padding: var(--spacing-s) var(--spacing-l);
+  --topography-offset: 4px;
+  padding: var(--spacing-m) var(--spacing-l);
+}
+.m:focus,
+.m:hover {
+  --topography-offset: 3px;
 }

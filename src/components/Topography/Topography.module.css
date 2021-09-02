@@ -1,0 +1,45 @@
+.wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.layer {
+  display: block;
+  position: absolute;
+  clip-path: var(--topography-clip-path);
+  background: var(--topography-background);
+  transition: all var(--transition-micro);
+}
+
+.layer-one {
+  top: calc(2 * var(--topography-offset));
+  right: calc(2.25 * var(--topography-offset));
+  bottom: calc(2 * var(--topography-offset));
+  left: calc(2.25 * var(--topography-offset));
+  z-index: -10;
+  border-radius: var(--topography-offset);
+}
+
+.layer-two {
+  top: calc(1.1 * var(--topography-offset));
+  right: calc(1.15 * var(--topography-offset));
+  bottom: calc(0.9 * var(--topography-offset));
+  left: calc(0.85 * var(--topography-offset));
+  z-index: -20;
+  opacity: 0.5;
+  filter: hue-rotate(-12deg) saturate(1.25) brightness(1.05);
+  border-radius: calc(2 * var(--topography-offset));
+}
+
+.layer-three {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -30;
+  opacity: 0.3;
+  filter: hue-rotate(-24deg) saturate(1.5) brightness(1.1);
+  border-radius: calc(3 * var(--topography-offset));
+}
