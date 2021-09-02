@@ -44,9 +44,9 @@ AsLink.args = {
   target: '_blank',
 };
 
-export const WithIcon = (args: ButtonProps) => <Button {...args} />;
+export const IconOnly = (args: ButtonProps) => <Button {...args} />;
 
-WithIcon.args = {
+IconOnly.args = {
   children: 'Search',
   icon: Search,
   variant: 'secondary',

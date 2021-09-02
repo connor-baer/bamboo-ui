@@ -40,7 +40,7 @@ export const Sizes = (args: ButtonToggleProps) => {
   ));
 };
 
-export const WithIcon = (args: ButtonToggleProps) => {
+export const IconOnly = (args: ButtonToggleProps) => {
   const [active, setActive] = useState(args.active);
   const handleClick = () => {
     setActive((prev) => !prev);
@@ -57,6 +57,6 @@ export const WithIcon = (args: ButtonToggleProps) => {
   );
 };
 
-WithIcon.args = {
+IconOnly.args = {
   iconOnly: true,
 };
