@@ -1,5 +1,5 @@
 .base {
-  composes: focus-visible from '../../styles/shared.module.css';
+  composes: focusVisible from '../../styles/shared.module.css';
   display: inline-flex;
   align-items: center;
   font-weight: var(--font-weight-bold);
@@ -42,7 +42,7 @@
 }
 
 .disabled {
-  composes: disable-visually from '../../styles/shared.module.css';
+  composes: disableVisually from '../../styles/shared.module.css';
 }
 
 .s {
@@ -53,16 +53,16 @@
   padding: var(--spacing-s) var(--spacing-l);
 }
 
-.icon-only {
+.iconOnly {
   border-radius: var(--border-radius-circle);
   justify-content: center;
 }
-.icon-only.s {
+.iconOnly.s {
   width: 32px;
   height: 32px;
   padding: var(--spacing-xxs);
 }
-.icon-only.m {
+.iconOnly.m {
   width: 48px;
   height: 48px;
   padding: var(--spacing-s);

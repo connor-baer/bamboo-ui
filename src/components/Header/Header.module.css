@@ -36,11 +36,11 @@
   }
 }
 
-.subtitle-xl {
+.subtitleXl {
   font-size: var(--font-size-l);
 }
 @media (min-width: 37.5em) {
-  .subtitle-xl {
+  .subtitleXl {
     font-size: var(--font-size-xl);
   }
 }

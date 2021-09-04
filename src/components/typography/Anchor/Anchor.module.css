@@ -1,5 +1,5 @@
 .base {
-  composes: focus-visible from '../../../styles/shared.module.css';
+  composes: focusVisible from '../../../styles/shared.module.css';
   display: inline-block;
   position: relative;
   padding: 0.125em 0.25em;

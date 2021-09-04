@@ -23,18 +23,18 @@
   }
 }
 
-.header--transparent {
+.headerTransparent {
   background: transparent;
 }
 
 @media (min-width: 56.25em) {
-  .header--invisible {
+  .headerInvisible {
     opacity: 0;
   }
 }
 
 @media (min-width: 56.25em) {
-  .header--floating {
+  .headerFloating {
     padding-top: var(--spacing-xs);
     padding-bottom: var(--spacing-xs);
     box-shadow: var(--shadow-m);

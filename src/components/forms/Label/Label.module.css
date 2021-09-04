@@ -19,31 +19,31 @@
     0 0 12px 0px var(--color-input-focus);
 }
 
-.label-invalid {
+.labelInvalid {
   background: var(--background-button-danger);
   box-shadow: 0 0 0 1px var(--color-button-danger);
 }
-.label-invalid::after {
+.labelInvalid::after {
   background: linear-gradient(
     rgba(255, 255, 255, 0),
     var(--color-button-danger)
   );
 }
-.label-invalid svg {
+.labelInvalid svg {
   color: var(--color-button-danger);
 }
-.label-invalid:hover {
+.labelInvalid:hover {
   box-shadow: 0 0 0 1px var(--color-button-danger),
     0 0 4px 0 var(--color-button-danger);
 }
-.label-invalid:focus,
-.label-invalid:focus-within {
+.labelInvalid:focus,
+.labelInvalid:focus-within {
   box-shadow: 0 0 0 2px var(--color-button-danger),
     0 0 12px 0 var(--color-button-danger);
 }
 
-.label-disabled {
-  composes: disable-visually from '../../../styles/shared.module.css';
+.labelDisabled {
+  composes: disableVisually from '../../../styles/shared.module.css';
 }
 
 .text {
@@ -53,14 +53,14 @@
   font-size: var(--font-size-s);
 }
 
-.validation-hint {
+.validationHint {
   display: block;
   padding: 0 var(--spacing-m) var(--spacing-xxs);
   color: var(--color-subtle);
   font-size: var(--font-size-s);
 }
 
-.validation-hint-invalid {
+.validationHintInvalid {
   color: var(--color-danger);
 }
 

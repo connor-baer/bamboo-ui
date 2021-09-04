@@ -1,5 +1,5 @@
 .tag {
-  composes: focus-visible from '../../styles/shared.module.css';
+  composes: focusVisible from '../../styles/shared.module.css';
   display: inline-block;
   padding: 0;
   color: var(--color-button-secondary);
@@ -19,7 +19,7 @@ button.tag:hover {
 }
 
 .content {
-  composes: focus-visible from '../../styles/shared.module.css';
+  composes: focusVisible from '../../styles/shared.module.css';
   display: inline-block;
   font-size: var(--font-size-s);
   padding: var(--spacing-xs);
@@ -33,8 +33,8 @@ button.tag:hover {
   border-bottom-right-radius: var(--border-radius-s);
 }
 
-.close-button {
-  composes: focus-visible from '../../styles/shared.module.css';
+.closeButton {
+  composes: focusVisible from '../../styles/shared.module.css';
   display: inline-block;
   font-size: var(--font-size-s);
   padding: var(--spacing-xs);
@@ -49,13 +49,13 @@ button.tag:hover {
   vertical-align: middle;
 }
 
-.close-button:hover,
-.close-button:active {
+.closeButton:hover,
+.closeButton:active {
   background: var(--background-button-secondary-hover);
 }
 
 .disabled {
-  composes: disable-visually from '../../styles/shared.module.css';
+  composes: disableVisually from '../../styles/shared.module.css';
 }
 
 .active {

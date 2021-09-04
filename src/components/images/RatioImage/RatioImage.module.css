@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.wrapper-aspect-ratio {
+.wrapperAspectRatio {
   height: 0;
   width: 100%;
 }
@@ -28,7 +28,7 @@
   animation: fade-in var(--transition-standard);
 }
 
-.image-aspect-ratio {
+.imageAspectRatio {
   position: absolute;
   top: 0;
   right: 0;

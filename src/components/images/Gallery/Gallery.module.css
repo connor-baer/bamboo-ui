@@ -4,19 +4,19 @@
   justify-content: space-between;
 }
 
-.wrapper-single {
+.wrapperSingle {
   width: 100%;
 }
 
-.wrapper-center,
-.wrapper-full {
+.wrapperCenter,
+.wrapperFull {
   width: calc((100% / x) - (var(--spacing-gutter) / 2));
 }
 
-.wrapper-side {
+.wrapperSide {
   width: calc(50% - (var(--spacing-gutter) / 4));
   margin-bottom: calc(var(--spacing-gutter) / 2);
 }
-.wrapper-side:nth-last-child(-n + 2) {
+.wrapperSide:nth-last-child(-n + 2) {
   margin-bottom: 0;
 }

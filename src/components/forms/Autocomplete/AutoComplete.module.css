@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.label-open {
+.labelOpen {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -22,12 +22,12 @@
   font-size: var(--font-size-m);
 }
 
-.input-wrapper {
+.inputWrapper {
   display: flex;
   padding: 0 var(--spacing-m);
 }
 
-.multi-select-options {
+.multiSelectOptions {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -35,7 +35,7 @@
   padding: 0 var(--spacing-m);
 }
 
-.multi-select-wrapper {
+.multiSelectWrapper {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -43,8 +43,8 @@
   padding: 1px;
 }
 
-.expand-button {
-  composes: focus-visible from '../../../styles/shared.module.css';
+.expandButton {
+  composes: focusVisible from '../../../styles/shared.module.css';
   display: inline-block;
   font-size: var(--font-size-s);
   padding: var(--spacing-xxs);
@@ -59,12 +59,12 @@
   cursor: pointer;
 }
 
-.expand-button:hover,
-.expand-button:active {
+.expandButton:hover,
+.expandButton:active {
   background: var(--background-button-secondary);
 }
 
-.suggestion-list {
+.suggestionList {
   position: absolute;
   top: 100%;
   right: 0;
@@ -80,7 +80,7 @@
   margin-bottom: var(--spacing-l);
 }
 
-.suggestion-list--invalid {
+.suggestionListInvalid {
   box-shadow: 0 0 0 2px var(--color-button-danger), 0 0 6px var(--color-shadow);
 }
 
@@ -90,7 +90,7 @@
   cursor: pointer;
 }
 
-.suggestion--highlighted {
+.suggestionHighlighted {
   background: var(--background-button-secondary);
   color: var(--color-button-secondary);
 }

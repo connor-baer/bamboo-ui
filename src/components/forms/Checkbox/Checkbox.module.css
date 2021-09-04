@@ -46,17 +46,17 @@
   transition: transform var(--transition-micro), opacity var(--transition-micro);
 }
 
-.label-invalid:not(:focus)::before {
+.labelInvalid:not(:focus)::before {
   border-color: var(--color-button-danger);
   background: var(--background-button-danger);
 }
 
-.label-disabled {
-  composes: disable-visually from '../../../styles/shared.module.css';
+.labelDisabled {
+  composes: disableVisually from '../../../styles/shared.module.css';
 }
 
 .input {
-  composes: hide-visually from '../../../styles/shared.module.css';
+  composes: hideVisually from '../../../styles/shared.module.css';
 }
 .input:focus-visible + label::before {
   outline: 0;
@@ -78,11 +78,11 @@
   background: var(--background-button-primary);
 }
 
-.input-invalid:checked + label::before {
+.inputInvalid:checked + label::before {
   border-color: var(--color-button-danger);
   background: var(--background-button-danger);
 }
 
-.input-invalid:checked + label svg {
+.inputInvalid:checked + label svg {
   color: var(--color-button-danger);
 }

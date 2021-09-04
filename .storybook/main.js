@@ -16,11 +16,7 @@ module.exports = {
    * Configure Webpack for CSS modules. Taken from:
    * https://github.com/Negan1911/storybook-css-modules-preset/issues/14
    */
-  webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
-
+  webpackFinal: async (config) => {
     // Get the index of CSS rule
     const ruleCssIndex = config.module.rules.findIndex(
       (rule) => rule.test.toString() === '/\\.css$/',
@@ -31,11 +27,8 @@ module.exports = {
       if (item.loader && item.loader.includes('/css-loader/')) {
         item.options.modules = {
           auto: true,
-          exportLocalsConvention: 'camelCase',
-          localIdentName:
-            configType === 'PRODUCTION'
-              ? '[local]__[hash:base64:5]'
-              : '[name]__[local]__[hash:base64:5]',
+          exportLocalsConvention: 'asIs',
+          localIdentName: '[name]__[local]__[hash:base64:5]',
         };
       }
       return item;

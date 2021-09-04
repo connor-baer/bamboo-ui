@@ -2,7 +2,7 @@
 @value layer-width: var(--icon-size-m);
 
 .button {
-  composes: focus-visible from '../../../styles/shared.module.css';
+  composes: focusVisible from '../../../styles/shared.module.css';
   box-sizing: content-box;
   cursor: pointer;
   display: inline-block;
@@ -77,5 +77,5 @@ button[aria-expanded='true'] > .layers::after {
 }
 
 .label {
-  composes: hide-visually from '../../../styles/shared.module.css';
+  composes: hideVisually from '../../../styles/shared.module.css';
 }

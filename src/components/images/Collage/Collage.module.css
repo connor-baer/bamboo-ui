@@ -37,25 +37,25 @@
   }
 }
 
-.wrapper-outer {
+.wrapperOuter {
   width: 37.6%;
 }
 @media (min-width: 75em) {
-  .wrapper-outer {
+  .wrapperOuter {
     width: 27.3%;
   }
 }
 
-.wrapper-inner {
+.wrapperInner {
   width: 100%;
 }
 @media (min-width: 37.5em) {
-  .wrapper-inner {
+  .wrapperInner {
     width: 62.4%;
   }
 }
 @media (min-width: 75em) {
-  .wrapper-inner {
+  .wrapperInner {
     width: 45.4%;
   }
 }
