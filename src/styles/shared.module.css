@@ -46,35 +46,7 @@
   clear: both;
 }
 
-.spacing {
-  margin: var(--spacing-m);
-}
-
-.spacing-top {
-  margin-top: var(--spacing-m);
-}
-
-.spacing-right {
-  margin-right: var(--spacing-m);
-}
-
-.spacing-bottom {
-  margin-bottom: var(--spacing-m);
-}
-
-.spacing-left {
-  margin-left: var(--spacing-m);
-}
-
-.spacing-vertical {
-  margin-top: var(--spacing-m);
-  margin-bottom: var(--spacing-m);
-}
-
-.spacing-horizontal {
-  margin-right: var(--spacing-m);
-  margin-left: var(--spacing-m);
-}
+/* Layout classes */
 
 .page-width {
   max-width: var(--width-page);
@@ -94,4 +66,37 @@
     padding-right: var(--spacing-gutter);
     padding-left: var(--spacing-gutter);
   }
+}
+
+/* Utility classes */
+/* HACK: `!important` is necessary to override any component base styles */
+
+.spacing {
+  margin: var(--spacing-m) !important;
+}
+
+.spacing-top {
+  margin-top: var(--spacing-m) !important;
+}
+
+.spacing-right {
+  margin-right: var(--spacing-m) !important;
+}
+
+.spacing-bottom {
+  margin-bottom: var(--spacing-m) !important;
+}
+
+.spacing-left {
+  margin-left: var(--spacing-m) !important;
+}
+
+.spacing-vertical {
+  margin-top: var(--spacing-m) !important;
+  margin-bottom: var(--spacing-m) !important;
+}
+
+.spacing-horizontal {
+  margin-right: var(--spacing-m) !important;
+  margin-left: var(--spacing-m) !important;
 }
