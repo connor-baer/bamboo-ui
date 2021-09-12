@@ -49,10 +49,11 @@
   font-size: var(--font-size-s);
   padding: var(--spacing-xxs);
   margin: 0;
+  margin-right: calc(-1 * var(--spacing-xs));
   transition: background-color var(--transition-micro);
   color: var(--color-subtle);
   background-color: inherit;
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-s);
   border: none;
   outline: 0;
   line-height: 0;
