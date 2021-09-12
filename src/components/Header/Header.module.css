@@ -10,7 +10,7 @@
 }
 
 .title {
-  color: var(--color-primary);
+  color: var(--color-brand);
 }
 @media (min-width: 37.5em) {
   .title {

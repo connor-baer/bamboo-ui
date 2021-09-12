@@ -2,35 +2,35 @@
   composes: focusVisible from '../../styles/shared.module.css';
   display: inline-block;
   padding: 0;
-  color: var(--color-button-secondary);
-  background: var(--background-button-secondary);
+  color: var(--color-default);
+  background: var(--background-default);
   border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-s);
+  border-radius: var(--border-radius-pill);
   line-height: 0;
-  transition: background var(--transition-micro);
+  transition: background var(--transition-micro), border var(--transition-micro);
 }
-.tag svg {
-  color: var(--color-button-secondary) !important;
-  fill: currentColor;
-}
+
 button.tag:hover {
   cursor: pointer;
-  background: var(--background-button-secondary-hover);
+  background: var(--background-default-hover);
+  border-color: var(--color-border-hover);
 }
 
 .content {
   composes: focusVisible from '../../styles/shared.module.css';
   display: inline-block;
   font-size: var(--font-size-s);
-  padding: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-xxs) var(--spacing-xs)
+    var(--spacing-s);
   margin: 0;
-  border-top-left-radius: var(--border-radius-s);
-  border-bottom-left-radius: var(--border-radius-s);
+  border-top-left-radius: var(--border-radius-pill);
+  border-bottom-left-radius: var(--border-radius-pill);
   line-height: 1;
 }
 .content:only-child {
-  border-top-right-radius: var(--border-radius-s);
-  border-bottom-right-radius: var(--border-radius-s);
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-top-right-radius: var(--border-radius-pill);
+  border-bottom-right-radius: var(--border-radius-pill);
 }
 
 .closeButton {
@@ -40,8 +40,10 @@ button.tag:hover {
   padding: var(--spacing-xs);
   margin: 0;
   transition: background var(--transition-micro);
-  background: var(--background-button-secondary);
-  border-radius: var(--border-radius-s);
+  color: var(--color-subtle);
+  background: var(--background-default);
+  border-top-right-radius: var(--border-radius-pill);
+  border-bottom-right-radius: var(--border-radius-pill);
   border: none;
   outline: 0;
   line-height: 0;
@@ -51,7 +53,8 @@ button.tag:hover {
 
 .closeButton:hover,
 .closeButton:active {
-  background: var(--background-button-secondary-hover);
+  color: var(--color-subtle-hover);
+  background: var(--background-default-hover);
 }
 
 .disabled {
@@ -59,9 +62,11 @@ button.tag:hover {
 }
 
 .active {
-  color: var(--color-button-primary);
-  background: var(--background-button-primary);
+  color: var(--color-neutral);
+  background: var(--color-brand);
+  border-color: var(--color-brand);
 }
 button.active:hover {
-  background: var(--background-button-primary-hover);
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
 }

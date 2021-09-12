@@ -8,9 +8,10 @@ import shared from '../../styles/shared.module.css';
 import styles from './Button.module.css';
 
 export type ButtonProps = AnchorOrButtonProps & {
-  variant?: 'primary' | 'secondary' | 'destructive';
+  variant?: 'primary' | 'secondary';
   size?: 's' | 'm';
   icon?: IconType;
+  destructive?: boolean;
   iconOnly?: boolean;
 };
 
@@ -21,6 +22,7 @@ export const Button = forwardRef(
       size = 'm',
       icon: Icon,
       iconOnly,
+      destructive,
       children,
       ...props
     }: ButtonProps,
@@ -31,6 +33,7 @@ export const Button = forwardRef(
       styles[variant],
       styles[size],
       props.disabled && styles.disabled,
+      destructive && styles.destructive,
       iconOnly && styles.iconOnly,
       props.className,
     );

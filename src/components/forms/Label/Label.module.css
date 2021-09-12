@@ -20,26 +20,17 @@
 }
 
 .labelInvalid {
-  background: var(--background-button-danger);
-  box-shadow: 0 0 0 1px var(--color-button-danger);
-}
-.labelInvalid::after {
-  background: linear-gradient(
-    rgba(255, 255, 255, 0),
-    var(--color-button-danger)
-  );
+  box-shadow: 0 0 0 1px var(--color-danger);
 }
 .labelInvalid svg {
-  color: var(--color-button-danger);
+  color: var(--color-danger);
 }
 .labelInvalid:hover {
-  box-shadow: 0 0 0 1px var(--color-button-danger),
-    0 0 4px 0 var(--color-button-danger);
+  box-shadow: 0 0 0 1px var(--color-danger), 0 0 4px 0 var(--color-danger);
 }
 .labelInvalid:focus,
 .labelInvalid:focus-within {
-  box-shadow: 0 0 0 2px var(--color-button-danger),
-    0 0 12px 0 var(--color-button-danger);
+  box-shadow: 0 0 0 2px var(--color-danger), 0 0 12px 0 var(--color-danger);
 }
 
 .labelDisabled {

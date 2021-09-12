@@ -8,15 +8,10 @@ export default {
   title: 'Components/Button',
   component: Button,
 };
-export const Base = (args: ButtonProps) => <Button {...args} />;
 
-Base.args = {
-  children: 'Click me',
-};
+const variants = ['primary', 'secondary'] as const;
 
-const variants = ['primary', 'secondary', 'destructive'] as const;
-
-export const Variants = (args: ButtonProps) =>
+export const Base = (args: ButtonProps) =>
   variants.map((variant) => (
     <Button {...args} key={variant} variant={variant}>
       {variant}
@@ -29,6 +24,13 @@ export const Sizes = (args: ButtonProps) =>
   sizes.map((size) => (
     <Button {...args} key={size} size={size}>
       size {size}
+    </Button>
+  ));
+
+export const Destructive = (args: ButtonProps) =>
+  variants.map((variant) => (
+    <Button {...args} key={variant} variant={variant} destructive>
+      {variant}
     </Button>
   ));
 

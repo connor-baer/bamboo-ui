@@ -47,7 +47,7 @@ export function Links({
               <Icon
                 role="presentation"
                 size={24}
-                strokeWidth={3}
+                strokeWidth={active ? 3 : 2}
                 className={styles.icon}
               />
               <span className={styles.label}>{children}</span>

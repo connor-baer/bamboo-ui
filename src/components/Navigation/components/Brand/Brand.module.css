@@ -47,5 +47,5 @@
 }
 a:hover > .name,
 a:focus > .name {
-  color: var(--color-primary);
+  color: var(--color-brand);
 }

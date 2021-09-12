@@ -7,11 +7,11 @@
   width: 100%;
   pointer-events: none;
   z-index: var(--z-index-loadingbar);
-  background: var(--color-primary);
+  background: var(--color-brand);
 }
 
 .peg {
-  box-shadow: 0 0 10px var(--color-primary), 0 0 5px var(--color-primary);
+  box-shadow: 0 0 10px var(--color-brand), 0 0 5px var(--color-brand);
   display: block;
   height: 100%;
   opacity: 1;

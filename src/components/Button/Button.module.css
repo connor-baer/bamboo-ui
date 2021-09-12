@@ -1,5 +1,9 @@
 .base {
   composes: focusVisible from '../../styles/shared.module.css';
+
+  --color-button: var(--color-brand);
+  --background-button: var(--color-neutral);
+
   display: inline-flex;
   align-items: center;
   font-weight: var(--font-weight-bold);
@@ -11,6 +15,8 @@
   border: none;
   outline: 0;
   cursor: pointer;
+  color: var(--color-button);
+  background: var(--background-button);
 }
 
 .base > svg + span {
@@ -18,27 +24,36 @@
 }
 
 .primary {
-  background: var(--background-button-primary);
-  color: var(--color-button-primary);
+  --color-button: var(--color-neutral);
+  --background-button: var(--color-brand);
 }
 .primary:hover {
-  background: var(--background-button-primary-hover);
+  --background-button: var(--color-brand-hover);
 }
 
 .secondary {
-  background: var(--background-button-secondary);
-  color: var(--color-button-secondary);
+  --color-button: var(--color-brand);
+  --background-button: var(--background-default);
 }
 .secondary:hover {
-  background: var(--background-button-secondary-hover);
+  --color-button: var(--color-brand-hover);
+  --background-button: var(--background-default-hover);
 }
 
 .destructive {
-  background: var(--background-button-danger);
-  color: var(--color-button-danger);
+  --color-button: var(--color-neutral);
+  --background-button: var(--color-danger);
 }
 .destructive:hover {
-  background: var(--background-button-danger-hover);
+  --background-button: var(--color-danger-hover);
+}
+.destructive.secondary {
+  --color-button: var(--color-danger);
+  --background-button: var(--background-default);
+}
+.destructive.secondary:hover {
+  --color-button: var(--color-danger-hover);
+  --background-button: var(--background-default-hover);
 }
 
 .disabled {
