@@ -6,6 +6,7 @@ import { ChevronDown } from 'react-feather';
 import { isEmpty, toLower, includes } from '../../../util/fp';
 import { Tag } from '../../Tag';
 import { Label } from '../Label';
+import { LabelBaseProps } from '../Label/Label';
 
 import { Suggestion } from './Suggestion';
 import styles from './AutoComplete.module.css';
@@ -19,10 +20,9 @@ type FilterOptionsArgs = {
 };
 
 export interface AutocompleteMultiSelectProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange'> {
-  label: string;
+  extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange' | 'label'>,
+    LabelBaseProps {
   placeholder: string;
-  validationHint?: string;
   options?: Option[];
   initialInputValue?: string;
   initialSelectedOptions?: Option[];
@@ -30,7 +30,6 @@ export interface AutocompleteMultiSelectProps
   onInputValueChange?: (value?: string) => void;
   optionToString?: (option: Option | null) => string;
   filterOptions?: ({ options, inputValue }: FilterOptionsArgs) => Option[];
-  invalid?: boolean;
 }
 
 function getFilteredOptions({
@@ -50,6 +49,7 @@ export const AutocompleteMultiSelect = forwardRef(
     {
       value,
       label,
+      hideLabel,
       options = [],
       initialSelectedOptions = [],
       initialInputValue = '',
@@ -133,6 +133,7 @@ export const AutocompleteMultiSelect = forwardRef(
       <div className={cx(styles.wrapper, className)}>
         <Label
           label={label}
+          hideLabel={hideLabel}
           invalid={invalid}
           disabled={disabled}
           validationHint={validationHint}
