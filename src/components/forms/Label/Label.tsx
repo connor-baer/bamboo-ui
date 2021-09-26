@@ -13,6 +13,7 @@ import styles from './Label.module.css';
 
 export interface LabelBaseProps {
   label: string;
+  hideLabel?: boolean;
   validationHint?: string;
   disabled?: boolean;
   invalid?: boolean;
@@ -45,6 +46,7 @@ export const Label = forwardRef(
   (
     {
       label,
+      hideLabel,
       validationHint,
       children,
       invalid,
@@ -67,7 +69,9 @@ export const Label = forwardRef(
           className,
         )}
       >
-        <span className={styles.text}>{label}</span>
+        <span className={cx(styles.text, hideLabel && styles.textHidden)}>
+          {label}
+        </span>
         {children}
         {Suffix && <Suffix className={styles.suffix} role="presentation" />}
         {validationHint && (

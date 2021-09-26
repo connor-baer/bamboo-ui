@@ -53,6 +53,10 @@
   font-size: var(--font-size-s);
 }
 
+.textHidden {
+  composes: hideVisually from '../../../styles/shared.module.css';
+}
+
 .validationHint {
   display: block;
   padding: 0 var(--spacing-m) var(--spacing-xxs);

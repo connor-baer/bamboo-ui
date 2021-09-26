@@ -4,7 +4,8 @@
   height: 28.5px;
   position: relative;
   width: 100%;
-  padding: var(--spacing-xxs) var(--spacing-m);
+  padding: var(--spacing-xxs) var(--spacing-xxl) var(--spacing-xxs)
+    var(--spacing-m);
   margin: 0;
   border: none;
   outline: 0;
@@ -30,7 +31,7 @@
 .chevron {
   position: absolute;
   right: 0;
-  top: 0;
-  margin-top: 2.25rem;
+  bottom: 0;
+  margin-bottom: 0.75rem;
   margin-right: 1.33rem;
 }

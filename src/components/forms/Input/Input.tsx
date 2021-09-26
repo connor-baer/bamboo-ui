@@ -24,6 +24,7 @@ export const Input = forwardRef(
       invalid,
       className,
       inputClassName,
+      hideLabel,
       validationHint,
       suffix,
       ...props
@@ -37,9 +38,10 @@ export const Input = forwardRef(
         htmlFor={id}
         invalid={invalid}
         disabled={disabled}
-        className={className}
+        hideLabel={hideLabel}
         validationHint={validationHint}
         suffix={suffix}
+        className={className}
       >
         <input
           ref={ref}

@@ -23,6 +23,7 @@ export const Textarea = forwardRef(
       invalid,
       className,
       inputClassName,
+      hideLabel,
       validationHint,
       suffix,
       ...props
@@ -36,9 +37,10 @@ export const Textarea = forwardRef(
         htmlFor={id}
         invalid={invalid}
         disabled={disabled}
-        className={cx(styles.label, className)}
+        hideLabel={hideLabel}
         validationHint={validationHint}
         suffix={suffix}
+        className={cx(styles.label, className)}
       >
         <textarea
           ref={ref}

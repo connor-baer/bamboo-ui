@@ -32,6 +32,7 @@ export const Select = forwardRef(
       options,
       disabled,
       invalid,
+      hideLabel,
       validationHint,
       className,
       selectClassName,
@@ -46,6 +47,7 @@ export const Select = forwardRef(
         htmlFor={id}
         invalid={invalid}
         disabled={disabled}
+        hideLabel={hideLabel}
         validationHint={validationHint}
         className={className}
       >
