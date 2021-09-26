@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { useState } from 'react';
 
 import { Tag, TagProps } from './Tag';
 
@@ -13,7 +14,16 @@ Base.args = {
   children: 'You are it!',
 };
 
-export const Clickable = (args: TagProps) => <Tag {...args} />;
+export const Clickable = (args: TagProps) => {
+  const [active, setActive] = useState(args.active);
+
+  const onClick = () => {
+    setActive((prev) => !prev);
+  };
+
+  // @ts-expect-error FIXME: Need to improve the Tag's conditional props.
+  return <Tag {...args} active={active} onClick={onClick} />;
+};
 
 Clickable.args = {
   children: 'I am interactive',

@@ -4,7 +4,7 @@
   position: relative;
   padding: 0.125em 0.25em;
   margin: -0.125em -0.25em;
-  color: var(--color-primary);
+  color: var(--color-brand);
   font-weight: var(--font-weight-bold);
   text-decoration: underline;
   white-space: nowrap;
@@ -33,7 +33,7 @@
 }
 .base:hover {
   cursor: pointer;
-  color: var(--color-primary-hover);
+  color: var(--color-brand-hover);
   text-decoration-thickness: 0.1em;
 }
 .base:hover::before {

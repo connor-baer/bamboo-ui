@@ -5,6 +5,7 @@ import { ChevronDown } from 'react-feather';
 
 import { isEmpty, toLower, includes } from '../../../util/fp';
 import { Label } from '../Label';
+import { LabelBaseProps } from '../Label/Label';
 
 import { Suggestion } from './Suggestion';
 import styles from './AutoComplete.module.css';
@@ -17,16 +18,14 @@ type FilterOptionsArgs = {
 };
 
 export interface AutocompleteInputProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange'> {
-  label: string;
+  extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange' | 'label'>,
+    LabelBaseProps {
   placeholder: string;
-  validationHint?: string;
   options?: Option[];
   initialSelectedOption?: Option;
   onChange?: (value?: string) => void;
   optionToString?: (option: Option | null) => string;
   filterOptions?: ({ options, inputValue }: FilterOptionsArgs) => Option[];
-  invalid?: boolean;
 }
 
 function getFilteredOptions({ options, inputValue = '' }: FilterOptionsArgs) {
@@ -39,6 +38,7 @@ export const AutocompleteInput = forwardRef(
   (
     {
       label,
+      hideLabel,
       onChange,
       options = [],
       initialSelectedOption,
@@ -81,6 +81,7 @@ export const AutocompleteInput = forwardRef(
       <div className={cx(styles.wrapper, className)}>
         <Label
           label={label}
+          hideLabel={hideLabel}
           invalid={invalid}
           disabled={disabled}
           validationHint={validationHint}

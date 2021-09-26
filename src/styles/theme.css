@@ -63,7 +63,7 @@
   --z-index-navigation: 99;
   --z-index-loadingbar: 999;
 
-  /* Colors */
+  /* Colors (brand) */
   --base-hue: 195;
   --base-saturation: 80%;
   --base-alpha: 1;
@@ -129,35 +129,41 @@
     var(--base-alpha)
   );
 
-  --color-button-primary: var(--oc-white);
-  --background-button-primary: var(--oc-primary-7);
-  --background-button-primary-hover: var(--oc-primary-9);
+  /* Colors (base) */
+  /* type, label, [state] */
 
-  --color-button-secondary: var(--oc-gray-9);
-  --background-button-secondary: var(--oc-gray-1);
-  --background-button-secondary-hover: var(--oc-gray-3);
+  --color-default: #101418;
+  --background-default: var(--oc-white);
+  --background-default-hover: var(--oc-gray-1);
 
-  --color-button-danger: var(--oc-red-9);
-  --background-button-danger: var(--oc-red-1);
-  --background-button-danger-hover: var(--oc-red-2);
+  --color-neutral: var(--oc-white);
+
+  --color-brand: var(--oc-primary-7);
+  --color-brand-hover: var(--oc-primary-9);
+
+  --color-subtle: var(--oc-gray-7);
+  --color-subtle-hover: var(--oc-gray-9);
+  --background-subtle: var(--oc-gray-2);
+
+  --color-danger: var(--oc-red-7);
+  --color-danger-hover: var(--oc-red-9);
+
+  --color-focus-outline: var(--oc-primary-3);
+
+  --color-shadow: rgba(12, 15, 20, 0.18);
+
+  --color-border: var(--oc-gray-5);
+  --color-border-hover: var(--oc-gray-7);
+
+  --color-selection: var(--oc-black);
+  --background-selection: var(--oc-yellow-3);
+
+  /* Colors (components) */
+  /* type, component, label, [state] */
 
   --color-input: var(--oc-gray-6);
   --color-input-hover: var(--oc-gray-7);
   --color-input-focus: var(--oc-primary-7);
-
-  --color-focus-outline: var(--oc-primary-3);
-  --color-shadow: rgba(12, 15, 20, 0.18);
-  --color-border: var(--oc-gray-5);
-  --color-selection: var(--oc-black);
-  --background-selection: var(--oc-yellow-3);
-  --color-default: #15191d;
-  --background-default: var(--oc-white);
-  --color-subtle: var(--oc-gray-7);
-  --background-subtle: var(--oc-gray-2);
-  --color-primary: var(--oc-primary-7);
-  --color-primary-hover: var(--oc-primary-9);
-  --color-danger: var(--oc-red-9);
-  --background-image-placeholder: var(--oc-gray-3);
 
   /* Shadows */
   --shadow-s: 0 0 2px 1px var(--color-shadow);
@@ -178,33 +184,35 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Colors */
-    --color-button-primary: var(--oc-black);
-    --background-button-primary: var(--oc-primary-7);
-    --background-button-primary-hover: var(--oc-primary-5);
+    /* Colors (base) */
+    /* type, label, [state] */
+    --color-default: var(--oc-white);
+    --background-default: #101418;
+    --background-default-hover: var(--oc-gray-8);
 
-    --color-button-secondary: var(--oc-gray-1);
-    --background-button-secondary-hover: var(--oc-gray-7);
-    --background-button-secondary: var(--oc-gray-8);
+    --color-neutral: var(--oc-black);
 
-    --color-button-danger: var(--oc-red-2);
-    --background-button-danger: #521e23;
-    --background-button-danger-hover: #642b30;
+    --color-brand: var(--oc-primary-7);
+    --color-brand-hover: var(--oc-primary-5);
+
+    --color-subtle: var(--oc-gray-3);
+    --color-subtle-hover: var(--oc-gray-1);
+    --background-subtle: var(--oc-gray-9);
+
+    --color-focus-outline: var(--oc-primary-9);
+
+    --color-shadow: rgba(243, 240, 235, 0.18);
+
+    --color-border: var(--oc-gray-6);
+    --color-border-hover: var(--oc-gray-3);
+
+    --color-selection: var(--oc-black);
+    --background-selection: var(--oc-yellow-3);
+
+    /* Colors (components) */
+    /* type, component, label, [state] */
 
     --color-input: var(--oc-gray-5);
     --color-input-hover: var(--oc-gray-3);
-
-    --color-focus-outline: var(--oc-primary-9);
-    --color-shadow: rgba(243, 240, 235, 0.18);
-    --color-border: var(--oc-gray-6);
-    --color-selection: var(--oc-black);
-    --background-selection: var(--oc-yellow-3);
-    --color-default: var(--oc-white);
-    --background-default: #15191d;
-    --color-subtle: var(--oc-gray-3);
-    --background-subtle: var(--oc-gray-9);
-    --color-primary: var(--oc-primary-7);
-    --color-primary-hover: var(--oc-primary-5);
-    --background-image-placeholder: var(--oc-gray-7);
   }
 }

@@ -12,7 +12,7 @@ export type { ImageProps };
 export const Image = forwardRef(
   (
     {
-      color = 'var(--background-image-placeholder)',
+      color = 'var(--background-subtle)',
       srcSet,
       sizes,
       className,

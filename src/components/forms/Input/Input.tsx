@@ -18,7 +18,8 @@ export const Input = forwardRef(
   (
     {
       label,
-      id: customId,
+      hideLabel,
+      id = uniqueId(),
       type = 'text',
       disabled,
       invalid,
@@ -29,30 +30,28 @@ export const Input = forwardRef(
       ...props
     }: InputProps,
     ref: Ref<HTMLInputElement>,
-  ) => {
-    const id = customId || uniqueId();
-    return (
-      <Label
-        label={label}
-        htmlFor={id}
-        invalid={invalid}
+  ) => (
+    <Label
+      label={label}
+      hideLabel={hideLabel}
+      htmlFor={id}
+      invalid={invalid}
+      disabled={disabled}
+      className={className}
+      validationHint={validationHint}
+      suffix={suffix}
+    >
+      <input
+        ref={ref}
+        id={id}
+        type={type}
+        aria-invalid={invalid}
         disabled={disabled}
-        className={className}
-        validationHint={validationHint}
-        suffix={suffix}
-      >
-        <input
-          ref={ref}
-          id={id}
-          type={type}
-          aria-invalid={invalid}
-          disabled={disabled}
-          className={cx(styles.input, inputClassName)}
-          {...props}
-        />
-      </Label>
-    );
-  },
+        className={cx(styles.input, inputClassName)}
+        {...props}
+      />
+    </Label>
+  ),
 );
 
 Input.displayName = 'Input';

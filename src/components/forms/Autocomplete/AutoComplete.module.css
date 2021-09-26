@@ -49,8 +49,9 @@
   font-size: var(--font-size-s);
   padding: var(--spacing-xxs);
   margin: 0;
+  margin-right: calc(-1 * var(--spacing-xs));
   transition: background-color var(--transition-micro);
-  color: var(--color-default);
+  color: var(--color-subtle);
   background-color: inherit;
   border-radius: var(--border-radius-s);
   border: none;
@@ -61,7 +62,8 @@
 
 .expandButton:hover,
 .expandButton:active {
-  background: var(--background-button-secondary);
+  color: var(--color-subtle-hover);
+  background: var(--background-default-hover);
 }
 
 .suggestionList {
@@ -81,7 +83,7 @@
 }
 
 .suggestionListInvalid {
-  box-shadow: 0 0 0 2px var(--color-button-danger), 0 0 6px var(--color-shadow);
+  box-shadow: 0 0 0 2px var(--color-danger), 0 0 6px var(--color-shadow);
 }
 
 .suggestion {
@@ -91,8 +93,7 @@
 }
 
 .suggestionHighlighted {
-  background: var(--background-button-secondary);
-  color: var(--color-button-secondary);
+  background: var(--background-subtle);
 }
 
 .highlight {

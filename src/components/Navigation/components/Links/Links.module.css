@@ -61,7 +61,7 @@
   letter-spacing: 1px;
   padding: var(--spacing-xs) var(--spacing-s);
   margin-right: var(--spacing-xs);
-  color: var(--color-button-secondary);
+  color: var(--color-default);
   background: var(--background-default);
   text-align: center;
   border-radius: var(--border-radius-l);
@@ -77,7 +77,7 @@
     padding: var(--spacing-s) var(--spacing-m);
   }
   .anchor:hover {
-    background: var(--background-button-secondary-hover);
+    background: var(--background-subtle);
   }
 }
 @media (min-width: 56.25em) {
@@ -92,13 +92,12 @@
 }
 
 .anchorActive {
-  color: var(--color-primary);
+  color: var(--color-default);
   font-weight: var(--font-weight-bold);
 }
 @media (min-width: 56.25em) {
   .anchorActive {
-    color: var(--color-button-secondary);
-    background: var(--background-button-secondary);
+    background: var(--background-subtle);
   }
 }
 

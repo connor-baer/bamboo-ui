@@ -3,22 +3,26 @@
 
 .button {
   composes: focusVisible from '../../../styles/shared.module.css';
+
+  --color-button: var(--color-brand);
+  --background-button: var(--color-neutral);
+
   box-sizing: content-box;
   cursor: pointer;
   display: inline-block;
   padding: var(--spacing-m) var(--spacing-xs);
   margin: 0;
   width: layer-width;
-  background: var(--background-button-secondary);
   border: 0;
   position: relative;
-  color: var(--color-button-secondary);
+  color: var(--color-button);
+  background: var(--background-button);
   border-radius: var(--border-radius-s);
-  transition: background var(--transition-micro);
+  transition: color var(--transition-micro), background var(--transition-micro);
 }
 
 .button:hover {
-  background: var(--background-button-secondary-hover);
+  background: var(--background-default-hover);
 }
 
 .layers {
