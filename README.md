@@ -2,7 +2,7 @@
 
 # [🎋 Bamboo UI](https://bamboo.madebyconnor.co)
 
-[Bamboo UI](https://bamboo.madebyconnor.co) is a component library built with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/), and [CSS modules](https://github.com/css-modules/css-modules).
+[Bamboo UI](https://bamboo.madebyconnor.co) is a component library built with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/), [CSS modules](https://github.com/css-modules/css-modules), and [Feather icons](https://feathericons.com/).
 
 </div>
 
