@@ -4,12 +4,7 @@ import { useComponents } from '../../hooks/useComponents';
 
 type ButtonProps = Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'size'>;
 
-interface AnchorProps
-  extends Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'size'> {
-  replace?: boolean;
-  shallow?: boolean;
-  scroll?: boolean;
-}
+type AnchorProps = Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'size'>;
 
 export type AnchorOrButtonProps = AnchorProps | ButtonProps;
 
@@ -27,18 +22,9 @@ export const AnchorOrButton = forwardRef(
     }
 
     if (isAnchor(props)) {
-      const { href, replace, shallow, scroll, ...rest } = props;
       return (
-        <Link
-          href={href}
-          replace={replace}
-          shallow={shallow}
-          scroll={scroll}
-          passHref={true}
-        >
-          <a {...rest} ref={ref}>
-            {children}
-          </a>
+        <Link {...props} ref={ref}>
+          {children}
         </Link>
       );
     }
