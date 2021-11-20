@@ -1,4 +1,4 @@
-import { useContext, createContext, ReactNode, ReactElement } from 'react';
+import { useContext, createContext, ReactNode } from 'react';
 
 import { Link, LinkProps } from '../components/typography/Link';
 import { Image, ImageProps } from '../components/images/Image';
@@ -7,9 +7,9 @@ import { Align, AlignProps } from '../components/layout/Align';
 const defaultComponents = { Align, Image, Link };
 
 type ComponentsContextType = {
-  Align: (props: AlignProps) => ReactElement | null;
-  Image: (props: ImageProps) => ReactElement | null;
-  Link: <T>(props: LinkProps<T>) => ReactElement;
+  Align: (props: AlignProps) => JSX.Element | null;
+  Image: (props: ImageProps) => JSX.Element | null;
+  Link: <T>(props: LinkProps<T>) => JSX.Element | null;
 };
 
 export const ComponentsContext = createContext<ComponentsContextType>(

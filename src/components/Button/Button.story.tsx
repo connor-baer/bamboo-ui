@@ -1,8 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Search } from 'react-feather';
 
-import { Link } from '../typography/Link';
-
 import { Button, ButtonProps } from './Button';
 
 export default {
@@ -38,11 +36,7 @@ export const Sizes = (args: ButtonProps) =>
     </Button>
   ));
 
-export const AsLink = (args: ButtonProps) => (
-  <Link>
-    <Button {...args} />
-  </Link>
-);
+export const AsLink = (args: ButtonProps) => <Button {...args} />;
 
 AsLink.args = {
   children: 'Do not press',

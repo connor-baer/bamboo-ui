@@ -38,7 +38,7 @@ export const AnchorOrButton = forwardRef(
     }
 
     return (
-      <Link {...props} ref={ref}>
+      <Link {...(props as AnchorProps)} ref={ref}>
         {children}
       </Link>
     );
