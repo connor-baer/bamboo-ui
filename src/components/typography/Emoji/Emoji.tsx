@@ -1,8 +1,8 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 
 import { toLower } from '../../../util/fp';
 
-export interface EmojiProps extends Omit<HTMLProps<HTMLSpanElement>, 'ref'> {
+export interface EmojiProps extends HTMLAttributes<HTMLSpanElement> {
   label: string;
   children?: string;
   emoji?: string;

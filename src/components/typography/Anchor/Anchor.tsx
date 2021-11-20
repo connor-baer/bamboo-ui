@@ -10,6 +10,7 @@ export type AnchorProps = AnchorOrButtonProps;
 
 export const Anchor = forwardRef(
   ({ children, ...props }: AnchorProps, ref: Ref<any>): JSX.Element => {
+    // @ts-expect-error Only the AnchorProps contain the `href` prop
     if (isEmpty(props.href) && !props.onClick) {
       return <span {...props}>{children}</span>;
     }

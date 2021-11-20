@@ -1,10 +1,9 @@
 /* eslint-disable max-len */
-import { HTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 
-export type PandaIconProps = Omit<
-  HTMLProps<HTMLImageElement>,
-  'ref' | 'crossOrigin'
->;
+export interface PandaIconProps extends HTMLAttributes<HTMLImageElement> {
+  alt: string;
+}
 
 export function PandaIcon({
   alt = 'Emoji of a panda',

@@ -1,4 +1,4 @@
-import { forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
 import cx from 'classnames';
 
 import { Anchor } from '../typography/Anchor';
@@ -10,7 +10,7 @@ type LinkProps = {
   href: string;
 };
 
-export interface FooterProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {
+export interface FooterProps extends HTMLAttributes<HTMLElement> {
   siteName: string;
   links?: LinkProps[];
 }

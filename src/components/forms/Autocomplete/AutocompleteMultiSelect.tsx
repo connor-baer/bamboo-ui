@@ -1,4 +1,4 @@
-import { forwardRef, HTMLProps, Ref, useState } from 'react';
+import { forwardRef, HTMLAttributes, Ref, useState } from 'react';
 import cx from 'classnames';
 import { useCombobox, useMultipleSelection } from 'downshift';
 import { ChevronDown } from 'react-feather';
@@ -19,7 +19,7 @@ type FilterOptionsArgs = {
 };
 
 export interface AutocompleteMultiSelectProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'onChange'> {
+  extends Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   label: string;
   placeholder: string;
   validationHint?: string;
@@ -31,6 +31,7 @@ export interface AutocompleteMultiSelectProps
   optionToString?: (option: Option | null) => string;
   filterOptions?: ({ options, inputValue }: FilterOptionsArgs) => Option[];
   invalid?: boolean;
+  disabled?: boolean;
 }
 
 function getFilteredOptions({
@@ -48,7 +49,6 @@ function getFilteredOptions({
 export const AutocompleteMultiSelect = forwardRef(
   (
     {
-      value,
       label,
       options = [],
       initialSelectedOptions = [],

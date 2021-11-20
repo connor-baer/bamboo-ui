@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import cx from 'classnames';
 import { Icon as IconType } from 'react-feather';
 
@@ -8,7 +8,7 @@ import { useComponents } from '../../../../hooks/useComponents';
 
 import styles from './Links.module.css';
 
-export interface LinksProps extends HTMLProps<HTMLElement> {
+export interface LinksProps extends HTMLAttributes<HTMLElement> {
   links: {
     children: ReactNode;
     href: string;

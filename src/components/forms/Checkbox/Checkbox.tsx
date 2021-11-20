@@ -1,4 +1,4 @@
-import { FormEvent, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import { FormEvent, forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
 import cx from 'classnames';
 import { Check } from 'react-feather';
 
@@ -6,8 +6,7 @@ import { uniqueId } from '../../../util/unique-id';
 
 import styles from './Checkbox.module.css';
 
-export interface CheckboxProps
-  extends Omit<HTMLProps<HTMLInputElement>, 'ref'> {
+export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   onChange: (event: FormEvent<HTMLInputElement>) => void;
   children: ReactNode;
   value: string;

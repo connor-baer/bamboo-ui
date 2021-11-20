@@ -11,7 +11,7 @@ export const Base = (args: SelectProps) => <Select {...args} />;
 
 Base.args = {
   label: 'What is your name?',
-  placeholder: 'Panda',
+  placeholder: 'Choose a name',
   onChange: action('Select changed'),
   options: [
     { label: 'Jane', value: 'jane' },

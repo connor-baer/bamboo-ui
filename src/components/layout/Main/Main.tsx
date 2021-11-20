@@ -1,9 +1,9 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import styles from './Main.module.css';
 
-export interface MainProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {
+export interface MainProps extends HTMLAttributes<HTMLElement> {
   variant?: 'sidebar' | 'split';
 }
 

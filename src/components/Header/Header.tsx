@@ -1,12 +1,11 @@
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { Headline } from '../typography/Headline';
 
 import styles from './Header.module.css';
 
-export interface HeaderProps
-  extends Omit<HTMLProps<HTMLElement>, 'ref' | 'size'> {
+export interface HeaderProps extends HTMLAttributes<HTMLElement> {
   title: string;
   subtitle?: string;
   children?: ReactNode;

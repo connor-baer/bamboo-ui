@@ -1,11 +1,11 @@
-import { HTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 import cx from 'classnames';
 
 import { toLower } from '../../../util/fp';
 
 import styles from './AutoComplete.module.css';
 
-export interface SuggestionProps extends HTMLProps<HTMLLIElement> {
+export interface SuggestionProps extends HTMLAttributes<HTMLLIElement> {
   children: string;
   inputValue: string;
   isHighlighted: boolean;

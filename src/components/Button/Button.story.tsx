@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Search } from 'react-feather';
 
 import { Link } from '../typography/Link';
@@ -18,7 +19,12 @@ const variants = ['primary', 'secondary', 'destructive'] as const;
 
 export const Variants = (args: ButtonProps) =>
   variants.map((variant) => (
-    <Button {...args} key={variant} variant={variant}>
+    <Button
+      {...args}
+      key={variant}
+      variant={variant}
+      onClick={action('clicked')}
+    >
       {variant}
     </Button>
   ));

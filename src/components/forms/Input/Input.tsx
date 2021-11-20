@@ -1,4 +1,4 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import { uniqueId } from '../../../util/unique-id';
@@ -8,9 +8,18 @@ import { LabelBaseProps } from '../Label/Label';
 import styles from './Input.module.css';
 
 export interface InputProps
-  extends LabelBaseProps,
-    Omit<HTMLProps<HTMLInputElement>, 'ref' | 'label'> {
+  extends HTMLAttributes<HTMLInputElement>,
+    LabelBaseProps {
   placeholder: string;
+  type?:
+    | 'text'
+    | 'email'
+    | 'tel'
+    | 'url'
+    | 'password'
+    | 'search'
+    | 'color'
+    | 'date';
   inputClassName?: string;
 }
 

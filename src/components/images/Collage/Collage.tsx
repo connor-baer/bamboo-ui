@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 import cx from 'classnames';
 
 import { isEmpty } from '../../../util/fp';
@@ -6,7 +6,7 @@ import { RatioImage, RatioImageProps } from '../RatioImage';
 
 import styles from './Collage.module.css';
 
-export interface CollageProps extends HTMLProps<HTMLDivElement> {
+export interface CollageProps extends HTMLAttributes<HTMLDivElement> {
   images?: [RatioImageProps, RatioImageProps, RatioImageProps];
 }
 

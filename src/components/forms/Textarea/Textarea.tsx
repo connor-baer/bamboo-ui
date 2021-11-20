@@ -1,4 +1,4 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import { Label } from '../Label';
@@ -8,8 +8,8 @@ import { uniqueId } from '../../../util/unique-id';
 import styles from './Textarea.module.css';
 
 export interface TextareaProps
-  extends LabelBaseProps,
-    Omit<HTMLProps<HTMLTextAreaElement>, 'ref' | 'label'> {
+  extends HTMLAttributes<HTMLTextAreaElement>,
+    LabelBaseProps {
   placeholder: string;
   inputClassName?: string;
 }

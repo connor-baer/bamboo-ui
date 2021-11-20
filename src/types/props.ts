@@ -1,10 +1,6 @@
-import { HTMLProps, ReactNode, Ref } from 'react';
+import { HTMLAttributes, ReactNode, Ref } from 'react';
 
-export interface ImageProps
-  extends Omit<
-    HTMLProps<HTMLImageElement>,
-    'ref' | 'srcSet' | 'sizes' | 'crossOrigin'
-  > {
+export interface ImageProps extends HTMLAttributes<HTMLImageElement> {
   src: string;
   srcSet?: string | string[];
   sizes?: string | string[];

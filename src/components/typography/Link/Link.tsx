@@ -1,10 +1,10 @@
 import { UrlObject } from 'url';
 
-import { Children, cloneElement, ReactElement } from 'react';
+import { Children, cloneElement, ReactElement, HTMLAttributes } from 'react';
 
-export type LinkProps<T> = T & {
+export type LinkProps<T = HTMLAttributes<HTMLAnchorElement>> = T & {
   href: string | UrlObject;
-  children: ReactElement<T>;
+  children: ReactElement<T> | string;
 };
 
 export function Link<T>({ children, ...props }: LinkProps<T>): ReactElement<T> {

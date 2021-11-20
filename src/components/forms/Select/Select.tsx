@@ -1,4 +1,4 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 import { ChevronDown } from 'react-feather';
 
@@ -15,8 +15,9 @@ type Option = {
 };
 
 export interface SelectProps
-  extends LabelBaseProps,
-    Omit<HTMLProps<HTMLSelectElement>, 'ref' | 'label'> {
+  extends HTMLAttributes<HTMLSelectElement>,
+    LabelBaseProps {
+  value?: string | null;
   placeholder: string;
   options: Option[];
   selectClassName?: string;

@@ -12,6 +12,7 @@ export type ButtonProps = AnchorOrButtonProps & {
   size?: 's' | 'm';
   icon?: IconType;
   iconOnly?: boolean;
+  disabled?: boolean;
 };
 
 export const Button = forwardRef(

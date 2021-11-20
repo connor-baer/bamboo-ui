@@ -1,9 +1,9 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import styles from './Columns.module.css';
 
-export interface ColumnsProps extends Omit<HTMLProps<HTMLDivElement>, 'ref'> {
+export interface ColumnsProps extends HTMLAttributes<HTMLDivElement> {
   columns: 2 | 3 | 4;
 }
 

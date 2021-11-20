@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { isEmpty } from '../../../util/fp';
@@ -9,7 +9,7 @@ import { Caption } from '../Caption';
 
 import styles from './Gallery.module.css';
 
-export interface GalleryProps extends Omit<HTMLProps<HTMLDivElement>, 'ref'> {
+export interface GalleryProps extends HTMLAttributes<HTMLDivElement> {
   images: ImageProps[];
   caption: ReactNode;
   align: AlignProp;

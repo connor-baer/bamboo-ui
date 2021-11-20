@@ -1,6 +1,6 @@
 import {
   forwardRef,
-  HTMLProps,
+  HTMLAttributes,
   KeyboardEvent,
   MouseEvent,
   ReactNode,
@@ -13,7 +13,7 @@ import { Element } from '../Element';
 
 import styles from './Tag.module.css';
 
-interface TagDivProps extends Omit<HTMLProps<HTMLDivElement>, 'ref'> {
+interface TagDivProps extends HTMLAttributes<HTMLDivElement> {
   onRemove?: (event: MouseEvent | KeyboardEvent) => void;
   children: ReactNode;
   active?: boolean;
@@ -21,7 +21,7 @@ interface TagDivProps extends Omit<HTMLProps<HTMLDivElement>, 'ref'> {
   onClick?: never;
 }
 
-interface TagButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
+interface TagButtonProps extends HTMLAttributes<HTMLButtonElement> {
   onClick: (event: MouseEvent | KeyboardEvent) => void;
   children: ReactNode;
   active?: boolean;

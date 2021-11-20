@@ -1,10 +1,9 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import styles from './Hamburger.module.css';
 
-export interface HamburgerProps
-  extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'type'> {
+export interface HamburgerProps extends HTMLAttributes<HTMLButtonElement> {
   /**
    * A consice description of the example prop.
    */

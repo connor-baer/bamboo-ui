@@ -1,4 +1,4 @@
-import { forwardRef, Ref, HTMLProps } from 'react';
+import { forwardRef, Ref, HTMLAttributes } from 'react';
 import cx from 'classnames';
 import { Icon as IconType } from 'react-feather';
 
@@ -6,12 +6,12 @@ import shared from '../../styles/shared.module.css';
 
 import styles from './ButtonToggle.module.css';
 
-export interface ButtonToggleProps
-  extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'size' | 'type'> {
+export interface ButtonToggleProps extends HTMLAttributes<HTMLButtonElement> {
   active: boolean;
   size?: 's' | 'm';
   icon?: IconType;
   iconOnly?: boolean;
+  disabled?: boolean;
 }
 
 export const ButtonToggle = forwardRef(
@@ -24,7 +24,7 @@ export const ButtonToggle = forwardRef(
       children,
       ...props
     }: ButtonToggleProps,
-    ref: Ref<any>,
+    ref: Ref<HTMLButtonElement>,
   ): JSX.Element => {
     const className = cx(
       styles.base,

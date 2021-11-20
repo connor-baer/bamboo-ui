@@ -1,10 +1,9 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import cx from 'classnames';
 
 import styles from './Headline.module.css';
 
-export interface HeadlineProps
-  extends Omit<HTMLProps<HTMLHeadingElement>, 'size' | 'ref'> {
+export interface HeadlineProps extends HTMLAttributes<HTMLHeadingElement> {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: 'l' | 'xl' | 'xxl';
 }

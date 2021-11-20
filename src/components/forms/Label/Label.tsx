@@ -1,7 +1,7 @@
 import {
   ComponentType,
   forwardRef,
-  HTMLProps,
+  HTMLAttributes,
   ReactNode,
   Ref,
   SVGProps,
@@ -21,8 +21,8 @@ export interface LabelBaseProps {
 }
 
 export interface LabelProps
-  extends LabelBaseProps,
-    Omit<HTMLProps<HTMLLabelElement>, 'ref' | 'label'> {
+  extends HTMLAttributes<HTMLLabelElement>,
+    LabelBaseProps {
   children: ReactNode;
   htmlFor: string;
 }

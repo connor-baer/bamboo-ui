@@ -2,7 +2,7 @@ import {
   Children,
   cloneElement,
   forwardRef,
-  HTMLProps,
+  HTMLAttributes,
   ReactElement,
   Ref,
 } from 'react';
@@ -10,7 +10,7 @@ import cx from 'classnames';
 
 import styles from './Slider.module.css';
 
-export interface SliderProps extends Omit<HTMLProps<HTMLDivElement>, 'ref'> {
+export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactElement[];
 }
 

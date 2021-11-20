@@ -1,40 +1,46 @@
-import { forwardRef, HTMLProps, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 
 import { useComponents } from '../../hooks/useComponents';
 
-type ButtonProps = Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'size'>;
+type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
+  disabled?: boolean;
+};
 
-type AnchorProps = Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'size'>;
+type AnchorProps = HTMLAttributes<HTMLAnchorElement> & {
+  href: string;
+};
 
 export type AnchorOrButtonProps = AnchorProps | ButtonProps;
 
-function isAnchor(props: AnchorProps | ButtonProps): props is AnchorProps {
-  return Boolean(props.href);
+function isButton(props: AnchorProps | ButtonProps): props is ButtonProps {
+  // @ts-expect-error Only the AnchorProps contain the `href` prop
+  return !props.href;
 }
 
 export const AnchorOrButton = forwardRef(
   ({ children, ...props }: AnchorOrButtonProps, ref: Ref<any>): JSX.Element => {
     const { Link } = useComponents();
 
-    if (props.disabled) {
-      // eslint-disable-next-line no-param-reassign
-      props['aria-disabled'] = props.disabled;
-    }
+    if (isButton(props)) {
+      if (props.disabled) {
+        /* eslint-disable no-param-reassign */
+        props['aria-disabled'] = props.disabled;
+        delete props.disabled;
+        delete props.onClick;
+        /* eslint-enable no-param-reassign */
+      }
 
-    if (isAnchor(props)) {
       return (
-        <Link {...props} ref={ref}>
+        <button {...props} ref={ref}>
           {children}
-        </Link>
+        </button>
       );
     }
 
     return (
-      // @ts-expect-error The type-guard above ensures that only ButtonProps
-      // are passed to the button.
-      <button {...props} ref={ref}>
+      <Link {...props} ref={ref}>
         {children}
-      </button>
+      </Link>
     );
   },
 );
