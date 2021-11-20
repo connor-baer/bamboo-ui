@@ -1,11 +1,11 @@
-@value navigation-height: 4rem;
+@value height-navigation: 4rem;
 
 .footer {
   border-top: 1px solid var(--color-border);
   background: var(--background-subtle);
   transition: background var(--transition-micro);
   padding: var(--spacing-m) var(--spacing-s)
-    calc(var(--spacing-m) + navigation-height);
+    calc(var(--spacing-m) + height-navigation);
 }
 @media (min-width: 56.25em) {
   .footer {
