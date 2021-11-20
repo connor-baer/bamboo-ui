@@ -42,6 +42,17 @@
     url('https://assets.connor.li/fonts/merriweather-v21-latin-regular.woff')
       format('woff');
 }
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Merriweather'),
+    url('https://assets.connor.li/fonts/merriweather-v21-latin-800.woff2')
+      format('woff2'),
+    url('https://assets.connor.li/fonts/merriweather-v21-latin-800.woff')
+      format('woff');
+}
 
 /**
  * http://meyerweb.com/eric/tools/css/reset/
