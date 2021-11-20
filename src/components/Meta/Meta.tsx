@@ -1,4 +1,5 @@
-import { useComponents } from '../../hooks/useComponents';
+import { Fragment } from 'react';
+
 import { ImageProps } from '../../types/props';
 
 export interface MetaProps {
@@ -33,8 +34,6 @@ export function Meta({
   siteName,
   siteTwitter,
 }: MetaProps): JSX.Element {
-  const { Head } = useComponents();
-
   const titleString = constructTitle(title, siteName);
   const robots = [
     index ? 'index' : 'noindex',
@@ -42,7 +41,7 @@ export function Meta({
   ].join(', ');
 
   return (
-    <Head>
+    <Fragment>
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -65,6 +64,6 @@ export function Meta({
         name="twitter:card"
         content={image ? 'summary_large_image' : 'summary'}
       />
-    </Head>
+    </Fragment>
   );
 }

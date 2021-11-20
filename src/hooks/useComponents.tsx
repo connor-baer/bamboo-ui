@@ -1,15 +1,13 @@
 import { useContext, createContext, ReactNode, ReactElement } from 'react';
 
-import { Head, HeadProps } from '../components/Head';
 import { Link, LinkProps } from '../components/typography/Link';
 import { Image, ImageProps } from '../components/images/Image';
 import { Align, AlignProps } from '../components/layout/Align';
 
-const defaultComponents = { Align, Head, Image, Link };
+const defaultComponents = { Align, Image, Link };
 
 type ComponentsContextType = {
   Align: (props: AlignProps) => ReactElement | null;
-  Head: (props: HeadProps) => any;
   Image: (props: ImageProps) => ReactElement | null;
   Link: <T>(props: LinkProps<T>) => ReactElement;
 };
