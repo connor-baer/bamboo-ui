@@ -2084,24 +2084,25 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-actions@^6.3.6":
-  version "6.3.12"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.3.12.tgz#69eb5f8f780f1b00456051da6290d4b959ba24a0"
-  integrity sha512-mzuN4Ano4eyicwycM2PueGzzUCAEzt9/6vyptWEIVJu0sjK0J9KtBRlqFi1xGQxmCfimDR/n/vWBBkc7fp2uJA==
+  version "6.4.9"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.4.9.tgz#1d4e8c00ad304efe6722043dac759f4716b515ee"
+  integrity sha512-L1N66p/vr+wPUBfrH3qffjNAcWSS/wvuL370T7cWxALA9LLA8yY9U2EpITc5btuCC5QOxApCeyHkFnrBhNa94g==
   dependencies:
-    "@storybook/addons" "6.3.12"
-    "@storybook/api" "6.3.12"
-    "@storybook/client-api" "6.3.12"
-    "@storybook/components" "6.3.12"
-    "@storybook/core-events" "6.3.12"
-    "@storybook/theming" "6.3.12"
+    "@storybook/addons" "6.4.9"
+    "@storybook/api" "6.4.9"
+    "@storybook/components" "6.4.9"
+    "@storybook/core-events" "6.4.9"
+    "@storybook/csf" "0.0.2--canary.87bc651.0"
+    "@storybook/theming" "6.4.9"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
     global "^4.4.0"
-    lodash "^4.17.20"
+    lodash "^4.17.21"
     polished "^4.0.5"
     prop-types "^15.7.2"
     react-inspector "^5.1.0"
     regenerator-runtime "^0.13.7"
+    telejson "^5.3.2"
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
     uuid-browser "^3.1.0"
@@ -2258,7 +2259,7 @@
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@^6.3.6":
+"@storybook/addons@6.4.9", "@storybook/addons@^6.3.6":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.9.tgz#43b5dabf6781d863fcec0a0b293c236b4d5d4433"
   integrity sha512-y+oiN2zd+pbRWwkf6aQj4tPDFn+rQkrv7fiVoMxsYub+kKyZ3CNOuTSJH+A1A+eBL6DmzocChUyO6jvZFuh6Dg==
@@ -2730,6 +2731,36 @@
     fast-deep-equal "^3.1.3"
     global "^4.4.0"
     lodash "^4.17.20"
+    markdown-to-jsx "^7.1.3"
+    memoizerific "^1.11.3"
+    overlayscrollbars "^1.13.1"
+    polished "^4.0.5"
+    prop-types "^15.7.2"
+    react-colorful "^5.1.2"
+    react-popper-tooltip "^3.1.1"
+    react-syntax-highlighter "^13.5.3"
+    react-textarea-autosize "^8.3.0"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/components@6.4.9":
+  version "6.4.9"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.4.9.tgz#caed59eb3f09d1646da748186f718a0e54fb8fd7"
+  integrity sha512-uOUR97S6kjptkMCh15pYNM1vAqFXtpyneuonmBco5vADJb3ds0n2a8NeVd+myIbhIXn55x0OHKiSwBH/u7swCQ==
+  dependencies:
+    "@popperjs/core" "^2.6.0"
+    "@storybook/client-logger" "6.4.9"
+    "@storybook/csf" "0.0.2--canary.87bc651.0"
+    "@storybook/theming" "6.4.9"
+    "@types/color-convert" "^2.0.0"
+    "@types/overlayscrollbars" "^1.12.0"
+    "@types/react-syntax-highlighter" "11.0.5"
+    color-convert "^2.0.1"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.21"
     markdown-to-jsx "^7.1.3"
     memoizerific "^1.11.3"
     overlayscrollbars "^1.13.1"
