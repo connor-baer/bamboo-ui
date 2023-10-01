@@ -62,7 +62,7 @@
     "@storybook/addon-storysource": "^6.3.6",
     "@storybook/addon-viewport": "^6.3.6",
     "@storybook/addons": "^6.3.6",
-    "@storybook/builder-webpack5": "^6.3.6",
+    "@storybook/builder-webpack5": "^7.4.5",
     "@storybook/manager-webpack5": "^6.3.6",
     "@storybook/react": "^6.3.6",
     "@sumup/foundry": "^4.0.0",
